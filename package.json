@@ -1,0 +1,24 @@
+{
+  "name": "tree-sitter-forester",
+  "version": "1.0.0",
+  "description": "",
+  "main": "bindings/node",
+  "tree-sitter": [
+    {
+      "scope": "grammar.js",
+      "file-types": [
+        "tree"
+      ],
+      "highlights": [
+        "queries/highlights.scm"
+      ]
+    }
+  ],
+  "scripts": {
+    "test": "tree-sitter test",
+    "highlight": "tree-sitter highlight"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC"
+}

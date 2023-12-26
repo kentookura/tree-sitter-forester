@@ -1,0 +1,19 @@
+==================
+Paragraph
+==================
+
+\date{2023-12-25}
+\title{My Title}
+
+\transclude{nvm-0002}
+
+\p{
+  ##{a b}
+  #{a b}
+}
+
+---
+
+(source_file
+  (command (ident) (content (text))))
+
