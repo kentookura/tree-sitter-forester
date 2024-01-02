@@ -1,11 +1,36 @@
+
+\date{2023-12-25}
+
+---
+
+(source_file
+  (command (ident) (content (text))))
+
+==================
+Title
+==================
+
+\title{My Title}
+
+---
+
+(source_file
+  (command (ident) (content (text))))
+
+==================
+Transclusion
+==================
+
+\transclude{nvm-0002}
+
+---
+
+(source_file
+  (command (ident) (content (text))))
+
 ==================
 Paragraph
 ==================
-
-\date{2023-12-25}
-\title{My Title}
-
-\transclude{nvm-0002}
 
 \p{
   ##{a b}
@@ -15,5 +40,27 @@ Paragraph
 ---
 
 (source_file
-  (command (ident) (content (text))))
+  (command
+    (ident)
+    (content
+      (text)
+      (display_math
+        (text))
+      (text)
+      (inline_math
+        (text)))))
 
+==================
+Comment
+==================
+
+% lorem ipsum
+
+---
+
+(source_file
+  (comment))
+
+==================
+Date
+==================
