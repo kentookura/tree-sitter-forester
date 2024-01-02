@@ -2,13 +2,14 @@ module.exports = grammar({
   name: "forester",
 
   rules: {
-    source_file: ($) => repeat($.command),
+    source_file: ($) => repeat(choice($.command, $.comment)),
     command: ($) => seq(/\\/, field("ident", $.ident), /\{/, $.content, /\}/),
     content: ($) => repeat1(choice($.text, $.inline_math, $.display_math)),
     text: ($) => /[0-9a-zA-Z -]+/,
     ident: ($) => /[0-9a-zA-Z -]+/,
     inline_math: ($) => seq(/\#\{/, $.text, /\}/),
     display_math: ($) => seq(/\#\#\{/, $.text, /\}/),
+    comment: ($) => /%[^\r\n]*/,
     //inline_math: $ => seq(/#{/, /[^}+/, /}/),
     //display_math: $ => seq(/##{/, /[^}+/, /}/),
   },

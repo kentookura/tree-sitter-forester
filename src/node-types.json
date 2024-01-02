@@ -94,6 +94,10 @@
         {
           "type": "command",
           "named": true
+        },
+        {
+          "type": "comment",
+          "named": true
         }
       ]
     }
@@ -102,5 +106,9 @@
     "type": "text",
     "named": true,
     "fields": {}
+  },
+  {
+    "type": "comment",
+    "named": true
   }
 ]

@@ -4,8 +4,17 @@
     "source_file": {
       "type": "REPEAT",
       "content": {
-        "type": "SYMBOL",
-        "name": "command"
+        "type": "CHOICE",
+        "members": [
+          {
+            "type": "SYMBOL",
+            "name": "command"
+          },
+          {
+            "type": "SYMBOL",
+            "name": "comment"
+          }
+        ]
       }
     },
     "command": {
@@ -98,6 +107,10 @@
           "value": "\\}"
         }
       ]
+    },
+    "comment": {
+      "type": "PATTERN",
+      "value": "%[^\\r\\n]*"
     }
   },
   "extras": [
