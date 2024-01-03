@@ -1,79 +1,4 @@
 ================================================================================
-Prim
-================================================================================
-
-\p{hello}
-\p{
-    \ul{
-        \li{asdf}
-        \li{foobar}
-        \code{echo hello}
-      }
-  }
-
---------------------------------------------------------------------------------
-
-(source_file
-  (head_node
-    (prim
-      (p
-        (arg
-          (textual_expr
-            (textual_node
-              (text)))))))
-  (head_node
-    (prim
-      (p
-        (arg
-          (textual_expr
-            (textual_node
-              (whitespace))
-            (textual_node
-              (head_node
-                (prim
-                  (ul
-                    (arg
-                      (textual_expr
-                        (textual_node
-                          (whitespace))
-                        (textual_node
-                          (head_node
-                            (prim
-                              (li
-                                (arg
-                                  (textual_expr
-                                    (textual_node
-                                      (text))))))))
-                        (textual_node
-                          (whitespace))
-                        (textual_node
-                          (head_node
-                            (prim
-                              (li
-                                (arg
-                                  (textual_expr
-                                    (textual_node
-                                      (text))))))))
-                        (textual_node
-                          (whitespace))
-                        (textual_node
-                          (head_node
-                            (prim
-                              (code
-                                (arg
-                                  (textual_expr
-                                    (textual_node
-                                      (text))
-                                    (textual_node
-                                      (whitespace))
-                                    (textual_node
-                                      (text))))))))
-                        (textual_node
-                          (whitespace))))))))
-            (textual_node
-              (whitespace))))))))
-
-================================================================================
 Link
 ================================================================================
 
@@ -84,49 +9,31 @@ Link
 --------------------------------------------------------------------------------
 
 (source_file
-  (head_node
-    (prim
-      (p
-        (arg
-          (textual_expr
-            (textual_node
-              (head_node
-                (link
-                  (markdown_link
-                    (link_label
-                      (wstext
-                        (ws_or_text
-                          (text))))
-                    (link_dest
-                      (wstext
-                        (ws_or_text
-                          (text)))))))))))))
-  (head_node
-    (prim
-      (p
-        (arg
-          (textual_expr
-            (textual_node
-              (head_node
-                (link
-                  (unlabeled_link
-                    (external_link
-                      (text))))))))))))
+  (p
+    (markdown_link
+      (link_label
+        (ws_ortext
+          (text)))
+      (link_dest
+        (ws_ortext
+          (text)))))
+  (p
+    (unlabeled_link
+      (external_link
+        (text)))))
 
 ================================================================================
 Date
 ================================================================================
 
-\date{2023-12-25}
+\date{2023-02-08T12:03:12Z}
 
 --------------------------------------------------------------------------------
 
 (source_file
-  (head_node
-    (date
-      (year)
-      (month)
-      (day))))
+  (date
+    (ws_ortext
+      (text))))
 
 ================================================================================
 Title
@@ -137,16 +44,9 @@ Title
 --------------------------------------------------------------------------------
 
 (source_file
-  (head_node
-    (title
-      (arg
-        (textual_expr
-          (textual_node
-            (text))
-          (textual_node
-            (whitespace))
-          (textual_node
-            (text)))))))
+  (title
+    (text)
+    (text)))
 
 ================================================================================
 Transclusion
@@ -157,18 +57,10 @@ Transclusion
 --------------------------------------------------------------------------------
 
 (source_file
-  (head_node
-    (transclude
-      (addr
-        (prefix
-          (alpha)
-          (alpha)
-          (alpha))
-        (id
-          (digit)
-          (digit)
-          (digit)
-          (digit))))))
+  (transclude
+    (addr
+      (prefix)
+      (id))))
 
 ================================================================================
 Math
@@ -180,50 +72,16 @@ Math
 --------------------------------------------------------------------------------
 
 (source_file
-  (head_node
-    (prim
-      (p
-        (arg
-          (textual_expr
-            (textual_node
-              (whitespace))
-            (textual_node
-              (head_node
-                (display_math
-                  (textual_expr
-                    (textual_node
-                      (text))
-                    (textual_node
-                      (whitespace))
-                    (textual_node
-                      (text))
-                    (textual_node
-                      (whitespace))
-                    (textual_node
-                      (text))))))
-            (textual_node
-              (whitespace)))))))
-  (head_node
-    (prim
-      (p
-        (arg
-          (textual_expr
-            (textual_node
-              (whitespace))
-            (textual_node
-              (head_node
-                (inline_math
-                  (textual_expr
-                    (textual_node
-                      (text))
-                    (textual_node
-                      (whitespace))
-                    (textual_node
-                      (text))
-                    (textual_node
-                      (whitespace))
-                    (textual_node
-                      (text))))))))))))
+  (p
+    (display_math
+      (text)
+      (text)
+      (text)))
+  (p
+    (inline_math
+      (text)
+      (text)
+      (text))))
 
 ================================================================================
 Comment
@@ -234,8 +92,7 @@ Comment
 --------------------------------------------------------------------------------
 
 (source_file
-  (head_node
-    (comment)))
+  (comment))
 
 ================================================================================
 Function Definition
@@ -249,57 +106,21 @@ Function Definition
 --------------------------------------------------------------------------------
 
 (source_file
-  (head_node
-    (def
-      (fun_spec
-        (ident
-          (alpha)
-          (alpha)
-          (alpha))
+  (def
+    (fun_spec
+      (ident)
+      (binder
         (text)
         (text)
-        (text)
-        (arg
-          (textual_expr
-            (textual_node
-              (whitespace))
-            (textual_node
-              (head_node
-                (prim
-                  (p
-                    (arg
-                      (textual_expr
-                        (textual_node
-                          (head_node
-                            (ident
-                              (alpha))))
-                        (textual_node
-                          (whitespace))
-                        (textual_node
-                          (head_node
-                            (ident
-                              (alpha))))
-                        (textual_node
-                          (whitespace))
-                        (textual_node
-                          (head_node
-                            (ident
-                              (alpha))))))))))
-            (textual_node
-              (whitespace))
-            (textual_node
-              (head_node
-                (transclude
-                  (addr
-                    (prefix
-                      (alpha)
-                      (alpha)
-                      (alpha))
-                    (id
-                      (digit)
-                      (digit)
-                      (digit)
-                      (digit))))))))))))
+        (text))
+      (p
+        (ident)
+        (ident)
+        (ident))
+      (transclude
+        (addr
+          (prefix)
+          (id))))))
 
 ================================================================================
 Links Prim
@@ -317,122 +138,131 @@ Links Prim
 --------------------------------------------------------------------------------
 
 (source_file
-  (head_node
-    (prim
-      (p
-        (arg
-          (textual_expr
-            (textual_node
-              (whitespace))
-            (textual_node
-              (head_node
-                (link
-                  (markdown_link
-                    (link_label
-                      (wstext
-                        (ws_or_text
-                          (text))))
-                    (link_dest
-                      (wstext
-                        (ws_or_text
-                          (text))))))))
-            (textual_node
-              (whitespace))
-            (textual_node
-              (head_node
-                (prim
-                  (ul
-                    (arg
-                      (textual_expr
-                        (textual_node
-                          (whitespace))
-                        (textual_node
-                          (head_node
-                            (prim
-                              (li
-                                (arg
-                                  (textual_expr
-                                    (textual_node
-                                      (head_node
-                                        (link
-                                          (unlabeled_link
-                                            (external_link
-                                              (text))))))))))))
-                        (textual_node
-                          (whitespace))))))))
-            (textual_node
-              (whitespace))
-            (textual_node
-              (head_node
-                (link
-                  (markdown_link
-                    (link_label
-                      (wstext
-                        (ws_or_text
-                          (text))))
-                    (link_dest
-                      (wstext
-                        (ws_or_text
-                          (text))))))))
-            (textual_node
-              (whitespace))))))))
+  (p
+    (markdown_link
+      (link_label
+        (ws_ortext
+          (text)))
+      (link_dest
+        (ws_ortext
+          (text))))
+    (ul
+      (li
+        (unlabeled_link
+          (external_link
+            (text)))))
+    (markdown_link
+      (link_label
+        (ws_ortext
+          (text)))
+      (link_dest
+        (ws_ortext
+          (text))))))
 
 ================================================================================
-Queries
+Scope
 ================================================================================
 
 
 \scope{
   \put\transclude/title{featured talks}
-  \query/author{jonmsterling}
 }
 
 --------------------------------------------------------------------------------
 
 (source_file
-  (head_node
-    (scope
-      (arg
-        (textual_expr
-          (textual_node
-            (whitespace))
-          (textual_node
-            (head_node
-              (put
-                (ident
-                  (alpha)
-                  (alpha)
-                  (alpha)
-                  (alpha)
-                  (alpha)
-                  (alpha)
-                  (alpha)
-                  (alpha)
-                  (alpha)
-                  (alpha)
-                  (alpha)
-                  (alpha)
-                  (alpha)
-                  (alpha)
-                  (alpha))
-                (arg
-                  (textual_expr
-                    (textual_node
-                      (text))
-                    (textual_node
-                      (whitespace))
-                    (textual_node
-                      (text)))))))
-          (textual_node
-            (whitespace))
-          (textual_node
-            (head_node
-              (author
-                (ERROR)
-                (txt_arg
-                  (wstext
-                    (ws_or_text
-                      (text))))))))))))
+  (scope
+    (put
+      (ident)
+      (text)
+      (text))))
+
+================================================================================
+Query
+================================================================================
+
+\query{
+  \query/and{
+    \query/author{jonmsterling}
+    \query/taxon{reference}
+    \query/tag{featured}
+  }
+}
+
+--------------------------------------------------------------------------------
+
+(source_file
+  (query_tree
+    (query
+      (query0
+        (query_and
+          (queries
+            (query0
+              (query_author
+                (text)))
+            (query0
+              (query_taxon
+                (text)))
+            (query0
+              (query_tag
+                (text)))))))))
+
+================================================================================
+Objects
+================================================================================
+
+\def\my-object{
+  \object[self]{
+    [method1]{
+      the implementation of this method
+    }
+    [method2]{
+      the implementation of another method
+      \self#method1
+    }
+  }
+}
+
+--------------------------------------------------------------------------------
+
+(source_file
+  (def
+    (fun_spec
+      (ident)
+      (object
+        (text)
+        (method_decl
+          (text)
+          (ERROR)
+          (text)
+          (text)
+          (text)
+          (text)
+          (text)
+          (ident)
+          (text)))
+      (MISSING "}"))))
+
+================================================================================
+Patch
+================================================================================
+
+\patch{\my-object}[self]{
+  [method1]{
+    \self/super#method1
+    some further code
+  }
+}
+
+--------------------------------------------------------------------------------
+
+(source_file
+  (ERROR
+    (code_expr
+      (ident))
+    (text)
+    (ERROR)
+    (text)))
 
 ================================================================================
 Full
@@ -451,149 +281,49 @@ Full
 }
 
 \scope{
-  \put\transclude/title{featured talks}
-  \query/author{jonmsterling}
+  \put\transclude/titly{featured talks}
+  \query{
+    \query/author{jonmsterling}
+  }
 }
 
 --------------------------------------------------------------------------------
 
 (source_file
-  (head_node
-    (title
-      (arg
-        (textual_expr
-          (textual_node
-            (text))
-          (textual_node
-            (whitespace))
-          (textual_node
-            (text))))))
-  (head_node
-    (prim
-      (p
-        (arg
-          (textual_expr
-            (textual_node
-              (text)))))))
-  (head_node
-    (transclude
-      (addr
-        (prefix
-          (alpha)
-          (alpha)
-          (alpha))
-        (id
-          (digit)
-          (digit)
-          (digit)
-          (digit)))))
-  (head_node
-    (prim
-      (p
-        (arg
-          (textual_expr
-            (textual_node
-              (whitespace))
-            (textual_node
-              (head_node
-                (prim
-                  (ul
-                    (arg
-                      (textual_expr
-                        (textual_node
-                          (whitespace))
-                        (textual_node
-                          (head_node
-                            (prim
-                              (li
-                                (arg
-                                  (textual_expr
-                                    (textual_node
-                                      (text))))))))
-                        (textual_node
-                          (whitespace))
-                        (textual_node
-                          (head_node
-                            (prim
-                              (li
-                                (arg
-                                  (textual_expr
-                                    (textual_node
-                                      (text))))))))
-                        (textual_node
-                          (whitespace))))))))
-            (textual_node
-              (whitespace))
-            (textual_node
-              (head_node
-                (link
-                  (markdown_link
-                    (link_label
-                      (wstext
-                        (ws_or_text
-                          (text))))
-                    (link_dest
-                      (wstext
-                        (ws_or_text
-                          (text))))))))
-            (textual_node
-              (whitespace))
-            (textual_node
-              (head_node
-                (link
-                  (unlabeled_link
-                    (external_link
-                      (text))))))
-            (textual_node
-              (whitespace))
-            (textual_node
-              (head_node
-                (prim
-                  (code
-                    (arg
-                      (textual_expr
-                        (textual_node
-                          (text)))))))))))))
-  (head_node
-    (scope
-      (arg
-        (textual_expr
-          (textual_node
-            (whitespace))
-          (textual_node
-            (head_node
-              (put
-                (ident
-                  (alpha)
-                  (alpha)
-                  (alpha)
-                  (alpha)
-                  (alpha)
-                  (alpha)
-                  (alpha)
-                  (alpha)
-                  (alpha)
-                  (alpha)
-                  (alpha)
-                  (alpha)
-                  (alpha)
-                  (alpha)
-                  (alpha))
-                (arg
-                  (textual_expr
-                    (textual_node
-                      (text))
-                    (textual_node
-                      (whitespace))
-                    (textual_node
-                      (text)))))))
-          (textual_node
-            (whitespace))
-          (textual_node
-            (head_node
-              (author
-                (ERROR)
-                (txt_arg
-                  (wstext
-                    (ws_or_text
-                      (text))))))))))))
+  (title
+    (text)
+    (text))
+  (p
+    (text))
+  (transclude
+    (addr
+      (prefix)
+      (id)))
+  (p
+    (ul
+      (li
+        (text))
+      (li
+        (text)))
+    (markdown_link
+      (link_label
+        (ws_ortext
+          (text)))
+      (link_dest
+        (ws_ortext
+          (text))))
+    (unlabeled_link
+      (external_link
+        (text)))
+    (code
+      (text)))
+  (scope
+    (put
+      (ident)
+      (text)
+      (text))
+    (query_tree
+      (query
+        (query0
+          (query_author
+            (text)))))))

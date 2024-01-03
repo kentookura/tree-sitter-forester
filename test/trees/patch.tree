@@ -1,0 +1,6 @@
+\patch{\my-object}[self]{
+  [method1]{
+    \self/super#method1
+    some further code
+  }
+}

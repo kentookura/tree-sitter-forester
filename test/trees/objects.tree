@@ -1,0 +1,12 @@
+\def\my-object{
+  \object[self]{
+    [method1]{
+      the implementation of this method
+    }
+    [method2]{
+      the implementation of another method
+      \self#method1
+    }
+  }
+}
+

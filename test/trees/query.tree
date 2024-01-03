@@ -1,0 +1,7 @@
+\query{
+  \query/and{
+    \query/author{jonmsterling}
+    \query/taxon{reference}
+    \query/tag{featured}
+  }
+}
