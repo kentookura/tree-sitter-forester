@@ -1,3 +1,1 @@
-(ident) @type
-(inline_math) @function
-(display_math) @function
+/home/kento/glade/forester.nvim/queries/forester/highlights.scm
