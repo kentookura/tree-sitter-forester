@@ -3,6 +3,13 @@ Prim
 ================================================================================
 
 \p{hello}
+\p{
+    \ul{
+        \li{asdf}
+        \li{foobar}
+        \code{echo hello}
+      }
+  }
 
 --------------------------------------------------------------------------------
 
@@ -10,9 +17,101 @@ Prim
   (head_node
     (prim
       (p
-        (textual_expr
-          (textual_node
-            (text)))))))
+        (arg
+          (textual_expr
+            (textual_node
+              (text)))))))
+  (head_node
+    (prim
+      (p
+        (arg
+          (textual_expr
+            (textual_node
+              (whitespace))
+            (textual_node
+              (head_node
+                (prim
+                  (ul
+                    (arg
+                      (textual_expr
+                        (textual_node
+                          (whitespace))
+                        (textual_node
+                          (head_node
+                            (prim
+                              (li
+                                (arg
+                                  (textual_expr
+                                    (textual_node
+                                      (text))))))))
+                        (textual_node
+                          (whitespace))
+                        (textual_node
+                          (head_node
+                            (prim
+                              (li
+                                (arg
+                                  (textual_expr
+                                    (textual_node
+                                      (text))))))))
+                        (textual_node
+                          (whitespace))
+                        (textual_node
+                          (head_node
+                            (prim
+                              (code
+                                (arg
+                                  (textual_expr
+                                    (textual_node
+                                      (text))
+                                    (textual_node
+                                      (whitespace))
+                                    (textual_node
+                                      (text))))))))
+                        (textual_node
+                          (whitespace))))))))
+            (textual_node
+              (whitespace))))))))
+
+================================================================================
+Link
+================================================================================
+
+\p{[asdf](foo-0001)}
+
+\p{[[foo-0001]]}
+
+--------------------------------------------------------------------------------
+
+(source_file
+  (head_node
+    (prim
+      (p
+        (arg
+          (textual_expr
+            (textual_node
+              (head_node
+                (link
+                  (markdown_link
+                    (link_label
+                      (wstext
+                        (ws_or_text
+                          (text))))
+                    (link_dest
+                      (wstext
+                        (ws_or_text
+                          (text)))))))))))))
+  (head_node
+    (prim
+      (p
+        (arg
+          (textual_expr
+            (textual_node
+              (head_node
+                (link
+                  (unlabeled_link
+                    (external_link
+                      (text))))))))))))
 
 ================================================================================
 Date
@@ -24,7 +123,10 @@ Date
 
 (source_file
   (head_node
-    (date)))
+    (date
+      (year)
+      (month)
+      (day))))
 
 ================================================================================
 Title
@@ -37,13 +139,14 @@ Title
 (source_file
   (head_node
     (title
-      (textual_expr
-        (textual_node
-          (text))
-        (textual_node
-          (whitespace))
-        (textual_node
-          (text))))))
+      (arg
+        (textual_expr
+          (textual_node
+            (text))
+          (textual_node
+            (whitespace))
+          (textual_node
+            (text)))))))
 
 ================================================================================
 Transclusion
@@ -56,18 +159,24 @@ Transclusion
 (source_file
   (head_node
     (transclude
-      (wstext
-        (ws_or_text
-          (text))))))
+      (addr
+        (prefix
+          (alpha)
+          (alpha)
+          (alpha))
+        (id
+          (digit)
+          (digit)
+          (digit)
+          (digit))))))
 
 ================================================================================
-Paragraph
+Math
 ================================================================================
 
-\p{
-  ##{a b}
-  #{a b}
-}
+\p{ ##{a = b} }
+\p{ #{a = b}}
+\p{ #{i \in \C}
 
 --------------------------------------------------------------------------------
 
@@ -75,23 +184,74 @@ Paragraph
   (head_node
     (prim
       (p
-        (textual_expr
-          (textual_node
-            (whitespace))
-          (textual_node
-            (head_node
-              (display_math
-                (text)
-                (ERROR
-                  (alpha)))))
-          (textual_node
-            (whitespace))
-          (textual_node
-            (head_node
-              (inline_math
-                (text)
-                (ERROR
-                  (alpha))))))))))
+        (arg
+          (textual_expr
+            (textual_node
+              (whitespace))
+            (textual_node
+              (head_node
+                (display_math
+                  (textual_expr
+                    (textual_node
+                      (text))
+                    (textual_node
+                      (whitespace))
+                    (textual_node
+                      (text))
+                    (textual_node
+                      (whitespace))
+                    (textual_node
+                      (text))))))
+            (textual_node
+              (whitespace)))))))
+  (head_node
+    (prim
+      (p
+        (arg
+          (textual_expr
+            (textual_node
+              (whitespace))
+            (textual_node
+              (head_node
+                (inline_math
+                  (textual_expr
+                    (textual_node
+                      (text))
+                    (textual_node
+                      (whitespace))
+                    (textual_node
+                      (text))
+                    (textual_node
+                      (whitespace))
+                    (textual_node
+                      (text)))))))))))
+  (head_node
+    (prim
+      (p
+        (arg
+          (textual_expr
+            (textual_node
+              (whitespace))
+            (textual_node
+              (head_node
+                (inline_math
+                  (textual_expr
+                    (textual_node
+                      (text))
+                    (textual_node
+                      (whitespace))
+                    (textual_node
+                      (head_node
+                        (ident
+                          (alpha)
+                          (alpha))))
+                    (textual_node
+                      (whitespace))
+                    (textual_node
+                      (head_node
+                        (ident
+                          (alpha)))))))))
+          (MISSING "}"))))))
 
 ================================================================================
 Comment
@@ -104,3 +264,274 @@ Comment
 (source_file
   (head_node
     (comment)))
+
+================================================================================
+Function Definition
+================================================================================
+
+\def\foo[x][y][z]{
+  \p{\x \y \z}
+  \transclude{foo-0001}
+}
+
+--------------------------------------------------------------------------------
+
+(source_file
+  (head_node
+    (def
+      (fun_spec
+        (ident
+          (alpha)
+          (alpha)
+          (alpha))
+        (text)
+        (text)
+        (text)
+        (arg
+          (textual_expr
+            (textual_node
+              (whitespace))
+            (textual_node
+              (head_node
+                (prim
+                  (p
+                    (arg
+                      (textual_expr
+                        (textual_node
+                          (head_node
+                            (ident
+                              (alpha))))
+                        (textual_node
+                          (whitespace))
+                        (textual_node
+                          (head_node
+                            (ident
+                              (alpha))))
+                        (textual_node
+                          (whitespace))
+                        (textual_node
+                          (head_node
+                            (ident
+                              (alpha))))))))))
+            (textual_node
+              (whitespace))
+            (textual_node
+              (head_node
+                (transclude
+                  (addr
+                    (prefix
+                      (alpha)
+                      (alpha)
+                      (alpha))
+                    (id
+                      (digit)
+                      (digit)
+                      (digit)
+                      (digit))))))))))))
+
+================================================================================
+Links Prim
+================================================================================
+
+\p{
+    [asdf](foo-0001)
+    \ul{
+        \li{[[asdf/asdf.pdf]]}
+      }
+    [asdf](foo-0001)
+
+  }
+
+--------------------------------------------------------------------------------
+
+(source_file
+  (head_node
+    (prim
+      (p
+        (arg
+          (textual_expr
+            (textual_node
+              (whitespace))
+            (textual_node
+              (head_node
+                (link
+                  (markdown_link
+                    (link_label
+                      (wstext
+                        (ws_or_text
+                          (text))))
+                    (link_dest
+                      (wstext
+                        (ws_or_text
+                          (text))))))))
+            (textual_node
+              (whitespace))
+            (textual_node
+              (head_node
+                (prim
+                  (ul
+                    (arg
+                      (textual_expr
+                        (textual_node
+                          (whitespace))
+                        (textual_node
+                          (head_node
+                            (prim
+                              (li
+                                (arg
+                                  (textual_expr
+                                    (textual_node
+                                      (head_node
+                                        (link
+                                          (unlabeled_link
+                                            (external_link
+                                              (text))))))))))))
+                        (textual_node
+                          (whitespace))))))))
+            (textual_node
+              (whitespace))
+            (textual_node
+              (head_node
+                (link
+                  (markdown_link
+                    (link_label
+                      (wstext
+                        (ws_or_text
+                          (text))))
+                    (link_dest
+                      (wstext
+                        (ws_or_text
+                          (text))))))))
+            (textual_node
+              (whitespace))))))))
+
+================================================================================
+Full
+================================================================================
+
+\title{My Title}
+\p{hello}
+\transclude{nvm-0002}
+\p{
+    \ul{
+        \li{asdf}
+        \li{foobar}
+      }
+  [asdf](foo-0001) [[foo-0001]]
+  as;dflkjsa;dflkasj;
+  sclkmvsl.a,c
+  sclkmvsl.a,c,vdmas.,vmdasl.,dvm
+  \code{asdlfkjasfd}
+}
+
+--------------------------------------------------------------------------------
+
+(source_file
+  (head_node
+    (title
+      (arg
+        (textual_expr
+          (textual_node
+            (text))
+          (textual_node
+            (whitespace))
+          (textual_node
+            (text))))))
+  (head_node
+    (prim
+      (p
+        (arg
+          (textual_expr
+            (textual_node
+              (text)))))))
+  (head_node
+    (transclude
+      (addr
+        (prefix
+          (alpha)
+          (alpha)
+          (alpha))
+        (id
+          (digit)
+          (digit)
+          (digit)
+          (digit)))))
+  (head_node
+    (prim
+      (p
+        (arg
+          (textual_expr
+            (textual_node
+              (whitespace))
+            (textual_node
+              (head_node
+                (prim
+                  (ul
+                    (arg
+                      (textual_expr
+                        (textual_node
+                          (whitespace))
+                        (textual_node
+                          (head_node
+                            (prim
+                              (li
+                                (arg
+                                  (textual_expr
+                                    (textual_node
+                                      (text))))))))
+                        (textual_node
+                          (whitespace))
+                        (textual_node
+                          (head_node
+                            (prim
+                              (li
+                                (arg
+                                  (textual_expr
+                                    (textual_node
+                                      (text))))))))
+                        (textual_node
+                          (whitespace))))))))
+            (textual_node
+              (whitespace))
+            (textual_node
+              (head_node
+                (link
+                  (markdown_link
+                    (link_label
+                      (wstext
+                        (ws_or_text
+                          (text))))
+                    (link_dest
+                      (wstext
+                        (ws_or_text
+                          (text))))))))
+            (textual_node
+              (whitespace))
+            (textual_node
+              (head_node
+                (link
+                  (unlabeled_link
+                    (external_link
+                      (text))))))
+            (textual_node
+              (whitespace))
+            (textual_node
+              (text))
+            (textual_node
+              (whitespace))
+            (textual_node
+              (text))
+            (textual_node
+              (whitespace))
+            (textual_node
+              (text))
+            (textual_node
+              (whitespace))
+            (textual_node
+              (head_node
+                (prim
+                  (code
+                    (arg
+                      (textual_expr
+                        (textual_node
+                          (text))))))))))))))

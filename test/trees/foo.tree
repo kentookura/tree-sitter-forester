@@ -1,0 +1,19 @@
+\title{My Title}
+\p{hello}
+\transclude{nvm-0002}
+\p{
+    \ul{
+        \li{asdf}
+        \li{foobar}
+      }
+  [asdf](foo-0001) 
+
+  [asdf](foo-0001) 
+
+  [[foo-0001]]
+  as;dflkjsa;dflkasj;
+  sclkmvsl.a,c
+  sclkmvsl.a,c,vdmas.,vmdasl.,dvm
+  \code{asdlfkjasfd}
+}
+
