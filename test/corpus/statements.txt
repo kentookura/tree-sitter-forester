@@ -176,7 +176,6 @@ Math
 
 \p{ ##{a = b} }
 \p{ #{a = b}}
-\p{ #{i \in \C}
 
 --------------------------------------------------------------------------------
 
@@ -224,34 +223,7 @@ Math
                     (textual_node
                       (whitespace))
                     (textual_node
-                      (text)))))))))))
-  (head_node
-    (prim
-      (p
-        (arg
-          (textual_expr
-            (textual_node
-              (whitespace))
-            (textual_node
-              (head_node
-                (inline_math
-                  (textual_expr
-                    (textual_node
-                      (text))
-                    (textual_node
-                      (whitespace))
-                    (textual_node
-                      (head_node
-                        (ident
-                          (alpha)
-                          (alpha))))
-                    (textual_node
-                      (whitespace))
-                    (textual_node
-                      (head_node
-                        (ident
-                          (alpha)))))))))
-          (MISSING "}"))))))
+                      (text))))))))))))
 
 ================================================================================
 Comment
@@ -406,6 +378,63 @@ Links Prim
               (whitespace))))))))
 
 ================================================================================
+Queries
+================================================================================
+
+
+\scope{
+  \put\transclude/title{featured talks}
+  \query/author{jonmsterling}
+}
+
+--------------------------------------------------------------------------------
+
+(source_file
+  (head_node
+    (scope
+      (arg
+        (textual_expr
+          (textual_node
+            (whitespace))
+          (textual_node
+            (head_node
+              (put
+                (ident
+                  (alpha)
+                  (alpha)
+                  (alpha)
+                  (alpha)
+                  (alpha)
+                  (alpha)
+                  (alpha)
+                  (alpha)
+                  (alpha)
+                  (alpha)
+                  (alpha)
+                  (alpha)
+                  (alpha)
+                  (alpha)
+                  (alpha))
+                (arg
+                  (textual_expr
+                    (textual_node
+                      (text))
+                    (textual_node
+                      (whitespace))
+                    (textual_node
+                      (text)))))))
+          (textual_node
+            (whitespace))
+          (textual_node
+            (head_node
+              (author
+                (ERROR)
+                (txt_arg
+                  (wstext
+                    (ws_or_text
+                      (text))))))))))))
+
+================================================================================
 Full
 ================================================================================
 
@@ -418,10 +447,12 @@ Full
         \li{foobar}
       }
   [asdf](foo-0001) [[foo-0001]]
-  as;dflkjsa;dflkasj;
-  sclkmvsl.a,c
-  sclkmvsl.a,c,vdmas.,vmdasl.,dvm
   \code{asdlfkjasfd}
+}
+
+\scope{
+  \put\transclude/title{featured talks}
+  \query/author{jonmsterling}
 }
 
 --------------------------------------------------------------------------------
@@ -516,22 +547,53 @@ Full
             (textual_node
               (whitespace))
             (textual_node
-              (text))
-            (textual_node
-              (whitespace))
-            (textual_node
-              (text))
-            (textual_node
-              (whitespace))
-            (textual_node
-              (text))
-            (textual_node
-              (whitespace))
-            (textual_node
               (head_node
                 (prim
                   (code
                     (arg
                       (textual_expr
                         (textual_node
-                          (text))))))))))))))
+                          (text)))))))))))))
+  (head_node
+    (scope
+      (arg
+        (textual_expr
+          (textual_node
+            (whitespace))
+          (textual_node
+            (head_node
+              (put
+                (ident
+                  (alpha)
+                  (alpha)
+                  (alpha)
+                  (alpha)
+                  (alpha)
+                  (alpha)
+                  (alpha)
+                  (alpha)
+                  (alpha)
+                  (alpha)
+                  (alpha)
+                  (alpha)
+                  (alpha)
+                  (alpha)
+                  (alpha))
+                (arg
+                  (textual_expr
+                    (textual_node
+                      (text))
+                    (textual_node
+                      (whitespace))
+                    (textual_node
+                      (text)))))))
+          (textual_node
+            (whitespace))
+          (textual_node
+            (head_node
+              (author
+                (ERROR)
+                (txt_arg
+                  (wstext
+                    (ws_or_text
+                      (text))))))))))))

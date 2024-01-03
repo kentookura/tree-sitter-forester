@@ -1,5 +1,5 @@
 function command(rule, arg) {
-  return seq("\\", rule, arg);
+  return seq("\\", field("command_name", rule), arg);
 }
 
 function braces(p) {
@@ -25,58 +25,108 @@ module.exports = grammar({
     //source_file: ($) => seq(choice($.head_node, $.whitespace)),
     source_file: ($) => repeat($.head_node),
     head_node: ($) =>
-      choice(
-        $.title,
-        $.author,
-        $.date,
-        $.tex_package,
-        $.taxon,
-        $.import,
-        $.export,
-        $.inline_math,
-        $.display_math,
-        $.let_binding,
-        $.tex,
-        $.transclude,
-        $.comment,
-        $.prim,
-        $.def,
-        $.ident,
-        $.link,
+      prec(
+        3,
+        choice(
+          $.title,
+          $.author,
+          $.date,
+          $.def,
+          $.tex_package,
+          $.alloc,
+          $.taxon,
+          $.meta,
+          $.import,
+          $.export,
+          $.namespace,
+          $.transclude,
+          $.tex,
+          $.let,
+          $.if_tex,
+          $.block,
+          // missing: ident_with_method_calls
+          $.scope,
+          $.put,
+          $.get,
+          $.open,
+          $.query_tree,
+          $.xml_tag,
+          $.object,
+          $.patch,
+          $.call,
+          $.prim,
+          $.inline_math,
+          $.display_math,
+          $.comment,
+          $.ident,
+          $.link,
+          $.default,
+        ),
       ),
+
+    title: ($) => command("title", $.arg),
     author: ($) => command("author", $.txt_arg),
-    inline_math: ($) => seq("#{", $.textual_expr, "}"),
-    display_math: ($) => seq("##{", $.textual_expr, "}"),
-    date: ($) =>
-      command(
-        "date",
-        //token(/\d{4}\-(0?[1-9]|1[012])\-(0?[1-9]|[12][0-9]|3[01])/),
-        braces(seq($.year, "-", $.month, "-", $.day)),
-      ),
+    date: ($) => command("date", braces(seq($.year, "-", $.month, "-", $.day))),
     year: ($) => /[0-9]{4}/,
     month: ($) => /(1[012]|0?[1-9])/,
     day: ($) => seq(/[0123]/, /[0-9]/),
-    tex_package: ($) => command("tex_package", $.txt_arg),
-    taxon: ($) => command("taxon", $.txt_arg),
     def: ($) => command("def", $.fun_spec),
+    tex_package: ($) => command("tex_package", $.txt_arg),
+    alloc: ($) => command("alloc", $.ident),
+    taxon: ($) => command("taxon", $.txt_arg),
+    meta: ($) => command("meta", $.txt_arg),
     import: ($) => command("import", $.wstext),
     export: ($) => command("export", $.wstext),
-    let_binding: ($) => command("let_binding", $.wstext),
+    namespace: ($) => seq($.ident, braces($.code_expr)),
     transclude: ($) => command("transclude", braces($.addr)),
-    tex: ($) => command(/tex/, $.arg),
+    let: ($) => command("let", $.fun_spec),
+    tex: ($) => command("tex", $.arg),
+    if_tex: ($) => command("iftex", seq($.arg, $.arg)),
+    block: ($) => command("block", seq(field("x", $.arg), field("y", $.arg))),
+    scope: ($) => command("scope", $.arg),
+    put: ($) =>
+      command(
+        "put",
+        seq(field("identifier", $.ident), field("argument", $.arg)),
+      ),
+    get: ($) => command("get", $.ident),
+    open: ($) => command("open", $.ident),
+    query_tree: ($) => command("query", braces($.query)),
+    default: ($) => seq($.ident, $.arg),
+    xml_tag: ($) => seq($.arg, repeat($.xml_attr), $.arg),
+    object: ($) =>
+      seq(
+        field(
+          "self",
+          squares($.bvar),
+          field("methods", braces(repeat(choice($.method_decl, $.whitespace)))),
+        ),
+      ),
+    patch: ($) =>
+      seq(
+        field("obj", braces($.code_expr)),
+        field("self", squares($.bvar)),
+        field("methods", braces(repeat(choice($.method_decl, $.whitespace)))),
+      ),
+    call: ($) => seq(braces($.code_expr), $.txt_arg),
     comment: ($) => /%[^\r\n]*/,
     prim: ($) =>
-      choice(
-        $.p,
-        $.em,
-        $.strong,
-        $.li,
-        $.ul,
-        $.ol,
-        $.code,
-        $.blockquote,
-        $.pre,
+      prec(
+        3,
+        choice(
+          $.p,
+          $.em,
+          $.strong,
+          $.li,
+          $.ul,
+          $.ol,
+          $.code,
+          $.blockquote,
+          $.pre,
+        ),
       ),
+    inline_math: ($) => seq("#{", $.textual_expr, "}"),
+    display_math: ($) => seq("##{", $.textual_expr, "}"),
 
     p: ($) => command("p", $.arg),
     em: ($) => command("em", $.arg),
@@ -88,11 +138,29 @@ module.exports = grammar({
     blockquote: ($) => command("blockquote", $.prim),
     pre: ($) => command("pre", $.prim),
 
-    code_expr: ($) => seq(choice($.head_node), $.whitespace),
+    query: ($) => seq(repeat($.whitespace), $.query0, repeat($.whitespace)),
+    query0: ($) =>
+      choice(
+        $.query_author,
+        $.query_tag,
+        $.query_taxon,
+        $.query_and,
+        $.query_or,
+        $.query_meta,
+      ),
+    query_author: ($) => seq("/author", $.arg),
+    query_tag: ($) => seq("/tag", $.arg),
+    query_taxon: ($) => seq("/taxon", $.arg),
+    query_and: ($) => seq("/and", braces($.queries)),
+    query_or: ($) => seq("/or", braces($.queries)),
+    query_meta: ($) => seq(field("k", $.txt_arg), field("v", $.arg)),
+    queries: ($) => repeat1(choice($.whitespace, $.query0)),
+
+    code_expr: ($) => repeat1(choice($.head_node, $.whitespace)),
     textual_expr: ($) => repeat1($.textual_node),
-    //TODO
     method_decl: ($) =>
       seq(field("key", squares($.text), field("value", seq($.whitespace)))),
+
     xml_attr: ($) =>
       seq(field("key", squares($.text)), field("value", seq($.whitespace))),
 
@@ -102,11 +170,18 @@ module.exports = grammar({
         field("binder", repeat(squares($.text))),
         field("arg", $.arg),
       ),
-    ident: ($) => seq("\\", repeat1(choice($.alpha, $.digit, /-\/#/))),
+
+    ident: (
+      $, //command(repeat1(choice($.alpha, $.digit, /[-\/#]/))),
+    ) =>
+      seq(
+        "\\",
+        field("identifier", repeat1(choice($.alpha, $.digit, /[-\/#]/))),
+      ),
 
     arg: ($) => braces($.textual_expr),
-
-    textual_node: ($) => choice($.text, $.whitespace, $.head_node),
+    bvar: ($) => $.text,
+    textual_node: ($) => prec(2, choice($.text, $.whitespace, $.head_node)),
     link: ($) => choice($.markdown_link, $.unlabeled_link),
     addr: ($) => seq($.prefix, "-", $.id),
     id: ($) => repeat1(choice($.alpha, $.digit, "-", "_")),
@@ -118,10 +193,9 @@ module.exports = grammar({
 
     unlabeled_link: ($) => seq("[[", choice($.addr, $.external_link), "]]"),
     external_link: ($) => $.text,
-    title: ($) => command("title", $.arg),
     whitespace: ($) => choice(/[ \t]+/),
     wstext: ($) => seq($.ws_or_text),
-    ws_or_text: ($) => choice($.whitespace, $.text),
+    ws_or_text: ($) => prec(2, choice($.whitespace, $.text)),
     alpha: ($) => /[a-zA-Z]/,
     digit: ($) => /[0-9]/,
     //text: ($) => /[^ ' ' '%' '#' '\\' '{' '}' '[' ']' '(' ')' '\r' '\n']+/,
