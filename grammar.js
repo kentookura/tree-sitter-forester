@@ -93,7 +93,7 @@ module.exports = grammar({
     tex_package: ($) => command("tex_package", $._txt_arg),
     alloc: ($) => command("alloc", $.ident),
     taxon: ($) => command("taxon", $._txt_arg),
-    meta: ($) => command("meta", $._txt_arg),
+    meta: ($) => prec.left(command("meta", seq($._txt_arg, $._arg))),
     import: ($) => prec(2, command("import", braces($.addr))),
     export: ($) => prec(2, command("export", braces($.addr))),
     namespace: ($) => seq($.ident, braces($.code_expr)),
@@ -149,8 +149,8 @@ module.exports = grammar({
         $.blockquote,
         $.pre,
       ),
-    inline_math: ($) => seq("#{", field("math", $._textual_expr), "}"),
-    display_math: ($) => seq("##{", field("math", $._textual_expr), "}"),
+    inline_math: ($) => seq("#", braces(field("math", $._textual_expr))),
+    display_math: ($) => seq("##", braces(field("math", $._textual_expr))),
 
     p: ($) => command("p", $._arg),
     em: ($) => command("em", $._arg),
@@ -206,11 +206,8 @@ module.exports = grammar({
 
     binder: ($) => repeat1(squares($.text)),
 
-    ident: ($) =>
-      prec.left(
-        seq("\\", list_of($._ident_label, "/", false), optional($._arg)),
-      ),
-    _ident_label: ($) => repeat1(choice($._alpha, $._digit, /[-\/#]/)),
+    ident: ($) => prec.left(seq("\\", $.label)),
+    label: ($) => repeat1(choice($._alpha, $._digit, /[-\/#]+/)),
 
     _arg: ($) => braces($._textual_expr),
     _textual_node: ($) => prec(1, choice($.text, $._whitespace, $._head_node)),
@@ -220,7 +217,8 @@ module.exports = grammar({
     prefix: ($) => repeat1($._alpha),
     //markdown_link: ($) => seq($.link_label, $.link_dest),
     markdown_link: ($) => seq($.link_label, $.link_dest),
-    link_label: ($) => squares(alias($._wstext, $.label)),
+    link_label: ($) =>
+      field("label", alias(squares($._wstext, $.label), "label")),
     link_dest: ($) => parens(field("dest", choice($.addr, $._wstext))),
 
     unlabeled_link: ($) => seq("[[", choice($.addr, $.external_link), "]]"),

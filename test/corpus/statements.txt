@@ -1,4 +1,17 @@
 ================================================================================
+Meta
+================================================================================
+
+\meta{external}{https://github.com/kentookura}
+
+--------------------------------------------------------------------------------
+
+(source_file
+  (meta
+    (text)
+    (text)))
+
+================================================================================
 Tags
 ================================================================================
 
@@ -113,15 +126,14 @@ Transclusion
 Ident
 ================================================================================
 
-\p{\foo \foo}
+\p{\foo}
 
 --------------------------------------------------------------------------------
 
 (source_file
   (p
-    (ident)
-    (text)
-    (ident)
+    (ident
+      (label))
     (text)))
 
 ================================================================================
@@ -190,35 +202,47 @@ Math Commands
 (source_file
   (ERROR
     (display_math
-      (ident)
-      (ident)
+      (ident
+        (label))
+      (ident
+        (label))
       (text)
       (ERROR))
     (text)
-    (ident)
+    (ident
+      (label))
     (text)
     (ERROR
       (code_expr
-        (ident))
+        (ident
+          (label)))
       (UNEXPECTED '^'))
-    (ident)
-    (ident)
-    (ident)
-    (ident)
+    (ident
+      (label))
+    (ident
+      (label))
+    (ident
+      (label))
+    (ident
+      (label))
     (ident
       (ERROR
-        (UNEXPECTED ',')))
+        (UNEXPECTED ','))
+      (label))
     (ERROR
       (UNEXPECTED '^'))
     (ERROR
       (code_expr
         (ident
-          (ERROR))
-        (ident))
+          (ERROR)
+          (label))
+        (ident
+          (label)))
       (ERROR)
       (UNEXPECTED ','))
     (code_expr
-      (ident))))
+      (ident
+        (label)))))
 
 ================================================================================
 Comment
@@ -245,15 +269,19 @@ Function Definition
 (source_file
   (def
     (fun_spec
-      (ident)
+      (ident
+        (label))
       (binder
         (text)
         (text)
         (text))
       (p
-        (ident)
-        (ident)
-        (ident))
+        (ident
+          (label))
+        (ident
+          (label))
+        (ident
+          (label)))
       (transclude
         (addr
           (prefix)
@@ -306,7 +334,8 @@ Scope
 (source_file
   (scope
     (put
-      (ident)
+      (ident
+        (label))
       (text)
       (text))))
 
@@ -361,7 +390,8 @@ Objects
 (source_file
   (def
     (fun_spec
-      (ident)
+      (ident
+        (label))
       (object
         (text)
         (method_decl
@@ -382,7 +412,8 @@ Objects
               (text)
               (text)
               (text)
-              (ident)
+              (ident
+                (label))
               (text))))))))
 
 ================================================================================
@@ -401,13 +432,15 @@ Patch
 (source_file
   (patch
     (code_expr
-      (ident))
+      (ident
+        (label)))
     (text)
     (method_decl
       (method
         (text)
         (method_body
-          (ident)
+          (ident
+            (label))
           (text)
           (text)
           (text)
@@ -531,24 +564,29 @@ Full
             (text)
             (text)
             (text)
-            (ident)
+            (ident
+              (label))
             (text))))))
   (patch
     (code_expr
-      (ident))
+      (ident
+        (label)))
     (text)
     (method_decl
       (method
         (text)
         (method_body
-          (ident)
+          (ident
+            (label))
           (text)
           (text)
           (text)
           (text)))))
-  (ident)
+  (ident
+    (label))
   (ERROR
-    (ident)
+    (ident
+      (label))
     (ERROR
       (code_expr
         (markdown_link
@@ -561,7 +599,8 @@ Full
         (unlabeled_link
           (external_link
             (text)))))
-    (ident)
+    (ident
+      (label))
     (ERROR
       (code_expr
         (markdown_link
@@ -574,7 +613,8 @@ Full
           (external_link
             (text))))
       (code_expr
-        (ident)
+        (ident
+          (label))
         (call
           (code_expr
             (markdown_link
@@ -584,7 +624,8 @@ Full
               (link_dest
                 (text))))
           (text))
-        (ident)
+        (ident
+          (label))
         (call
           (code_expr
             (markdown_link
@@ -594,7 +635,8 @@ Full
               (link_dest
                 (text))))
           (text))
-        (ident)
+        (ident
+          (label))
         (call
           (code_expr
             (markdown_link
@@ -606,7 +648,8 @@ Full
           (text))))
     (scope
       (put
-        (ident)
+        (ident
+          (label))
         (text)
         (text))
       (query_tree
