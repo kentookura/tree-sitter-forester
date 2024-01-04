@@ -453,6 +453,15 @@ Full
   }
 }
 
+\table{
+  \row{[forester query ](gld-0008)}{[[https://git.sr.ht/~kentookura/ocaml-forester/tree/nvim-support]]}
+  \row{[forester-lsp](gld-0003)}{[[https://git.sr.ht/~kentookura/ocaml-forester/tree/lsp]]}
+  \row{[more/better output ](gld-0007)}{N.A.}
+  \row{[richer interactivity ](gld-0006)}{N.A.}
+  \row{[pandoc filter](gld-000C)}{N.A.}
+}
+
+
 
 
 \scope{
@@ -537,13 +546,71 @@ Full
           (text)
           (text)
           (text)))))
-  (scope
-    (put
-      (ident)
-      (text)
-      (text))
-    (query_tree
-      (query
-        (query0
-          (query_author
-            (text)))))))
+  (ident)
+  (ERROR
+    (ident)
+    (ERROR
+      (code_expr
+        (markdown_link
+          (link_label
+            (text)
+            (text))
+          (link_dest
+            (text))))
+      (code_expr
+        (unlabeled_link
+          (external_link
+            (text)))))
+    (ident)
+    (ERROR
+      (code_expr
+        (markdown_link
+          (link_label
+            (text))
+          (link_dest
+            (text))))
+      (code_expr
+        (unlabeled_link
+          (external_link
+            (text))))
+      (code_expr
+        (ident)
+        (call
+          (code_expr
+            (markdown_link
+              (link_label
+                (text)
+                (text))
+              (link_dest
+                (text))))
+          (text))
+        (ident)
+        (call
+          (code_expr
+            (markdown_link
+              (link_label
+                (text)
+                (text))
+              (link_dest
+                (text))))
+          (text))
+        (ident)
+        (call
+          (code_expr
+            (markdown_link
+              (link_label
+                (text)
+                (text))
+              (link_dest
+                (text))))
+          (text))))
+    (scope
+      (put
+        (ident)
+        (text)
+        (text))
+      (query_tree
+        (query
+          (query0
+            (query_author
+              (text))))))))

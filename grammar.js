@@ -206,7 +206,10 @@ module.exports = grammar({
 
     binder: ($) => repeat1(squares($.text)),
 
-    ident: ($) => seq("\\", list_of($._ident_label, "/", false)),
+    ident: ($) =>
+      prec.left(
+        seq("\\", list_of($._ident_label, "/", false), optional($._arg)),
+      ),
     _ident_label: ($) => repeat1(choice($._alpha, $._digit, /[-\/#]/)),
 
     _arg: ($) => braces($._textual_expr),
@@ -217,7 +220,7 @@ module.exports = grammar({
     prefix: ($) => repeat1($._alpha),
     //markdown_link: ($) => seq($.link_label, $.link_dest),
     markdown_link: ($) => seq($.link_label, $.link_dest),
-    link_label: ($) => squares(field("label", $._wstext)),
+    link_label: ($) => squares(alias($._wstext, $.label)),
     link_dest: ($) => parens(field("dest", choice($.addr, $._wstext))),
 
     unlabeled_link: ($) => seq("[[", choice($.addr, $.external_link), "]]"),
