@@ -2234,6 +2234,10 @@
         "required": false,
         "types": [
           {
+            "type": "addr",
+            "named": true
+          },
+          {
             "type": "text",
             "named": true
           }

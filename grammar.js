@@ -202,7 +202,7 @@ module.exports = grammar({
     //markdown_link: ($) => seq($.link_label, $.link_dest),
     markdown_link: ($) => seq($.link_label, $.link_dest),
     link_label: ($) => squares(field("label", $._wstext)),
-    link_dest: ($) => parens(field("dest", $._wstext)),
+    link_dest: ($) => parens(field("dest", choice($.addr, $._wstext))),
 
     unlabeled_link: ($) => seq("[[", choice($.addr, $.external_link), "]]"),
     external_link: ($) => $.text,

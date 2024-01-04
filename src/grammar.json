@@ -1619,8 +1619,17 @@
           "type": "FIELD",
           "name": "dest",
           "content": {
-            "type": "SYMBOL",
-            "name": "_wstext"
+            "type": "CHOICE",
+            "members": [
+              {
+                "type": "SYMBOL",
+                "name": "addr"
+              },
+              {
+                "type": "SYMBOL",
+                "name": "_wstext"
+              }
+            ]
           }
         },
         {
