@@ -100,6 +100,10 @@
           },
           {
             "type": "SYMBOL",
+            "name": "tag"
+          },
+          {
+            "type": "SYMBOL",
             "name": "object"
           },
           {
@@ -155,6 +159,23 @@
         {
           "type": "SYMBOL",
           "name": "_arg"
+        }
+      ]
+    },
+    "tag": {
+      "type": "SEQ",
+      "members": [
+        {
+          "type": "STRING",
+          "value": "\\"
+        },
+        {
+          "type": "STRING",
+          "value": "tag"
+        },
+        {
+          "type": "SYMBOL",
+          "name": "_txt_arg"
         }
       ]
     },
@@ -1446,12 +1467,29 @@
           "value": "\\"
         },
         {
-          "type": "FIELD",
-          "name": "identifier",
-          "content": {
-            "type": "SYMBOL",
-            "name": "_ident_label"
-          }
+          "type": "SEQ",
+          "members": [
+            {
+              "type": "SYMBOL",
+              "name": "_ident_label"
+            },
+            {
+              "type": "REPEAT",
+              "content": {
+                "type": "SEQ",
+                "members": [
+                  {
+                    "type": "STRING",
+                    "value": "/"
+                  },
+                  {
+                    "type": "SYMBOL",
+                    "name": "_ident_label"
+                  }
+                ]
+              }
+            }
+          ]
         }
       ]
     },

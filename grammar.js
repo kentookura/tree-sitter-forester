@@ -18,6 +18,20 @@ function drop_sigil(char, str) {
   return str.split(char)[0];
 }
 
+function any_amount_of() {
+  return repeat(seq(...arguments));
+}
+
+function one_or_more() {
+  return repeat1(seq(...arguments));
+}
+
+function list_of(match, sep, trailing) {
+  return trailing
+    ? seq(match, any_amount_of(sep, match), optional(sep))
+    : seq(match, any_amount_of(sep, match));
+}
+
 module.exports = grammar({
   name: "forester",
 
@@ -50,6 +64,7 @@ module.exports = grammar({
           $.open,
           $.query_tree,
           //$.xml_tag,
+          $.tag,
           $.object,
           $.patch,
           $.call,
@@ -64,6 +79,7 @@ module.exports = grammar({
       ),
 
     title: ($) => command("title", $._arg),
+    tag: ($) => command("tag", $._txt_arg),
     author: ($) => prec(1, command("author", $._txt_arg)),
     date: ($) =>
       command(
@@ -190,7 +206,7 @@ module.exports = grammar({
 
     binder: ($) => repeat1(squares($.text)),
 
-    ident: ($) => seq("\\", field("identifier", $._ident_label)),
+    ident: ($) => seq("\\", list_of($._ident_label, "/", false)),
     _ident_label: ($) => repeat1(choice($._alpha, $._digit, /[-\/#]/)),
 
     _arg: ($) => braces($._textual_expr),

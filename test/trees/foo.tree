@@ -1,21 +1,3 @@
-\title{My Title}
-
-\p{hello}
-
-\transclude{nvm-0002}
-
-\p{
-    \ul{
-        \li{asdf}
-        \li{foobar}
-      }
-
-  [asdf](foo-0001) 
-
-  [asdf](foo-0001) 
-
-  [[foo-0001]]
-  
-  \code{asdlfkjasfd}
+\p{\foo \bar \baz
+  \foo{asdf} \bar{asdf}
 }
-

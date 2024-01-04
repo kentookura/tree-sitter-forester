@@ -5,7 +5,7 @@
     }
     [method2]{
       the implementation of another method
-      \self#method1
+      #{asdf}
     }
   }
 }

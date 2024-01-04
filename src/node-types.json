@@ -204,6 +204,10 @@
             "named": true
           },
           {
+            "type": "tag",
+            "named": true
+          },
+          {
             "type": "taxon",
             "named": true
           },
@@ -379,6 +383,10 @@
           },
           {
             "type": "strong",
+            "named": true
+          },
+          {
+            "type": "tag",
             "named": true
           },
           {
@@ -632,6 +640,10 @@
           "named": true
         },
         {
+          "type": "tag",
+          "named": true
+        },
+        {
           "type": "taxon",
           "named": true
         },
@@ -804,6 +816,10 @@
         },
         {
           "type": "strong",
+          "named": true
+        },
+        {
+          "type": "tag",
           "named": true
         },
         {
@@ -1025,6 +1041,10 @@
           "named": true
         },
         {
+          "type": "tag",
+          "named": true
+        },
+        {
           "type": "taxon",
           "named": true
         },
@@ -1197,6 +1217,10 @@
           },
           {
             "type": "strong",
+            "named": true
+          },
+          {
+            "type": "tag",
             "named": true
           },
           {
@@ -1373,6 +1397,10 @@
         },
         {
           "type": "strong",
+          "named": true
+        },
+        {
+          "type": "tag",
           "named": true
         },
         {
@@ -1578,6 +1606,10 @@
           },
           {
             "type": "strong",
+            "named": true
+          },
+          {
+            "type": "tag",
             "named": true
           },
           {
@@ -1810,6 +1842,10 @@
           "named": true
         },
         {
+          "type": "tag",
+          "named": true
+        },
+        {
           "type": "taxon",
           "named": true
         },
@@ -1997,6 +2033,10 @@
           },
           {
             "type": "strong",
+            "named": true
+          },
+          {
+            "type": "tag",
             "named": true
           },
           {
@@ -2188,6 +2228,10 @@
         },
         {
           "type": "strong",
+          "named": true
+        },
+        {
+          "type": "tag",
           "named": true
         },
         {
@@ -2470,6 +2514,10 @@
           "named": true
         },
         {
+          "type": "tag",
+          "named": true
+        },
+        {
           "type": "taxon",
           "named": true
         },
@@ -2713,6 +2761,10 @@
           "named": true
         },
         {
+          "type": "tag",
+          "named": true
+        },
+        {
           "type": "taxon",
           "named": true
         },
@@ -2900,6 +2952,10 @@
         },
         {
           "type": "strong",
+          "named": true
+        },
+        {
+          "type": "tag",
           "named": true
         },
         {
@@ -3182,6 +3238,10 @@
             "named": true
           },
           {
+            "type": "tag",
+            "named": true
+          },
+          {
             "type": "taxon",
             "named": true
           },
@@ -3456,6 +3516,10 @@
           "named": true
         },
         {
+          "type": "tag",
+          "named": true
+        },
+        {
           "type": "taxon",
           "named": true
         },
@@ -3646,6 +3710,10 @@
           },
           {
             "type": "strong",
+            "named": true
+          },
+          {
+            "type": "tag",
             "named": true
           },
           {
@@ -3848,6 +3916,10 @@
           "named": true
         },
         {
+          "type": "tag",
+          "named": true
+        },
+        {
           "type": "taxon",
           "named": true
         },
@@ -4020,6 +4092,10 @@
         },
         {
           "type": "strong",
+          "named": true
+        },
+        {
+          "type": "tag",
           "named": true
         },
         {
@@ -4213,6 +4289,10 @@
           "named": true
         },
         {
+          "type": "tag",
+          "named": true
+        },
+        {
           "type": "taxon",
           "named": true
         },
@@ -4388,6 +4468,10 @@
           "named": true
         },
         {
+          "type": "tag",
+          "named": true
+        },
+        {
           "type": "taxon",
           "named": true
         },
@@ -4559,6 +4643,10 @@
           "named": true
         },
         {
+          "type": "tag",
+          "named": true
+        },
+        {
           "type": "taxon",
           "named": true
         },
@@ -4588,6 +4676,21 @@
         },
         {
           "type": "unlabeled_link",
+          "named": true
+        }
+      ]
+    }
+  },
+  {
+    "type": "tag",
+    "named": true,
+    "fields": {},
+    "children": {
+      "multiple": true,
+      "required": false,
+      "types": [
+        {
+          "type": "text",
           "named": true
         }
       ]
@@ -4746,6 +4849,10 @@
         },
         {
           "type": "strong",
+          "named": true
+        },
+        {
+          "type": "tag",
           "named": true
         },
         {
@@ -4939,6 +5046,10 @@
           "named": true
         },
         {
+          "type": "tag",
+          "named": true
+        },
+        {
           "type": "taxon",
           "named": true
         },
@@ -5129,6 +5240,10 @@
           "named": true
         },
         {
+          "type": "tag",
+          "named": true
+        },
+        {
           "type": "taxon",
           "named": true
         },
@@ -5200,6 +5315,10 @@
   },
   {
     "type": "-",
+    "named": false
+  },
+  {
+    "type": "/",
     "named": false
   },
   {
@@ -5348,6 +5467,10 @@
   },
   {
     "type": "scope",
+    "named": false
+  },
+  {
+    "type": "tag",
     "named": false
   },
   {
