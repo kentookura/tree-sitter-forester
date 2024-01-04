@@ -36,17 +36,16 @@
   {
     "type": "author",
     "named": true,
-    "fields": {
-      "argument": {
-        "multiple": false,
-        "required": true,
-        "types": [
-          {
-            "type": "ws_ortext",
-            "named": true
-          }
-        ]
-      }
+    "fields": {},
+    "children": {
+      "multiple": true,
+      "required": false,
+      "types": [
+        {
+          "type": "text",
+          "named": true
+        }
+      ]
     }
   },
   {
@@ -476,24 +475,17 @@
   {
     "type": "call",
     "named": true,
-    "fields": {
-      "argument": {
-        "multiple": false,
-        "required": true,
-        "types": [
-          {
-            "type": "ws_ortext",
-            "named": true
-          }
-        ]
-      }
-    },
+    "fields": {},
     "children": {
-      "multiple": false,
+      "multiple": true,
       "required": true,
       "types": [
         {
           "type": "code_expr",
+          "named": true
+        },
+        {
+          "type": "text",
           "named": true
         }
       ]
@@ -848,18 +840,7 @@
   {
     "type": "date",
     "named": true,
-    "fields": {
-      "argument": {
-        "multiple": false,
-        "required": false,
-        "types": [
-          {
-            "type": "ws_ortext",
-            "named": true
-          }
-        ]
-      }
-    },
+    "fields": {},
     "children": {
       "multiple": true,
       "required": false,
@@ -870,6 +851,10 @@
         },
         {
           "type": "month",
+          "named": true
+        },
+        {
+          "type": "text",
           "named": true
         },
         {
@@ -1077,176 +1062,177 @@
   {
     "type": "display_math",
     "named": true,
-    "fields": {},
-    "children": {
-      "multiple": true,
-      "required": false,
-      "types": [
-        {
-          "type": "alloc",
-          "named": true
-        },
-        {
-          "type": "author",
-          "named": true
-        },
-        {
-          "type": "block",
-          "named": true
-        },
-        {
-          "type": "blockquote",
-          "named": true
-        },
-        {
-          "type": "call",
-          "named": true
-        },
-        {
-          "type": "code",
-          "named": true
-        },
-        {
-          "type": "comment",
-          "named": true
-        },
-        {
-          "type": "date",
-          "named": true
-        },
-        {
-          "type": "def",
-          "named": true
-        },
-        {
-          "type": "default",
-          "named": true
-        },
-        {
-          "type": "display_math",
-          "named": true
-        },
-        {
-          "type": "em",
-          "named": true
-        },
-        {
-          "type": "export",
-          "named": true
-        },
-        {
-          "type": "get",
-          "named": true
-        },
-        {
-          "type": "ident",
-          "named": true
-        },
-        {
-          "type": "if_tex",
-          "named": true
-        },
-        {
-          "type": "import",
-          "named": true
-        },
-        {
-          "type": "inline_math",
-          "named": true
-        },
-        {
-          "type": "let",
-          "named": true
-        },
-        {
-          "type": "li",
-          "named": true
-        },
-        {
-          "type": "markdown_link",
-          "named": true
-        },
-        {
-          "type": "meta",
-          "named": true
-        },
-        {
-          "type": "namespace",
-          "named": true
-        },
-        {
-          "type": "object",
-          "named": true
-        },
-        {
-          "type": "ol",
-          "named": true
-        },
-        {
-          "type": "open",
-          "named": true
-        },
-        {
-          "type": "p",
-          "named": true
-        },
-        {
-          "type": "patch",
-          "named": true
-        },
-        {
-          "type": "pre",
-          "named": true
-        },
-        {
-          "type": "put",
-          "named": true
-        },
-        {
-          "type": "query_tree",
-          "named": true
-        },
-        {
-          "type": "scope",
-          "named": true
-        },
-        {
-          "type": "strong",
-          "named": true
-        },
-        {
-          "type": "taxon",
-          "named": true
-        },
-        {
-          "type": "tex",
-          "named": true
-        },
-        {
-          "type": "tex_package",
-          "named": true
-        },
-        {
-          "type": "text",
-          "named": true
-        },
-        {
-          "type": "title",
-          "named": true
-        },
-        {
-          "type": "transclude",
-          "named": true
-        },
-        {
-          "type": "ul",
-          "named": true
-        },
-        {
-          "type": "unlabeled_link",
-          "named": true
-        }
-      ]
+    "fields": {
+      "math": {
+        "multiple": true,
+        "required": false,
+        "types": [
+          {
+            "type": "alloc",
+            "named": true
+          },
+          {
+            "type": "author",
+            "named": true
+          },
+          {
+            "type": "block",
+            "named": true
+          },
+          {
+            "type": "blockquote",
+            "named": true
+          },
+          {
+            "type": "call",
+            "named": true
+          },
+          {
+            "type": "code",
+            "named": true
+          },
+          {
+            "type": "comment",
+            "named": true
+          },
+          {
+            "type": "date",
+            "named": true
+          },
+          {
+            "type": "def",
+            "named": true
+          },
+          {
+            "type": "default",
+            "named": true
+          },
+          {
+            "type": "display_math",
+            "named": true
+          },
+          {
+            "type": "em",
+            "named": true
+          },
+          {
+            "type": "export",
+            "named": true
+          },
+          {
+            "type": "get",
+            "named": true
+          },
+          {
+            "type": "ident",
+            "named": true
+          },
+          {
+            "type": "if_tex",
+            "named": true
+          },
+          {
+            "type": "import",
+            "named": true
+          },
+          {
+            "type": "inline_math",
+            "named": true
+          },
+          {
+            "type": "let",
+            "named": true
+          },
+          {
+            "type": "li",
+            "named": true
+          },
+          {
+            "type": "markdown_link",
+            "named": true
+          },
+          {
+            "type": "meta",
+            "named": true
+          },
+          {
+            "type": "namespace",
+            "named": true
+          },
+          {
+            "type": "object",
+            "named": true
+          },
+          {
+            "type": "ol",
+            "named": true
+          },
+          {
+            "type": "open",
+            "named": true
+          },
+          {
+            "type": "p",
+            "named": true
+          },
+          {
+            "type": "patch",
+            "named": true
+          },
+          {
+            "type": "pre",
+            "named": true
+          },
+          {
+            "type": "put",
+            "named": true
+          },
+          {
+            "type": "query_tree",
+            "named": true
+          },
+          {
+            "type": "scope",
+            "named": true
+          },
+          {
+            "type": "strong",
+            "named": true
+          },
+          {
+            "type": "taxon",
+            "named": true
+          },
+          {
+            "type": "tex",
+            "named": true
+          },
+          {
+            "type": "tex_package",
+            "named": true
+          },
+          {
+            "type": "text",
+            "named": true
+          },
+          {
+            "type": "title",
+            "named": true
+          },
+          {
+            "type": "transclude",
+            "named": true
+          },
+          {
+            "type": "ul",
+            "named": true
+          },
+          {
+            "type": "unlabeled_link",
+            "named": true
+          }
+        ]
+      }
     }
   },
   {
@@ -1433,7 +1419,7 @@
       "required": true,
       "types": [
         {
-          "type": "ws_ortext",
+          "type": "addr",
           "named": true
         }
       ]
@@ -1867,7 +1853,7 @@
       "required": true,
       "types": [
         {
-          "type": "ws_ortext",
+          "type": "addr",
           "named": true
         }
       ]
@@ -1876,176 +1862,177 @@
   {
     "type": "inline_math",
     "named": true,
-    "fields": {},
-    "children": {
-      "multiple": true,
-      "required": false,
-      "types": [
-        {
-          "type": "alloc",
-          "named": true
-        },
-        {
-          "type": "author",
-          "named": true
-        },
-        {
-          "type": "block",
-          "named": true
-        },
-        {
-          "type": "blockquote",
-          "named": true
-        },
-        {
-          "type": "call",
-          "named": true
-        },
-        {
-          "type": "code",
-          "named": true
-        },
-        {
-          "type": "comment",
-          "named": true
-        },
-        {
-          "type": "date",
-          "named": true
-        },
-        {
-          "type": "def",
-          "named": true
-        },
-        {
-          "type": "default",
-          "named": true
-        },
-        {
-          "type": "display_math",
-          "named": true
-        },
-        {
-          "type": "em",
-          "named": true
-        },
-        {
-          "type": "export",
-          "named": true
-        },
-        {
-          "type": "get",
-          "named": true
-        },
-        {
-          "type": "ident",
-          "named": true
-        },
-        {
-          "type": "if_tex",
-          "named": true
-        },
-        {
-          "type": "import",
-          "named": true
-        },
-        {
-          "type": "inline_math",
-          "named": true
-        },
-        {
-          "type": "let",
-          "named": true
-        },
-        {
-          "type": "li",
-          "named": true
-        },
-        {
-          "type": "markdown_link",
-          "named": true
-        },
-        {
-          "type": "meta",
-          "named": true
-        },
-        {
-          "type": "namespace",
-          "named": true
-        },
-        {
-          "type": "object",
-          "named": true
-        },
-        {
-          "type": "ol",
-          "named": true
-        },
-        {
-          "type": "open",
-          "named": true
-        },
-        {
-          "type": "p",
-          "named": true
-        },
-        {
-          "type": "patch",
-          "named": true
-        },
-        {
-          "type": "pre",
-          "named": true
-        },
-        {
-          "type": "put",
-          "named": true
-        },
-        {
-          "type": "query_tree",
-          "named": true
-        },
-        {
-          "type": "scope",
-          "named": true
-        },
-        {
-          "type": "strong",
-          "named": true
-        },
-        {
-          "type": "taxon",
-          "named": true
-        },
-        {
-          "type": "tex",
-          "named": true
-        },
-        {
-          "type": "tex_package",
-          "named": true
-        },
-        {
-          "type": "text",
-          "named": true
-        },
-        {
-          "type": "title",
-          "named": true
-        },
-        {
-          "type": "transclude",
-          "named": true
-        },
-        {
-          "type": "ul",
-          "named": true
-        },
-        {
-          "type": "unlabeled_link",
-          "named": true
-        }
-      ]
+    "fields": {
+      "math": {
+        "multiple": true,
+        "required": false,
+        "types": [
+          {
+            "type": "alloc",
+            "named": true
+          },
+          {
+            "type": "author",
+            "named": true
+          },
+          {
+            "type": "block",
+            "named": true
+          },
+          {
+            "type": "blockquote",
+            "named": true
+          },
+          {
+            "type": "call",
+            "named": true
+          },
+          {
+            "type": "code",
+            "named": true
+          },
+          {
+            "type": "comment",
+            "named": true
+          },
+          {
+            "type": "date",
+            "named": true
+          },
+          {
+            "type": "def",
+            "named": true
+          },
+          {
+            "type": "default",
+            "named": true
+          },
+          {
+            "type": "display_math",
+            "named": true
+          },
+          {
+            "type": "em",
+            "named": true
+          },
+          {
+            "type": "export",
+            "named": true
+          },
+          {
+            "type": "get",
+            "named": true
+          },
+          {
+            "type": "ident",
+            "named": true
+          },
+          {
+            "type": "if_tex",
+            "named": true
+          },
+          {
+            "type": "import",
+            "named": true
+          },
+          {
+            "type": "inline_math",
+            "named": true
+          },
+          {
+            "type": "let",
+            "named": true
+          },
+          {
+            "type": "li",
+            "named": true
+          },
+          {
+            "type": "markdown_link",
+            "named": true
+          },
+          {
+            "type": "meta",
+            "named": true
+          },
+          {
+            "type": "namespace",
+            "named": true
+          },
+          {
+            "type": "object",
+            "named": true
+          },
+          {
+            "type": "ol",
+            "named": true
+          },
+          {
+            "type": "open",
+            "named": true
+          },
+          {
+            "type": "p",
+            "named": true
+          },
+          {
+            "type": "patch",
+            "named": true
+          },
+          {
+            "type": "pre",
+            "named": true
+          },
+          {
+            "type": "put",
+            "named": true
+          },
+          {
+            "type": "query_tree",
+            "named": true
+          },
+          {
+            "type": "scope",
+            "named": true
+          },
+          {
+            "type": "strong",
+            "named": true
+          },
+          {
+            "type": "taxon",
+            "named": true
+          },
+          {
+            "type": "tex",
+            "named": true
+          },
+          {
+            "type": "tex_package",
+            "named": true
+          },
+          {
+            "type": "text",
+            "named": true
+          },
+          {
+            "type": "title",
+            "named": true
+          },
+          {
+            "type": "transclude",
+            "named": true
+          },
+          {
+            "type": "ul",
+            "named": true
+          },
+          {
+            "type": "unlabeled_link",
+            "named": true
+          }
+        ]
+      }
     }
   },
   {
@@ -2243,11 +2230,11 @@
     "named": true,
     "fields": {
       "dest": {
-        "multiple": false,
-        "required": true,
+        "multiple": true,
+        "required": false,
         "types": [
           {
-            "type": "ws_ortext",
+            "type": "text",
             "named": true
           }
         ]
@@ -2259,11 +2246,11 @@
     "named": true,
     "fields": {
       "label": {
-        "multiple": false,
-        "required": true,
+        "multiple": true,
+        "required": false,
         "types": [
           {
-            "type": "ws_ortext",
+            "type": "text",
             "named": true
           }
         ]
@@ -2292,21 +2279,20 @@
   {
     "type": "meta",
     "named": true,
-    "fields": {
-      "argument": {
-        "multiple": false,
-        "required": true,
-        "types": [
-          {
-            "type": "ws_ortext",
-            "named": true
-          }
-        ]
-      }
+    "fields": {},
+    "children": {
+      "multiple": true,
+      "required": false,
+      "types": [
+        {
+          "type": "text",
+          "named": true
+        }
+      ]
     }
   },
   {
-    "type": "method_decl",
+    "type": "method",
     "named": true,
     "fields": {
       "key": {
@@ -2328,183 +2314,205 @@
         ]
       },
       "value": {
-        "multiple": true,
+        "multiple": false,
         "required": true,
         "types": [
           {
-            "type": "alloc",
+            "type": "method_body",
             "named": true
-          },
-          {
-            "type": "author",
-            "named": true
-          },
-          {
-            "type": "block",
-            "named": true
-          },
-          {
-            "type": "blockquote",
-            "named": true
-          },
-          {
-            "type": "call",
-            "named": true
-          },
-          {
-            "type": "code",
-            "named": true
-          },
-          {
-            "type": "comment",
-            "named": true
-          },
-          {
-            "type": "date",
-            "named": true
-          },
-          {
-            "type": "def",
-            "named": true
-          },
-          {
-            "type": "default",
-            "named": true
-          },
-          {
-            "type": "display_math",
-            "named": true
-          },
-          {
-            "type": "em",
-            "named": true
-          },
-          {
-            "type": "export",
-            "named": true
-          },
-          {
-            "type": "get",
-            "named": true
-          },
-          {
-            "type": "ident",
-            "named": true
-          },
-          {
-            "type": "if_tex",
-            "named": true
-          },
-          {
-            "type": "import",
-            "named": true
-          },
-          {
-            "type": "inline_math",
-            "named": true
-          },
-          {
-            "type": "let",
-            "named": true
-          },
-          {
-            "type": "li",
-            "named": true
-          },
-          {
-            "type": "markdown_link",
-            "named": true
-          },
-          {
-            "type": "meta",
-            "named": true
-          },
-          {
-            "type": "namespace",
-            "named": true
-          },
-          {
-            "type": "object",
-            "named": true
-          },
-          {
-            "type": "ol",
-            "named": true
-          },
-          {
-            "type": "open",
-            "named": true
-          },
-          {
-            "type": "p",
-            "named": true
-          },
-          {
-            "type": "patch",
-            "named": true
-          },
-          {
-            "type": "pre",
-            "named": true
-          },
-          {
-            "type": "put",
-            "named": true
-          },
-          {
-            "type": "query_tree",
-            "named": true
-          },
-          {
-            "type": "scope",
-            "named": true
-          },
-          {
-            "type": "strong",
-            "named": true
-          },
-          {
-            "type": "taxon",
-            "named": true
-          },
-          {
-            "type": "tex",
-            "named": true
-          },
-          {
-            "type": "tex_package",
-            "named": true
-          },
-          {
-            "type": "text",
-            "named": true
-          },
-          {
-            "type": "title",
-            "named": true
-          },
-          {
-            "type": "transclude",
-            "named": true
-          },
-          {
-            "type": "ul",
-            "named": true
-          },
-          {
-            "type": "unlabeled_link",
-            "named": true
-          },
-          {
-            "type": "{",
-            "named": false
-          },
-          {
-            "type": "}",
-            "named": false
           }
         ]
       }
+    }
+  },
+  {
+    "type": "method_body",
+    "named": true,
+    "fields": {},
+    "children": {
+      "multiple": true,
+      "required": false,
+      "types": [
+        {
+          "type": "alloc",
+          "named": true
+        },
+        {
+          "type": "author",
+          "named": true
+        },
+        {
+          "type": "block",
+          "named": true
+        },
+        {
+          "type": "blockquote",
+          "named": true
+        },
+        {
+          "type": "call",
+          "named": true
+        },
+        {
+          "type": "code",
+          "named": true
+        },
+        {
+          "type": "comment",
+          "named": true
+        },
+        {
+          "type": "date",
+          "named": true
+        },
+        {
+          "type": "def",
+          "named": true
+        },
+        {
+          "type": "default",
+          "named": true
+        },
+        {
+          "type": "display_math",
+          "named": true
+        },
+        {
+          "type": "em",
+          "named": true
+        },
+        {
+          "type": "export",
+          "named": true
+        },
+        {
+          "type": "get",
+          "named": true
+        },
+        {
+          "type": "ident",
+          "named": true
+        },
+        {
+          "type": "if_tex",
+          "named": true
+        },
+        {
+          "type": "import",
+          "named": true
+        },
+        {
+          "type": "inline_math",
+          "named": true
+        },
+        {
+          "type": "let",
+          "named": true
+        },
+        {
+          "type": "li",
+          "named": true
+        },
+        {
+          "type": "markdown_link",
+          "named": true
+        },
+        {
+          "type": "meta",
+          "named": true
+        },
+        {
+          "type": "namespace",
+          "named": true
+        },
+        {
+          "type": "object",
+          "named": true
+        },
+        {
+          "type": "ol",
+          "named": true
+        },
+        {
+          "type": "open",
+          "named": true
+        },
+        {
+          "type": "p",
+          "named": true
+        },
+        {
+          "type": "patch",
+          "named": true
+        },
+        {
+          "type": "pre",
+          "named": true
+        },
+        {
+          "type": "put",
+          "named": true
+        },
+        {
+          "type": "query_tree",
+          "named": true
+        },
+        {
+          "type": "scope",
+          "named": true
+        },
+        {
+          "type": "strong",
+          "named": true
+        },
+        {
+          "type": "taxon",
+          "named": true
+        },
+        {
+          "type": "tex",
+          "named": true
+        },
+        {
+          "type": "tex_package",
+          "named": true
+        },
+        {
+          "type": "text",
+          "named": true
+        },
+        {
+          "type": "title",
+          "named": true
+        },
+        {
+          "type": "transclude",
+          "named": true
+        },
+        {
+          "type": "ul",
+          "named": true
+        },
+        {
+          "type": "unlabeled_link",
+          "named": true
+        }
+      ]
+    }
+  },
+  {
+    "type": "method_decl",
+    "named": true,
+    "fields": {},
+    "children": {
+      "multiple": false,
+      "required": true,
+      "types": [
+        {
+          "type": "method",
+          "named": true
+        }
+      ]
     }
   },
   {
@@ -2530,26 +2538,34 @@
     "type": "object",
     "named": true,
     "fields": {
-      "methods": {
-        "multiple": true,
-        "required": false,
-        "types": [
-          {
-            "type": "method_decl",
-            "named": true
-          }
-        ]
-      },
       "self": {
-        "multiple": false,
+        "multiple": true,
         "required": true,
         "types": [
+          {
+            "type": "[",
+            "named": false
+          },
+          {
+            "type": "]",
+            "named": false
+          },
           {
             "type": "text",
             "named": true
           }
         ]
       }
+    },
+    "children": {
+      "multiple": true,
+      "required": false,
+      "types": [
+        {
+          "type": "method_decl",
+          "named": true
+        }
+      ]
     }
   },
   {
@@ -2921,16 +2937,6 @@
     "type": "patch",
     "named": true,
     "fields": {
-      "methods": {
-        "multiple": true,
-        "required": true,
-        "types": [
-          {
-            "type": "method_decl",
-            "named": true
-          }
-        ]
-      },
       "object": {
         "multiple": true,
         "required": true,
@@ -2967,6 +2973,16 @@
           }
         ]
       }
+    },
+    "children": {
+      "multiple": true,
+      "required": false,
+      "types": [
+        {
+          "type": "method_decl",
+          "named": true
+        }
+      ]
     }
   },
   {
@@ -3474,22 +3490,12 @@
     "type": "query_meta",
     "named": true,
     "fields": {
-      "argument": {
-        "multiple": false,
-        "required": true,
-        "types": [
-          {
-            "type": "ws_ortext",
-            "named": true
-          }
-        ]
-      },
       "k": {
         "multiple": true,
         "required": true,
         "types": [
           {
-            "type": "ws_ortext",
+            "type": "text",
             "named": true
           },
           {
@@ -4586,17 +4592,16 @@
   {
     "type": "taxon",
     "named": true,
-    "fields": {
-      "argument": {
-        "multiple": false,
-        "required": true,
-        "types": [
-          {
-            "type": "ws_ortext",
-            "named": true
-          }
-        ]
-      }
+    "fields": {},
+    "children": {
+      "multiple": true,
+      "required": false,
+      "types": [
+        {
+          "type": "text",
+          "named": true
+        }
+      ]
     }
   },
   {
@@ -4777,201 +4782,191 @@
   {
     "type": "tex_package",
     "named": true,
-    "fields": {
-      "argument": {
-        "multiple": false,
-        "required": true,
-        "types": [
-          {
-            "type": "ws_ortext",
-            "named": true
-          }
-        ]
-      }
+    "fields": {},
+    "children": {
+      "multiple": true,
+      "required": false,
+      "types": [
+        {
+          "type": "text",
+          "named": true
+        }
+      ]
     }
   },
   {
     "type": "title",
     "named": true,
-    "fields": {
-      "title": {
-        "multiple": true,
-        "required": true,
-        "types": [
-          {
-            "type": "alloc",
-            "named": true
-          },
-          {
-            "type": "author",
-            "named": true
-          },
-          {
-            "type": "block",
-            "named": true
-          },
-          {
-            "type": "blockquote",
-            "named": true
-          },
-          {
-            "type": "call",
-            "named": true
-          },
-          {
-            "type": "code",
-            "named": true
-          },
-          {
-            "type": "comment",
-            "named": true
-          },
-          {
-            "type": "date",
-            "named": true
-          },
-          {
-            "type": "def",
-            "named": true
-          },
-          {
-            "type": "default",
-            "named": true
-          },
-          {
-            "type": "display_math",
-            "named": true
-          },
-          {
-            "type": "em",
-            "named": true
-          },
-          {
-            "type": "export",
-            "named": true
-          },
-          {
-            "type": "get",
-            "named": true
-          },
-          {
-            "type": "ident",
-            "named": true
-          },
-          {
-            "type": "if_tex",
-            "named": true
-          },
-          {
-            "type": "import",
-            "named": true
-          },
-          {
-            "type": "inline_math",
-            "named": true
-          },
-          {
-            "type": "let",
-            "named": true
-          },
-          {
-            "type": "li",
-            "named": true
-          },
-          {
-            "type": "markdown_link",
-            "named": true
-          },
-          {
-            "type": "meta",
-            "named": true
-          },
-          {
-            "type": "namespace",
-            "named": true
-          },
-          {
-            "type": "object",
-            "named": true
-          },
-          {
-            "type": "ol",
-            "named": true
-          },
-          {
-            "type": "open",
-            "named": true
-          },
-          {
-            "type": "p",
-            "named": true
-          },
-          {
-            "type": "patch",
-            "named": true
-          },
-          {
-            "type": "pre",
-            "named": true
-          },
-          {
-            "type": "put",
-            "named": true
-          },
-          {
-            "type": "query_tree",
-            "named": true
-          },
-          {
-            "type": "scope",
-            "named": true
-          },
-          {
-            "type": "strong",
-            "named": true
-          },
-          {
-            "type": "taxon",
-            "named": true
-          },
-          {
-            "type": "tex",
-            "named": true
-          },
-          {
-            "type": "tex_package",
-            "named": true
-          },
-          {
-            "type": "text",
-            "named": true
-          },
-          {
-            "type": "title",
-            "named": true
-          },
-          {
-            "type": "transclude",
-            "named": true
-          },
-          {
-            "type": "ul",
-            "named": true
-          },
-          {
-            "type": "unlabeled_link",
-            "named": true
-          },
-          {
-            "type": "{",
-            "named": false
-          },
-          {
-            "type": "}",
-            "named": false
-          }
-        ]
-      }
+    "fields": {},
+    "children": {
+      "multiple": true,
+      "required": false,
+      "types": [
+        {
+          "type": "alloc",
+          "named": true
+        },
+        {
+          "type": "author",
+          "named": true
+        },
+        {
+          "type": "block",
+          "named": true
+        },
+        {
+          "type": "blockquote",
+          "named": true
+        },
+        {
+          "type": "call",
+          "named": true
+        },
+        {
+          "type": "code",
+          "named": true
+        },
+        {
+          "type": "comment",
+          "named": true
+        },
+        {
+          "type": "date",
+          "named": true
+        },
+        {
+          "type": "def",
+          "named": true
+        },
+        {
+          "type": "default",
+          "named": true
+        },
+        {
+          "type": "display_math",
+          "named": true
+        },
+        {
+          "type": "em",
+          "named": true
+        },
+        {
+          "type": "export",
+          "named": true
+        },
+        {
+          "type": "get",
+          "named": true
+        },
+        {
+          "type": "ident",
+          "named": true
+        },
+        {
+          "type": "if_tex",
+          "named": true
+        },
+        {
+          "type": "import",
+          "named": true
+        },
+        {
+          "type": "inline_math",
+          "named": true
+        },
+        {
+          "type": "let",
+          "named": true
+        },
+        {
+          "type": "li",
+          "named": true
+        },
+        {
+          "type": "markdown_link",
+          "named": true
+        },
+        {
+          "type": "meta",
+          "named": true
+        },
+        {
+          "type": "namespace",
+          "named": true
+        },
+        {
+          "type": "object",
+          "named": true
+        },
+        {
+          "type": "ol",
+          "named": true
+        },
+        {
+          "type": "open",
+          "named": true
+        },
+        {
+          "type": "p",
+          "named": true
+        },
+        {
+          "type": "patch",
+          "named": true
+        },
+        {
+          "type": "pre",
+          "named": true
+        },
+        {
+          "type": "put",
+          "named": true
+        },
+        {
+          "type": "query_tree",
+          "named": true
+        },
+        {
+          "type": "scope",
+          "named": true
+        },
+        {
+          "type": "strong",
+          "named": true
+        },
+        {
+          "type": "taxon",
+          "named": true
+        },
+        {
+          "type": "tex",
+          "named": true
+        },
+        {
+          "type": "tex_package",
+          "named": true
+        },
+        {
+          "type": "text",
+          "named": true
+        },
+        {
+          "type": "title",
+          "named": true
+        },
+        {
+          "type": "transclude",
+          "named": true
+        },
+        {
+          "type": "ul",
+          "named": true
+        },
+        {
+          "type": "unlabeled_link",
+          "named": true
+        }
+      ]
     }
   },
   {
@@ -5178,21 +5173,6 @@
         },
         {
           "type": "external_link",
-          "named": true
-        }
-      ]
-    }
-  },
-  {
-    "type": "ws_ortext",
-    "named": true,
-    "fields": {},
-    "children": {
-      "multiple": false,
-      "required": false,
-      "types": [
-        {
-          "type": "text",
           "named": true
         }
       ]

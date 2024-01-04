@@ -9,11 +9,15 @@
     flake-utils.lib.eachDefaultSystem (system:
       let
         overlays = [ (import rust-overlay) ];
-        pkgs = import nixpkgs { inherit system overlays; };
+        pkgs = import nixpkgs {
+          inherit system overlays;
+          config.allowUnfree = true;
+        };
       in {
         devShells.default = pkgs.mkShell {
           buildInputs = with pkgs; [
             forester.packages.${system}.default
+            watchexec
             asciinema
             asciinema-agg
             nodePackages.livedown
@@ -22,6 +26,7 @@
             gcc
             tree-sitter
             graphviz
+            vscode
             (rust-bin.stable.latest.default.override {
               extensions = [ "rust-src" "rust-analyzer-preview" "rustfmt" ];
             })

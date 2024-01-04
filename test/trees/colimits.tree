@@ -6,7 +6,7 @@
 \texpackage{preamble}
 
 \import{base-macros}
-\import{jms-001E}
+\transclude{jms-001E}
 \def\ICat{\mathcal{I}}
 
 

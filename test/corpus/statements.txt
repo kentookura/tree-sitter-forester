@@ -1,39 +1,71 @@
 ================================================================================
-Link
+Author
 ================================================================================
 
-\p{[asdf](foo-0001)}
-
-\p{[[foo-0001]]}
+\author{Kento Okura}
 
 --------------------------------------------------------------------------------
 
 (source_file
-  (p
-    (markdown_link
-      (link_label
-        (ws_ortext
-          (text)))
-      (link_dest
-        (ws_ortext
-          (text)))))
-  (p
-    (unlabeled_link
-      (external_link
-        (text)))))
+  (author
+    (text)
+    (text)))
+
+================================================================================
+Import
+================================================================================
+
+\import{asd-053X}
+
+--------------------------------------------------------------------------------
+
+(source_file
+  (import
+    (addr
+      (prefix)
+      (id))))
+
+================================================================================
+Export
+================================================================================
+
+\export{asd-053X}
+
+--------------------------------------------------------------------------------
+
+(source_file
+  (export
+    (addr
+      (prefix)
+      (id))))
+
+================================================================================
+Iftex
+================================================================================
+
+\iftex{foo}{bar}
+
+--------------------------------------------------------------------------------
+
+(source_file
+  (if_tex
+    (text)
+    (text)))
 
 ================================================================================
 Date
 ================================================================================
 
 \date{2023-02-08T12:03:12Z}
+\date{2023-02-08}
 
 --------------------------------------------------------------------------------
 
 (source_file
   (date
-    (ws_ortext
-      (text))))
+    (text))
+  (date
+    (text)))
 
 ================================================================================
 Title
@@ -123,7 +155,7 @@ Function Definition
           (id))))))
 
 ================================================================================
-Links Prim
+Prim
 ================================================================================
 
 \p{
@@ -141,11 +173,9 @@ Links Prim
   (p
     (markdown_link
       (link_label
-        (ws_ortext
-          (text)))
+        (text))
       (link_dest
-        (ws_ortext
-          (text))))
+        (text)))
     (ul
       (li
         (unlabeled_link
@@ -153,11 +183,9 @@ Links Prim
             (text)))))
     (markdown_link
       (link_label
-        (ws_ortext
-          (text)))
+        (text))
       (link_dest
-        (ws_ortext
-          (text))))))
+        (text)))))
 
 ================================================================================
 Scope
@@ -232,16 +260,25 @@ Objects
       (object
         (text)
         (method_decl
-          (text)
-          (ERROR)
-          (text)
-          (text)
-          (text)
-          (text)
-          (text)
-          (ident)
-          (text)))
-      (MISSING "}"))))
+          (method
+            (text)
+            (method_body
+              (text)
+              (text)
+              (text)
+              (text)
+              (text))))
+        (method_decl
+          (method
+            (text)
+            (method_body
+              (text)
+              (text)
+              (text)
+              (text)
+              (text)
+              (ident)
+              (text))))))))
 
 ================================================================================
 Patch
@@ -257,12 +294,19 @@ Patch
 --------------------------------------------------------------------------------
 
 (source_file
-  (ERROR
+  (patch
     (code_expr
       (ident))
     (text)
-    (ERROR)
-    (text)))
+    (method_decl
+      (method
+        (text)
+        (method_body
+          (ident)
+          (text)
+          (text)
+          (text)
+          (text))))))
 
 ================================================================================
 Full
@@ -279,6 +323,24 @@ Full
   [asdf](foo-0001) [[foo-0001]]
   \code{asdlfkjasfd}
 }
+
+\block{
+  [asdf](foo-0001) [[foo-0001]]
+  \code{asdlfkjasfd}
+  }
+
+\def\my-object{
+  \object[self]{
+    [method1]{
+      the implementation of this method
+    }
+    [method2]{
+      the implementation of another method
+      \self#method1
+    }
+  }
+}
+
 
 \scope{
   \put\transclude/titly{featured talks}
@@ -307,16 +369,48 @@ Full
         (text)))
     (markdown_link
       (link_label
-        (ws_ortext
-          (text)))
+        (text))
       (link_dest
-        (ws_ortext
-          (text))))
+        (text)))
     (unlabeled_link
       (external_link
         (text)))
     (code
       (text)))
+  (block
+    (markdown_link
+      (link_label
+        (text))
+      (link_dest
+        (text)))
+    (unlabeled_link
+      (external_link
+        (text)))
+    (code
+      (text))
+    (ERROR)
+    (object
+      (text)
+      (method_decl
+        (method
+          (text)
+          (method_body
+            (text)
+            (text)
+            (text)
+            (text)
+            (text))))
+      (method_decl
+        (method
+          (text)
+          (method_body
+            (text)
+            (text)
+            (text)
+            (text)
+            (text)
+            (ident)
+            (text))))))
   (scope
     (put
       (ident)
