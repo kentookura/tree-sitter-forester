@@ -55,7 +55,7 @@ enum {
   anon_sym_POUND_POUND = 36,
   anon_sym_p = 37,
   anon_sym_em = 38,
-  aux_sym_strong_token1 = 39,
+  anon_sym_strong = 39,
   anon_sym_li = 40,
   anon_sym_ul = 41,
   anon_sym_ol = 42,
@@ -203,7 +203,7 @@ static const char * const ts_symbol_names[] = {
   [anon_sym_POUND_POUND] = "##",
   [anon_sym_p] = "p",
   [anon_sym_em] = "em",
-  [aux_sym_strong_token1] = "strong_token1",
+  [anon_sym_strong] = "strong",
   [anon_sym_li] = "li",
   [anon_sym_ul] = "ul",
   [anon_sym_ol] = "ol",
@@ -351,7 +351,7 @@ static const TSSymbol ts_symbol_map[] = {
   [anon_sym_POUND_POUND] = anon_sym_POUND_POUND,
   [anon_sym_p] = anon_sym_p,
   [anon_sym_em] = anon_sym_em,
-  [aux_sym_strong_token1] = aux_sym_strong_token1,
+  [anon_sym_strong] = anon_sym_strong,
   [anon_sym_li] = anon_sym_li,
   [anon_sym_ul] = anon_sym_ul,
   [anon_sym_ol] = anon_sym_ol,
@@ -616,8 +616,8 @@ static const TSSymbolMetadata ts_symbol_metadata[] = {
     .visible = true,
     .named = false,
   },
-  [aux_sym_strong_token1] = {
-    .visible = false,
+  [anon_sym_strong] = {
+    .visible = true,
     .named = false,
   },
   [anon_sym_li] = {
@@ -2389,7 +2389,7 @@ static bool ts_lex(TSLexer *lexer, TSStateId state) {
       ACCEPT_TOKEN(anon_sym_em);
       END_STATE();
     case 162:
-      ACCEPT_TOKEN(aux_sym_strong_token1);
+      ACCEPT_TOKEN(anon_sym_strong);
       END_STATE();
     case 163:
       ACCEPT_TOKEN(anon_sym_li);
@@ -3093,7 +3093,7 @@ static const uint16_t ts_parse_table[LARGE_STATE_COUNT][SYMBOL_COUNT] = {
     [anon_sym_POUND_POUND] = ACTIONS(1),
     [anon_sym_p] = ACTIONS(1),
     [anon_sym_em] = ACTIONS(1),
-    [aux_sym_strong_token1] = ACTIONS(1),
+    [anon_sym_strong] = ACTIONS(1),
     [anon_sym_li] = ACTIONS(1),
     [anon_sym_ul] = ACTIONS(1),
     [anon_sym_ol] = ACTIONS(1),
@@ -5290,7 +5290,7 @@ static const uint16_t ts_small_parse_table[] = {
     ACTIONS(217), 1,
       anon_sym_em,
     ACTIONS(219), 1,
-      aux_sym_strong_token1,
+      anon_sym_strong,
     ACTIONS(221), 1,
       anon_sym_li,
     ACTIONS(223), 1,
@@ -5365,7 +5365,7 @@ static const uint16_t ts_small_parse_table[] = {
     ACTIONS(285), 1,
       anon_sym_em,
     ACTIONS(287), 1,
-      aux_sym_strong_token1,
+      anon_sym_strong,
     ACTIONS(289), 1,
       anon_sym_li,
     ACTIONS(291), 1,
@@ -5440,7 +5440,7 @@ static const uint16_t ts_small_parse_table[] = {
     ACTIONS(353), 1,
       anon_sym_em,
     ACTIONS(355), 1,
-      aux_sym_strong_token1,
+      anon_sym_strong,
     ACTIONS(357), 1,
       anon_sym_li,
     ACTIONS(359), 1,
@@ -6742,7 +6742,7 @@ static const uint16_t ts_small_parse_table[] = {
     ACTIONS(353), 1,
       anon_sym_em,
     ACTIONS(355), 1,
-      aux_sym_strong_token1,
+      anon_sym_strong,
     ACTIONS(357), 1,
       anon_sym_li,
     ACTIONS(359), 1,
@@ -6785,7 +6785,7 @@ static const uint16_t ts_small_parse_table[] = {
     ACTIONS(285), 1,
       anon_sym_em,
     ACTIONS(287), 1,
-      aux_sym_strong_token1,
+      anon_sym_strong,
     ACTIONS(289), 1,
       anon_sym_li,
     ACTIONS(291), 1,
@@ -6924,7 +6924,7 @@ static const uint16_t ts_small_parse_table[] = {
     ACTIONS(217), 1,
       anon_sym_em,
     ACTIONS(219), 1,
-      aux_sym_strong_token1,
+      anon_sym_strong,
     ACTIONS(221), 1,
       anon_sym_li,
     ACTIONS(223), 1,

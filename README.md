@@ -6,11 +6,11 @@ I am working on highlighting in the repository for the [neovim plugin](https://g
 
 ## References
 
-[Menhir Grammar](https://git.sr.ht/~jonsterling/ocaml-forester/tree/main/item/lib/frontend/Grammar.mly)
+- [Menhir Grammar](https://git.sr.ht/~jonsterling/ocaml-forester/tree/main/item/lib/frontend/Grammar.mly)
 
-[Lexer](https://git.sr.ht/~jonsterling/ocaml-forester/tree/main/item/lib/frontend/Lexer.mll)
+- [Lexer](https://git.sr.ht/~jonsterling/ocaml-forester/tree/main/item/lib/frontend/Lexer.mll)
 
-[objects](https://www.jonmsterling.com/jms-00EY.xml)
+- [objects](https://www.jonmsterling.com/jms-00EY.xml)
 
 ## Supported Syntax
 
@@ -29,9 +29,3 @@ tree-sitter generate
 ```sh
 tree-sitter test
 ```
-
-## TODO
-
-Improve resulting syntax try by using fields.
-
-Objects are broken.

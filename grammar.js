@@ -154,7 +154,7 @@ module.exports = grammar({
 
     p: ($) => command("p", $._arg),
     em: ($) => command("em", $._arg),
-    strong: ($) => command(/strong/, $._arg),
+    strong: ($) => command("strong", $._arg),
     li: ($) => command("li", $._arg),
     ul: ($) => command("ul", $._arg),
     ol: ($) => command("ol", $._arg),

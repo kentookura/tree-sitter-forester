@@ -1067,7 +1067,7 @@
           "value": "\\"
         },
         {
-          "type": "PATTERN",
+          "type": "STRING",
           "value": "strong"
         },
         {

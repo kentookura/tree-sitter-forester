@@ -5659,6 +5659,10 @@
     "named": false
   },
   {
+    "type": "strong",
+    "named": false
+  },
+  {
     "type": "tag",
     "named": false
   },
