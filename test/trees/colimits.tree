@@ -3,7 +3,7 @@
 \taxon{lemma}
 \author{jonmsterling}
 \import{base-macros}
-\texpackage{preamble}
+\tex{preamble}
 
 \import{base-macros}
 \transclude{jms-001E}
