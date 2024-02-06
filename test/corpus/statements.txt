@@ -7,9 +7,46 @@ Text
 --------------------------------------------------------------------------------
 
 (source_file
-  (p
-    (arg
-      (text))))
+  (paragraph
+    (text)))
+
+================================================================================
+Block
+================================================================================
+
+\block{asdf}{asdf}
+
+--------------------------------------------------------------------------------
+
+(source_file
+  (block
+    (text)
+    (text)))
+
+================================================================================
+Method call
+================================================================================
+
+\asdf#foo
+
+--------------------------------------------------------------------------------
+
+(source_file
+  (ident_with_method_calls
+    (text)
+    (text)))
+
+================================================================================
+Contributor
+================================================================================
+
+\contributor{me}
+
+--------------------------------------------------------------------------------
+
+(source_file
+  (contributor
+    contributor: (text)))
 
 ================================================================================
 Meta
@@ -22,8 +59,7 @@ Meta
 (source_file
   (meta
     (text)
-    (arg
-      (text))))
+    (text)))
 
 ================================================================================
 Tags
@@ -36,9 +72,9 @@ Tags
 
 (source_file
   (tag
-    (text))
+    tag: (text))
   (tag
-    (text)))
+    tag: (text)))
 
 ================================================================================
 Author
@@ -50,7 +86,7 @@ Author
 
 (source_file
   (author
-    (text)))
+    author: (text)))
 
 ================================================================================
 Import
@@ -63,8 +99,8 @@ Import
 (source_file
   (import
     (addr
-      (prefix)
-      (id))))
+      prefix: (prefix)
+      id: (id))))
 
 ================================================================================
 Export
@@ -90,10 +126,8 @@ Iftex
 
 (source_file
   (if_tex
-    (arg
-      (text))
-    (arg
-      (text))))
+    (text)
+    (text)))
 
 ================================================================================
 Date
@@ -106,9 +140,9 @@ Date
 
 (source_file
   (date
-    (text))
+    date: (text))
   (date
-    (text)))
+    date: (text)))
 
 ================================================================================
 Title
@@ -120,8 +154,7 @@ Title
 
 (source_file
   (title
-    (arg
-      (text))))
+    (text)))
 
 ================================================================================
 Transclusion
@@ -133,9 +166,9 @@ Transclusion
 
 (source_file
   (transclude
-    (addr
-      (prefix)
-      (id))))
+    address: (addr
+      prefix: (prefix)
+      id: (id))))
 
 ================================================================================
 Ident
@@ -146,12 +179,10 @@ Ident
 --------------------------------------------------------------------------------
 
 (source_file
-  (p
-    (arg
-      (ident
-        (text)
-        (arg
-          (text))))))
+  (paragraph
+    (ident
+      (text)
+      (text))))
 
 ================================================================================
 Inline Math
@@ -164,12 +195,10 @@ Inline Math
 --------------------------------------------------------------------------------
 
 (source_file
-  (p
-    (arg
-      (text)
-      (inline_math
-        (arg
-          (text))))))
+  (paragraph
+    (text)
+    (inline_math
+      (text))))
 
 ================================================================================
 Display Math
@@ -182,12 +211,10 @@ Display Math
 --------------------------------------------------------------------------------
 
 (source_file
-  (p
-    (arg
-      (text)
-      (display_math
-        (arg
-          (text))))))
+  (paragraph
+    (text)
+    (display_math
+      (text))))
 
 ================================================================================
 Math Text
@@ -206,33 +233,25 @@ Math Text
 --------------------------------------------------------------------------------
 
 (source_file
-  (p
-    (arg
-      (text)
-      (display_math
-        (arg
-          (text)))))
-  (p
-    (arg
-      (text)
-      (display_math
-        (arg
-          (text)))
-      (text)
-      (inline_math
-        (arg
-          (text)))))
-  (p
-    (arg
-      (text)
-      (display_math
-        (arg
-          (text)))
-      (text)
-      (inline_math
-        (arg
-          (text)))
-      (text))))
+  (paragraph
+    (text)
+    (display_math
+      (text)))
+  (paragraph
+    (text)
+    (display_math
+      (text))
+    (text)
+    (inline_math
+      (text)))
+  (paragraph
+    (text)
+    (display_math
+      (text))
+    (text)
+    (inline_math
+      (text))
+    (text)))
 
 ================================================================================
 Math Commands
@@ -247,47 +266,42 @@ Math Commands
 --------------------------------------------------------------------------------
 
 (source_file
-  (p
-    (arg
+  (paragraph
+    (text)
+    (display_math
+      (ident
+        (text))
+      (ident
+        (text)
+        (text))
       (text)
-      (display_math
-        (arg
-          (ident
-            (text))
-          (ident
-            (text)
-            (arg
-              (text)))
-          (text)
-          (ident
-            (text)
-            (arg
-              (text)
-              (ident
-                (text))))
-          (text)
-          (ident
-            (text))
-          (text)
-          (ident
-            (text))
-          (ident
-            (text))
-          (ident
-            (text))
-          (ident
-            (text)
-            (arg
-              (text)
-              (ident
-                (text))
-              (ident
-                (text))))
-          (text)
-          (ident
-            (text))
-          (ident
-            (text)))))))
+      (ident
+        (text)
+        (text)
+        (ident
+          (text)))
+      (text)
+      (ident
+        (text))
+      (text)
+      (ident
+        (text))
+      (ident
+        (text))
+      (ident
+        (text))
+      (ident
+        (text)
+        (text)
+        (ident
+          (text))
+        (ident
+          (text)))
+      (text)
+      (ident
+        (text))
+      (ident
+        (text)))))
 
 ================================================================================
 Comment
@@ -316,23 +330,20 @@ Function Definition
     (fun_spec
       (ident
         (text))
-      (binder
-        (text)
-        (text)
-        (text))
-      (arg
-        (p
-          (arg
-            (ident
-              (text))
-            (ident
-              (text))
-            (ident
-              (text))))
-        (transclude
-          (addr
-            (prefix)
-            (id)))))))
+      (text)
+      (text)
+      (text)
+      (paragraph
+        (ident
+          (text))
+        (ident
+          (text))
+        (ident
+          (text)))
+      (transclude
+        (addr
+          (prefix)
+          (id))))))
 
 ================================================================================
 Prim
@@ -350,29 +361,24 @@ Prim
 --------------------------------------------------------------------------------
 
 (source_file
-  (p
-    (arg
+  (paragraph
+    (text)
+    (markdown_link
       (text)
-      (markdown_link
-        (link_label)
-        (link_dest
-          (text)))
+      (text))
+    (text)
+    (ul
       (text)
-      (ul
-        (arg
-          (text)
-          (li
-            (arg
-              (unlabeled_link
-                (external_link
-                  (text)))))
-          (text)))
+      (li
+        (unlabeled_link
+          (external_link
+            (text))))
+      (text))
+    (text)
+    (markdown_link
       (text)
-      (markdown_link
-        (link_label)
-        (link_dest
-          (text)))
-      (text))))
+      (text))
+    (text)))
 
 ================================================================================
 Scope
@@ -387,13 +393,11 @@ Scope
 
 (source_file
   (scope
-    (arg
-      (text)
-      (put
-        (ident
-          (text))
-        (arg
-          (text))))))
+    (text)
+    (put
+      (ident
+        (text))
+      (text))))
 
 ================================================================================
 Query
@@ -411,22 +415,14 @@ Query
 
 (source_file
   (query_tree
-    (query
-      (query0
-        (query_and
-          (queries
-            (query0
-              (query_author
-                (arg
-                  (text))))
-            (query0
-              (query_taxon
-                (arg
-                  (text))))
-            (query0
-              (query_tag
-                (arg
-                  (text))))))))))
+    (query_and
+      (queries
+        (query_author
+          (text))
+        (query_taxon
+          (text))
+        (query_tag
+          (text))))))
 
 ================================================================================
 Objects
@@ -451,28 +447,23 @@ Objects
     (fun_spec
       (ident
         (text))
-      (arg
+      (text)
+      (object
         (text)
-        (object
+        (method_decl
           (text)
-          (method_decl
-            (method
+          (method_body
+            (text)
+            (text)))
+        (method_decl
+          (text)
+          (method_body
+            (text)
+            (text)
+            (ident_with_method_calls
               (text)
-              (method_body
-                (arg
-                  (text)
-                  (text)))))
-          (method_decl
-            (method
-              (text)
-              (method_body
-                (arg
-                  (text)
-                  (text)
-                  (ident
-                    (text))
-                  (ERROR)
-                  (text))))))))))
+              (text))
+            (text)))))))
 
 ================================================================================
 Patch
@@ -489,20 +480,18 @@ Patch
 
 (source_file
   (patch
-    (arg
-      (ident
-        (text)))
+    (ident
+      (text))
     (text)
     (method_decl
-      (method
+      (text)
+      (method_body
         (text)
-        (method_body
-          (arg
-            (text)
-            (ident
-              (text))
-            (ERROR)
-            (text)))))))
+        (ident_with_method_calls
+          (text)
+          (text))
+        (text)
+        (text)))))
 
 ================================================================================
 Full
@@ -523,7 +512,7 @@ Full
 \block{
   [asdf](foo-0001) [[foo-0001]]
   \code{asdlfkjasfd}
-  }
+  }{foo}
 
 \def\my-object{
   \object[self]{
@@ -566,168 +555,130 @@ Full
 
 (source_file
   (title
-    (arg
-      (text)))
-  (p
-    (arg
-      (text)))
+    (text))
+  (paragraph
+    (text))
   (transclude
     (addr
       (prefix)
       (id)))
-  (p
-    (arg
+  (paragraph
+    (text)
+    (ul
       (text)
-      (ul
-        (arg
-          (text)
-          (li
-            (arg
-              (text)))
-          (text)
-          (li
-            (arg
-              (text)))
-          (text)))
+      (li
+        (text))
       (text)
-      (markdown_link
-        (link_label)
-        (link_dest
-          (text)))
+      (li
+        (text))
+      (text))
+    (text)
+    (markdown_link
       (text)
-      (unlabeled_link
-        (external_link
-          (text)))
-      (text)
-      (code
-        (arg
-          (text)))))
-  (ERROR
-    (arg
-      (text)
-      (markdown_link
-        (link_label)
-        (link_dest
-          (text)))
-      (text)
-      (unlabeled_link
-        (external_link
-          (text)))
-      (text)
-      (code
-        (arg
-          (text)))
+      (text))
+    (text)
+    (unlabeled_link
+      (external_link
+        (text)))
+    (text)
+    (code
       (text)))
+  (block
+    (text)
+    (markdown_link
+      (text)
+      (text))
+    (text)
+    (unlabeled_link
+      (external_link
+        (text)))
+    (text)
+    (code
+      (text))
+    (text)
+    (text))
   (def
     (fun_spec
       (ident
         (text))
-      (arg
+      (text)
+      (object
         (text)
-        (object
+        (method_decl
           (text)
-          (method_decl
-            (method
+          (method_body
+            (text)
+            (text)))
+        (method_decl
+          (text)
+          (method_body
+            (text)
+            (text)
+            (ident_with_method_calls
               (text)
-              (method_body
-                (arg
-                  (text)
-                  (text)))))
-          (method_decl
-            (method
-              (text)
-              (method_body
-                (arg
-                  (text)
-                  (text)
-                  (ident
-                    (text))
-                  (ERROR)
-                  (text)))))))))
+              (text))
+            (text))))))
   (patch
-    (arg
-      (ident
-        (text)))
+    (ident
+      (text))
     (text)
     (method_decl
-      (method
+      (text)
+      (method_body
         (text)
-        (method_body
-          (arg
-            (text)
-            (ident
-              (text))
-            (ERROR)
-            (text))))))
+        (ident_with_method_calls
+          (text)
+          (text))
+        (text)
+        (text))))
   (ident
     (text)
-    (arg
+    (text)
+    (ident
       (text)
-      (ident
+      (markdown_link
         (text)
-        (arg
-          (markdown_link
-            (link_label)
-            (link_dest
-              (text)))))
-      (ERROR)
+        (text))
       (unlabeled_link
         (external_link
-          (text)))))
-  (ident
+          (text))))
     (text)
-    (arg
+    (ident
+      (text)
       (markdown_link
-        (link_label)
-        (link_dest
-          (text)))))
-  (ERROR)
-  (unlabeled_link
-    (external_link
+        (text)
+        (text))
+      (unlabeled_link
+        (external_link
+          (text))))
+    (text)
+    (ident
+      (text)
+      (markdown_link
+        (text)
+        (text))
+      (text))
+    (text)
+    (ident
+      (text)
+      (markdown_link
+        (text)
+        (text))
+      (text))
+    (text)
+    (ident
+      (text)
+      (markdown_link
+        (text)
+        (text))
       (text)))
-  (ERROR)
-  (ident
-    (text)
-    (arg
-      (markdown_link
-        (link_label)
-        (link_dest
-          (text)))))
-  (ERROR
-    (UNEXPECTED '.')
-    (UNEXPECTED '.'))
-  (ident
-    (text)
-    (arg
-      (markdown_link
-        (link_label)
-        (link_dest
-          (text)))))
-  (ERROR
-    (UNEXPECTED '.')
-    (UNEXPECTED '.'))
-  (ident
-    (text)
-    (arg
-      (markdown_link
-        (link_label)
-        (link_dest
-          (text)))))
-  (ERROR
-    (UNEXPECTED '.')
-    (UNEXPECTED '.'))
   (scope
-    (arg
-      (text)
-      (put
-        (ident
-          (text))
-        (arg
-          (text)))
-      (text)
-      (query_tree
-        (query
-          (query0
-            (query_author
-              (arg
-                (text)))))))))
+    (text)
+    (put
+      (ident
+        (text))
+      (text))
+    (text)
+    (query_tree
+      (query_author
+        (text)))))

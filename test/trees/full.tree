@@ -1,0 +1,57 @@
+% Hello Comment
+
+\title{My Title}
+\author{Kento Okura}
+\tag{demo}
+\p{hello}
+\transclude{nvm-0002}
+\p{
+    \ul{
+        \li{asdf}
+        \li{foobar}
+      }
+  [asdf](foo-0001) [[foo-0001]]
+  \code{asdlfkjasfd}
+}
+
+\block{
+  [asdf](foo-0001) [[foo-0001]]
+  \code{asdlfkjasfd}
+  }{asdf}
+
+\def\my-object{
+  \object[self]{
+    [method1]{
+      the implementation of this method
+    }
+    [method2]{
+      the implementation of another method
+      \self#method1
+    }
+  }
+}
+
+\patch{\my-object}[self]{
+  [method1]{
+    \self/super#method1
+    some further code
+  }
+}
+
+\table{
+  \row{[forester query ](gld-0008)}{[[https://git.sr.ht/~kentookura/ocaml-forester/tree/nvim-support]]}
+  \row{[forester-lsp](gld-0003)}{[[https://git.sr.ht/~kentookura/ocaml-forester/tree/lsp]]}
+  \row{[more/better output ](gld-0007)}{N.A.}
+  \row{[richer interactivity ](gld-0006)}{N.A.}
+  \row{[pandoc filter](gld-000C)}{N.A.}
+}
+
+
+
+
+\scope{
+  \put\transclude/titly{featured talks}
+  \query{
+    \query/author{jonmsterling}
+  }
+}

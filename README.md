@@ -1,5 +1,7 @@
 # Forester tree-sitter grammar
 
+Highly incomplete, expect it to mess up highlighting in your neovim.
+
 Tree-sitter grammar for the [forester language](https://www.jonmsterling.com/jms-007N.xml)
 
 I am working on highlighting in the repository for the [neovim plugin](https://github.com/kentookura/forester.nvim).

@@ -19,7 +19,7 @@ local function ensure_treesitter()
 	local parser_config = require("nvim-treesitter.parsers").get_parser_configs()
 	parser_config.forester = {
 		install_info = {
-			url = "https://github.com/kentookura/tree-sitter-forester",
+			url = "./",
 			files = { "src/parser.c" },
 			branch = "main",
 			generate_requires_npm = false,
