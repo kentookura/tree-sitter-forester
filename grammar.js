@@ -14,22 +14,8 @@ function parens(p) {
   return seq("(", p, ")");
 }
 
-function drop_sigil(char, str) {
-  return str.split(char)[0];
-}
-
 function any_amount_of() {
   return repeat(seq(...arguments));
-}
-
-function one_or_more() {
-  return repeat1(seq(...arguments));
-}
-
-function list_of(match, sep, trailing) {
-  return trailing
-    ? seq(match, any_amount_of(sep, match), optional(sep))
-    : seq(match, any_amount_of(sep, match));
 }
 
 module.exports = grammar({
