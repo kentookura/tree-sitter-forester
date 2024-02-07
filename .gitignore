@@ -2,3 +2,6 @@ target/
 node_modules/
 .direnv/
 log.html
+
+build/
+package-lock.json
