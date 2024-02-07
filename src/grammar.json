@@ -94,6 +94,10 @@
         },
         {
           "type": "SYMBOL",
+          "name": "subtree"
+        },
+        {
+          "type": "SYMBOL",
           "name": "put"
         },
         {
@@ -717,6 +721,23 @@
         {
           "type": "STRING",
           "value": "scope"
+        },
+        {
+          "type": "SYMBOL",
+          "name": "_arg"
+        }
+      ]
+    },
+    "subtree": {
+      "type": "SEQ",
+      "members": [
+        {
+          "type": "STRING",
+          "value": "\\"
+        },
+        {
+          "type": "STRING",
+          "value": "subtree"
         },
         {
           "type": "SYMBOL",
