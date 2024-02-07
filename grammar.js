@@ -60,6 +60,7 @@ module.exports = grammar({
         $.block,
         $.ident_with_method_calls,
         $.scope,
+        $.subtree,
         $.put,
         $._default,
         $.get,
@@ -130,6 +131,7 @@ module.exports = grammar({
     if_tex: ($) => command("iftex", seq($._arg, $._arg)),
     block: ($) => command("block", seq($._arg, $._arg)),
     scope: ($) => command("scope", $._arg),
+    subtree: ($) => command("subtree", $._arg),
     put: ($) =>
       command(
         "put",
