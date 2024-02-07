@@ -1,6 +1,6 @@
 # Forester tree-sitter grammar
 
-Highly incomplete, expect it to mess up highlighting in your neovim.
+Coverage is pretty good, but not perfect: ![screenshot of syntax highlighting](./highlight.png)
 
 Tree-sitter grammar for the [forester language](https://www.jonmsterling.com/jms-007N.xml)
 
