@@ -225,6 +225,10 @@
           "named": true
         },
         {
+          "type": "subtree",
+          "named": true
+        },
+        {
           "type": "tag",
           "named": true
         },
@@ -459,6 +463,10 @@
           "named": true
         },
         {
+          "type": "subtree",
+          "named": true
+        },
+        {
           "type": "tag",
           "named": true
         },
@@ -643,6 +651,10 @@
         },
         {
           "type": "strong",
+          "named": true
+        },
+        {
+          "type": "subtree",
           "named": true
         },
         {
@@ -933,6 +945,10 @@
           "named": true
         },
         {
+          "type": "subtree",
+          "named": true
+        },
+        {
           "type": "tag",
           "named": true
         },
@@ -1117,6 +1133,10 @@
         },
         {
           "type": "strong",
+          "named": true
+        },
+        {
+          "type": "subtree",
           "named": true
         },
         {
@@ -1334,6 +1354,10 @@
           },
           {
             "type": "strong",
+            "named": true
+          },
+          {
+            "type": "subtree",
             "named": true
           },
           {
@@ -1592,6 +1616,10 @@
           "named": true
         },
         {
+          "type": "subtree",
+          "named": true
+        },
+        {
           "type": "tag",
           "named": true
         },
@@ -1791,6 +1819,10 @@
         },
         {
           "type": "strong",
+          "named": true
+        },
+        {
+          "type": "subtree",
           "named": true
         },
         {
@@ -1996,6 +2028,10 @@
           "named": true
         },
         {
+          "type": "subtree",
+          "named": true
+        },
+        {
           "type": "tag",
           "named": true
         },
@@ -2195,6 +2231,10 @@
         },
         {
           "type": "strong",
+          "named": true
+        },
+        {
+          "type": "subtree",
           "named": true
         },
         {
@@ -2431,6 +2471,10 @@
           "named": true
         },
         {
+          "type": "subtree",
+          "named": true
+        },
+        {
           "type": "tag",
           "named": true
         },
@@ -2615,6 +2659,10 @@
         },
         {
           "type": "strong",
+          "named": true
+        },
+        {
+          "type": "subtree",
           "named": true
         },
         {
@@ -2839,6 +2887,10 @@
           "named": true
         },
         {
+          "type": "subtree",
+          "named": true
+        },
+        {
           "type": "tag",
           "named": true
         },
@@ -3060,6 +3112,10 @@
           "named": true
         },
         {
+          "type": "subtree",
+          "named": true
+        },
+        {
           "type": "tag",
           "named": true
         },
@@ -3262,6 +3318,10 @@
           "named": true
         },
         {
+          "type": "subtree",
+          "named": true
+        },
+        {
           "type": "tag",
           "named": true
         },
@@ -3449,6 +3509,10 @@
           "named": true
         },
         {
+          "type": "subtree",
+          "named": true
+        },
+        {
           "type": "tag",
           "named": true
         },
@@ -3633,6 +3697,10 @@
           },
           {
             "type": "strong",
+            "named": true
+          },
+          {
+            "type": "subtree",
             "named": true
           },
           {
@@ -3912,6 +3980,10 @@
             "named": true
           },
           {
+            "type": "subtree",
+            "named": true
+          },
+          {
             "type": "tag",
             "named": true
           },
@@ -4168,6 +4240,10 @@
           "named": true
         },
         {
+          "type": "subtree",
+          "named": true
+        },
+        {
           "type": "tag",
           "named": true
         },
@@ -4370,6 +4446,10 @@
           },
           {
             "type": "strong",
+            "named": true
+          },
+          {
+            "type": "subtree",
             "named": true
           },
           {
@@ -4584,6 +4664,10 @@
           "named": true
         },
         {
+          "type": "subtree",
+          "named": true
+        },
+        {
           "type": "tag",
           "named": true
         },
@@ -4768,6 +4852,10 @@
         },
         {
           "type": "strong",
+          "named": true
+        },
+        {
+          "type": "subtree",
           "named": true
         },
         {
@@ -4993,6 +5081,10 @@
           "named": true
         },
         {
+          "type": "subtree",
+          "named": true
+        },
+        {
           "type": "tag",
           "named": true
         },
@@ -5177,6 +5269,10 @@
         },
         {
           "type": "strong",
+          "named": true
+        },
+        {
+          "type": "subtree",
           "named": true
         },
         {
@@ -5367,6 +5463,10 @@
           "named": true
         },
         {
+          "type": "subtree",
+          "named": true
+        },
+        {
           "type": "tag",
           "named": true
         },
@@ -5551,6 +5651,201 @@
         },
         {
           "type": "strong",
+          "named": true
+        },
+        {
+          "type": "subtree",
+          "named": true
+        },
+        {
+          "type": "tag",
+          "named": true
+        },
+        {
+          "type": "taxon",
+          "named": true
+        },
+        {
+          "type": "tex",
+          "named": true
+        },
+        {
+          "type": "text",
+          "named": true
+        },
+        {
+          "type": "title",
+          "named": true
+        },
+        {
+          "type": "transclude",
+          "named": true
+        },
+        {
+          "type": "ul",
+          "named": true
+        },
+        {
+          "type": "unlabeled_link",
+          "named": true
+        }
+      ]
+    }
+  },
+  {
+    "type": "subtree",
+    "named": true,
+    "fields": {},
+    "children": {
+      "multiple": true,
+      "required": false,
+      "types": [
+        {
+          "type": "alloc",
+          "named": true
+        },
+        {
+          "type": "author",
+          "named": true
+        },
+        {
+          "type": "block",
+          "named": true
+        },
+        {
+          "type": "blockquote",
+          "named": true
+        },
+        {
+          "type": "call",
+          "named": true
+        },
+        {
+          "type": "code",
+          "named": true
+        },
+        {
+          "type": "comment",
+          "named": true
+        },
+        {
+          "type": "contributor",
+          "named": true
+        },
+        {
+          "type": "date",
+          "named": true
+        },
+        {
+          "type": "def",
+          "named": true
+        },
+        {
+          "type": "display_math",
+          "named": true
+        },
+        {
+          "type": "em",
+          "named": true
+        },
+        {
+          "type": "export",
+          "named": true
+        },
+        {
+          "type": "get",
+          "named": true
+        },
+        {
+          "type": "ident",
+          "named": true
+        },
+        {
+          "type": "ident_with_method_calls",
+          "named": true
+        },
+        {
+          "type": "if_tex",
+          "named": true
+        },
+        {
+          "type": "import",
+          "named": true
+        },
+        {
+          "type": "inline_math",
+          "named": true
+        },
+        {
+          "type": "let",
+          "named": true
+        },
+        {
+          "type": "li",
+          "named": true
+        },
+        {
+          "type": "markdown_link",
+          "named": true
+        },
+        {
+          "type": "meta",
+          "named": true
+        },
+        {
+          "type": "namespace",
+          "named": true
+        },
+        {
+          "type": "object",
+          "named": true
+        },
+        {
+          "type": "ol",
+          "named": true
+        },
+        {
+          "type": "open",
+          "named": true
+        },
+        {
+          "type": "paragraph",
+          "named": true
+        },
+        {
+          "type": "parens",
+          "named": true
+        },
+        {
+          "type": "patch",
+          "named": true
+        },
+        {
+          "type": "pre",
+          "named": true
+        },
+        {
+          "type": "put",
+          "named": true
+        },
+        {
+          "type": "query_tree",
+          "named": true
+        },
+        {
+          "type": "scope",
+          "named": true
+        },
+        {
+          "type": "squares",
+          "named": true
+        },
+        {
+          "type": "strong",
+          "named": true
+        },
+        {
+          "type": "subtree",
           "named": true
         },
         {
@@ -5788,6 +6083,10 @@
           "named": true
         },
         {
+          "type": "subtree",
+          "named": true
+        },
+        {
           "type": "tag",
           "named": true
         },
@@ -5972,6 +6271,10 @@
         },
         {
           "type": "strong",
+          "named": true
+        },
+        {
+          "type": "subtree",
           "named": true
         },
         {
@@ -6175,6 +6478,10 @@
         },
         {
           "type": "strong",
+          "named": true
+        },
+        {
+          "type": "subtree",
           "named": true
         },
         {
@@ -6417,6 +6724,10 @@
   },
   {
     "type": "strong",
+    "named": false
+  },
+  {
+    "type": "subtree",
     "named": false
   },
   {
