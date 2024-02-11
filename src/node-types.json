@@ -1461,7 +1461,7 @@
         "required": true,
         "types": [
           {
-            "type": "text",
+            "type": "label",
             "named": true
           }
         ]
@@ -5701,6 +5701,10 @@
       "required": false,
       "types": [
         {
+          "type": "addr",
+          "named": true
+        },
+        {
           "type": "alloc",
           "named": true
         },
@@ -6661,6 +6665,10 @@
   {
     "type": "import",
     "named": false
+  },
+  {
+    "type": "label",
+    "named": true
   },
   {
     "type": "let",

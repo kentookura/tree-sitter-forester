@@ -117,7 +117,8 @@ module.exports = grammar({
     if_tex: ($) => command("iftex", seq($._arg, $._arg)),
     block: ($) => command("block", seq($._arg, $._arg)),
     scope: ($) => command("scope", $._arg),
-    subtree: ($) => command("subtree", $._arg),
+    subtree: ($) =>
+      prec.left(command("subtree", seq(optional(squares($.addr)), $._arg))),
     put: ($) =>
       command(
         "put",
@@ -217,7 +218,7 @@ module.exports = grammar({
       prec.left(
         seq(
           "\\",
-          field("label", $.text),
+          field("label", alias(/[^%#\\\{\}\[\]\(\), .\r\n]+/, $.label)),
           optional(choice(repeat1($._arg), "{}")),
         ),
       ),

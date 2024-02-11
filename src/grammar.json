@@ -729,21 +729,55 @@
       ]
     },
     "subtree": {
-      "type": "SEQ",
-      "members": [
-        {
-          "type": "STRING",
-          "value": "\\"
-        },
-        {
-          "type": "STRING",
-          "value": "subtree"
-        },
-        {
-          "type": "SYMBOL",
-          "name": "_arg"
-        }
-      ]
+      "type": "PREC_LEFT",
+      "value": 0,
+      "content": {
+        "type": "SEQ",
+        "members": [
+          {
+            "type": "STRING",
+            "value": "\\"
+          },
+          {
+            "type": "STRING",
+            "value": "subtree"
+          },
+          {
+            "type": "SEQ",
+            "members": [
+              {
+                "type": "CHOICE",
+                "members": [
+                  {
+                    "type": "SEQ",
+                    "members": [
+                      {
+                        "type": "STRING",
+                        "value": "["
+                      },
+                      {
+                        "type": "SYMBOL",
+                        "name": "addr"
+                      },
+                      {
+                        "type": "STRING",
+                        "value": "]"
+                      }
+                    ]
+                  },
+                  {
+                    "type": "BLANK"
+                  }
+                ]
+              },
+              {
+                "type": "SYMBOL",
+                "name": "_arg"
+              }
+            ]
+          }
+        ]
+      }
     },
     "put": {
       "type": "SEQ",
@@ -1553,8 +1587,13 @@
             "type": "FIELD",
             "name": "label",
             "content": {
-              "type": "SYMBOL",
-              "name": "text"
+              "type": "ALIAS",
+              "content": {
+                "type": "PATTERN",
+                "value": "[^%#\\\\\\{\\}\\[\\]\\(\\), .\\r\\n]+"
+              },
+              "named": true,
+              "value": "label"
             }
           },
           {
