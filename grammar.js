@@ -25,25 +25,14 @@ module.exports = grammar({
     source_file: ($) => any_amount_of($._node),
     _node: ($) =>
       choice(
-        $.author,
-        $.contributor,
-        $.title,
-        $.date,
-        $.tag,
-        //repeat($._head_node),
         $.def,
         $.alloc,
-        $.taxon,
-        $.meta,
         $.import,
         $.export,
-        // $.tag,
         $.namespace,
         $.transclude,
         $.let,
         $.tex,
-        $.if_tex,
-        $.block,
         $.ident_with_method_calls,
         $.scope,
         $.subtree,
@@ -51,27 +40,26 @@ module.exports = grammar({
         $._default,
         $.get,
         $.open,
+        $.xml_tag,
+        $.decl_xmlns,
         $.query_tree,
-        //$.xml_tag,
         $.object,
         $.patch,
         $.call,
         $._prim,
-        // $.ref,
         $.inline_math,
         $.display_math,
-        // $.ident,
         $._link,
-        // $.braces,
-        $.squares,
-        $.parens,
+        $._squares,
+        $._parens,
+        $._braces,
         $.text,
         $.comment,
       ),
 
-    braces: ($) => braces(repeat1($._node)),
-    squares: ($) => squares(repeat1($._node)),
-    parens: ($) => parens(repeat1($._node)),
+    _braces: ($) => braces(repeat1($._node)),
+    _squares: ($) => squares(repeat1($._node)),
+    _parens: ($) => parens(repeat1($._node)),
 
     title: ($) => command("title", $._arg),
     author: ($) => field("author", command("author", $._txt_arg)),
@@ -88,18 +76,9 @@ module.exports = grammar({
     tag: ($) => field("tag", command("tag", $._txt_arg)),
     ref: ($) => field("ref", command("ref", $._arg)),
 
-    // _title: ($) => field("title", command("title", $._arg)),
-    // author: ($) => prec(1, field("author", command("author", $._txt_arg))),
-    // contributor: ($) =>
-    //   field("contributor", command("contributor", $._txt_arg)),
-    // date: ($) =>
-    //   field(
-    //     "date",
-    //     command(
-    //       "date",
-    //       choice(braces(seq($.year, "-", $.month, "-", $.day)), $._txt_arg),
-    //     ),
-    //   ),
+    xml_tag: ($) => seq("\\<", $._xml_qname, ">"),
+    decl_xmlns: ($) => seq("\\xmlns:", $._xml_base_ident, $._txt_arg),
+
     year: ($) => /[0-9]{4}/,
     month: ($) => /(1[012]|0?[1-9])/,
     day: ($) => seq(/[0123]/, /[0-9]/),
@@ -114,8 +93,6 @@ module.exports = grammar({
     transclude: ($) => command("transclude", braces(field("address", $.addr))),
     let: ($) => command("let", $.fun_spec),
     tex: ($) => command("tex", $._arg),
-    if_tex: ($) => command("iftex", seq($._arg, $._arg)),
-    block: ($) => command("block", seq($._arg, $._arg)),
     scope: ($) => command("scope", $._arg),
     subtree: ($) =>
       prec.left(command("subtree", seq(optional(squares($.addr)), $._arg))),
@@ -126,9 +103,8 @@ module.exports = grammar({
       ),
     get: ($) => command("get", $.ident),
     open: ($) => command("open", $.ident),
-    query_tree: ($) => prec(2, command("query", braces($._query))),
+    query_tree: ($) => prec(2, command("query", $._arg)),
     _default: ($) => prec.left($.ident),
-    //xml_tag: ($) => seq($._arg, repeat($._xml_attr), $._arg),
     object: ($) =>
       prec.left(
         command(
@@ -155,7 +131,7 @@ module.exports = grammar({
     comment: ($) => /%[^\r\n]*/,
     _prim: ($) =>
       choice(
-        alias($.p, $.paragraph),
+        $.p,
         $.em,
         $.strong,
         $.li,
@@ -178,23 +154,6 @@ module.exports = grammar({
     blockquote: ($) => command("blockquote", $._prim),
     pre: ($) => command("pre", $._prim),
 
-    _query: ($) => seq(repeat($._whitespace), $._query0, repeat($._whitespace)),
-    _query0: ($) =>
-      choice(
-        $.query_author,
-        $.query_tag,
-        $.query_taxon,
-        $.query_and,
-        $.query_or,
-        $.query_meta,
-      ),
-    query_author: ($) => seq("\\query/author", $._arg),
-    query_tag: ($) => seq("\\query/tag", $._arg),
-    query_taxon: ($) => seq("\\query/taxon", $._arg),
-    query_and: ($) => seq("\\query/and", braces($.queries)),
-    query_or: ($) => seq("\\query/or", braces($.queries)),
-    query_meta: ($) => seq(field("k", $._txt_arg), field("v", $._arg)),
-    queries: ($) => repeat1(choice($._whitespace, $._query0)),
     method_decl: ($) =>
       seq(
         field("key", squares($.text)),
@@ -215,13 +174,7 @@ module.exports = grammar({
         ),
       ),
     ident: ($) =>
-      prec.left(
-        seq(
-          "\\",
-          field("label", alias(/[^%#\\\{\}\[\]\(\), .\r\n]+/, $.label)),
-          optional(choice(repeat1($._arg), "{}")),
-        ),
-      ),
+      prec.left(seq("\\", $.text, optional(choice(repeat1($._arg), "{}")))),
     ident_with_method_calls: ($) =>
       prec(1, prec.left(seq("\\", $.text, "#", repeat1(choice("#", $.text))))),
     _arg: ($) => braces(repeat1(choice($._node))),
@@ -244,5 +197,9 @@ module.exports = grammar({
     _digit: ($) => /[0-9]+/,
     text: ($) => /[^%#\\\{\}\[\]\(\)\r\n]+/,
     _txt_arg: ($) => braces($.text),
+    _xml_base_ident: ($) =>
+      seq($._alpha, repeat(choice($._alpha, $._digit, /[-/#]/))),
+    _xml_qname: ($) =>
+      choice(seq($._xml_base_ident, ":", $._xml_base_ident), $._xml_base_ident),
   },
 });

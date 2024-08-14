@@ -33,31 +33,20 @@ Subtree
       (prefix)
       (id))
     (text)
-    (title
+    (ident
       (text))
+    (text)
     (text)
     (paragraph
       (text)))
   (subtree
     (text)
-    (title
+    (ident
       (text))
+    (text)
     (text)
     (paragraph
       (text))))
-
-================================================================================
-Block
-================================================================================
-
-\block{asdf}{asdf}
-
---------------------------------------------------------------------------------
-
-(source_file
-  (block
-    (text)
-    (text)))
 
 ================================================================================
 Method call
@@ -81,8 +70,9 @@ Contributor
 --------------------------------------------------------------------------------
 
 (source_file
-  (contributor
-    contributor: (text)))
+  (ident
+    (text))
+  (text))
 
 ================================================================================
 Meta
@@ -93,9 +83,10 @@ Meta
 --------------------------------------------------------------------------------
 
 (source_file
-  (meta
-    (text)
-    (text)))
+  (ident
+    (text))
+  (text)
+  (text))
 
 ================================================================================
 Tags
@@ -107,10 +98,12 @@ Tags
 --------------------------------------------------------------------------------
 
 (source_file
-  (tag
-    tag: (text))
-  (tag
-    tag: (text)))
+  (ident
+    (text))
+  (text)
+  (ident
+    (text))
+  (text))
 
 ================================================================================
 Author
@@ -121,8 +114,9 @@ Author
 --------------------------------------------------------------------------------
 
 (source_file
-  (author
-    author: (text)))
+  (ident
+    (text))
+  (text))
 
 ================================================================================
 Import
@@ -153,19 +147,6 @@ Export
       (id))))
 
 ================================================================================
-Iftex
-================================================================================
-
-\iftex{foo}{bar}
-
---------------------------------------------------------------------------------
-
-(source_file
-  (if_tex
-    (text)
-    (text)))
-
-================================================================================
 Date
 ================================================================================
 
@@ -175,10 +156,12 @@ Date
 --------------------------------------------------------------------------------
 
 (source_file
-  (date
-    date: (text))
-  (date
-    date: (text)))
+  (ident
+    (text))
+  (text)
+  (ident
+    (text))
+  (text))
 
 ================================================================================
 Title
@@ -189,8 +172,9 @@ Title
 --------------------------------------------------------------------------------
 
 (source_file
-  (title
-    (text)))
+  (ident
+    (text))
+  (text))
 
 ================================================================================
 Transclusion
@@ -217,8 +201,8 @@ Ident
 (source_file
   (paragraph
     (ident
-      (text)
-      (text))))
+      (text))
+    (text)))
 
 ================================================================================
 Inline Math
@@ -308,31 +292,31 @@ Math Commands
       (ident
         (text))
       (ident
-        (text)
         (text))
       (text)
-      (ident
-        (text)
-        (text)
-        (ident
-          (text)))
       (text)
       (ident
         (text))
       (text)
       (ident
         (text))
+      (text)
+      (ident
+        (text))
+      (text)
       (ident
         (text))
       (ident
         (text))
       (ident
-        (text)
-        (text)
-        (ident
-          (text))
-        (ident
-          (text)))
+        (text))
+      (ident
+        (text))
+      (text)
+      (ident
+        (text))
+      (ident
+        (text))
       (text)
       (ident
         (text))
@@ -439,26 +423,49 @@ Scope
 Query
 ================================================================================
 
-\query{
-  \query/and{
-    \query/author{jonmsterling}
-    \query/taxon{reference}
-    \query/tag{featured}
-  }
+\def\query/bibliography[x]{
+ \open\query
+ \isect{
+  \union-fam-rel{\transclusion-coslice{\x}}{\edges}{\outgoing}{\rel/links}
+ }{
+  \taxon{reference}
+ }
 }
 
 --------------------------------------------------------------------------------
 
 (source_file
-  (query_tree
-    (query_and
-      (queries
-        (query_author
-          (text))
-        (query_taxon
-          (text))
-        (query_tag
-          (text))))))
+  (def
+    (fun_spec
+      (ident
+        (text))
+      (text)
+      (text)
+      (open
+        (ident
+          (text)))
+      (text)
+      (ident
+        (text))
+      (text)
+      (ident
+        (text))
+      (ident
+        (text))
+      (ident
+        (text))
+      (ident
+        (text))
+      (ident
+        (text))
+      (ident
+        (text))
+      (text)
+      (text)
+      (ident
+        (text))
+      (text)
+      (text))))
 
 ================================================================================
 Objects
@@ -530,6 +537,63 @@ Patch
         (text)))))
 
 ================================================================================
+XML
+================================================================================
+
+\xmlns:mml{http://www.w3.org/1998/Math/MathML}
+\def\math[body]{\<mml:math>{\body}}
+\def\mrow[body]{\<mml:mrow>{\body}}
+\def\mi[x]{\<mml:mi>{\x}}
+\def\mo[o]{\<mml:mo>{\o}}
+\def\mn[n]{\<mml:mn>{\n}}
+
+--------------------------------------------------------------------------------
+
+(source_file
+  (decl_xmlns
+    (text))
+  (def
+    (fun_spec
+      (ident
+        (text))
+      (text)
+      (xml_tag)
+      (ident
+        (text))))
+  (def
+    (fun_spec
+      (ident
+        (text))
+      (text)
+      (xml_tag)
+      (ident
+        (text))))
+  (def
+    (fun_spec
+      (ident
+        (text))
+      (text)
+      (xml_tag)
+      (ident
+        (text))))
+  (def
+    (fun_spec
+      (ident
+        (text))
+      (text)
+      (xml_tag)
+      (ident
+        (text))))
+  (def
+    (fun_spec
+      (ident
+        (text))
+      (text)
+      (xml_tag)
+      (ident
+        (text)))))
+
+================================================================================
 Full
 ================================================================================
 
@@ -590,8 +654,9 @@ Full
 --------------------------------------------------------------------------------
 
 (source_file
-  (title
+  (ident
     (text))
+  (text)
   (paragraph
     (text))
   (transclude
@@ -619,20 +684,21 @@ Full
     (text)
     (code
       (text)))
-  (block
-    (text)
-    (markdown_link
-      (text)
-      (text))
-    (text)
-    (unlabeled_link
-      (external_link
-        (text)))
-    (text)
-    (code
-      (text))
+  (ident
+    (text))
+  (text)
+  (markdown_link
     (text)
     (text))
+  (text)
+  (unlabeled_link
+    (external_link
+      (text)))
+  (text)
+  (code
+    (text))
+  (text)
+  (text)
   (def
     (fun_spec
       (ident
@@ -668,46 +734,46 @@ Full
         (text)
         (text))))
   (ident
+    (text))
+  (text)
+  (ident
+    (text))
+  (markdown_link
     (text)
-    (text)
-    (ident
-      (text)
-      (markdown_link
-        (text)
-        (text))
-      (unlabeled_link
-        (external_link
-          (text))))
-    (text)
-    (ident
-      (text)
-      (markdown_link
-        (text)
-        (text))
-      (unlabeled_link
-        (external_link
-          (text))))
-    (text)
-    (ident
-      (text)
-      (markdown_link
-        (text)
-        (text))
-      (text))
-    (text)
-    (ident
-      (text)
-      (markdown_link
-        (text)
-        (text))
-      (text))
-    (text)
-    (ident
-      (text)
-      (markdown_link
-        (text)
-        (text))
+    (text))
+  (unlabeled_link
+    (external_link
       (text)))
+  (text)
+  (ident
+    (text))
+  (markdown_link
+    (text)
+    (text))
+  (unlabeled_link
+    (external_link
+      (text)))
+  (text)
+  (ident
+    (text))
+  (markdown_link
+    (text)
+    (text))
+  (text)
+  (text)
+  (ident
+    (text))
+  (markdown_link
+    (text)
+    (text))
+  (text)
+  (text)
+  (ident
+    (text))
+  (markdown_link
+    (text)
+    (text))
+  (text)
   (scope
     (text)
     (put

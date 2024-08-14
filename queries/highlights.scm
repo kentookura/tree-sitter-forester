@@ -1,8 +1,7 @@
 (comment) @comment
 
-
 [
- "\\" 
+ "\\"
  "("
  ")"
  "{"
@@ -24,6 +23,7 @@
 (contributor "contributor" @field)
 (title "title" @field)
 (taxon "taxon" @field)
+(meta "meta" @field)
 
 (title "title" @text.title)
 (title (_) @text.title)
