@@ -69,7 +69,7 @@
           "named": true
         },
         {
-          "type": "paragraph",
+          "type": "p",
           "named": true
         },
         {
@@ -184,7 +184,7 @@
           "named": true
         },
         {
-          "type": "paragraph",
+          "type": "p",
           "named": true
         },
         {
@@ -339,7 +339,7 @@
           "named": true
         },
         {
-          "type": "paragraph",
+          "type": "p",
           "named": true
         },
         {
@@ -529,7 +529,7 @@
           "named": true
         },
         {
-          "type": "paragraph",
+          "type": "p",
           "named": true
         },
         {
@@ -684,7 +684,7 @@
           "named": true
         },
         {
-          "type": "paragraph",
+          "type": "p",
           "named": true
         },
         {
@@ -885,7 +885,7 @@
             "named": true
           },
           {
-            "type": "paragraph",
+            "type": "p",
             "named": true
           },
           {
@@ -1097,7 +1097,7 @@
           "named": true
         },
         {
-          "type": "paragraph",
+          "type": "p",
           "named": true
         },
         {
@@ -1282,7 +1282,7 @@
           "named": true
         },
         {
-          "type": "paragraph",
+          "type": "p",
           "named": true
         },
         {
@@ -1452,7 +1452,7 @@
           "named": true
         },
         {
-          "type": "paragraph",
+          "type": "p",
           "named": true
         },
         {
@@ -1653,7 +1653,7 @@
           "named": true
         },
         {
-          "type": "paragraph",
+          "type": "p",
           "named": true
         },
         {
@@ -1842,7 +1842,7 @@
           "named": true
         },
         {
-          "type": "paragraph",
+          "type": "p",
           "named": true
         },
         {
@@ -2031,7 +2031,7 @@
           "named": true
         },
         {
-          "type": "paragraph",
+          "type": "p",
           "named": true
         },
         {
@@ -2105,7 +2105,7 @@
     }
   },
   {
-    "type": "paragraph",
+    "type": "p",
     "named": true,
     "fields": {},
     "children": {
@@ -2201,7 +2201,7 @@
           "named": true
         },
         {
-          "type": "paragraph",
+          "type": "p",
           "named": true
         },
         {
@@ -2372,7 +2372,7 @@
             "named": true
           },
           {
-            "type": "paragraph",
+            "type": "p",
             "named": true
           },
           {
@@ -2496,7 +2496,7 @@
           "named": true
         },
         {
-          "type": "paragraph",
+          "type": "p",
           "named": true
         },
         {
@@ -2632,7 +2632,7 @@
             "named": true
           },
           {
-            "type": "paragraph",
+            "type": "p",
             "named": true
           },
           {
@@ -2806,7 +2806,7 @@
           "named": true
         },
         {
-          "type": "paragraph",
+          "type": "p",
           "named": true
         },
         {
@@ -2961,7 +2961,7 @@
           "named": true
         },
         {
-          "type": "paragraph",
+          "type": "p",
           "named": true
         },
         {
@@ -3116,7 +3116,7 @@
           "named": true
         },
         {
-          "type": "paragraph",
+          "type": "p",
           "named": true
         },
         {
@@ -3271,7 +3271,7 @@
           "named": true
         },
         {
-          "type": "paragraph",
+          "type": "p",
           "named": true
         },
         {
@@ -3430,7 +3430,7 @@
           "named": true
         },
         {
-          "type": "paragraph",
+          "type": "p",
           "named": true
         },
         {
@@ -3585,7 +3585,7 @@
           "named": true
         },
         {
-          "type": "paragraph",
+          "type": "p",
           "named": true
         },
         {
@@ -3756,7 +3756,7 @@
           "named": true
         },
         {
-          "type": "paragraph",
+          "type": "p",
           "named": true
         },
         {

@@ -1011,13 +1011,8 @@
       "type": "CHOICE",
       "members": [
         {
-          "type": "ALIAS",
-          "content": {
-            "type": "SYMBOL",
-            "name": "p"
-          },
-          "named": true,
-          "value": "paragraph"
+          "type": "SYMBOL",
+          "name": "p"
         },
         {
           "type": "SYMBOL",
