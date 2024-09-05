@@ -1,0 +1,26 @@
+\title{xml}
+
+\xmlns:mml{http://www.w3.org/1998/Math/MathML}
+\def\math[body]{\<mml:math>{\body}}
+\def\mrow[body]{\<mml:mrow>{\body}}
+\def\mi[x]{\<mml:mi>{\x}}
+\def\mo[o]{\<mml:mo>{\o}}
+\def\mn[n]{\<mml:mn>{\n}}
+
+\p{Let \math{\mi{x}} and \math{\mi{y}} be integers such that \math{\mrow{\mrow{\mi{x}\mo{-}\mi{y}}\mo{=}\mn{0}}}.}
+
+
+\xmlns:html{http://www.w3.org/1999/xhtml}
+
+\def\hcode[lang][body]{
+  \<html:pre>[class]{highlight}[lang]{\lang}{\body}
+}
+\def\icon[path][alt]{
+  \<html:img>[class]{custom-icon}[src]{\path}[alt]{\alt}{}
+}
+\def\fa[icon]{
+  \<html:i>[class]{fa fa-\icon}{}
+}
+\def\emojicon[body][delta]{
+  \<html:span>[class]{emojicon}{\body}
+}

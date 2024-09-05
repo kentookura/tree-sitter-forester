@@ -1,0 +1,6 @@
+[files]
+extend-exclude = ["theme/forester.js"]
+
+[default.extend-words]
+# morphisim abbr
+mor = "mor"

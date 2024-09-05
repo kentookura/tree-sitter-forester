@@ -1,0 +1,41 @@
+\title{prim}
+
+\p{paragraph}
+\p{
+  \p{nested paragraph} in a paragraph
+}
+
+\ul{
+  \li{unordered list item1, \strong{strong text in li}}
+  \li{unordered list item2, \em{emphasis text in li}}
+}
+
+\ul{
+  \li{ordered list item1, \strong{strong text in li}}
+  \li{ordered list item2, \em{emphasis text in li}}
+  \li{ordered list item3}
+  \li{ordered list item4}
+  \li{ordered list item5}
+}
+
+\p{The \code{code} usually used to display a short fragment of computer code.}
+
+\blockquote{
+  The \code{<blockquote>} [HTML](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/blockquote) element indicates that the enclosed text is an extended quotation.
+}
+
+\pre{presented exactly as written}
+
+\figure{
+  \tex{
+    \usepackage{tikz}
+  }{
+    \begin{tikzpicture}
+      \draw[step=1cm,gray,very thin] (-1.9,-1.9) grid (5.9,5.9);
+
+      \draw[thick,->] (0,0) -- (4.5,0) node[anchor=north west] {x axis};
+      \draw[thick,->] (0,0) -- (0,4.5) node[anchor=south east] {y axis};
+    \end{tikzpicture}
+  }
+  \figcaption{Axes}
+}
