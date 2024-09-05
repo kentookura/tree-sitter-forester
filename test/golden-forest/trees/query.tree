@@ -1,0 +1,56 @@
+\title{query}
+
+\let\query/reference-satisfying[q]{
+ \open\query
+ \isect{\author{jonmsterling}}{\taxon{reference}}{\q}
+}
+
+\subtree{
+ \title{accepted papers}
+ \query{
+  \open\query
+  \reference-satisfying{\tag{accepted}}
+ }
+}
+
+\subtree{
+ \title{refereed papers}
+ \query{
+  \open\query
+  \reference-satisfying{\tag{refereed}}
+ }
+}
+
+\subtree{
+ \title{manuscripts}
+ \query{
+  \open\query
+  \reference-satisfying{
+   \isect{\tag{preprint}}{\compl{\tag{accepted}}}
+  }
+ }
+}
+
+\subtree{
+ \title{dissertation}
+ \query{
+  \open\query
+  \reference-satisfying{\tag{dissertation}}
+ }
+}
+
+\subtree{
+ \title{presentations}
+ \query{
+  \open\query
+  \reference-satisfying{\tag{workshop}}
+ }
+}
+
+\subtree{
+ \title{seminar talks}
+ \query{
+  \open\query
+  \reference-satisfying{\tag{seminar}}
+ }
+}

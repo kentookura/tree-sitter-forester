@@ -1,0 +1,9 @@
+\title{comment}
+
+% comment
+% for human
+% ignored by compilers
+
+% no multiline/block comment
+
+\p{plain text} % all text after `%` is a comment

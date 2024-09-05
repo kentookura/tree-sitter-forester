@@ -1,0 +1,38 @@
+\title{math}
+
+\let\OO{#{\mathcal{O}}}
+\let\II{#{\mathbb{I}}}
+\let\Horn{#{\mathbb{H}}}
+
+\ul{
+  \li{\OO}
+  \li{\II}
+  \li{\Horn}
+}
+
+\def\C{#{\mathrm{C}}}
+\def\dom[x]{\text{dom }\x}
+\def\cod[x]{\text{cod }\x}
+
+\p{A \em{category} \C consists of}
+\ol{
+  \li{a collection of ob\C of \em{objects} #{A, B, C, ...,}}
+  \li{a collection of mor\C of \em{morphisims} #{f, g, h, ...,}}
+  \li{two operations dom and cod assigning to each #{f \in} morC a pair of objects, its \em{domain} and \em{codomain}. We write #{A \xrightarrow{f} B} to mean #{f} is a morphism and #{\dom{f} = A}, #{\cod{f} = B},}
+  \li{an operation assigning to each #{A \in} ob\C a morhpism #{A \xrightarrow{1_A} A},}
+  \li{a partial binary operation #{(f, g) \mapsto f g} on morphisms, such that #{f g} is defined if and only if #{\dom{f} = \cod{g}} and let #{\dom{f g} = \dom{g}}, #{\cod{f g} = \cod{f}} if #{f g} is defined}
+}
+\p{satisfying}
+\ol{
+  \li{#{f 1_A = f = 1_B f} for any #{A \xrightarrow{f} B},}
+  \li{#{(fg)h = f(gh)} whenever #{fg} and #{gh} are defined.}
+}
+
+\def\brc[x]{#{{\mathopen{}\left\{\x\right\}\mathclose{}}}}
+\def\prn[x]{#{{\mathopen{}\left(\x\right)\mathclose{}}}}
+\def\Sub[arg1]{#{_{\arg1}}}
+\def\Sup[arg1]{#{^{\arg1}}}
+
+\p{##{
+  \Sigma = \brc{p\in\Omega \mid \exists f \in 2\Sup{\mathbb{N}}.\ p \leftrightarrow \prn{\exists n.f\prn{n}=\top}}
+}}

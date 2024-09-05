@@ -1,0 +1,9 @@
+\title{link}
+
+\ul{
+  \li{[[jinser]]}
+  \li{[primitive](prim)}
+  \li{[external link](https://developer.mozilla.org/en-US/)}
+}
+
+\transclude{jinser}
