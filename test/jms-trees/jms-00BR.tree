@@ -1,0 +1,12 @@
+\title{rigid morphisms of [event structures](jms-00BN)}
+\author{jonmsterling}
+\date{2023-10-26}
+\taxon{definition}
+
+\import{base-macros}
+\meta{source}{\citek{staton-winskel-2010}}
+
+\import{jms-00BN}
+\import{jms-00BO}
+
+\p{A \em{rigid morphism} of [event structures](jms-00BN) \Mor{f}{E}{E'} is a monotone function on events that preserves finite [configurations](jms-00BO) and is \em{locally injective} in the sense that for any finite [configuration](jms-00BO) #{x\in\FinCfg{E}} and events #{e_1,e_2\in x} such that #{fe_1 = fe_2}, we have #{e_1=e_2}.}

@@ -1,0 +1,18 @@
+\title{projection functions and [surjections](jms-00M8)}
+\date{2024-01-29}
+\author{jonmsterling}
+\contributor{marcelofiore}
+\taxon{example}
+\import{jms-00JB}
+
+\p{The projection function #{\pi_1\colon A\times B\to A} sending \prn{a,b} to #{a} is [surjective](jms-00M8) if and only if either \nowrap{#{B \not=\varnothing}} or #{A=\varnothing}.}
+
+\proof{
+ \p{Suppose that #{\pi_1\colon A\times B\to A} is [surjective](jms-00M8). We proceed by cases on whether #{A} is empty:}
+ \ol{
+  \li{If #{A} is empty, we are done.}
+  \li{If #{A} is inhabited by some #{a\in A}, then by assumption there exists #{u\in A\times B} such that #{\pi_1\prn{u}=a}. Thus #{B} is inhabited by #{\pi_2\prn{u}}.}
+ }
+
+ \p{Conversely, suppose that either #{B\not=\varnothing} or #{A=\varnothing}. Fixing #{a\in A}, we must show that there exists #{u\in A\times B} such that #{\pi_1\prn{u}=a}. If #{A=\varnothing}, then we have a contradiction already; on the other hand, if there exists any #{b\in B}, we may define #{u:=\prn{a,b}} and we are done.}
+}

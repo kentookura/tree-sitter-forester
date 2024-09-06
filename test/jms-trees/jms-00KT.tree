@@ -1,0 +1,22 @@
+\title{counting [bijections](jms-00KR) between finite sets}
+\date{2024-01-23}
+\author{jonmsterling}
+\contributor{marcelofiore}
+\taxon{proposition}
+\import{jms-00JB}
+
+\p{For all finite sets #{A} and #{B}, we have:}
+
+##{
+ \card{\BIJ{A}{B}} =
+ \begin{cases}
+  0 &\text{if } \card{A}\not=\card{B}\\
+  n!&\text{if } \card{A}=\card{B}=n
+ \end{cases}
+}
+
+\proof{
+ \p{A [bijection](jms-00KR) between two sets is a way of associating \em{precisely} one element of the first set with \em{precisely one} element of the second set. These associations are embodied in the functions #{f\colon A\to B} and #{g\colon B\to A}, and the uniqueness of the associations is expressed by the conditio that #{g} be simultaneously a [section](jms-00KS) and a [retraction](jms-00KS) of #{f}. Two sets of different cardinality can not be associated in this way, because there would always be left over elements that are not associated to any corresponding element. In this way, we see that a [bijection](jms-00KR) exists between two sets if and only if they have the same cardinality.}
+
+ \p{Assuming two finite sets #{A,B} with cardinality #{\card{A}=\card{B}=n}, we must now count precisely how many bijections there are from #{A} to #{B}. To construct such a bijection, we put all the elements #{B} into a pile. Then, for each element of #{A} we must successively choose and then \em{discard} an element of #{B}; we have to discard the element because we are not allowed to choose it again (for, if we did, the association would not be bijective). At the beginning (“round \nowrap{#{k=0}”}), there are #{n} many choices we could make; in the next round #{k=1}, there are #{n-1} many choices that we could make; in the \nowrap{#{k}th} round, there are #{n-k} many choices that we could make. At the very end (after the \nowrap{#{n-1}th} round), we shall have constructed a bijection after making #{n! = \prod_{0\leq k<n} n-k} choices in total. Thus the number of distinct bijections from #{A} to #{B} is #{n!}.}
+}

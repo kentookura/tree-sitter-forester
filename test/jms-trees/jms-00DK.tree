@@ -1,0 +1,212 @@
+\title{representable maps from adjunctions}
+\author{jonmsterling}
+\date{2023-11-06}
+\taxon{lemma}
+
+
+
+\import{jms-00DJ}
+
+\let\C{#{\mathcal{C}}}
+
+\p{Let \Mor{p}{E}{U} be a morphism in #{\Psh\C}; if the induced functor \Mor{\CatEl{p}}{\CatEl{E}}{\CatEl{U}} between categories of elements has a right adjoint, then \Mor{p}{E}{U} is representable.}
+
+\proof{
+  \p{Let there be a right adjoint \Mor{q}{\CatEl{U}}{\CatEl{E}} to \Mor{\CatEl{p}}{\CatEl{E}}{\CatEl{U}}, and fix #{\prn{\Gamma\vdash A}\in \CatEl{U}}. Applying the right adjoint, we have an element #{\prn{\Gamma.A\vdash qA}\in\CatEl{E}}; instantiating the counit at \prn{\Gamma\vdash A}, we have a cell \Mor{\epsilon_{A}}{\CatEl{p}qA}{A}, which amounts to a commuting square in the following configuration:}
+
+  \texfig{
+    \begin{tikzpicture}[diagram]
+      \SpliceDiagramSquare{
+        nw = \Gamma.A,
+        ne = E,
+        se = U,
+        sw = \Gamma,
+        south = A,
+        east = p,
+        north = qA,
+        west = {\pi_U \epsilon_A \equiv p_A},
+      }
+      \node[between = sw and ne] {${\Downarrow} \epsilon_A$};
+    \end{tikzpicture}
+  }
+
+  \p{It suffices to show that the square depicted above is cartesian. Because pullbacks in presheaf categories are computed pointwise, it suffices to consider only squares with a representable apex, such as the one below in which #{\Delta} is assumed representable:}
+
+  \texfig{
+    \DiagramSquare{
+      nw = \Delta,
+      sw = \Gamma,
+      ne = E,
+      se = U,
+      west = \gamma,
+      east = p,
+      north = a,
+      south = A,
+    }
+  }
+
+  \p{To construct the universal map \Mor{\gl{\gamma,a}}{\Delta}{\Gamma.A} factoring #{\gamma,a} through #{qA,p_A} respectively, we note the square above corresponds \em{precisely} to a morphism \Mor{\bar\gamma}{\CatEl{p}a}{A} in \CatEl{U}, visualised as follows:}
+
+  \let\diag-gamma{
+    \begin{tikzpicture}[scale=0.5,baseline=($(nw)!0.5!(se)$)]
+      \path
+        coordinate  (nw)
+        ++(1,0) coordinate[label=above:$a$] (n/a)
+        ++(3,-3) coordinate[label=below:$A$] (s/u)
+        ++(1,0) coordinate (se)
+      ;
+
+      \draw[spath/save=wire] (n/a) to[out=-90,in=90] (s/u);
+
+      \path
+        coordinate[dot,label=below:$\bar\gamma$] (gamma) at (spath cs:wire 0.5)
+        coordinate[label={[text depth=0pt]above:$\CatEl{p}$}] (n/p) at (nw -| gamma)
+      ;
+
+      \draw[spath/save=vert] (n/p.center) to (gamma.center);
+
+      \begin{scope}[on background layer]
+        \tikzset{
+          spath/split at into={wire1}{wire2}{wire}{0.5},
+        }
+        \fill[catc] (n/p) to (gamma.center) to[spath/use={wire2,weld}] (s/u) to (se) to (nw -| se) to cycle;
+        \fill[catd] (n/a) to[spath/use={wire1, weld}] (gamma.center) to (n/p) to cycle;
+      \end{scope}
+    \end{tikzpicture}
+  }
+
+  \texfig{
+    \diag-gamma
+  }
+
+  \p{We can transpose \Mor{\gamma}{\CatEl{p}a}{A} to obtain the following \Mor{\bar\gamma^\sharp}{a}{qA} in \CatEl{E}:}
+
+  \texfig{
+    \begin{tikzpicture}[scale=0.5]
+      \path
+        coordinate (nw)
+        ++(1,0) coordinate[label=above:$\strut a$] (n/a)
+        ++(3,-3) coordinate[label=below:$\strut A$] (s/u)
+        ++(.5,0) coordinate[label=below:$\strut q$] (s/q)
+        ++(1,0) coordinate (se)
+      ;
+      \draw[spath/save=wire] (n/a) to[out=-90,in=90] (s/u);
+      \path coordinate[dot,label=below:$\bar\gamma$] (gamma) at (spath cs:wire 0.5);
+      \path[spath/save=aux] (gamma) to (gamma -| s/q);
+      \path (spath cs:aux 0.5) ++(0,1) coordinate[dot,label=below:$\eta$] (unit);
+      \draw[spath/save=cap] (gamma.center) to[out=90,in=180] (unit.center) to[out=0,in=90] (gamma -| s/q) to (s/q);
+      \begin{scope}[on background layer]
+        \tikzset{
+          spath/split at into={wire1}{wire2}{wire}{0.5},
+        }
+        \fill[catd] (n/a) to[spath/use={wire,weld}] (s/u) to (se) to (nw -| se) to cycle;
+        \fill[catc] (gamma.center) to[spath/use={cap,weld}] (s/q) to (s/u) to[spath/use={wire2,reverse,weld}] cycle;
+      \end{scope}
+    \end{tikzpicture}
+  }
+
+  \p{We now define \Mor{\gl{\gamma,a}}{\Delta}{\Gamma.A} to be the image of \Mor{\bar\gamma^\sharp}{a}{qA} in \C, i.e. #{\gl{\gamma,a} :\equiv \pi_E \bar\gamma^\sharp}.The factorisation #{qA\circ \gl{\gamma,a} = a} holds by inspection of the above diagram in \CatEl{E}. The other factorisation #{p_A \circ \gl{\gamma,a} = \gamma} holds by the snake identities of adjoints:}
+
+  \texfig{
+    \begin{tikzpicture}[scale=0.5,baseline=($(nw)!0.5!(se)$)]
+      \path
+        coordinate (nw)
+        ++(1,0) coordinate[label=above:$a$] (n/a)
+        ++(3,-3) coordinate[label=below:$A$] (s/u)
+        ++(2,0) coordinate (se)
+      ;
+      \path
+        (n/a) ++(4,0) coordinate[label={[text depth=0pt]above:$\CatEl{p}$}] (n/p)
+      ;
+      \draw[spath/save=wire] (n/a) to[out=-90,in=90] (s/u);
+      \path
+        coordinate[dot,label=below:$\bar\gamma$] (gamma) at (spath cs:wire 0.5)
+        (gamma)
+        ++(1,1) coordinate[dot,label=below:$\eta$] (unit)
+        ++(1,-2) coordinate[dot,label=above:$\epsilon$] (counit)
+      ;
+
+      \draw[spath/save=swoosh] (gamma.center) to[out=90,in=180] (unit.center) to[out=0,in=180] (counit.center) to[out=0,in=-90] (n/p);
+      \begin{scope}[on background layer]
+        \tikzset{
+          spath/split at into = {wire1}{wire2}{wire}{0.5},
+        }
+        \fill[catd] (n/a) to[spath/use={wire,weld}] (s/u) to (se) to (nw -| se) to cycle;
+        \fill[catc] (gamma) to[spath/use={swoosh,weld}] (n/p) to (nw -| se) to (se) to (s/u) to[spath/use={wire2,weld,reverse}] cycle;
+        \node[blue halo,fit=(unit)(counit)]{};
+      \end{scope}
+    \end{tikzpicture}
+    $=$
+    \diag-gamma
+  }
+
+  \p{Uniqueness of \Mor{\gl{\gamma,a}}{a}{qA} with this property can be seen as follows. We fix any \Mor{h}{\Delta}{\Gamma.A} satisfying the two factorisation properties; in other words, we assume that #{h} lies underneath a morphism in \Mor{\bar{h}}{a}{qA} in \CatEl{E} satisfying (only) the additional property that #{\epsilon_A\circ \bar{h} = \gamma}:}
+
+  \texfig{
+    \begin{tikzpicture}[scale=0.5,baseline=($(nw)!0.5!(se)$)]
+      \path
+        coordinate (nw)
+        ++(1,0) coordinate[label=above:$a$] (n/a)
+        ++(2,0) coordinate[label={[text depth=0pt]above:$\CatEl{p}$}] (n/p)
+        ++(1,-3) coordinate (se)
+      ;
+      \path coordinate[label=below:$A$] (s/u) at (se -| n/a);
+      \draw[spath/save = vert] (n/a) to (s/u);
+      \path coordinate[dot,label=left:$\bar{h}$] (h) at (spath cs:vert 0.5);
+      \path (h) ++(1,-1) coordinate[dot,label=above:$\epsilon$] (counit);
+      \draw[spath/save=swoosh] (h.center) to[out=0,in=180] (counit.center) to[out=0,in=-90] (n/p);
+      \begin{scope}[on background layer]
+        \fill[catc] (s/u) to (h.center) to[spath/use={swoosh,weld}] (n/p) to (nw -| se) to (se) to cycle;
+        \fill[catd] (n/a) to (h.center) to[spath/use={swoosh,weld}] (n/p) to cycle;
+        \node[blue halo,fit=(h)(counit)]{};
+      \end{scope}
+    \end{tikzpicture}
+    $=$
+    \diag-gamma
+  }
+
+  \p{To see that #{h = \gl{\gamma,a}}, it therefore suffices to observe the following instance of the snake identity:}
+
+  \texfig{
+    \begin{tikzpicture}[scale=0.5,baseline=($(nw)!0.5!(se)$)]
+      \path
+        coordinate (nw)
+        ++(1,0) coordinate[label=above:$a$] (n/a)
+        ++(3,-3) coordinate[label=below:$q$] (s/q)
+        ++(1,0) coordinate (se)
+      ;
+      \path
+        coordinate[label=below:$A$] (s/u) at (se -| n/a)
+      ;
+      \draw[spath/save = vert] (n/a) to (s/u);
+      \path coordinate[dot,label=left:$\bar h$] (h) at (spath cs:vert 0.5);
+      \path (h)
+        ++(1,-1) coordinate[dot,label=above:$\epsilon$] (counit)
+        ++(1,1) coordinate[dot,label=above:$\eta$] (unit)
+      ;
+      \draw[spath/save=swoosh] (h.center) to[out=0,in=180] (counit.center) to[out=0,in=180] (unit.center) to[out=0,in=90] (s/q);
+      \begin{scope}[on background layer]
+        \fill[catc] (s/u) to (h.center) to[spath/use={swoosh,weld}] (s/q) to cycle;
+        \fill[catd] (n/a) to (h.center) to[spath/use={swoosh,weld}] (s/q) to (se) to (nw -| se) to cycle;
+        \node[blue halo,fit=(counit)(unit)]{};
+      \end{scope}
+    \end{tikzpicture}
+    $=$
+    \begin{tikzpicture}[scale=0.5,baseline=($(nw)!0.5!(se)$)]
+      \path
+        coordinate (nw)
+        ++(1,0) coordinate[label=above:$a$] (n/a)
+        ++(1,-3) coordinate[label=below:$q$] (s/q)
+        ++(1,0) coordinate (se)
+      ;
+      \path  coordinate[label=below:$A$] (s/u) at (se -| n/a);
+      \draw[spath/save = vert] (n/a) to (s/u);
+      \path coordinate[dot,label=left:$\bar h$] (h) at (spath cs:vert 0.5);
+      \draw[spath/save=hq] (h.center) to[out=0,in=90] (s/q);
+      \begin{scope}[on background layer]
+        \fill[catc] (s/u) to (h.center) to[spath/use={hq,weld}] (s/q) to cycle;
+        \fill[catd] (n/a) to (h.center) to[spath/use={hq,weld}] (s/q) to (se) to (nw -| se) to cycle;
+      \end{scope}
+    \end{tikzpicture}
+  }
+}

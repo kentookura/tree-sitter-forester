@@ -1,0 +1,13 @@
+\title{Tensorial structure of the lifting doctrine in constructive domain theory}
+\taxon{reference}
+\author{jonmsterling}
+\tag{accepted}
+\date{2023-12-27}
+\date{2024-04-16}
+\date{2024-04-26}
+\meta{venue}{Proceedings of [[catmi-2023]]}
+\meta{external}{papers/sterling-2024-lifting.pdf}
+\tag{new-spaces}
+\meta{doi}{10.48550/arXiv.2312.17023}
+
+\p{We present a survey of the two-dimensional and tensorial structure of the \em{lifting doctrine} in constructive domain theory, i.e. in the theory of directed-complete partial orders (dcpos) over an arbitrary elementary topos. We establish the universal property of lifting of dcpos as the Sierpiński cone, from which we deduce (1) that lifting forms a Kock–Zöberlein doctrine, (2) that lifting algebras, pointed dcpos, and inductive partial orders form canonically equivalent locally posetal 2-categories, and (3) that the category of lifting algebras is cocomplete, with connected colimits created by the forgetful functor to dcpos. Finally we deduce the symmetric monoidal closure of the Eilenberg–Moore resolution of the lifting 2-monad by means of smash products; these are shown to classify both bilinear maps and strict maps, which we prove to coincide in the constructive setting. We provide several concrete computations of the smash product as dcpo coequalisers and lifting algebra coequalisers, and compare these with the more abstract results of Seal. Although all these results are well-known classically, the existing proofs do not apply in a constructive setting; indeed, the classical analysis of the Eilenberg–Moore category of the lifting monad relies on the fact that all lifting algebras are free, a condition that is not known to hold constructively.}

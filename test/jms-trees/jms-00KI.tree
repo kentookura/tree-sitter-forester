@@ -1,0 +1,17 @@
+\title{closure of [functions](jms-00KF) under [identity](jms-00II) and [composition](jms-00IN)}
+\date{2024-01-22}
+\author{jonmsterling}
+\contributor{marcelofiore}
+\taxon{theorem}
+\import{jms-00JB}
+
+\p{[Functions](jms-00KF) are closed under [identity](jms-00II) and [composition](jms-00IN).}
+
+\proof{
+ \p{We have already seen in \ref{jms-00K8} that [partial functions](jms-00K7) are closed under [identity](jms-00II) and [composition](jms-00IN). Therefore, it suffices to argue that the [identity](jms-00II) [partial function](jms-00K7) is total, and that the [composition](jms-00IN) of two [total](jms-00KF) [partial functions](jms-00K7) is [total](jms-00KF).}
+
+ \ol{
+  \li{We must show that for all #{a\in A}, there exists #{a' \in A} such that #{a\mathrel{\idn{A}} a'}; unfolding the definition of the [identity relation](jms-00II) we may choose #{a' = a}.}
+  \li{Given #{f\colon A\to B} and #{g\colon A \to C}, we must check that for all #{a\in A}, there exists some #{c\in C} such that #{a\mathrel{\prn{g\circ f}}c}. By the definition of [relational composition](jms-00IN), we must show that there exists #{b\in B} and #{c\in C} and such that #{a\mathrel{f}b} and #{b\mathrel{c}}. We choose #{b = f\prn{a}} and #{c = g\prn{b}=g\prn{f\prn{a}}}.}
+ }
+}

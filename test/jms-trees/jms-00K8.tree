@@ -1,0 +1,19 @@
+\title{closure of [partial functions](jms-00K7) under [identity](jms-00II) and [composition](jms-00IN)}
+\date{2024-01-22}
+\author{jonmsterling}
+\contributor{marcelofiore}
+\taxon{theorem}
+\import{jms-00JB}
+
+\p{[Partial functions](jms-00K7) are closed under [identity](jms-00II) and [composition](jms-00IN) in the following sense:}
+
+\ol{
+ \li{For any set #{A}, the [identity relation](jms-00II) #{\idn{A} \colon A\relto A} is [functional](jms-00K7).}
+ \li{For any sets #{A,B,C} and [functional relations](jms-00K7) #{f\colon A\pto B} and #{g \colon B\pto C}, the [relational composite](jms-00IN) #{g\circ f \colon A\relto C} is [functional](jms-00K7).}
+}
+
+\proof{
+ \p{First, we prove that each [identity relation](jms-00II) #{\idn{A}\colon A\relto A} is [functional](jms-00K7). Fixing #{a,a_1,a_2\in A} such that #{a=a_1} and #{a=a_2}, we must show that #{a_1=a_2}; this follows from transitivity and symmetry of equality.}
+ \p{Next, we fix [partial functions](jms-00K7) #{f\colon A\pto B} and #{g \colon B\pto C} to check that #{g\circ f \colon A\relto C} is [functional](jms-00K7). Fixing #{a\in A} and #{c_1,c_2\in C} such that #{a\mathrel{\prn{g\circ f}}c_1} and #{a\mathrel{\prn{g\circ f}}c_2}, we must check that #{c_1=c_2}. By definition of the relational composite, we have #{b_1,b_2\in B} such that #{a\mathrel{f}b_1\mathrel{g}c_1} and #{a\mathrel{f}b_2\mathrel{g}c_2}. Because #{f\colon A\pto B} is functional, we note that #{b_1 = b_2}. Writing #{b=b_1=b_2}, we therefore have #{b\mathrel{g}c_1} and #{b\mathrel{g}c_2}. Because #{g\colon B\pto C} is [functional](jms-00K7), we conclude that #{c_1=c_2}.}
+}
+

@@ -1,0 +1,21 @@
+\title{Denotational semantics in Synthetic Guarded Domain Theory}
+\date{2016}
+\taxon{reference}
+
+\author{marcopaviotti}
+\tag{dissertation}
+\tag{gdt}
+\meta{bibtex}\verb<<<|
+@phdthesis{paviotti-2016,
+  author = {Paviotti, Marco},
+  language = {English},
+  address = {Denmark},
+  school = {IT-Universitetet i K{\o{}}benhavn},
+  year = {2016},
+  isbn = {978-87-7949-345-2},
+  series = {ITU-DS},
+  title = {Denotational semantics in Synthetic Guarded Domain Theory},
+}<<<
+
+
+\meta{venue}{IT-Universitetet i København}

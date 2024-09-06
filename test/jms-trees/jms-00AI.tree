@@ -1,0 +1,7 @@
+\title{project bibliography}
+\author{jonmsterling}
+\date{2023-10-12}
+\import{jms-005X}
+\taxon{bibliography}
+\make-topic-bibliography{new-spaces}
+\parent{jms-008K}

@@ -1,0 +1,23 @@
+\title{Resource modalities in tensor logic}
+\taxon{reference}
+\author{paulandrémelliès}
+\author{Nicolas Tabareau}
+\date{2010}
+\meta{doi}{10.1016/j.apal.2009.07.018}
+\meta{venue}{Annals of Pure and Applied Logic}
+\meta{bibtex}\verb<<<|
+@article{mellies-tabareau-2010,
+  author = {Paul-Andr{\'e} Melli{\`e}s and Nicolas Tabareau},
+  doi = {10.1016/j.apal.2009.07.018},
+  issn = {0168-0072},
+  journal = {Annals of Pure and Applied Logic},
+  keywords = {Game semantics, Conway games, Linear logic, Tensor logic, Resource modalities, Categorical semantics},
+  note = {The Third workshop on Games for Logic and Programming Languages (GaLoP)},
+  number = {5},
+  pages = {632-653},
+  title = {Resource modalities in tensor logic},
+  volume = {161},
+  year = {2010},
+}<<<
+
+\p{The description of resources in game semantics has never achieved the simplicity and precision of linear logic, because of the misleading conception that linear logic is more primitive than game semantics. Here, we defend the opposite view, and thus advocate that game semantics is conceptually more primitive than linear logic. This revised point of view leads us to introduce tensor logic, a primitive variant of linear logic where negation is not involutive. After formulating its categorical semantics, we interpret tensor logic in a model based on Conway games equipped with a notion of payoff, in order to reflect the various resource policies of the logic: linear, affine, relevant or exponential.}

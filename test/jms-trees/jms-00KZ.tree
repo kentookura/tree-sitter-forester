@@ -1,0 +1,13 @@
+\title{closure of [bijections](jms-00KR) under [identity](jms-00II) and [composition](jms-00IN)}
+\date{2024-01-23}
+\author{jonmsterling}
+\contributor{marcelofiore}
+\taxon{theorem}
+\import{jms-00JB}
+
+\p{The [identity function](jms-00KI) is a [bijection](jms-00KR), and the [composition](jms-00IN) of [bijections](jms-00KR) yields a [bijection](jms-00KR).}
+
+\proof{
+ \p{The inverse to the [identity function](jms-00KI) #{\idn{A}\colon A\to A} is simply itself.}
+ \p{Fix [bijections](jms-00KR) #{f\colon A\to B} and #{g\colon B\to C}, so that we have [inverses](jms-00KR) #{f\inv\colon B\to A} and #{g\inv\colon C\to B}. The [inverse](jms-00KR) to the [composite function](jms-00KI) #{g\circ f\colon A \to C} is the [composite](jms-00KI) #{f\inv\circ g\inv\colon C \to A}. The [section/retraction](jms-00KS) conditions follow by those for #{f} and #{g} using the [associative and unit laws of composition](jms-00IP).}
+}

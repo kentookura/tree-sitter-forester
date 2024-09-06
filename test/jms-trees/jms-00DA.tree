@@ -1,0 +1,24 @@
+\title{weak algebra [homomorphisms](jms-00C8) and [successor algebra homomorphisms](jms-00CA) are interchangeable}
+\taxon{corollary}
+\date{2023-11-05}
+\author{jonmsterling}
+\import{base-macros}
+\import{jms-00CD}
+\import{jms-00C6}
+\import{jms-00C9}
+
+\let\T{#{T}}
+\let\TT{#{\mathbb{T}}}
+\let\C{#{\mathcal{C}}}
+\let\X{#{X}}
+\let\I{#{I}}
+
+\p{Let \TT be a monad on a category \C and let \I be an invertible [\em{weak} algebra](jms-00C8) for \TT; let \X be an arbitrary [successor algebra](jms-00C9). Then a morphism \Mor{j}{\I}{\X} in \C tracks a weak algebra homomorphism \Mor{j}{I}{s\cdot X} if and only if it tracks a [successor algebra homomorphism](jms-00CA) \Mor{j}{\ToMonadAlg{\I}}{\X}, where \ToMonadAlg{\I} is the [induced successor algebra](jms-00CN) of \I and #{s\cdot\X} is the [successor restriction](jms-00CC) of \X.}
+
+\proof{
+  \p{This follows from the following two lemmas:}
+  \ol{
+    \li{[[jms-00CR]];}
+    \li{[[jms-00D9]].}
+  }
+}

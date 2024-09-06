@@ -1,0 +1,160 @@
+\title{algebraic description of natural models}
+\author{jonmsterling}
+\date{2023-11-10}
+\taxon{definition}
+
+\import{jms-00B8}
+\import{jms-00DJ}
+
+
+
+\let\C{#{\mathcal{C}}}
+
+\let\catU{catc}
+\let\catE{catd}
+\let\catC{catf}
+\let\ecx{\diamond}
+
+\def\natural-model/new{
+  \object[M]{
+    [suffix]{}
+    [C-cat]{
+      \patch{\category/new}{
+        [name]{\mathcal{C}\M#suffix}
+        [fill]{catf}
+      }
+    }
+    [E-cat]{
+      \patch{\category/new}{
+        [name]{E\M#suffix}
+        [fill]{catd}
+      }
+    }
+    [U-cat]{
+      \patch{\category/new}{
+        [name]{U\M#suffix}
+        [fill]{catc}
+      }
+    }
+    [trm-cat]{
+      \category/terminal
+    }
+    [p-fun]{
+      \patch{\functor/new}{
+        [name]{p\M#suffix}
+        [dom]{\M#E-cat}
+        [cod]{\M#U-cat}
+      }
+    }
+    [c-fun]{
+      \patch{\functor/new}{
+        [name]{c\M#suffix}
+        [dom]{\M#U-cat}
+        [cod]{\M#C-cat}
+      }
+    }
+    [q-fun]{
+      \patch{\functor/new}{
+        [name]{q\M#suffix}
+        [dom]{\M#U-cat}
+        [cod]{\M#E-cat}
+      }
+    }
+    [trm-fun]{
+      \patch{\functor/new}{
+        [name]{*\M#suffix}
+        [dom]{\M#C-cat}
+        [cod]{\M#trm-cat}
+      }
+    }
+    [ecx-fun]{
+      \patch{\functor/new}{
+        [name]{\diamond\M#suffix}
+        [cod]{\M#C-cat}
+        [dom]{\M#trm-cat}
+      }
+    }
+    [trm-ecx-adj]{
+      \patch{\adjunction/new}[adj]{
+        [left]{\M#trm-fun}
+        [right]{\M#ecx-fun}
+      }
+    }
+    [p-q-adj]{
+      \patch{\adjunction/new}{
+        [left]{\M#p-fun}
+        [right]{\M#q-fun}
+      }
+    }
+
+    [width]{5}
+    [height]{2}
+
+    [draw]{
+      \begin{tikzpicture}[scale=0.5,baseline=($(nw)!0.5!(se)$)]
+        \CreateRect{\M#width}{\M#height}
+        \path
+          coordinate[label=above:$\strut\M#p-fun#name$] (n/p) at (spath cs:north 0.33)
+          coordinate[label=below:$\strut\M#p-fun#name$] (s/p) at (spath cs:south 0.33)
+          coordinate[label=above:$\strut\M#c-fun#name$] (n/c) at (spath cs:north 0.66)
+          coordinate[label=below:$\strut\M#c-fun#name$] (s/c) at (spath cs:south 0.66)
+        ;
+
+        \node[between = nw and s/p, opacity=0.6] {$\M#E-cat#name$};
+        \node[between = n/p and s/c, opacity=0.6] {$\M#U-cat#name$};
+        \node[between = n/c and se, opacity=0.6] {$\M#C-cat#name$};
+
+        \draw (n/p) to (s/p);
+        \draw (n/c) to (s/c);
+
+        \begin{scope}[on background layer]
+          \fill[\M#E-cat#fill] (nw) rectangle (s/p);
+          \fill[\M#U-cat#fill] (n/p) rectangle (s/c);
+          \fill[\M#C-cat#fill] (n/c) rectangle (se);
+        \end{scope}
+      \end{tikzpicture}
+    }
+  }
+}
+
+
+
+\let\M{\natural-model/new}
+
+\p{A \em{natural model} is described by the following structure in the bicategory of (small) categories:}
+
+\ol{
+  \li{
+    a sequence of discrete fibrations #{E\xrightarrow{p} U\xrightarrow{c} \C}:
+    \texfig{\M#draw}
+  }
+
+  \li{
+    a right adjoint \Mor{\diamond}{\mathbf{1}}{\C} to the terminal functor \Mor{*}{\C}{\mathbf{1}}:
+
+    \let\adj{\M#trm-ecx-adj}
+
+    \texfig{
+      \adj#right#draw
+      \adj#unit#draw
+      \adj#counit#draw
+    }
+
+    \texfig{\adj#right-snake-identity#draw}
+  }
+
+  \li{
+    a right adjoint \Mor{q}{U}{E} to \Mor{p}{E}{U}:
+
+    \let\adj{\M#p-q-adj}
+
+    \texfig{
+      \adj#right#draw
+      \adj#unit#draw
+      \adj#counit#draw
+    }
+
+    \texfig{\adj#left-snake-identity#draw}
+    \texfig{\adj#right-snake-identity#draw}
+  }
+}

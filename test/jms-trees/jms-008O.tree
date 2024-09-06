@@ -1,0 +1,14 @@
+\title{academic service}
+\parent{jms-008L}
+\author{jonmsterling}
+\date{2023-09-08}
+
+\scope{
+  \put\transclude/title{conference program committees}
+  \transclude{jms-00AF}
+}
+
+\scope{
+  \put\transclude/title{workshop program committees}
+  \transclude{jms-00AG}
+}

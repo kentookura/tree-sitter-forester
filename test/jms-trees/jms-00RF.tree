@@ -1,0 +1,136 @@
+\title{Forester 4.0}
+\date{2024-04-05}
+\author{jonmsterling}
+\taxon{release}
+
+
+\p{This is a major release of [[jms-005P]] that changes both the command line interface \em{and} the XML format, introducing many new features under the hood as well as quality-of-life improvements (including a 2X rendering speedup).}
+
+\subtree[jms-00RG]{
+ \title{forest configuration via TOML}
+ \contributor{kentookura}
+
+ \p{Previously, the locations of trees as well as assets and theme directories were configured by means of command line arguments. As this has become a bit unwieldy, especially as many users have multiple projections of their forest, we have consolidated these options under a simple [TOML](https://toml.io/en/) configuration file whose location is the first argument to most \code{forester} commands. Here is an example configuration file:}
+
+ \pre{\startverb
+# forest.toml
+[forest]
+trees = ["trees"]
+assets = ["assets"]
+theme = "theme"
+root = "jms-0001"
+base_url = "https://www.jonmsterling.com"
+ \stopverb}
+
+ \p{It is common to have multiple configurations. For example, if you have “public” trees located in a specific directory, you can have an additional configuration:}
+
+ \pre{\startverb
+# public.toml
+[forest]
+trees = ["trees/public"]
+assets = ["assets"]
+theme = "theme"
+root = "jms-0001"
+base_url = "https://www.jonmsterling.com"
+ \stopverb}
+
+ \p{Both the \code{assets} and \code{theme} keys are displayed above with their default values, so they could be omitted. There is an additional \code{stylesheet} key that can be used to set the name of the XSL stylesheet used (the default is \code{forest.xsl}).}
+
+ \p{To build the forest, simply run: \code{forester build forest.toml}; other options can be used (see \code{forester build --help}), such as \code{forester build forest.toml --dev}.}
+
+}
+
+\subtree[jms-00RH]{
+ \title{enhanced XML support}
+
+ \subtree[jms-00RI]{
+  \title{an XML namespace for [[jms-005P]]}
+  \import{base-macros}
+
+  \p{The XML format is now governed by the [XML namespace](https://www.w3.org/TR/xml-names/) with URI [http://www.jonmsterling.com/jms-005P.xml](http://www.jonmsterling.com/jms-005P.xml); as is typical of XML grammars, element names are namespaced whereas attribute names lie in no namespace. [[jms-005P]] emits XML with element names qualified by a prefix bound to this namespace. \mark{This change breaks existing XSL stylesheets, so you must upgrade your theme.}}
+
+  \p{The new version of the [default theme](https://git.sr.ht/~jonsterling/forester-base-theme) contains rules to allow anything in either the \code{http://www.w3.org/1999/xhtml} or \code{http://www.w3.org/1998/Math/MathML} namespaces to be copied through to the output HTML (with namespace prefixes stripped). In combination with \ref{jms-00RJ}, this allows you to write HTML and [[jms-00YE]] in [[jms-005P]] directly.}
+
+  \p{Please note that although [[jms-005P]] now has a namespace, it does \em{not} has a schema. Any direct integration with the XML format (e.g. by custom themes) is not supported and should be done at your own risk — several recent releases have illustrated the continued rapid evolution of the XML format with many breaking changes. I expect this evolution will continue for some time.}
+ }
+
+ \subtree[jms-00RJ]{
+  \title{emitting XML and resolving namespaces}
+  \p{Since [version 3.0](jms-00CW), [Forester’s source language has supported](jms-00CZ) a limited form of custom XML output by means of the \code{\startverb\xml\stopverb} command. This support was, however, somewhat unwieldy: no built-in accounting for XML namespaces was included, so correct  usage of \code{\startverb\xml\stopverb} was prohibitively difficult because of the need for \code{xmlns} attributes on essentially every node.}
+
+  \subtree[jms-00RK]{
+   \title{XML namespace declaration}
+   \taxon{feature}
+
+   \p{[[jms-005P]] treats XML namespace prefixes in a way that respects #{\alpha}-equivalence: in other words, any prefix mentioned must be \em{bound}, and it is possible for two different textually identical namespace prefixes to denote different namespaces depending on their scope. This makes it possible to compose code that emits XML without coordinating namespace prefixes, which I have found to be a major impediment to the correct use of XML for non-trivial work.}
+
+   \p{An XML namespace prefix is bound by a declaration like the following:}
+
+   \pre{\startverb
+\xmlns:html{http://www.w3.org/1999/xhtml}
+   \stopverb}
+
+   \p{This declaration has the same scoping rules as \code{\startverb\def\stopverb}.}
+  }
+
+  \subtree[jms-00RM]{
+   \title{XML literals}
+   \taxon{feature}
+
+   \p{The old \code{\startverb\xml\stopverb} syntax has been replaced with a new convenient notation for XML literals that supports [declared XML namespace prefixes](jms-00RK). The grammar of XML literals is summarised below:}
+
+   \pre{\startverb
+qname ::= prefix:name | name
+expr ::= ... | \<qname>[qname]{expr}...{expr}
+   \stopverb}
+
+   \p{For example, if the prefix \code{html:} is bound to [http://www.w3.org/1999/xhtml](http://www.w3.org/1999/xhtml) as in \ref{jms-00RK}, the expression \code{\startverb\<html:mark>[class]{highlight}{some highlighted text}\stopverb} will emit the following XML:}
+
+   \pre{\startverb
+<html:mark
+  xmlns:html="http://www.w3.org/1999/xhtml"
+  class="highlight">
+ some highlighted text
+</html:mark>
+   \stopverb}
+
+   \p{In reality, the appropriate \code{@xmlns:html} attribute will be attached only where it is needed in keeping with the hierarchical structure of the XML tree. Note that when the same textual prefix is bound to two different namespaces, one of them will be automatically #{\alpha}-renamed so as to result in correct XML with the intended semantics.}
+  }
+
+  \subtree[jms-00RL]{
+   \taxon{example}
+   \title{a worked example}
+
+   \p{The following code causes [[jms-00YE]] to be emitted (in the correct namespace), combining \ref{jms-00RK} and \ref{jms-00RM}:}
+
+   \pre{\startverb
+\xmlns:mml{http://www.w3.org/1998/Math/MathML}
+\<mml:math>[display]{block}{
+ \<mml:mrow>{
+  \<mml:msup>{
+   \<mml:mi>{x}
+   \<mml:mn>{2}
+  }
+  \<mml:mo>{+}
+  \<mml:mi>{x}
+ }
+}
+   \stopverb}
+
+   \p{The above displays as follows:}
+
+   \xmlns:mml{http://www.w3.org/1998/Math/MathML}
+   \<mml:math>[display]{block}{
+    \<mml:mrow>{
+     \<mml:msup>{
+      \<mml:mi>{x}
+      \<mml:mn>{2}
+     }
+     \<mml:mo>{+}
+     \<mml:mi>{x}
+    }
+   }
+  }
+ }
+}
+

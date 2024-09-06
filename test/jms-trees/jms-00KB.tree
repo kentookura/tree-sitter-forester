@@ -1,0 +1,7 @@
+\title{domain of definition of a [partial function](jms-00K7)}
+\date{2024-01-22}
+\author{jonmsterling}
+\taxon{definition}
+\import{jms-00JB}
+
+\p{The \dem{domain of definition} of a [partial function](jms-00K7) #{f\colon A\pto B} is the subset #{\compr{a\in A}{\is-defined{f\prn{a}}}\subseteq A} spanned by elements of the domain on which the partial function is [defined](jms-00KA).}

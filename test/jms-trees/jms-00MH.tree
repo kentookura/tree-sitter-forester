@@ -1,0 +1,8 @@
+\title{countable set}
+\date{2024-01-29}
+\author{jonmsterling}
+\contributor{marcelofiore}
+\taxon{definition}
+\import{jms-00JB}
+
+\p{A \dem{countable set} is one that is either empty or [enumerable](jms-00ME).}

@@ -1,0 +1,24 @@
+\title{Lifting as a KZ-doctrine}
+\author{marcelofiore}
+\taxon{reference}
+\tag{refereed}
+\date{1995}
+
+\import{conf-name-macros}
+
+\meta{doi}{10.1007/3-540-60164-3_24}
+\meta{external}{https://link.springer.com/content/pdf/10.1007/3-540-60164-3_24.pdf}
+\meta{venue}{\conf-name{CTCS ’95}{Category Theory and Computer Science}}
+
+\meta{bibtex}\verb<<<|
+@inproceedings{fiore-1995,
+  author = {Fiore, Marcelo P.},
+  editor = {Pitt, David and Rydeheard, David E. and Johnstone, Peter},
+  address = {Berlin, Heidelberg},
+  publisher = {Springer Berlin Heidelberg},
+  booktitle = {Category Theory and Computer Science},
+  year = {1995},
+  isbn = {978-3-540-44661-3},
+  pages = {146--158},
+  title = {Lifting as a {KZ}-doctrine},
+}<<<

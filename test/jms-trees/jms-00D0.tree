@@ -1,0 +1,9 @@
+\title{primitive formatting commands}
+\parent{jms-00CY}
+\author{jonmsterling}
+\date{2023-11-03}
+\taxon{change}
+
+\p{As a consequence of the [changed fallthrough behavior](jms-00CZ), several new primitives have been added to the source language, including \code{\startverb\p\stopverb}, \code{\startverb\em\stopverb}, \code{\startverb\strong\stopverb}, \code{\startverb\ol\stopverb}, \code{\startverb\ul\stopverb}, \code{\startverb\li\stopverb}, \code{\startverb\blockquote\stopverb}, and \code{\startverb\pre\stopverb}.}
+
+\p{You can add further commands to your primitives using a combination of \code{\startverb\def\stopverb}, \code{\startverb\iftex\stopverb}, and \code{\startverb\xml\stopverb}.}

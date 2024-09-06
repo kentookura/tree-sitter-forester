@@ -1,0 +1,80 @@
+\title{public bibliographies}
+\author{jonmsterling}
+\date{2023-07-18}
+
+\def\make-topic-bibliography[topic]{
+  \subtree{
+   \title{accepted papers}
+   \query{
+    \open\query
+    \isect{\tag{\topic}}{\taxon{reference}}{\tag{accepted}}
+   }
+  }
+
+  \subtree{
+   \title{refereed papers}
+   \query{
+    \open\query
+    \isect{\tag{\topic}}{\taxon{reference}}{\tag{refereed}}
+   }
+  }
+
+  \subtree{
+   \title{manuscripts}
+   \query{
+    \open\query
+    \isect{\tag{\topic}}{\taxon{reference}}{\tag{preprint}}{\compl{\tag{accepted}}}
+   }
+  }
+
+  \subtree{
+   \title{dissertations}
+   \query{
+    \open\query
+    \isect{\tag{\topic}}{\taxon{reference}}{\tag{dissertation}}
+   }
+  }
+
+  \subtree{
+   \title{technical reports}
+   \query{
+    \open\query
+    \isect{\tag{\topic}}{\taxon{reference}}{\tag{techreport}}
+   }
+  }
+
+  \subtree{
+   \title{presentations}
+   \query{
+    \open\query
+    \isect{\tag{\topic}}{
+     \union{
+      \isect{\tag{workshop}}{\taxon{reference}}
+     }{\taxon{presentation}}
+    }
+   }
+  }
+
+
+  \subtree{
+   \title{seminar talks}
+   \query{
+    \open\query
+    \isect{\tag{\topic}}{\taxon{reference}}{\tag{seminar}}
+   }
+  }
+
+  \subtree{
+   \title{roladex}
+   \query{
+    \open\query
+    \isect{\taxon{person}}{\tag{\topic}}
+   }
+  }
+}
+
+\p{I maintain several public bibliographies.}
+
+\transclude{jms-005W}
+\transclude{jms-005S}
+\transclude{jms-005T}

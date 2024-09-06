@@ -1,0 +1,39 @@
+\title{type theoretic structure on [natural models](jms-00E4)}
+\author{jonmsterling}
+\date{2023-11-20}
+
+\import{jms-00DJ}
+\let\C{#{\mathcal{C}}}
+
+\p{A [natural model](jms-00E4) consists of (exactly) the judgmental structure of Martin-Löf type theory, without any connectives or basic types or terms. Here we will explore how structure is imposed on a given [natural model](jms-00E4).}
+
+\p{In Martin-Löf type theory, a connective is usually described as being specified by (1) a formation rule, (2) introduction rules, (3) elimination rules, (4) computation rules, and (5) uniqueness rules. This schema is deceptively simple, as there are a number of places where additional complexity arises:}
+
+\ol{
+  \li{Some types have projection-style eliminators, like those of #{\Pi} and #{\Sigma} types.}
+  \li{Some types have lifting-style eliminators, like that of the booleans.}
+  \li{Some lifting-style eliminators are dependent, like that of the booleans.}
+  \li{Other lifting-style eliminators are non-dependent, like that of a [reflective subuniverse that is not #{\Sigma}-closed](rijke-shulman-spitters-2020), such as the subuniverse of predomains in a model of [synthetic domain theory](hyland-1991).}
+  \li{Some lifting-style eliminators draw their motives of elimination from the ambient natural model, and others place more restrictions (as in the case of a reflective subuniverse).}
+  \li{Some parameters of a formation rule are held fixed during elimination, and others are not.}
+  \li{Some eliminators have judgmental (strict) uniqueness laws, others do not.}
+}
+
+\p{It is our goal to develop a framework that smoothly handles all of these possibilities. As all the possible parameters pertain to elimination and uniqueness laws, it is natural to consider the \em{formation and introduction rules} as the basic data of a type theoretic connective, and then the different ways in which a natural model can be closed under such a connective.}
+
+\p{In categorical terms, the formation and introduction rules for a connective #{K} can be understood in terms of a single map \Mor{\pi}{I}{F} in #{\Psh{\C}}: the base #{F} represents the premises of the formation rule, and the total space #{I} represents the premises of the introduction rule. The projection itself reflects the fact that, in type theoretic terms, an introduction rule for a given connective presupposes that the premises of the formation rule are satisfied.}
+
+\transclude{jms-00F3}
+\transclude{jms-00F4}
+\transclude{jms-00F7}
+
+\transclude{jms-00F9}
+\transclude{jms-00F5}
+
+\transclude{jms-00F6}
+
+\p{We can define the structure of recursors in terms of eliminators. To be very clear, we are \em{not} demonstrating the (obvious) fact that a recursor can be implemented using a eliminator: we are saying that a recursor for one [formation square](jms-00F5) is \em{precisely the same thing} as a eliminator for a \em{different} [formation square](jms-00F5) in a different category.}
+
+\transclude{jms-00F8}
+
+\transclude{jms-00FA}

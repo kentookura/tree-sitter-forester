@@ -1,0 +1,8 @@
+\title{lightweight templating in \code{forester new}}
+\parent{jms-00CW}
+\date{2023-12-02}
+\author{jonmsterling}
+\author{dannypsnl}
+\taxon{feature}
+
+\p{[[jms-00CW]] adds a new \code{--template} option to the \code{forester new} command. Running \code{forester new --template xxx-0001} will create a new tree with the contents of the existing tree \code{xxx-0001}.}

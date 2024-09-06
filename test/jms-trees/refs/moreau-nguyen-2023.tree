@@ -1,0 +1,12 @@
+\title{Syntactically and semantically regular languages of lambda-terms coincide through logical relations}
+\taxon{reference}
+\author{vincentmoreau}
+\author{Lê Thành Dũng Nguyên}
+\meta{venue}{[[csl-2024]]}
+\meta{doi}{10.48550/arXiv.2308.00198}
+
+\p{A fundamental theme in automata theory is regular languages of words and trees, and their many equivalent definitions. Salvati has proposed a generalization to regular languages of simply typed λ-terms, defined using denotational semantics in finite sets.}
+
+\p{We provide here some evidence for its robustness. First, we give an equivalent syntactic characterization that naturally extends the seminal work of Hillebrand and Kanellakis connecting regular languages of words and syntactic λ-definability. Second, we exhibit a class of categorical models of the simply typed λ-calculus, which we call finitely pointable, and we show that, when used in Salvati’s definition, they all recognize exactly the same class of languages of λ-terms as the category of finite sets does.}
+
+\p{The proofs of these two results rely on logical relations and can be seen as instances of a more general construction of a categorical nature, inspired by previous categorical accounts of logical relations using the gluing construction.}

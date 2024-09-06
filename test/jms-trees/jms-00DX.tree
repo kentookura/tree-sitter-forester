@@ -1,0 +1,27 @@
+\title{representable morphisms of presheaves}
+\date{2023-11-09}
+\author{jonmsterling}
+\taxon{definition}
+
+
+\import{jms-00DJ}
+
+\let\C{#{\mathcal{C}}}
+
+\p{A morphism \Mor{p}{E}{U} in #{\Psh{\C}} is called \em{representable} when for every #{\Gamma\vdash_p A}, the fiber product #{\Gamma.A :\equiv E\times_U\Gamma} is representable:}
+
+\texfig{
+  \begin{tikzpicture}[diagram]
+    \SpliceDiagramSquare<sq/>{
+      nw = \Gamma.A,
+      sw = \Gamma,
+      ne = E,
+      se = U,
+      east = p,
+      south = A,
+      west = p_A,
+      north = q_A,
+      nw/style = pullback,
+    }
+  \end{tikzpicture}
+}

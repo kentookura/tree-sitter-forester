@@ -1,0 +1,10 @@
+\title{Reflexive graph lenses in univalent foundations}
+\date{2024-03-30}
+\author{jonmsterling}
+\taxon{reference}
+\tag{preprint}
+\tag{new-spaces}
+\meta{doi}{10.48550/arXiv.2404.07854}
+\meta{external}{https://arxiv.org/abs/2404.07854}
+
+\p{[Martin-Löf](permartinlöf)’s identity types provide a generic (albeit opaque) notion of identification or “equality” between any two elements of the same type, embodied in a canonical reflexive graph structure #{(=_A, \mathbf{refl})} on any type #{A}. The miracle of [Voevodsky](vladimirvoevodsky)’s \em{univalence principle} is that it ensures, for essentially any naturally occuring structure in mathematics, that this the resultant notion of identification is equivalent to the type of \em{isomorphisms} in the category of such structures. Characterisations of this kind are not automatic and must be established one-by-one; to this end, several authors have employed \em{reflexive graphs} and \em{displayed reflexive graphs} to organise the characterisation of identity types. We contribute \strong{reflexive graph lenses}, a new family of intermediate abstractions lying between families of reflexive graphs and displayed reflexive graphs that simplifies the characterisation of identity types for complex structures. Every reflexive graph lens gives rise to a (more complicated) displayed reflexive graph, and our experience suggests that many naturally occuring displayed reflexive graphs arise in this way. Evidence for the utility of reflexive graph lenses is given by means of several case studies, including the theory of reflexive graphs itself as well as that of polynomial type operators. Finally, we exhibit an equivalance between the type of reflexive graph fibrations and the type of \em{univalent} reflexive graph lenses.}

@@ -1,0 +1,20 @@
+\title{finite and infinite sets}
+\date{2024-01-28}
+\author{jonmsterling}
+\contributor{marcelofiore}
+
+\p{Now that we have learned about [bijections](jms-00KR), we are ready to replace our intuitive/informal understanding of finite sets and finite cardinality with a formal one.}
+
+\transclude{jms-00LX}
+
+\p{There are many identities that relate set-theoretic operations on [finite sets](jms-00LX) to arithmetic operations on their cardinalities. We will illustrate a few of them here.}
+
+\transclude{jms-00LY}
+\transclude{jms-00LZ}
+
+
+\transclude{jms-00M1}
+
+\p{The basic axioms of set theory that we have learned in this course so far do not in fact guarantee the existence of any [infinite sets](jms-00M1). For this reason, one usually adds the [axiom of infinity](jms-00M1) below to set theory.}
+
+\transclude{jms-00M0}

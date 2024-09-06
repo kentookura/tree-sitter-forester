@@ -1,0 +1,17 @@
+\title{the [relation](jms-00I7) associated to a [matrix](jms-00IS)}
+\date{2024-01-17}
+\author{jonmsterling}
+\taxon{definition}
+\import{jms-00JB}
+
+\p{Let #{M} be an \dem{\nowrap{\prn{n\times n}-[matrix](jms-00I7)}} over a semiring #{S}. We define the \dem{[relation](jms-00I7) associated to #{M}} below:}
+
+##{
+ \begin{aligned}
+ \rel-of-matrix_S{M} &\colon \brk{m}\relto\brk{n}
+ \\
+ i\mathrel{\prn{\rel-of-matrix_S{M}}} j &\Longleftrightarrow M_{i,j} = 1
+ \end{aligned}
+}
+
+\p{We have defined a function #{\rel-of-matrix_S\colon \MAT{S}{m}{n}\to\REL{\brk{m},\brk{n}}}.}

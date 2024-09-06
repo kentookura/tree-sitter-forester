@@ -1,0 +1,238 @@
+\title{transformations of [homomorphisms of natural models](jms-00E5)}
+\date{2023-11-10}
+\author{jonmsterling}
+\taxon{definition}
+
+
+
+
+\import{jms-00B8}
+\import{jms-00DJ}
+\import{jms-00E4}
+\import{jms-00E5}
+\import{jms-00E0}
+
+\let\alpha/E{#{\alpha_E}}
+\let\alpha/U{#{\alpha_U}}
+\let\alpha/C{#{\alpha_{\mathcal{C}}}}
+
+\let\M-nat-mod{
+  \patch{\natural-model/new}{
+    [suffix]{_{M}}
+  }
+}
+
+\let\N-nat-mod{
+  \patch{\natural-model/new}[N]{
+    [suffix]{_{N}}
+    [C-cat]{
+      \patch{\category/new}{
+        [name]{\mathcal{C}\N#suffix}
+        [fill]{brown!40}
+      }
+    }
+    [E-cat]{
+      \patch{\category/new}{
+        [name]{E\N#suffix}
+        [fill]{cate}
+      }
+    }
+    [U-cat]{
+      \patch{\category/new}{
+        [name]{U\N#suffix}
+        [fill]{violet!40}
+      }
+    }
+  }
+}
+
+\let\Phi-nat-mod-hom{
+  \patch{\natural-model-hom/new}{
+    [name]{\Phi}
+    [dom]{\M-nat-mod}
+    [cod]{\N-nat-mod}
+  }
+}
+
+\let\Psi-nat-mod-hom{
+  \patch{\natural-model-hom/new}{
+    [name]{\Psi}
+    [dom]{\M-nat-mod}
+    [cod]{\N-nat-mod}
+  }
+}
+
+\def\natural-model-hom-transf/new{
+  \object[self]{
+    [dom]{\Phi-nat-mod-hom}
+    [cod]{\Psi-nat-mod-hom}
+    [name]{\alpha}
+    [pres-E]{
+      \patch{\nat-transf/new}{
+        [dom]{\self#dom#E-fun}
+        [cod]{\self#cod#E-fun}
+        [name]{\self#name\Sub{E}}
+      }
+    }
+    [pres-U]{
+      \patch{\nat-transf/new}{
+        [dom]{\self#dom#U-fun}
+        [cod]{\self#cod#U-fun}
+        [name]{\self#name\Sub{U}}
+      }
+    }
+    [pres-C]{
+      \patch{\nat-transf/new}{
+        [dom]{\self#dom#C-fun}
+        [cod]{\self#cod#C-fun}
+        [name]{\self#name\Sub{\mathcal{C}}}
+      }
+    }
+  }
+}
+
+\let\M{
+  \patch{\natural-model/new}[M]{
+    [name]{M}
+    [suffix]{_{\M#name}}
+  }
+}
+
+\let\N{
+  \patch{\natural-model/new}[N]{
+    [suffix]{_{\N#name}}
+    [name]{N}
+    [C-cat]{
+      \patch{\category/new}{
+        [name]{\mathcal{C}\N#suffix}
+        [fill]{brown!40}
+      }
+    }
+    [E-cat]{
+      \patch{\category/new}{
+        [name]{E\N#suffix}
+        [fill]{cate}
+      }
+    }
+    [U-cat]{
+      \patch{\category/new}{
+        [name]{U\N#suffix}
+        [fill]{violet!40}
+      }
+    }
+  }
+}
+
+\let\Phi-hom{
+  \patch{\natural-model-hom/new}{
+    [name]{\Phi}
+    [dom]{\M}
+    [cod]{\N}
+  }
+}
+
+\let\Psi-hom{
+  \patch{\natural-model-hom/new}{
+    [name]{\Psi}
+    [dom]{\M}
+    [cod]{\N}
+  }
+}
+
+\let\alpha-transf{
+  \patch{\natural-model-hom-transf/new}{
+    [dom]{\Phi-hom}
+    [cod]{\Psi-hom}
+    [name]{\alpha}
+  }
+}
+
+\let\diag-1-l{
+  \let\fig{
+    \patch{\Psi-hom#p-pres}{
+      [height]{4}
+      [fun-0]{\Phi-hom#E-fun}
+      [extra]{
+        \path coordinate[dot,label=left:$\alpha/E$] (transf) at (spath cs:f01 0.25);
+      }
+    }
+  }
+  \fig#draw
+}
+
+\let\diag-1-r{
+  \let\fig{
+    \patch{\Phi-hom#p-pres}[self]{
+      [height]{4}
+      [fun-1]{\Psi-hom#U-fun}
+      [coordinate-style]{label=170:$\self#name$}
+      [extra]{
+        \path coordinate[dot,label=right:$\alpha/U$] (transf) at (spath cs:f01 0.75);
+      }
+    }
+  }
+  \fig#draw
+}
+
+\let\diag-2-l{
+  \let\fig{
+    \patch{\Psi-hom#c-pres}[self]{
+      [height]{4}
+      [fun-0]{\Phi-hom#U-fun}
+      [extra]{
+        \path coordinate[dot,label=left:$\alpha/U$] (transf) at (spath cs:f01 0.25);
+      }
+    }
+  }
+  \fig#draw
+}
+
+\let\diag-2-r{
+  \let\fig{
+    \patch{\Phi-hom#c-pres}[self]{
+      [height]{4}
+      [fun-1]{\Psi-hom#C-fun}
+      [coordinate-style]{label=170:$\self#name$}
+      [extra]{
+        \path coordinate[dot,label=right:$\alpha/C$] (transf) at (spath cs:f01 0.75);
+      }
+    }
+  }
+  \fig#draw
+}
+
+
+
+\p{Let #{M} and #{N} be [natural models](jms-00E4), as depicted schematically below:}
+
+\texfig{
+  \M-nat-mod#draw
+  \quad
+  \N-nat-mod#draw
+}
+
+\p{
+  Let \Mor{\Phi,\Psi}{M}{N} be two [(lax) homomorphisms](jms-00E5) from #{M} to #{N}. A \em{transformation} \Mor{\alpha}{\Phi}{\Psi} of [homomorphisms](jms-00E5) from #{M} to #{N} is by three cells
+
+  \texfig{
+    \alpha-transf#pres-E#draw
+    \quad
+    \alpha-transf#pres-U#draw
+    \quad
+    \alpha-transf#pres-C#draw
+  }
+
+  such that commute with the components of #{\Phi} and #{\Psi} in the following sense:
+
+  \texfig{
+    \diag-1-l
+    $=$
+    \diag-1-r
+  }
+
+  \texfig{
+    \diag-2-l
+    $=$
+    \diag-2-r
+  }
+}

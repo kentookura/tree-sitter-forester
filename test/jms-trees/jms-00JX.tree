@@ -1,0 +1,15 @@
+\title{preorder}
+\date{2024-01-21}
+\contributor{marcelofiore}
+\author{jonmsterling}
+\taxon{definition}
+\import{jms-00JB}
+
+\p{A \dem{preorder} \prn{P,\sqsubseteq} consists of a set #{P} and a [relation](jms-00I7) #{{\sqsubseteq} \colon P\relto P} satisfying the following two axioms:}
+
+\ol{
+ \li{\em{Reflexivity.} ##{\forall x\in P\punctdot x\sqsubseteq x}}
+ \li{\em{Transitivity.} ##{\forall x,y,z\in P\punctdot \prn{x\sqsubseteq y\land y \sqsubseteq z}\implies x\sqsubseteq z}}
+}
+
+\p{In other words, a preorder is a [directed graph](jms-00JC) such that the edge relation is both reflexive and transitive.}

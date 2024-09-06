@@ -1,0 +1,12 @@
+\title{the role of interchange in [diagrammatic reasoning](jms-00B8)}
+\author{jonmsterling}
+\date{2023-10-23}
+
+\p{In a 2-category, interchange is strict; in particular, this means that vertical composition and horizontal composition commute strictly with each other. This is very useful for [[jms-00B8]], but it is not strictly necessary. In a [string diagram](jms-00B8), strict interchange means that 2-cells can be freely moved upward and downward; so if you want to use diagrammatic reasoning to study something in a structure that has only weak interchange, you need two things:}
+
+\ol{
+  \li{The vertical position of a 2-cell is fixed.}
+  \li{No two 2-cells should appear at the same vertical position.}
+}
+
+\p{To move a 2-cell up or down is to insert an interchange cell. It is this principle that makes [[jms-00BG]] work.}

@@ -1,0 +1,15 @@
+\title{inductively defined [function](jms-00KF)}
+\date{2024-01-23}
+\author{jonmsterling}
+\contributor{marcelofiore}
+\taxon{definition}
+\import{jms-00JB}
+
+\p{Let #{A} be a set, and fix #{a\in A} and #{f\colon\mathbb{N}\times A\to A}. The \dem{[function](jms-00KF) inductively defined from} #{a} and #{f} is defined to be the unique [function](jms-00KF) #{\rec{a}{f}\colon\mathbb{N}\to A} satisfying the following equations:}
+
+##{
+ \begin{aligned}
+  \rec{a}{f}\prn{0} &= a\\
+  \rec{a}{f}\prn{n+1} &= f\prn{n,\rec{a}{f}\prn{n}}
+ \end{aligned}
+}

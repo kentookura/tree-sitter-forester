@@ -1,0 +1,19 @@
+\title{[[jms-00XY]] (2023–24)}
+\date{2023}
+\author{marcelofiore}
+\author{jonmsterling}
+\taxon{course}
+\meta{external}{https://www.cl.cam.ac.uk/teaching/2324/DiscMath/}
+\meta{venue}{[[ucam]]}
+\tag{top}
+
+\p{The course aims to introduce the mathematics of discrete structures, showing it as an essential tool for computer science that can be clever and beautiful.}
+
+\p{Michaelmas term lectured by [[marcelofiore]]; Lent term lectured by [[jonmsterling]].}
+
+\put\transclude/numbered{false}
+\put\transclude/metadata{true}
+\put\transclude/expanded{false}
+\put\transclude/toc{false}
+
+\transclude{jms-00JB}

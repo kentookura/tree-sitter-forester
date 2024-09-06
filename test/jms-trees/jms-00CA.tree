@@ -1,0 +1,48 @@
+\title{homomorphism of successor algebras}
+\taxon{definition}
+\date{2023-10-30}
+\author{jonmsterling}
+\import{base-macros}
+\meta{source}{\citek{joyal-moerdijk-1995}}
+
+\import{jms-00C9}
+
+\let\T{#{T}}
+\let\TT{#{\mathbb{T}}}
+\let\C{#{\mathcal{C}}}
+\let\X{#{X}}
+\let\Y{#{Y}}
+
+\p{A homomorphism of [successor algebras](jms-00C9) is a [monad algebra homomorphism](jms-00C7) \Mor{h}{\X}{\Y} that preserves the successor operation:}
+
+\texfig{
+  \begin{tikzpicture}[scale=0.5,baseline=($(nw)!0.5!(se)$)]
+    \path coordinate (nw)
+      ++(1.5,0) coordinate[label=above:$\X$] (n/X)
+      ++(0,-2) coordinate[label=below:$\Y$] (s/Y)
+      ++(1.5,0) coordinate (se)
+      ;
+    \draw[spath/save=line] (n/X) to (s/Y);
+    \path
+      coordinate[dot,label=left:$\suc{\X}$] (suc) at (spath cs:line 0.33)
+      coordinate[dot,label=left:$h$] (h) at (spath cs:line 0.66);
+    \begin{scope}[on background layer]
+      \fill[catc] (n/X) to (s/Y) to (se) to (nw -| se) to cycle;
+    \end{scope}
+  \end{tikzpicture}
+  $=$
+  \begin{tikzpicture}[scale=0.5,baseline=($(nw)!0.5!(se)$)]
+    \path coordinate (nw)
+      ++(1.5,0) coordinate[label=above:$\X$] (n/X)
+      ++(0,-2) coordinate[label=below:$\Y$] (s/Y)
+      ++(1.5,0) coordinate (se)
+      ;
+    \draw[spath/save=line] (n/X) to (s/Y);
+    \path
+      coordinate[dot,label=right:$\suc{\X}$] (suc) at (spath cs:line 0.66)
+      coordinate[dot,label=right:$h$] (h) at (spath cs:line 0.33);
+    \begin{scope}[on background layer]
+      \fill[catc] (n/X) to (s/Y) to (se) to (nw -| se) to cycle;
+    \end{scope}
+  \end{tikzpicture}
+}

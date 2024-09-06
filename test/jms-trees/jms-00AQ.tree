@@ -1,0 +1,12 @@
+\title{an invitation to univalent foundations of mathematics}
+\author{jonmsterling}
+\date{2023-10-25}
+\taxon{reference}
+\tag{seminar}
+\tag{featured}
+\meta{venue}{[[jms-00AS]]}
+\meta{external}{https://www.cst.cam.ac.uk/seminars/list/205306}
+\meta{slides}{slides/jms-00AQ.pdf}
+
+
+\p{[Voevodsky](vladimirvoevodsky)’s [\em{univalent foundations} and \em{homotopy type theory}](hottbook) comprise a new and radical approach to the foundations of mathematics in which the structural properties of \em{equality} are extended to every possible form of equivalence and symmetry, leading to an expanded universe of discourse in which ordinary sets and algebraic structures exist harmoniously alongside infinite-dimensional spaces. In this talk, I will expose the basic grammar and vocabulary of the new univalent foundations — and explain how they shed light on basic problems in theoretical computer science and the specification of computer programs.}

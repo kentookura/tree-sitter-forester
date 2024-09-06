@@ -1,0 +1,9 @@
+\title{teaching}
+\parent{jms-0001}
+\author{jonmsterling}
+
+\put\transclude/numbered{false}
+\put\transclude/metadata{true}
+
+\transclude{jms-0081}
+\transclude{jms-0080}

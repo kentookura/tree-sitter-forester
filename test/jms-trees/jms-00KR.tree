@@ -1,0 +1,23 @@
+\title{bijection}
+\date{2024-01-23}
+\author{jonmsterling}
+\contributor{marcelofiore}
+\taxon{definition}
+\import{jms-00JB}
+
+\p{A [function](jms-00KF) #{f\colon A \to B} is said to be \dem{bijective} or \dem{bijection} whenever there exists a (necessarily unique) function #{g\colon B\to A} (referred to as the \dem{inverse} of #{f}) that is simultaneously a [retraction](jms-00KS) and a [section](jms-00KS) of #{f\colon A \to B} in the sense that #{g\circ f=\idn{A}} and #{f\circ g = \idn{B}}.}
+
+\p{We will often write #{f\inv\colon B\to A} for the inverse to a bijection #{f\colon A \to B}.}
+
+\proof{
+ \p{To see that #{g\colon B\to A} is unique, we fix any other #{g'} that is simultaneously a [retraction](jms-00KS) and a [section](jms-00KS) of #{f} and show that #{g=g'}:}
+ ##{
+  \begin{aligned}
+    g &= \idn{A}\circ g\\
+    &= \prn{g'\circ f} \circ g\\
+    &= g'\circ\prn{f\circ g}\\
+    &= g'\circ\idn{B}\\
+    &= g'
+  \end{aligned}
+ }
+}

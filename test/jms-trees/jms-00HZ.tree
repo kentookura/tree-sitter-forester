@@ -1,0 +1,15 @@
+\title{\code{cleveref}-style referencing}
+\parent{jms-00HY}
+\date{2024-01-12}
+\author{jonmsterling}
+\taxon{feature}
+
+\p{You can now write \code{\startverb\ref{xxx-NNNN}\stopverb} to produce a link to the tree at address \code{xxx-NNNN} labeled by its taxon. After the taxon, the textual format and destination of the link depends on whether \code{xxx-NNNN} lies in the present context. If the linked tree is present, then link will refer to the first transclusion of the tree into the present context; otherwise, the link will refer to the tree’s stable address. For example:}
+
+\ol{
+ \li{A reference to this very tree: \ref{jms-00HZ}.}
+ \li{A reference to a parent of this tree: \ref{jms-00HY}.}
+ \li{A reference to a cousin of this tree: \ref{jms-00EY}.}
+}
+
+\p{The behavior of references within one tree naturally depends on the transclusion context in which you are viewing that tree. It is instructive to examine the examples above by viewing this tree from its [parent](jms-00HY) or on its [own page](jms-00HZ).}

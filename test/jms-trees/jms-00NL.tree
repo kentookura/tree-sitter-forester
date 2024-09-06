@@ -1,0 +1,12 @@
+\title{well-founded [relation](jms-00I7)}
+\date{2024-01-31}
+\author{jonmsterling}
+\contributor{marcelofiore}
+\taxon{definition}
+\import{jms-00JB}
+
+\p{Let #{\prec \colon A\relto A} be a [relation](jms-00I7) on a set #{A}.}
+\ol{
+ \li{An element #{m\in S\subseteq A} is a \dem{\nowrap{#{\prec}-minimal}} (henceforth, “minimal”) element of #{S} when #{\lnot\prn{\exists x\in S\punctdot x\prec m}}.}
+ \li{The binary [relation](jms-00I7) #{\prec} on #{A} is called \dem{well-founded} whenever each non-empty subset of #{A} has a minimal element.}
+}

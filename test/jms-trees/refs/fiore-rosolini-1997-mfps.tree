@@ -1,0 +1,23 @@
+\import{conf-name-macros}
+
+\title{The category of cpos from a synthetic viewpoint}
+\taxon{reference}
+\author{marcelofiore}
+\author{pinorosolini}
+\date{1997}
+\tag{refereed}
+\meta{venue}{\conf-name{MFPS ’97}{Thirteenth Annual Conference on Mathematical Foundations of Progamming Semantics}}
+\meta{doi}{10.1016/S1571-0661(05)80165-3}
+\meta{bibtex}\verb<<<|
+@inproceedings{fiore-rosolini-1997-mfps,
+  author = {Fiore, Marcelo P. and Rosolini, Giuseppe},
+  editor = {Brookes, Stephen D. and Mislove, Michael W.},
+  publisher = {Elsevier},
+  booktitle = {Thirteenth Annual Conference on Mathematical Foundations of Progamming Semantics, {MFPS} 1997, Carnegie Mellon University, Pittsburgh, PA, USA, March 23-26, 1997},
+  year = {1997},
+  doi = {10.1016/S1571-0661(05)80165-3},
+  pages = {133--150},
+  series = {Electronic Notes on Theoretical Computer Sciecnce},
+  title = {The category of cpos from a synthetic viewpoint},
+  volume = {6},
+}<<<

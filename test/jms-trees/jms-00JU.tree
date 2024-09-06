@@ -1,0 +1,12 @@
+\title{reflexive-transitive closure of \em{finite} [endo-relations](jms-00JF)}
+\date{2024-01-21}
+\author{jonmsterling}
+\taxon{observation}
+
+\import{jms-00JB}
+
+\p{In the case of an [endo-relation](jms-00JF) #{R\in\REL{\brk{n}}}, the [reflexive-transitive closure](jms-00JH) #{R^{\circ*}} can be computed using a finite union rather over #{m \leq n} rather than an infinite union over all of #{\mathbb{N}}; in particular, we have #{R^{\circ*} = \bigcup_{k \leq n} R^{\circ k}}.}
+
+\proof{
+ \p{There are only #{n} distinct elements that could be related, so there cannot be a chain of distinct elements with length #{o>n}, and any finite path in #{R} from #{s} to #{t} can be replaced by one that has no repetitions.}
+}

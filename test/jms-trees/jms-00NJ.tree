@@ -1,0 +1,12 @@
+\title{[uncountability](jms-00MH) of the reals}
+\date{2024-01-31}
+\author{jonmsterling}
+\contributor{marcelofiore}
+\taxon{corollary}
+\import{jms-00JB}
+
+\p{The set #{\mathbb{R}} of real numbers is [uncountable](jms-00MH).}
+
+\proof{
+ \p{Of course, as #{\mathbb{R}} is non-empty, it is enough to show that it is not [enumerable](jms-00ME). We know that #{\mathbb{R}\cong \brk{0,1}\cong \prn{\mathbb{N}\to\brk{2}}\cong \pow{\mathbb{N}}}, and and it follows from \ref{jms-00NF} that the latter is not [enumerable](jms-00ME).}
+}

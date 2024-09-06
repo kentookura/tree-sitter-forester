@@ -1,0 +1,37 @@
+\title{restricting endofunctor algebras along endomorphisms}
+\taxon{definition}
+\author{jonmsterling}
+\date{2023-11-01}
+
+
+\import{base-macros}
+\import{jms-00C6}
+\import{jms-00C9}
+
+\let\F{#{F}}
+\let\C{#{\mathcal{C}}}
+\let\X{#{X}}
+\let\sX{#{s\cdot\X}}
+
+\p{Let \X be a [an algebra](jms-00C6) for an endofunctor \Mor{\F}{\C}{\C}, and let \Mor{x}{\X}{\X} be an endomorphism in \C. We define the \em{restriction} of \X by \Mor{x}{\X}{\X} to be the [algebra](jms-00C6) #{x\cdot \X} whose carrier is \X with \Mor{\alg{x\cdot\X}}{\F\X}{\X} defined to be the following composite:}
+
+\texfig{
+  \begin{tikzpicture}[scale=0.5]
+    \path
+      coordinate (nw)
+      ++(1,0) coordinate[label=above:$\X$] (n/X)
+      ++(3,-3) coordinate[label=below:$\X$] (s/X)
+      ++(1,0) coordinate (se)
+    ;
+    \draw[spath/save=swoosh] (n/X) to[out=-90,in=90] (s/X);
+    \path
+      coordinate[dot,label=below:$x$] (suc) at (spath cs:swoosh 0.33)
+      coordinate[dot,label=below:$\alg{\X}$] (alg) at (spath cs:swoosh 0.6)
+      coordinate[label=above:$\F$] (n/F) at (nw -| alg)
+    ;
+    \draw (n/F) to (alg.center);
+    \begin{scope}[on background layer]
+      \fill[catc] (n/X) to[spath/use={swoosh,weld}] (s/X) to (se) to (nw -| se) to cycle;
+    \end{scope}
+  \end{tikzpicture}
+}

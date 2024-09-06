@@ -1,0 +1,7 @@
+\title{proper diagnostics with source locations}
+\parent{jms-00CW}
+\taxon{feature}
+\author{jonmsterling}
+\date{2023-11-03}
+
+\p{[[jms-00CW]] adds proper diagnostics and error messages, via the excellent [asai](https://ocaml.org/p/asai/latest) library maintained by [Favonia](favonia). When something goes wrong in your forest, the terminal output should expain what happened while displaying the precise location in your source file.}

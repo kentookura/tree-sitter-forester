@@ -1,0 +1,12 @@
+\title{the induced monad algebra on a fixed point}
+\author{jonmsterling}
+\date{2023-10-30}
+
+\transclude{jms-00CD}
+
+\p{We must show that our [construction](jms-00CD) in fact gives rise to a monad algebra.}
+
+\transclude{jms-00CE}
+\transclude{jms-00CG}
+\transclude{jms-00CH}
+\transclude{jms-00CK}

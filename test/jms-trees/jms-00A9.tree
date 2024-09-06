@@ -1,0 +1,8 @@
+\title{dcpo presentation}
+\date{2023-10-09}
+\author{jonmsterling}
+\taxon{definition}
+\import{base-macros}
+\meta{source}{Definition 2.1, \citek{jung-moshier-vickers-2008}}
+
+\p{A \em{dcpo presentation} consists of a preorder #{P} of generators together with a subset #{C\subseteq P\times\Omega\Sup{\vrt{P}}} such that for every #{\prn{a\lhd U}\in C}, the subset #{U} is directed in #{P}. Absent the condition that every distinguished subset be directed, we refer to #{C} as a \em{cover set} on #{P}.}

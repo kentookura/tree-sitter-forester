@@ -1,0 +1,6 @@
+\title{matrix multiplication in geometry}
+\date{2024-01-17}
+\author{jonmsterling}
+\taxon{side remark}
+
+\p{Although we do not explore it in [this course](jms-0081), the viewpoint of matrix multiplication as relational composition generalises to a correct explanation of the role of matrices in geometry as presentations of linear maps between vector spaces in terms of an (uncanonical) choice of basis.}

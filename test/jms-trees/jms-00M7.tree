@@ -1,0 +1,23 @@
+\title{logical characterisation of [bijections](jms-00KR)}
+\date{2024-01-29}
+\author{jonmsterling}
+\contributor{marcelofiore}
+\taxon{theorem}
+\import{jms-00JB}
+
+\p{For a [function](jms-00KF) #{f\colon A\to B}, the following are equivalent:}
+\ol{
+ \li{the [function](jms-00KF) #{f\colon A \to B} is [bijective](jms-00KR);}
+ \li{we have #{\forall b\in B\punctdot \exists! a\in A\punctdot f\prn{a}=b};}
+ \li{we have both #{\forall b\in B\punctdot \exists a\in A\punctdot f\prn{a}=b} and #{\forall a_1,a_2\in A\punctdot f\prn{a_1}=f\prn{a_2}\implies a_1=a_2}.}
+}
+
+\proof{
+ \p{We first prove that #{f\colon A\to B} is [bijective](jms-00KR) if and only if we have #{\forall b\in B\punctdot \exists! a\in A\punctdot f\prn{a}=b}.}
+ \ul{
+  \li{Indeed, suppose that #{f} is a [bijection](jms-00KR) and fix #{b\in B} to check that there exists some unique #{a\in A} such that #{f\prn{a}=b}. We let #{a = f\inv\prn{b}} and we do indeed have #{f\prn{a}=f\prn{f\inv\prn{b}}=b}; to see that #{a} is unique with this property, we fix #{a_1,a_2\in A} such that #{f\prn{a_1}=b} and #{f\prn{a_2}=b}. We have #{a_1=f\inv\prn{f\prn{a_1}}=f\inv\prn{b}=f\inv\prn{f\prn{a_2}}=a_2}.}
+  \li{Conversely, suppose that #{\forall b\in B\punctdot \exists! a\in A\punctdot f\prn{a}=b}; then we may define an inverse function #{f\inv\colon B\to A} sending #{b\in B} to the unique element #{a\in A} such that #{f\prn{a}=b}. We therefore have #{f\prn{f\inv\prn{b}}=b} by definition and #{f\inv\prn{f\prn{a}}} is defined to be the unique element #{a'\in A} such that #{f\prn{a'} = f\prn{a}}; as #{a'} is assumed unique with this property and we clearly have #{f\prn{a}=f\prn{a}}, we may conclude that #{a'=a} and so #{f\inv\prn{f\prn{a}}=a}.}
+ }
+
+ \p{Next, we show that we have #{\forall b\in B\punctdot \exists! a\in A\punctdot f\prn{a}=b} if and only if we have both #{\forall b\in B\punctdot \exists a\in A\punctdot f\prn{a}=b} and #{\forall a_1,a_2\in A\punctdot f\prn{a_1}=f\prn{a_2}\implies a_1=a_2}. In fact, this holds immediately by unfolding the definition of unique existence and the distribution of universal quantification over conjunction.}
+}

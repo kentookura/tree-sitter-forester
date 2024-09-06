@@ -1,0 +1,20 @@
+\title{Bisimulation from open maps}
+\date{1996}
+\author{andréjoyal}
+\author{Mogens Nielsen}
+\author{glynnwinskel}
+\taxon{reference}
+\meta{doi}{10.1006/inco.1996.0057}
+\meta{venue}{Information and Computation}
+\meta{bibtex}\verb<<<|
+@article{joyal-nielsen-winskel:1996,
+  author = {Joyal, Andr\'{e} and Nielsen, Mogens and Winskel, Glynn},
+  year = {1996},
+  doi = {10.1006/inco.1996.0057},
+  issn = {0890-5401},
+  journal = {Information and Computation},
+  number = {2},
+  pages = {164--185},
+  title = {Bisimulation from Open Maps},
+  volume = {127},
+}<<<

@@ -1,0 +1,6 @@
+\title{computation paths}
+\taxon{definition}
+\date{2023-10-26}
+\author{jonmsterling}
+
+\p{A \em{computation path} is defined to be a finite [elementary](jms-00BV) [event structure](jms-00BN); we define the category of computation paths to be the full subcategory of [event structures](jms-00BN) and [rigid maps](jms-00BR) spanned by computation paths.}

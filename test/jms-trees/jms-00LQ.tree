@@ -1,0 +1,19 @@
+\title{an identity involving [indicator functions](jms-00LN)}
+\date{2024-01-25}
+\author{jonmsterling}
+\taxon{example}
+\import{jms-00JB}
+
+
+\p{For any set #{X}, we have #{\pow{X+\brk{1}} \cong \pow{X}+\pow{X}}, where #{+} denotes disjoint union.}
+
+\proof{
+ \p{We first note that #{\pow{X+\brk{1}}\cong\prn{\prn{X+\brk{1}}\to \brk{2}}} by \ref{jms-00LN}. A map out of a disjoint union is given by one map for each side, so this is isomorphic to #{\prn{X\to \brk{2}}\times\prn{\brk{1}\to\brk{2}}}. Applying \ref{jms-00LN} again in the other direction, this is isomorphic to #{\pow{X}\times\brk{2}}. We finally compute:}
+ ##{
+  \begin{aligned}
+   \pow{X}\times\brk{2} &= \pow{X}\times\prn{\brk{1}+\brk{1}}\\
+   &= \pow{X}\times\brk{1}+\pow{X}\times\brk{1}\\
+   &= \pow{X}+\pow{X}
+  \end{aligned}
+ }
+}

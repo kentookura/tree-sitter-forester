@@ -1,0 +1,48 @@
+\title{left lifting structures}
+\author{jonmsterling}
+\taxon{definition}
+\date{2023-11-20}
+
+
+\import{base-macros}
+\meta{source}{\citek{awodey-2018-mscs}}
+
+\let\E-cat{#{\mathcal{E}}}
+
+\p{Let \Mor{l}{U}{V} and \Mor{r}{A}{B} be two morphisms in a category \E-cat with pullbacks, such that #{U,V} are exponentiable. Working in the codomain bifibration of \E-cat, we consider the vertical factor of the square \Mor{p^f}{p^V}{p^U} as depicted below:}
+
+\texfig{
+  \DiagramSquare{
+    height = 1.5cm,
+    nw = A^V,
+    sw = B^V,
+    west = p^V,
+    ne = A^U,
+    se = B^U,
+    east = p^U,
+    south = B^f,
+    north = A^f,
+  }
+  \qquad
+  \begin{tikzpicture}[diagram,baseline=(sq/sw.base)]
+    \SpliceDiagramSquare<sq/>{
+      ne = p^U,
+      se = B^U,
+      sw = A^U,
+      nw = \prn{f^U}^*p^U,
+      south = f^U,
+      north = h_{p^f},
+      nw/style = pullback,
+      west/style = lies over,
+      east/style = lies over,
+      north/node/style = upright desc,
+      width = 2.5cm,
+      height = 1.5cm,
+    }
+    \node[above = of sq/nw] (nw) {$p^V$};
+    \draw[->] (nw) to node[sloped,above] {$p^f$} (sq/ne);
+    \draw[->,exists] (nw) to node[upright desc] {$v_{p^f}$} (sq/nw);
+  \end{tikzpicture}
+}
+
+\p{A \em{(weak, strong) left lifting structure} for \Mor{l}{U}{V} against \Mor{r}{A}{B} is then defined to be a (section, inverse) to the vertical factor \Mor{v_{p^f}}{p^V}{\prn{f^U}^*p^U} in \Sl{\E-cat}{A^U} depicted above — or equivalently a (section, inverse) to the underlying morphism in \E-cat of the vertical factor.}

@@ -1,0 +1,8 @@
+\title{characterisation of [well-foundness](jms-00NL) in terms of chains}
+\date{2024-01-31}
+\author{jonmsterling}
+\contributor{marcelofiore}
+\taxon{proposition}
+\import{jms-00JB}
+
+\p{A relation #{\prec\colon A\relto A} is [well-founded](jms-00NL) if and only if there are no infinite descending \nowrap{#{\prec}-chains} in #{A}, i.e. no infinite sequences #{a_0,a_1,\ldots,a_i,\ldots} such that #{a_0\succ a_1\succ\cdots a_i\succ\cdots}.}

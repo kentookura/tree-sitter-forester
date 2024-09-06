@@ -1,0 +1,22 @@
+\title{Complete cuboidal sets in axiomatic domain theory}
+\date{2024-04-20}
+\author{marcelofiore}
+\author{Gordon D. Plotkin}
+\author{John Power}
+\taxon{reference}
+\meta{doi}{10.1109/LICS.1997.614954}
+\meta{venue}{LICS 1997}
+\meta{bibtex}\verb<<<|
+@inproceedings{fiore-plotkin-power-1997,
+  author = {Fiore, Marcelo P. and Plotkin, Gordon D. and Power, John},
+  address = {Los Alamitos, CA, USA},
+  publisher = {IEEE Computer Society},
+  booktitle = {Symposium on Logic in Computer Science},
+  year = {1997},
+  month = jul,
+  doi = {10.1109/LICS.1997.614954},
+  issn = {1043-6871},
+  pages = {268},
+  title = {Complete Cuboidal Sets in Axiomatic Domain Theory},
+}
+<<<

@@ -1,0 +1,6 @@
+\title{elementary event structures}
+\date{2023-10-26}
+\author{jonmsterling}
+\taxon{definition}
+
+\p{An [event structure](jms-00BN) is called \em{elementary} when every finite set of events is [consistent](jms-00BN).}

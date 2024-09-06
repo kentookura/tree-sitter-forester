@@ -1,0 +1,20 @@
+\title{Realisability semantics of parametric polymorphism, general references and recursive types}
+\author{larsbirkedal}
+\author{kristianstøvring}
+\author{jacobthamsborg}
+\taxon{reference}
+\tag{refereed}
+\meta{venue}{[[mscs]]}
+\meta{doi}{10.1017/S0960129510000162}
+\meta{bibtex}\verb<<<|
+@article{birkedal-støvring-thamsborg-2010-realisability,
+  author = {Birkedal, Lars and St\o{}vring, Kristian and Thamsborg, Jacob},
+  publisher = {Cambridge University Press},
+  year = {2010},
+  doi = {10.1017/S0960129510000162},
+  journal = {Mathematical Structures in Computer Science},
+  number = {4},
+  pages = {655--703},
+  title = {Realisability semantics of parametric polymorphism, general references and recursive types},
+  volume = {20},
+}<<<

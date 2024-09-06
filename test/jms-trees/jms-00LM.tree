@@ -1,0 +1,14 @@
+\title{the indicator function of a subset}
+\date{2024-01-25}
+\author{jonmsterling}
+\contributor{marcelofiore}
+\taxon{definition}
+\import{jms-00JB}
+
+\p{The \dem{indicator function} or \dem{characteristic function} of #{S\subseteq A} is defined to be the [predicate](jms-00LO) #{\chi_S\colon A\to \brk{2}} defined piecewise below:}
+##{
+ \chi_S\prn{a} = \begin{cases}
+  1 & \text{if } a \in S\\
+  0 & \text{if } a \not\in S
+ \end{cases}
+}

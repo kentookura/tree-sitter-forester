@@ -1,0 +1,16 @@
+\title{type theoretic notation in presheaves}
+\date{2023-11-07}
+\author{jonmsterling}
+\taxon{notation}
+
+
+\import{jms-00DJ}
+
+\let\C{#{\mathcal{C}}}
+
+\p{Let \Mor{p}{E}{U} be a morphism in #{\Psh\C}, and let #{\Gamma} be a representable object. We shall use the following notations inspired by dependent type theory to refer to elements of #{U} and #{E}:}
+
+\ol{
+  \li{We shall write \prn{\Gamma\vdash_p A} to refer to a morphism \Mor{A}{\Gamma}{U}.}
+  \li{Given \prn{\Gamma\vdash_p A}, we shall write \prn{\Gamma\vdash_p a : A} to refer to a morphism \Mor{a}{\Gamma}{E} such that the composite #{\Gamma\xrightarrow{a}E\xrightarrow{p}U} is equal to \Mor{A}{\Gamma}{U}.}
+}

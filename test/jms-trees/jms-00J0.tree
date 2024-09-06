@@ -1,0 +1,23 @@
+\title{a retraction from [matrices](jms-00IS) to finite [relations](jms-00I7)}
+\date{2024-01-17}
+\author{jonmsterling}
+\taxon{lemma}
+\import{jms-00JB}
+
+\p{The [associated matrix](jms-00IY) function #{\matrix-of-rel_S\colon \REL{\brk{m},\brk{n}} \to \MAT{S}{m}{n}} is a section of the [associated relation](jms-00IZ) function #{\rel-of-matrix_S\colon \MAT{S}{m}{n}\to\REL{\brk{m},\brk{n}}} for any semiring #{S}.}
+
+\proof{
+ \p{We must check that #{\rel-of-matrix_S\circ\matrix-of-rel_S = \idn{\REL{\brk{m},\brk{n}}}}. Fixing a relation #{R\colon\brk{m}\relto\brk{n}}, we compute:}
+
+ ##{
+  \begin{aligned}
+   i\mathrel{\prn{\rel-of-matrix_S\prn{\matrix-of-rel_SR}}} j
+   &\Longleftrightarrow
+   \prn{\matrix-of-rel_SR}_{i,j} = 1
+   \\
+   &\Longleftrightarrow
+   i\mathrel{R}j
+  \end{aligned}
+ }
+}
+

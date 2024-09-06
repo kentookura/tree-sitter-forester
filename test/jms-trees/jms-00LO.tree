@@ -1,0 +1,8 @@
+\title{predicate}
+\date{2024-01-25}
+\author{jonmsterling}
+\taxon{definition}
+
+\import{jms-00JB}
+
+\p{A \dem{predicate} on a set #{A} is defined to be a [function](jms-00KF) #{\phi \colon A\to \brk{2}} from #{A} to the two-element set #{\brk{2}=\brc{0,1}}. We say that a predicate #{\phi} \dem{holds} of a given element #{a\in A} when #{\phi\prn{a}=1}.}

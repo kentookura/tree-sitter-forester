@@ -1,0 +1,62 @@
+\title{the generic elements functor of a representable map}
+\taxon{definition}
+\date{2023-11-07}
+\author{jonmsterling}
+
+
+\import{jms-00DJ}
+
+\let\C{#{\mathcal{C}}}
+
+\p{Let \Mor{p}{E}{U} be a representable map in #{\Psh\C}. We shall define the \em{generic elements} functor \Mor{q}{\CatEl{U}}{\CatEl{E}} that, intuitively, sends an element of the base to the “generic element” of the fiber of \Mor{p}{E}{U} at that element.}
+
+\ol{
+  \li{
+    \p{Fixing an element #{\Gamma\vdash A}, we define #{qA} to be the upstairs map in the following pullback square that exists by representability of \Mor{p}{E}{U}, and can be chosen by the univalence principle for the category \C:}
+
+    \texfig{
+      \DiagramSquare{
+        nw/style = pullback,
+        nw = \Gamma.A,
+        sw = \Gamma,
+        se = U,
+        ne = E,
+        south = A,
+        north = qA,
+        east = p,
+        west = p_A,
+        north/style = {thick,->},
+      }
+    }
+  }
+
+  \li{
+    \p{Fixing a morphism \Mor{\bar\gamma}{A}{B} in \CatEl{U} over \Mor{\gamma}{\Delta}{\Gamma} in \C, we choose \Mor{q\bar\gamma}{qA}{qB} to be the upper triangle determined by the universal property of the pullback as follows:}
+
+    \texfig{
+      \begin{tikzpicture}[diagram]
+        \SpliceDiagramSquare<sq/>{
+          nw/style = pullback,
+          nw = \Gamma.B,
+          sw = \Gamma,
+          ne = E,
+          se = U,
+          east = p,
+          south = B,
+          north = qB,
+          north/node/style = upright desc,
+          north/style = {->,thick},
+        }
+        \node[above left = of sq/nw, xshift=-1cm] (nw) {$\Delta.A$};
+        \node[below = of nw] (sw) {$\Delta$};
+        \draw[->] (nw) to node[left] {$p_A$} (sw);
+        \draw[->] (sw) to node[sloped,below] {$\gamma$} (sq/sw);
+        \draw[->,bend left=30,thick] (nw) to node[sloped,above] (qA) {$qA$} (sq/ne);
+        \draw[->,exists,thick] (nw) to node[desc] {$\gamma.qA$} (sq/nw);
+        \node[between = sq/nw and qA] {${\Downarrow} q\bar\gamma$};
+      \end{tikzpicture}
+    }
+
+    \p{Commutation of the outer square follows from the homomorphism property of \Mor{\bar\gamma}{A}{B} in \CatEl{U}. The assignment preserves identities and compositions, so we have defined a functor \Mor{q}{\CatEl{U}}{\CatEl{E}}.}
+  }
+}

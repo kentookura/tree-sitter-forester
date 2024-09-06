@@ -1,0 +1,35 @@
+\title{Forester}
+\author{jonmsterling}
+\date{2023-06-01}
+\tag{top}
+\import{base-macros}
+\import{jms-0088}
+
+\put\transclude/numbered{false}
+
+\p{A tool for tending [forests of evergreen notes](tfmt-000V).}
+
+\scope{
+  \put\transclude/title{project information}
+  \transclude{jms-0065}
+}
+
+\hr
+
+\put\transclude/metadata{true}
+
+\transclude{jms-0109}
+\transclude{jms-00WK}
+
+\put\transclude/expanded{false}
+\transclude{jms-00S9}
+\transclude{jms-00RF}
+\transclude{jms-00HY}
+\transclude{jms-00CW}
+\transclude{jms-009Q}
+\transclude{jms-007M}
+\transclude{jms-006Z}
+\transclude{jms-005V}
+\transclude{jms-005O}
+
+\sponsor-blurb-footer

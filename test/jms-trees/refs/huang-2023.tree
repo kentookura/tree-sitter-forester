@@ -1,0 +1,9 @@
+\title{Synthetic Tait computability the hard way}
+\author{treborhuang}
+\taxon{reference}
+\date{2023-10-03}
+\meta{doi}{10.48550/arXiv.2310.02051}
+\tag{stc}
+\tag{preprint}
+
+\p{We walk through a few proofs of canonicity and normalization, each one with more aspects dissected and re-expressed in category theory, so that readers can compare the difference across proofs. During this process we isolate the different ideas that make up the proofs. Finally we arrive at [synthetic Tait computability](sterling-2021-thesis) as proposed by [J. Sterling](jonmsterling). We also give a synthetic proof for parametricity of system F.}

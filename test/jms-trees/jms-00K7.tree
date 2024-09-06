@@ -1,0 +1,18 @@
+\title{partial function}
+\date{2024-01-22}
+\author{jonmsterling}
+\contributor{marcelofiore}
+\taxon{definition}
+\import{jms-00JB}
+
+\p{A [relation](jms-00I7) #{R\colon A\relto B} is said to be \dem{functional} when it relates an element of #{A} to \em{at most} one element of #{B}:}
+
+##{
+ \forall a\in A\punctdot
+ \forall b_1,b_2\in B\punctdot
+ a\mathrel{R}b_1\land a\mathrel{R}b_2
+ \implies
+ b_1 = b_2
+}
+
+\p{We refer to a functional [relation](jms-00I7) as a \dem{partial function}; we often use letters like #{f,g} to refer to partial functions rather than #{R,S}. When we write \nowrap{“#{f\colon A\to B}”}, we mean that #{f} is a partial function from #{A} to #{B}.}

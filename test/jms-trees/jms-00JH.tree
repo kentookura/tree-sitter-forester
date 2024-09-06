@@ -1,0 +1,12 @@
+\title{the reflexive-transitive closure of an [endo-relation](jms-00JF)}
+\date{2024-01-18}
+\author{jonmsterling}
+\contributor{marcelofiore}
+\taxon{definition}
+\import{jms-00JB}
+
+\p{For #{R\in\REL{A}}, we define #{R^{\circ*}\in\REL{A}} to be the \em{smallest relation closed under all finite [paths](jms-00JF) in #{R}}, i.e. the \dem{reflexive-transitive closure} of #{R}.}
+
+##{
+ R^{\circ*} = \bigcup_{n\in\mathbb{N}} R^{\circ n}
+}
