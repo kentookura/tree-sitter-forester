@@ -1,0 +1,261 @@
+\title{string diagrams}
+\author{jonmsterling}
+\date{2023-10-20}
+\import{base-macros}
+
+
+\def\category/new{
+  \object{
+    [name]{?\mathcal{C}}
+    [fill]{fill=none}
+  }
+}
+
+\def\category/terminal{
+  \patch{\category/new}{
+    [name]{\mathbf{1}}
+    [fill]{gray!10}
+  }
+}
+
+\def\functor/new{
+  \object[self]{
+    [height]{2}
+    [width]{3}
+    [name]{?f}
+    [dom]{\category/new}
+    [cod]{\category/new}
+    [draw]{
+      \begin{tikzpicture}[scale=0.5,baseline=($(nw)!0.5!(se)$)]
+        \CreateRect{\self#width}{\self#height}
+        \path
+          coordinate[label=above:$\strut\self#name$] (n) at (spath cs:north 0.5)
+          coordinate[label=below:$\strut\self#name$] (s) at (spath cs:south 0.5)
+        ;
+        \draw (n) to (s);
+        \node[between = nw and s, opacity=0.6] {$\self#dom#name$};
+        \node[between = n and se, opacity=0.6] {$\self#cod#name$};
+        \begin{scope}[on background layer]
+          \fill[\self#dom#fill] (nw) rectangle (s);
+          \fill[\self#cod#fill] (n) rectangle (se);
+        \end{scope}
+      \end{tikzpicture}
+    }
+  }
+}
+
+\def\functor/identity[C]{
+  \patch{\functor/new}{
+    [dom]{\C}
+    [cod]{\C}
+    [name]{\Idn{\C#name}}
+  }
+}
+
+\def\nat-transf/new{
+  \object[self]{
+    [width]{3}
+    [height]{2}
+    [dom]{\functor/new}
+    [cod]{\functor/new}
+    [name]{?\alpha}
+    [draw]{
+      \begin{tikzpicture}[scale=0.5,baseline=($(nw)!0.5!(se)$)]
+        \CreateRect{\self#width}{\self#height}
+        \path
+          coordinate[label=above:$\strut\self#dom#name$] (n) at (spath cs:north 0.5)
+          coordinate[label=below:$\strut\self#cod#name$] (s) at (spath cs:south 0.5)
+        ;
+        \draw[spath/save=vert] (n) to (s);
+        \path coordinate[dot,label=left:$\self#name$] (cell) at (spath cs:vert 0.5);
+        \begin{scope}[on background layer]
+          \fill[\self#dom#dom#fill] (nw) rectangle (s);
+          \fill[\self#dom#cod#fill] (n) rectangle (se);
+        \end{scope}
+      \end{tikzpicture}
+    }
+  }
+}
+
+
+\def\adjunction/new{
+  \object[adj]{
+    [left]{\functor/new}
+    [right]{\functor/new}
+
+    [default-counit]{
+      \object[self]{
+        [width]{3}
+        [height]{2}
+        [name]{\epsilon}
+        [draw]{
+          \begin{tikzpicture}[scale=0.5,baseline=($(nw)!0.5!(se)$)]
+            \CreateRect{\self#width}{\self#height}
+            \path
+              coordinate[label=above:$\strut{\adj#left#name}$] (L) at (spath cs:north 0.75)
+              coordinate[label=above:$\strut{\adj#right#name}$] (R) at (spath cs:north 0.25)
+              coordinate[between = L and R] (LR)
+            ;
+            \path[spath/save=guide] (LR) to (sw -| LR);
+            \draw[spath/save=cup] (R) to[out=-90,in=-90,looseness=2.5] (L);
+            \path[name intersections={of=guide and cup}]
+              coordinate[dot,label=above:$\self#name$] (counit) at (intersection-1)
+            ;
+            \begin{scope}[on background layer]
+              \fill[\adj#left#cod#fill] (nw) to (R) to[spath/use={cup,weld}] (L) to (ne) to (se) to (sw) to cycle;
+              \fill[\adj#left#dom#fill] (R) to [spath/use={cup,weld}] (L) to cycle;
+            \end{scope}
+          \end{tikzpicture}
+        }
+      }
+    }
+
+    [default-unit]{
+      \object[self]{
+        [width]{3}
+        [height]{2}
+        [name]{\eta}
+        [draw]{
+          \begin{tikzpicture}[scale=0.5,baseline=($(nw)!0.5!(se)$:)]
+            \CreateRect{\self#width}{\self#height}
+            \path
+              coordinate[label=below:$\strut\adj#left#name$] (L) at (spath cs:south 0.25)
+              coordinate[label=below:$\strut\adj#right#name$] (R) at (spath cs:south 0.75)
+              coordinate[between = L and R] (LR)
+            ;
+            \path[spath/save=guide] (LR) to (nw -| LR);
+            \draw[spath/save=cap] (L) to[out=90,in=90,looseness=2.5] (R);
+            \path[name intersections={of=guide and cap}]
+              coordinate[dot,label=below:$\self#name$] (unit) at (intersection-1)
+            ;
+            \begin{scope}[on background layer]
+              \fill[\adj#left#dom#fill] (sw) to (L) to[spath/use={cap,weld}] (R) to (se) to (ne) to (nw) to cycle;
+              \fill[\adj#left#cod#fill] (L) to[spath/use={cap,weld}] (R) to cycle;
+            \end{scope}
+          \end{tikzpicture}
+        }
+      }
+    }
+
+    [counit]{\adj#default-counit}
+    [unit]{\adj#default-unit}
+
+    [left-snake]{
+      \object[self]{
+        [width]{3}
+        [height]{3}
+        [draw]{
+          \begin{tikzpicture}[scale=0.5,baseline=($(nw)!0.5!(se)$)]
+              \CreateRect{\self#width}{\self#height}
+              \path
+                coordinate[label=above:$\strut\adj#left#name$] (n/L) at (spath cs:north 0.8)
+                coordinate[label=below:$\strut\adj#right#name$] (s/L) at (spath cs:south 0.2)
+              ;
+              \path[spath/save=guide1] (n/L) to[out=180,in=90] (s/L);
+              \path[spath/save=guide2] (s/L) to[out=0,in=-90] (n/L);
+              \path
+                coordinate[dot,label=below:$\strut\adj#unit#name$] (unit) at (spath cs:guide1 0.5)
+                coordinate[dot,label=above:$\strut\adj#counit#name$] (counit) at (spath cs:guide2 0.5)
+              ;
+              \draw[spath/save=wire] (n/L) to[out=-90,in=0] (counit.center) to[out=180,in=0] (unit.center) to[out=180,in=90] (s/L);
+
+              \begin{scope}[on background layer]
+                \fill[\adj#left#dom#fill] (nw) to (n/L) to[spath/use={wire,weld}] (s/L) to (sw) to (nw) to cycle;
+                \fill[\adj#left#cod#fill] (n/L) to[spath/use={wire,weld}] (s/L) to (se) to (ne) to cycle;
+              \end{scope}
+            \end{tikzpicture}
+        }
+      }
+    }
+
+    [right-snake]{
+      \object[self]{
+        [width]{3}
+        [height]{3}
+        [draw]{
+          \begin{tikzpicture}[scale=0.5,baseline=($(nw)!0.5!(se)$)]
+            \CreateRect{\self#width}{\self#height}
+            \path
+              coordinate[label=above:$\strut\adj#right#name$] (n/q) at (spath cs:north 0.2)
+              coordinate[label=below:$\strut\adj#right#name$] (s/q) at (spath cs:south 0.8)
+            ;
+            \path[spath/save=guide1] (n/q) to[out=-90,in=180] (s/q);
+            \path[spath/save=guide2] (s/q) to[out=90,in=0] (n/q);
+            \path
+              coordinate[dot,label=above:$\strut\adj#counit#name$] (counit) at (spath cs:guide1 0.5)
+              coordinate[dot,label=below:$\strut\adj#unit#name$] (unit) at (spath cs:guide2 0.5)
+            ;
+            \draw[spath/save=wire] (n/q) to[out=-90,in=180] (counit.center) to[out=0,in=180] (unit.center) to[out=0,in=90] (s/q);
+            \begin{scope}[on background layer]
+              \fill[\adj#left#cod#fill] (nw) to (n/q) to[spath/use={wire,weld}] (s/q) to (sw) to cycle;
+              \fill[\adj#left#dom#fill] (n/q) to[spath/use={wire,weld}] (s/q) to (se) to (ne) to cycle;
+            \end{scope}
+          \end{tikzpicture}
+        }
+      }
+    }
+
+    [right-snake-identity]{
+      \object[self]{
+        [draw]{
+          \let\long-right{
+            \patch{\adj#right}{
+              [height]{\adj#right-snake#height}
+            }
+          }
+          \adj#right-snake#draw $=$
+          \long-right#draw
+        }
+      }
+    }
+
+    [left-snake-identity]{
+      \object[self]{
+        [draw]{
+          \let\long-left{
+            \patch{\adj#left}{
+              [height]{\adj#left-snake#height}
+            }
+          }
+          \adj#left-snake#draw $=$
+          \long-left#draw
+        }
+      }
+    }
+
+  }
+}
+
+
+
+\texfig{
+  \begin{tikzpicture}[scale=0.5]
+    \CreateRect{7}{4}
+
+    \path
+      coordinate[label=below:$M$] (s/M) at (spath cs:south 0.5)
+      coordinate[label=above:$F$] (n/F) at (spath cs:north 0.165)
+      coordinate[label=above:$M$] (n/M) at (spath cs:north 0.33)
+      coordinate[label=above:$N$] (n/N) at (spath cs:north 0.66)
+      coordinate[label=below:$F$] (s/F) at (spath cs:south 0.85)
+    ;
+
+    \path[spath/save = middle-vert] (s/M) to (nw -| s/M);
+    \coordinate[dot,label=-135:$\mu$] (mu) at (spath cs:middle-vert 0.33);
+
+    \draw[spath/save=swoosh] (n/F) to[out=-90,in=90] ($(s/F)+(0,1)$) to (s/F);
+    \draw[spath/save=cup] (n/M) to ($(n/M)+(0,-1.5)$) to[out=-90,in=180] (mu.center) to[out=0,in=-90] ($(n/N)+(0,-1.5)$) to (n/N);
+    \draw (s/M) to (mu.center);
+
+    \path[name intersections={of=cup and swoosh}]
+      coordinate[dot,label=-135:$\lambda$] (lambda) at (intersection-1)
+      coordinate[dot,label=25:$\lambda$] (lambda') at (intersection-2)
+    ;
+
+    \begin{scope}[on background layer]
+      \fill[catd] (nw) to (n/F) to[spath/use={swoosh,weld}] (s/F) to (sw) to cycle;
+      \fill[catc] (n/F) to[spath/use={swoosh,weld}] (s/F) to (se) to (ne) to cycle;
+    \end{scope}
+  \end{tikzpicture}
+}
+

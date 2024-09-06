@@ -1,0 +1,11 @@
+\title{pointwise addition of [matrices](jms-00IS)}
+\date{2024-01-20}
+\author{jonmsterling}
+\taxon{definition}
+\import{jms-00JB}
+
+\p{Let #{M,N\in\MAT{S}{m}{n}} be two [matrices](jms-00IS) over the same semiring with the same dimensions. We will write #{M+N\in\MAT{S}{m}{n}} for the \dem{(pointwise) addition} of the two matrices:}
+
+##{
+ \prn{M+N}_{i,j} = M_{i,j} + N_{i,j}
+}

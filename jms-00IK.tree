@@ -1,0 +1,51 @@
+\title{internal diagrams of [relations](jms-00I7)}
+\date{2024-01-17}
+\author{jonmsterling}
+\contributor{marcelofiore}
+
+\taxon{notation}
+\import{jms-00JB}
+
+\p{A useful way to visualise a [relation](jms-00I7) between two sets is by means of \dem{internal diagrams}: each set is depicted as a blob containing its elements, and lines are drawn from the elements of one blob to the elements of the second blob when they are related.}
+
+\p{In particular, let #{R\colon\mathbb{N}\relto\mathbb{Z}} be the following [relation](jms-00I7):}
+##{
+ R = \brc{
+  \prn{0,0},
+  \prn{1,-1},
+  \prn{0,1},
+  \prn{1,2},
+  \prn{1,1},
+  \prn{2,1}
+ }
+}
+
+\p{We can depict #{R} by the following internal diagram:}
+
+\texfig{
+ \begin{tikzpicture}
+   \begin{scope}
+    \node(l/0) {$0$};
+    \node[below = .5cm of l/0] (l/1) {$1$};
+    \node[below = .5cm of l/1] (l/2) {$2$};
+   \end{scope}
+   \begin{scope}[shift={(1.5cm,0)}]
+    \node(r/-1) {$-1$};
+    \node[below = .5cm of r/-1] (r/0) {$0$};
+    \node[below = .5cm of r/0] (r/1) {$1$};
+    \node[below = .5cm of r/1] (r/2) {$2$};
+   \end{scope}
+
+   \draw[thick] (l/0) to (r/0);
+   \draw[thick] (l/1) to (r/-1);
+   \draw[thick] (l/0) to (r/1);
+   \draw[thick] (l/1) to (r/2);
+   \draw[thick] (l/1) to (r/1);
+   \draw[thick] (l/2) to (r/1);
+
+   \begin{scope}[on background layer]
+    \node[rectangle, rounded corners=10pt, fill=yellow!20,thick,fit=(l/0)(l/2),inner sep=5pt] {};
+    \node[rectangle, rounded corners=10pt, fill=red!20,thick,fit=(r/-1)(r/2),inner sep=5pt] {};
+   \end{scope}
+ \end{tikzpicture}
+}

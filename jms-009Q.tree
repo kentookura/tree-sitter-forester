@@ -1,0 +1,12 @@
+\title{Forester 2.5}
+\author{jonmsterling}
+\date{2023-09-27}
+\taxon{release}
+
+\p{Thanks to [[dannypsnl]] and [[vikramanchoudhury]] for their suggestions and bug reports on the [mailing list](https://lists.sr.ht/~jonsterling/forester-discuss).}
+
+\ul{
+  \li{A new \code{\startverb\iftex\stopverb} command has been added, following a suggestion of [[vikramanchoudhury]]; this can be used to control the behavior of macros, depending on whether they are being rendered by #{\LaTeX} or by the browser. For example, \code{\startverb\iftex{foo}{bar}\stopverb} will become \code{foo} when passed to the #{\LaTeX} tool, but will be reated as \code{bar} when rendering for the browser.}
+  \li{A new [fluid binding](jms-005O) \code{\startverb\transclude/taxon\stopverb} has been added to the [transclusion overrides](jms-0067), which can be used to locally change the taxon of a transcluded tree. Thanks to [[dannypsnl]] for implementing this.}
+  \li{In order to support more modular development of [forests](tfmt-000V), a new \code{theme} directory is expected to contain all the XSL, CSS, font, etc. assets that pertain to the \em{presentation} of your [forest](tfmt-000V); the \code{assets} directory is meant to store things like images, PDFs, etc. that pertain to the \em{content} of your [forest](tfmt-000V). The simplest way to take advantage of this new feature is to bind your \code{theme} directory to a [git submodule](https://git-scm.com/book/en/v2/Git-Tools-Submodules) pointing to the [forester-base-theme](https://git.sr.ht/~jonsterling/forester-base-theme) repository. Your existing [forest](tfmt-000V) will still work fine for now even if you do not migrate to the new directory structure. I’m grateful to [[armaëlguéneau]] for conversations that motivated me to make this change.}
+}

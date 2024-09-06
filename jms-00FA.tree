@@ -1,0 +1,14 @@
+\title{comparing different kinds of [eliminators](jms-00F6)}
+\author{jonmsterling}
+\date{2023-11-20}
+
+\p{We summarise the basic relationship between the different kinds of eliminators.}
+
+\ol{
+  \li{[Absolute eliminators](jms-00F6) correspond to \em{projection-style} elimination rules, whereas [(strong, weak)](jms-00F6) correspond to \em{lifting-style} elimination rules (with, without) judgmental uniqueness rules.}
+  \li{[Absolute and strong eliminators](jms-00F6) are unique whenever they exist.}
+  \li{[Weak eliminators](jms-00F6) are not strictly unique, but they form a \em{contractible space} in the sense of homotopy as determined by an identity type; when this identity type satisfies equality reflection, then, the [weak eliminators](jms-00F6) become [strong](jms-00F6).}
+  \li{If a [formation square](jms-00F5) has an [absolute eliminator](jms-00F5), then it has a [strong eliminator](jms-00F5). Although the converse holds in many specific examples, it does not hold in general.}
+  \li{An [absolute recursor](jms-00F8) can be upgraded to an [absolute eliminator](jms-00F6).}
+  \li{In the presence of dependent sums and (strong, weak) identity types, a [(strong, weak) recursor](jms-00F8) can be upgraded to a [(strong, weak) eliminator](jms-00F6).}
+}

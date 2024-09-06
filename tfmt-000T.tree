@@ -1,0 +1,8 @@
+\title{contributor to a tree}
+\date{2023-03-04T10:32:18+01:00}
+\taxon{definition}
+\author{jonmsterling}
+
+\p{A \em{direct contributor} to a [tree within a forest](tfmt-000R) is either an [author](tfmt-000S) of the tree, or has contributed intellectually to the immediate content of the tree but cannot be held responsible for it.}
+
+\p{A \em{contributor} to a tree is someone who is a direct contributor to at least one tree lying within its [extent](tfmt-000U).}

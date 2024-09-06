@@ -1,0 +1,15 @@
+\title{the 2-dimensional Phoa principle}
+\date{2023-10-11}
+\author{jonmsterling}
+\taxon{project idea}
+\import{base-macros}
+
+\p{There is a common thread in modern approaches to \em{domain theory}, \em{theory of computation}, and \em{topology}: one has an object #{\Sigma} with two points #{\bot,\top:\Sigma} that behave like the Sierpiński space, and it induces a binary “order” relation on any other object by serving as an interval: in particular, for a space #{X} and points #{x,y:X} we may say that #{x\sqsubseteq y} when there exists a mapping #{H\colon \Sigma\to X} such that #{H\bot = x} and #{H\top = y}. This is called the \em{path order}.}
+
+\p{In addition to the path order described above, the Sierpiński space has its own intrinsic order: for #{p,q:\Sigma} we say that #{p\leq q} when #{p=\top} implies #{q=\top}. The [Phoa principle](jms-00AD) is an important law governing the Sierpiński space ensuring that the path order and the intrinsic order coincide.}
+
+\transclude{jms-00AD}
+
+\p{A concrete model of domain theory (like cpos) is always a poset-[enriched category](jms-000H), which can also be thought of as a (locally posetal) 2-category. I have discovered that it is possible to re-formulate [Phoa’s principle](jms-00AD) in terms of 2-categorical universal properties of comma and cocomma squares, and it can be shown that in a cartesian closed locally posetal 2-category, an appropriate version of [Phoa’s principle](jms-00AD) always holds.}
+
+\p{In fact, \mark{an appropriate version of [Phoa’s principle](jms-00AD) should hold in \em{any} cartesian closed 2-category (including non-posetal ones), and the proposal is to prove that this is the case using [string diagrams](jms-00B8)}. This result will have implications for the understanding of higher-dimensional domain theory as applied to concurrency.}

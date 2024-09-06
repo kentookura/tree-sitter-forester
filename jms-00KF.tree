@@ -1,0 +1,10 @@
+\title{function}
+\date{2024-01-22}
+\author{jonmsterling}
+\contributor{marcelofiore}
+\taxon{definition}
+\import{jms-00JB}
+
+\p{A [partial function](jms-00K7) #{f\colon A\pto B} is called \dem{total} whenever its [domain of definition](jms-00KB) coincides with its domain (source), i.e. we have #{\is-defined{f\prn{a}}} for all #{a\in A}. In this case, we will write #{f\colon A\to B} and refer to it as a \dem{function} or a \dem{map}. Sometimes, we redundantly refer to it as a \dem{total function}.}
+
+\p{Just as we write #{\REL{A,B}} and \prn{A\pto B}for the sets of [relations](jms-00I7) and [partial functions](jms-00K7) from #{A} to #{B} respectively, we shall write \prn{A\to B} for the set of functions from #{A} to #{B}.}

@@ -1,0 +1,20 @@
+\title{Continuous lattices and domains}
+\date{2003}
+\author{G. Gierz}
+\author{K. H. Hofmann}
+\author{K. Keimel}
+\author{J. D. Lawson}
+\author{D. S. Scott}
+\taxon{reference}
+\meta{doi}{10.1017/CBO9780511542725}
+\meta{venue}{Encyclopedia of Mathematics and its Applications; Cambridge University Press}
+\meta{bibtex}\verb<<<|
+@book{ghklms-2003,
+  place={Cambridge},
+  series={Encyclopedia of Mathematics and its Applications},
+  title={Continuous Lattices and Domains},
+  publisher={Cambridge University Press},
+  author={Gierz, G. and Hofmann, K. H. and Keimel, K. and Lawson, J. D. and Mislove, M. and Scott, D. S.},
+  year={2003},
+  collection={Encyclopedia of Mathematics and its Applications}
+}<<<

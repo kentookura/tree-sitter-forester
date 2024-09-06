@@ -1,0 +1,12 @@
+\title{cartesian product of [countable sets](jms-00MH)}
+\date{2024-01-29}
+\author{jonmsterling}
+\contributor{marcelofiore}
+\taxon{lemma}
+\import{jms-00JB}
+
+\p{The cartesian product of [countable](jms-00MH) sets is [countable](jms-00MH).}
+
+\proof{
+ \p{Let #{A} and #{B} be [countable](jms-00MH) sets. If either #{A} or #{B} is empty, then #{A\times B} is empty and thus [countable](jms-00MH). Otherwise, let #{e_A\colon\mathbb{N}\twoheadrightarrow A} and #{e_B\colon\mathbb{N}\twoheadrightarrow B} be [enumerations](jms-00ME) of #{A} and #{B} respectively. Then the function #{e_A\times e_B\colon \mathbb{N}\times\mathbb{N}\to A\times B} can be seen to be [surjective](jms-00M8); letting #{f\colon \mathbb{N}\twoheadrightarrow\mathbb{N}\times\mathbb{N}} be any enumeration of #{\mathbb{N}\times\mathbb{N}}, can compose to obtain a surjection #{\prn{e_A\times e_B}\circ f\colon\mathbb{N}\twoheadrightarrow A\times B} by \ref{jms-00MD}.}
+}

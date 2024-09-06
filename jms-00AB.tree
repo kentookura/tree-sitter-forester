@@ -1,0 +1,10 @@
+\title{sheaves relative to a cover set}
+\date{2023-10-09}
+\author{jonmsterling}
+\taxon{definition}
+
+\import{base-macros}
+\meta{source}{Definition 2.4, \citek{jung-moshier-vickers-2008}}
+
+
+\p{Let #{P} be a preorder equipped with a cover set #{C}. A \em{#{C}-sheaf} #{I} is defined to be a downward-closed subset of #{P} that is closed under all covers in the sense that #{U\subseteq I} implies #{a\in I} for all #{a\lhd_C U}.}

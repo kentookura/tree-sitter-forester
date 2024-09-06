@@ -1,0 +1,52 @@
+\title{recursors for [formation squares](jms-00F5)}
+\author{jonmsterling}
+\taxon{definition}
+\date{2023-11-20}
+\import{base-macros}
+
+
+\let\E-cat{#{\mathcal{E}}}
+
+\p{Let \Mor{p}{E}{U} be a morphism in a category \E-cat with pullbacks, and let \Mor{\alpha}{\pi}{p} be a [formation square](jms-00F5) for a [connective](jms-00F9) #{I\xrightarrow{\pi}F\xrightarrow{\phi}P}. Let \Mor{v}{U^*I}{p} be the following vertical factor in \Sl{\E-cat}{U}:}
+
+\texfig{
+  \begin{tikzpicture}[diagram]
+    \SpliceDiagramSquare<sq/>{
+      nw = p,
+      ne = E,
+      se = 1,
+      sw = U,
+      south = !_U,
+      nw/style = pullback,
+      north = U^\dagger E,
+      west/style = lies over,
+      east/style = lies over,
+      height = 1.5cm,
+    }
+    \node[above = 1.5cm of sq/nw] (nw) {$U^*I$};
+    \node[right = of nw] (ne) {$I$};
+    \draw[->] (nw) to node[above] {$U^\dagger I$} (ne);
+    \draw[->] (ne) to node[right] {$\alpha_I$} (sq/ne);
+    \draw[->,exists] (nw) to node[left] {$v$}  (sq/nw);
+  \end{tikzpicture}
+}
+
+\p{Let \Mor{\phi}{F}{P} be a further morphism. An \em{(absolute, weak, strong) recursor for \Mor{\alpha}{\pi}{p} with \Mor{\phi}{F}{P} fixed} is defined to be an (absolute, weak, strong) eliminator for the following [formation square](jms-00F5) in \Sl{\E-cat}{U}:}
+
+\texfig{
+  \begin{tikzpicture}[diagram]
+    \SpliceDiagramSquare<sq/>{
+      nw = U^*I,
+      sw = U^*F,
+      ne = p,
+      se = \Idn{U},
+      west = U^*\pi,
+      east = !_p,
+      south = !_{U^*F},
+      north = v,
+      height = 1.5cm,
+    }
+    \node[below = 1.5cm of sq/sw] (sw) {$U^*P$};
+    \draw[->] (sq/sw) to node[left] {$U^*\phi$} (sw);
+  \end{tikzpicture}
+}

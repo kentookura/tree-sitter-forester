@@ -1,0 +1,12 @@
+\title{product of [matrices](jms-00IS)}
+\date{2024-01-17}
+\author{jonmsterling}
+\taxon{definition}
+\import{jms-00JB}
+
+\p{Let #{M} be an \nowrap{\prn{l\times m}-[matrix](jms-00IS)} and let #{N} be a \nowrap{\prn{m\times n}-[matrix](jms-00IS)}. The \dem{product} of #{M} and #{N}, written #{M\cdot N}, is the following \nowrap{\prn{l\times n}-[matrix](jms-00IS)}:}
+
+##{
+ \prn{N\cdot M}_{i\in \brk{l},j\in\brk{n}} =
+ \bigoplus_{k\in \brk{m}} M_{i,k}\cdot N_{k,j}
+}

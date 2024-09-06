@@ -1,0 +1,10 @@
+\title{preserving covers from a [dcpo presentation](jms-00A9)}
+\date{2023-10-09}
+\author{jonmsterling}
+\taxon{definition}
+
+\import{base-macros}
+\meta{source}{Definition 2.2, \citek{jung-moshier-vickers-2008}}
+
+
+\p{Let \prn{P,C} be a [dcpo presentation](jms-00A9) and let #{A} be a dcpo; a monotone map \Mor{f}{P}{D} is said to \em{preserve covers in #{C}} when for all #{a\lhd_C U} we have #{fa \sqsubseteq \bigsqcup_{x\in U} fx}.}

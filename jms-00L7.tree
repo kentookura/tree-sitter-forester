@@ -1,0 +1,63 @@
+\title{bijection between [equivalence relations](jms-00L4) and [partitions](jms-00L5)}
+\date{2024-01-23}
+\author{jonmsterling}
+\taxon{theorem}
+\import{jms-00JB}
+
+\p{For every set #{A}, we can define a bijection #{\Phi\colon \EQREL{A}\to \PART{A}} sending every equivalence relation #{E} on #{A} to the [partition](jms-00L5) #{\Phi\prn{E} = \compr{\eqcls{E}{a}}{a\in A}} whose [blocks](jms-00L5) consist of the [equivalence classes](jms-00L6) of each element of #{A}.}
+
+\proof{
+ \p{We must first argue that \compr{\eqcls{E}{a}}{a\in A} in fact constitutes a [partition](jms-00L5); the union of all [equivalence classes](jms-00L6) is indeed all of #{A}, and we can see that any two distinct [equivalence classes](jms-00L6) have null intersection — since, if there were an intersection, the two [equivalence classes](jms-00L6) would be identical.}
+
+ \p{The inverse #{\Phi\inv} sends a [partition](jms-00L5) #{P} to the following equivalence relation:}
+ ##{x \mathrel{\prn{\Phi\inv\prn{P}}} y\Longleftrightarrow \exists b\in P\punctdot x\in b \land y \in b}
+
+ \p{To check that #{\Phi\inv} is a [section](jms-00KS) of #{\Phi}, we fix a [partition](jms-00L5) #{P} to check that #{\Phi\prn{\Phi\inv\prn{P}} = P}.}
+ ##{
+  \begin{aligned}
+    \Phi\prn{\Phi\inv\prn{P}} &=
+    \compr{
+      \eqcls{\Phi\inv\prn{P}}{a}
+    }{a\in A}
+    \\
+    &=
+    \compr{
+      \compr{x\in A}{x \mathrel{\prn{\Phi\inv\prn{P}}} a}
+    }{a\in A}
+    \\
+    &=
+    \compr{
+      \compr{x\in A}{
+        \exists b\in P\punctdot
+        x\in b \land a \in b
+      }
+    }{a\in A}
+  \end{aligned}
+ }
+
+ \p{As #{P} is a [partition](jms-00L5), there is exactly one [block](jms-00L5) containing a given element #{a\in A} — no more than one by disjointness, and no fewer than one because the union of a partition must be the entire set. Therefore, the set \compr{x\in A}{\exists b\in P\punctdot x\in b \land a \in b} is precisely the unique [block](jms-00L5) of #{P} containing #{a}. Thus we have #{\Phi\prn{\Phi\inv\prn{P}} = P}.}
+
+ \p{Conversely, we must show that #{\Phi\inv} is a [retraction](jms-00KS) of #{\Phi}. Fixing an equivalence relation \nowrap{#{E\colon A\relto A},} we must check that #{\Phi\inv\prn{\Phi\prn{E}} = E}. Fixing #{x,y\in A}, we proceed using [relational extensionality](jms-00IM):}
+
+ ##{
+  \begin{aligned}
+    x\mathrel{\prn{\Phi\inv\prn{\Phi\prn{E}}}}y
+    &\Longleftrightarrow
+    \exists b\in \Phi\prn{E}\punctdot
+    x\in b \land y \in b
+    \\
+    &\Longleftrightarrow
+    \exists a\in A\punctdot
+    x\in \eqcls{E}{a}
+    \land
+    y\in \eqcls{E}{a}
+    \\
+    &\Longleftrightarrow
+    \exists a \in A\punctdot
+    x\mathrel{E}a\land y\mathrel{E}a
+    \\
+    &\Longleftrightarrow
+    x \mathrel{E} y
+  \end{aligned}
+ }
+}

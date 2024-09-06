@@ -1,0 +1,53 @@
+\title{existence of [inductively defined functions](jms-00KM)}
+\date{2024-01-23}
+\author{jonmsterling}
+\contributor{marcelofiore}
+\taxon{theorem}
+\import{jms-00JB}
+
+\p{Given an element #{a\in A} and a [function](jms-00KF) #{f\colon\mathbb{N}\times A\to A}, now let #{\rec{a}{f}\colon \mathbb{N}\relto A} be the intersection of all the [\nowrap{\prn{a,f}-closed} relations](jms-00KO) #{R\colon\mathbb{N}\relto A}.}
+
+\ol{
+ \li{The [relation](jms-00I7) #{\rec{a}{f}\colon \mathbb{N}\relto A} is [functional](jms-00K7) and [total](jms-00KF), and therefore a [function](jms-00KF).}
+ \li{The [function](jms-00KF) #{\rec{a}{f}\colon \mathbb{N}\to A} is the unique [\nowrap{\prn{a,f}-closed}](jms-00KO) [function](jms-00KF), i.e. it is the unique [function](jms-00KF) satisfying both #{\rec{a}{f}\prn{0}=a} and #{\forall n\in\mathbb{N}\punctdot \rec{a}{f}\prn{n+1}=f\prn{n,\rec{a}{f}{n}}}.}
+}
+
+\proof{
+ \p{We first notice that #{\rec{a}{f}\colon \mathbb{N}\relto A} is itself [\nowrap{\prn{a,f}-closed}](jms-00KO), which can be seen by observing that the intersection of a set of [\nowrap{\prn{a,f}-closed} relations](jms-00KO) is [\nowrap{\prn{a,f}-closed}](jms-00KO). With this in hand, we proceed.}
+
+ \ol{
+  \li{
+   \p{We must show that #{\rec{a}{f}\colon \mathbb{N}\relto A} is a [function](jms-00KF).}
+
+   \ol{
+    \li{
+     To show that #{\rec{a}{f}\colon \mathbb{N}\relto A} is [functional](jms-00K7), we must show that for all #{n\in\mathbb{N}} and #{x,y\in A}, if #{n\mathrel{\rec{a}{f}} x} and #{n\mathrel{\rec{a}{f}}y}, then #{x=y}. We proceed to prove #{P\prn{n} = \forall x,y\in A\punctdot n\mathrel{\rec{a}{f}} x \land n\mathrel{\rec{a}{f}}y\implies x=y} by induction on \nowrap{#{n\in\mathbb{N}}.}
+
+     \ol{
+      \li{
+       \p{For the base case, we fix #{x,y\in A} such that #{0\mathrel{\rec{a}{f}}x} and #{0\mathrel{\rec{a}{f}} y} to check that #{x=y}. By definition, we know that for any [\nowrap{\prn{a,f}-closed} relation](jms-00KO) #{R\colon\mathbb{N}\relto A} we both #{0\mathrel{R}x} and #{0\mathrel{R}y}.}
+       \p{We choose #{R} be the union of \brc{\prn{0,a}} and \compr{\prn{n,x}}{n > 0 \land n\mathrel{\rec{a}{f}} x}, which is [\nowrap{\prn{a,f}-closed}](jms-00KO); we have used the fact that #{\rec{a}{f}} is [\nowrap{\prn{a,f}-closed}](jms-00KO). As this union is disjoint, we can see that #{0\mathrel{R}z} if and only if #{z=a}, so we have #{x=a=y}.}
+      }
+      \li{
+       \p{In the inductive step, we assume #{P\prn{n}} to prove #{P\prn{n+1}}. Fixing #{x,y\in A} such that #{\prn{n+1}\mathrel{\rec{a}{f}}x} and #{\prn{n+1}\mathrel{\rec{a}{f}}y}, we must show that #{x=y}.}
+       \p{We know that for any [\nowrap{\prn{a,f}-closed} relation](jms-00KO) #{R\colon\mathbb{N}\relto A} we have both #{\prn{n+1}\mathrel{R}x} and #{\prn{n+1}\mathrel{R}y}.}
+
+       \p{We choose #{R} to be the union of \compr{\prn{m+1,f\prn{m,z}}}{m=n\land m\mathrel{\rec{a}{f}}{z}} with \compr{\prn{m,z}}{m\mathrel{\rec{a}{f}}z\land m\not=n+1}, noting that #{R} is [\nowrap{\prn{a,f}-closed}](jms-00KO) because #{\rec{a}{f}} is [\nowrap{\prn{a,f}-closed}](jms-00KO). As the union defining #{R} is disjoint, for any #{z\in A} we know that #{\prn{n+1}\mathrel{R}z} if and only if #{z=f\prn{n,z'}} for some #{z'} with #{n\mathrel{\rec{a}{f}} z'}.}
+       \p{Therefore, we have some #{x',y'\in A} such that #{x=f\prn{n,x'}} and #{y=f\prn{n,y'}} and #{n\mathrel{\rec{a}{f}} x'} and #{n\mathrel{\rec{a}{f}}y'}. By our inductive hypothesis, we know that #{x'=y'}, and hence #{x=y}.}
+      }
+     }
+    }
+
+    \li{
+     \p{To show that #{\rec{a}{f}\colon \mathbb{N}\pto A} is [total](jms-00KF), we must show that for every #{n\in\mathbb{N}}, we have #{\is-defined{\rec{a}{f}\prn{n}}}. This is proved by induction on #{n\in\mathbb{N}}:}
+     \ol{
+      \li{In the base case, we deduce #{\is-defined{\rec{a}{f}\prn{0}}} from our asumption that #{0\mathrel{\rec{a}{f}}a}.}
+      \li{In the inductive step, we assume that #{\is-defined{\rec{a}{f}\prn{n}}} and must show that #{\is-defined{\rec{a}{f}\prn{n+1}}}. By our assumption, we have #{n\mathrel{\rec{a}{f}}\rec{a}{f}{\prn{n}}}; because \rec{a}{f} is [\nowrap{\prn{a,f}-closed} relation](jms-00KO), we may conclude #{\prn{n+1}\mathrel{\rec{a}{f}}f\prn{n,\rec{a}{f}}}.}
+     }
+    }
+   }
+  }
+
+  \li{It remains to show that the [function](jms-00KF) #{\rec{a}{f}\colon\mathbb{N}\to A} is the unique [\nowrap{\prn{a,f}-closed}](jms-00KO) [function](jms-00KF). This too can be proved by induction, as [functionality](jms-00KF) and [\nowrap{\prn{a,f}-closure}](jms-00KO) fully specify the [values](jms-00KA) of #{\rec{a}{f}} on all inputs.}
+ }
+}

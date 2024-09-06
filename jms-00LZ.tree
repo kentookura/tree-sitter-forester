@@ -1,0 +1,30 @@
+\title{cardinality of the disjoint sum}
+\date{2024-01-28}
+\author{jonmsterling}
+\contributor{marcelofiore}
+\taxon{example}
+\import{jms-00JB}
+
+\p{For all #{m,n\in\mathbb{N}}, we have #{\brk{m}+\brk{n} \cong \brk{m+n}}.}
+
+\proof{
+ \p{We can think of #{\brk{m}+\brk{n}} as the set of coordinates into two strips of cells, the first of which has #{m} cells and the second of which has #{n} cells. Conversely, we can think of \brk{m+n} as the set of coordinates a single strip of #{m+n} cells. A function #{I\colon\brk{m}+\brk{n}\to \brk{m+n}} could then be thought of as witnessing a method to lay out the two strips in serial; we will define such a function and show that it is a bijection.}
+
+ ##{
+  \begin{aligned}
+   I &\colon\brk{m}+\brk{n} \to \brk{m+n}\\
+   I\prn{0,i<m} &= i\\
+   I\prn{1,j<n} &= m+j
+  \end{aligned}
+ }
+
+ \p{The function #{I} places a cell from the first strip sequentially after the first #{m} cells of the serialised strip. The inverse can be defined as follows:}
+
+ ##{
+  I\prn{k} =
+  \begin{cases}
+   \prn{0,k} &\text{when } k < m\\
+   \prn{1,k-m} &\text{when } k \geq m
+  \end{cases}
+ }
+}

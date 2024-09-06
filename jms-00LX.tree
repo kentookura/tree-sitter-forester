@@ -1,0 +1,8 @@
+\title{finite set}
+\date{2024-01-28}
+\author{jonmsterling}
+\contributor{marcelofiore}
+\taxon{definition}
+\import{jms-00JB}
+
+\p{A set #{A} is said to be \dem{finite} or have \dem{finite cardinality} when it is [isomorphic](jms-00L0) to a set of the form #{\brk{n}} for some #{n\in \mathbb{N}}; in this case, we therefore have #{\card{A}=n}. (Recall that #{\brk{n}} is the standard \nowrap{#{n}-element} set #{\compr{i\in\mathbb{N}}{0\leq i < n}}.)}

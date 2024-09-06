@@ -1,0 +1,12 @@
+\title{the path [relation](jms-00JH) via [reflexive-transitive closure](jms-00JH)}
+\date{2024-01-18}
+\author{jonmsterling}
+\contributor{marcelofiore}
+\taxon{corollary}
+\import{jms-00JB}
+
+\p{Let \prn{A,R} be a [directed graph](jms-00JC). For all #{s,t\in A}, we have #{s\mathrel{R^{\circ*}}t} if and only if there exists a path with source #{s} and target #{t} in #{R}.}
+
+\proof{
+ \p{This is an immediate consequence of \ref{jms-00JG}: by \ref{jms-00JH} we have #{s\mathrel{R^{\circ*}}t} if and only if there exists #{n\in\mathbb{N}} such that #{s\mathrel{R^{\circ n}}t}, which by \ref{jms-00JG} holds if and only if there existss a path from #{s} to #{t} in #{R} of some length #{n\in\mathbb{N}}.}
+}

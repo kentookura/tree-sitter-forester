@@ -1,0 +1,8 @@
+\title{enumerable set}
+\date{2024-01-29}
+\author{jonmsterling}
+\contributor{marcelofiore}
+\taxon{definition}
+\import{jms-00JB}
+
+\p{A set #{A} is said to be \dem{enumerable} whenever there exists a surjection #{\mathbb{N}\twoheadrightarrow A}, referred to as an \dem{enumeration}.}

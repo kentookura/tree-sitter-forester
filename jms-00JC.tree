@@ -1,0 +1,8 @@
+\title{directed graph}
+\date{2024-01-18}
+\author{jonmsterling}
+\contributor{marcelofiore}
+\taxon{definition}
+\import{jms-00JB}
+
+\p{A \dem{directed graph} \prn{A,R} consists of a set #{A} and a [binary relation](jms-00I7) #{R\colon A\relto A} from #{A} to itself; such a relation from a set to itself is called an \dem{endo-relation}. We will abbreviate \REL{A,A} by \REL{A} for the set of all endo-relations on #{A}.}

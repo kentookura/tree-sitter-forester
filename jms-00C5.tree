@@ -1,0 +1,82 @@
+\title{algebra for a monad}
+\taxon{definition}
+\date{2023-10-30}
+\author{jonmsterling}
+
+\import{base-macros}
+\import{jms-00C6}
+
+\let\T{#{T}}
+\let\TT{#{\mathbb{T}}}
+\let\C{#{\mathcal{C}}}
+\let\X{#{X}}
+
+\p{Let #{\TT \equiv \prn{T,\eta,\mu}} be a monad on a category \C. An \em{algebra} for \TT is defined to be a [#{\T}-algebra](jms-00C6) \X satisfying the following unit and associativity laws:}
+
+\texfig{
+  \begin{tikzpicture}[scale=0.5,baseline=($(tll)!0.5!(brr)$)]
+    \path coordinate (tll)
+      ++(1,0) coordinate[label=above:$\X$] (tl)
+      +(2,-.5) coordinate[dot,label=right:$\eta$] (eta)
+      ++(2,-3) coordinate (bl)
+      ++(1,0) coordinate[label=below:$\X$] (br)
+      ++(1,0) coordinate (brr);
+    \path[spath/save=vert] (eta) to (bl);
+    \draw[spath/save=swoosh] (tl) to[out=-90,in=90] (br);
+    \draw[name intersections={of=vert and swoosh}] coordinate[dot,label=-135:$\alg{\X}$] (alg) at (intersection-1);
+    \draw (eta.center) to (alg.center);
+    \begin{scope}[on background layer]
+      \fill[catc] (tl) to[spath/use={swoosh,weld}] (br) to (brr) to (tl -| brr) to cycle;
+    \end{scope}
+  \end{tikzpicture}
+  $=$
+  \begin{tikzpicture}[scale=0.5,baseline=($(tl)!0.5!(br)$)]
+    \path coordinate (tl)
+      ++(1,0) coordinate[label=above:$X$] (t)
+      ++(0,-3) coordinate[label=below:$X$] (b)
+      ++(1,0) coordinate (br);
+    \draw (t) to (b);
+    \begin{scope}[on background layer]
+      \fill[catc] (t) to (b) to (br) to (t -| br) to cycle;
+    \end{scope}
+  \end{tikzpicture}
+}
+
+\texfig{
+  \begin{tikzpicture}[scale=0.5,baseline=($(t0)!0.5!(b2)$)]
+    \path coordinate (t0)
+      ++(1,0) coordinate[label=above:$X$] (t1)
+      ++(1,0) coordinate[label=above:$T$] (t2)
+      +(1,-1) coordinate[dot,label=90:$\mu$] (mu)
+      ++(2,0) coordinate[label=above:$T$] (t3)
+      ++(1,-4) coordinate[label=below:$X$] (b1)
+      ++(1,0) coordinate (b2);
+    \path[spath/save=mu/vert] (mu.center) to (b2 -| mu);
+    \draw[spath/save=swoosh] (t1) to[out=-90,in=90] (b1);
+    \path[name intersections={of=mu/vert and swoosh}] coordinate[dot,label=-135:$\alpha_X$] (alg) at (intersection-1);
+    \draw[spath/save=cup] (t2) to[out=-90,in=180] (mu) to[out=0,in=-90] (t3);
+    \draw (mu.center) to (alg.center);
+    \begin{scope}[on background layer]
+      \fill[catc] (t1) to[spath/use={swoosh,weld}] (b1) to (b2) to (t1 -| b2) to cycle;
+    \end{scope}
+  \end{tikzpicture}
+  $=$
+  \begin{tikzpicture}[scale=0.5, baseline=($(t0)!0.5!(b2)$)]
+    \path coordinate (t0)
+      ++(1,0) coordinate[label=above:$X$] (t1)
+      ++(1,0) coordinate[label=above:$T$] (t2)
+      ++(1,0) coordinate[label=above:$T$] (t3)
+      ++(1,-4) coordinate[label=below:$X$] (b1)
+      ++(1,0) coordinate (b2);
+    \draw[spath/save=swoosh] (t1) to[out=-90,in=90] (b1);
+    \path[spath/save=vert1] (t2) to (b2 -| t2);
+    \path[spath/save=vert2] (t3) to (b2 -| t3);
+    \path[name intersections={of=swoosh and vert1}] coordinate[dot, label={[yshift=1ex]-100:$\alpha_X$}] (alg1) at (intersection-1);
+    \path[name intersections={of=swoosh and vert2}] coordinate[dot, label={[yshift=1ex]-100:$\alpha_X$}] (alg2) at (intersection-1);
+    \draw (t2) to (alg1);
+    \draw (t3) to (alg2);
+    \begin{scope}[on background layer]
+      \fill[catc] (t1) to[spath/use={swoosh,weld}] (b1) to (b2) to (t1 -| b2) to cycle;
+    \end{scope}
+  \end{tikzpicture}
+}

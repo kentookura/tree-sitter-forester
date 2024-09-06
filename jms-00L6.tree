@@ -1,0 +1,7 @@
+\title{equivalence class}
+\date{2024-01-23}
+\author{jonmsterling}
+\taxon{definition}
+\import{jms-00JB}
+
+\p{Let #{E\colon A\relto A} be an [equivalence relation](jms-00L4) on a set #{A}. The \dem{equivalence class} of a given element #{a\in A} in #{E} is the subset #{\eqcls{E}{a}\subseteq A} spanned by elements related to #{a} in #{E}, i.e. #{\eqcls{E}{a} = \compr{x\in A}{x\mathrel{E}a}}.}

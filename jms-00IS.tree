@@ -1,0 +1,8 @@
+\title{matrix over a semiring}
+\date{2024-01-17}
+\contributor{marcelofiore}
+\author{jonmsterling}
+\taxon{definition}
+\import{jms-00JB}
+
+\p{For natural numbers #{m} and #{n}, an \dem{\nowrap{\prn{m\times n}-matrix}} over a semiring \prn{S,0,\oplus,1,\odot} is given by entries #{M_{i,j}\in S} for all #{i\in\brk{m}} and #{j\in \brk{n}}. We will write \MAT{S}{m}{m} for the set of \dem{\nowrap{\prn{m\times n}-matrices}}.}

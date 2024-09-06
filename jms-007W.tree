@@ -1,0 +1,25 @@
+\title{blog}
+\parent{jms-0001}
+\author{jonmsterling}
+\tag{top}
+\import{jms-0088}
+\import{base-macros}
+
+\p{This is my blog, in which I write about a variety of topics including computer science, mathematics, and the design of tools for scientists.}
+
+\put\transclude/toc{false}
+\sponsor-blurb
+
+\hr
+
+\put\transclude/numbered{false}
+\put\transclude/metadata{true}
+\put\transclude/expanded{false}
+
+\transclude{jms-00QB}
+\transclude{jms-009F}
+\transclude{jms-0094}
+\transclude{jms-008J}
+\transclude{jms-0084}
+\transclude{jms-007T}
+\transclude{jms-0052}

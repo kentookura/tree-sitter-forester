@@ -1,0 +1,54 @@
+\title{associativity and unit laws of [matrix products](jms-00IV)}
+\date{2024-01-17}
+\author{jonmsterling}
+\contributor{marcelofiore}
+\taxon{lemma}
+\import{jms-00JB}
+
+\p{The [product](jms-00IV) of [matrices](jms-00IS) is associative and has the identity matrix as neutral element.}
+
+\proof{
+ \p{For associativity, fix [matrices](jms-00IS) #{L\in \MAT{S}{k}{l}}, #{M\in\MAT{S}{l}{m}} and #{N\in\MAT{S}{m}{n}} to check that #{\prn{N\cdot M}\cdot L = N\cdot\prn{M\cdot L}}. Below we use the associativity of multiplication, commutativity of addition, and distributivity of multiplication over addition in the semiring #{S}:}
+ ##{
+  \begin{aligned}
+    \prn{\prn{N\cdot M}\cdot L}_{a,b}
+    &=
+    \bigoplus_{c\in \brk{l}}
+    L_{a,c}\cdot \prn{N\cdot M}_{c,b}
+    \\
+    &=
+    \bigoplus_{c\in\brk{l}}
+    L_{a,c}\cdot \bigoplus_{d\in\brk{m}} M_{c,d}\cdot N_{d,b}
+    \\
+    &=
+    \bigoplus_{c\in\brk{l}}
+    \bigoplus_{d\in\brk{m}}
+    L_{a,c}\cdot M_{c,d}\cdot N_{d,b}
+    \\
+    &=
+    \bigoplus_{d\in\brk{m}}
+    \prn{\bigoplus_{c\in\brk{l}} L_{a,c}\cdot M_{c,d}}\cdot N_{d,b}
+    \\
+    &=
+    \bigoplus_{d\in\brk{m}}
+    \prn{M\cdot L}_{a,d}\cdot N_{d,b}
+    \\
+    &=
+    N\cdot \prn{M\cdot L}
+  \end{aligned}
+ }
+
+ \p{For one unit law, we fix #{M\in\MAT{S}{m}{n}} and recall the definition of the [identity matrix](jms-00IT) to check that #{M\cdot I^m = M}.}
+
+ ##{
+  \begin{aligned}
+   \prn{M\cdot I^m}_{i,j} &=
+   \bigoplus_{k\in \brk{m}}
+   I^m_{i,k}\cdot M_{k, j}
+  \end{aligned}
+ }
+
+ \p{Unfolding the definition of #{I^m_{i,j}} as given in \ref{jms-00IT}, we see that the iterated sum above expands to #{m-1} copies of #{0\cdot M_{k,j}} for various #{k \not= i} and one copy of #{1\cdot M_{i,j}}. Thus, we conclude that #{M\cdot I^m_{i,j} = M_{i,j}} using the absorption and unit laws for multiplication as well as the unit laws for addition in #{S}.}
+
+ \p{The other unit law follows in an analogous way.}
+}

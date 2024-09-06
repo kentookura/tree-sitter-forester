@@ -1,0 +1,8 @@
+\title{values of [partial functions](jms-00K7)}
+\date{2024-01-22}
+\author{jonmsterling}
+\contributor{marcelofiore}
+\taxon{notation}
+\import{jms-00JB}
+
+\p{Let #{f\colon A\pto B} be a [partial function](jms-00K7). Given #{a\in A}, we will write #{\is-defined{f\prn{a}}} to mean that #{f} is \dem{defined} at #{a}, i.e. there exists some (necessarily unique) #{b\in B} such that #{a\mathrel{f}b}. When #{\is-defined{f\prn{a}}} holds, we may write #{f\prn{a}} to mean the unique #{b} such that #{a\mathrel{f}b}, which we shall refer to as the \dem{value} of #{b}.}

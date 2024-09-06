@@ -1,0 +1,19 @@
+\title{The [induced monad algebra](jms-00CD) is a monad algebra}
+\author{jonmsterling}
+\date{2023-10-30}
+\taxon{corollary}
+\import{base-macros}
+\import{jms-00C6}
+\import{jms-00CD}
+
+\let\T{#{T}}
+\let\TT{#{\mathbb{T}}}
+\let\C{#{\mathcal{C}}}
+\let\X{#{X}}
+\let\pred[Z]{#{\pi\Sub{\Z}}}
+
+\p{Let \TT be a monad on a category \C, and let \X be a [weak algebra](jms-00C8) for \TT for which the algebra map is invertible. Then the [induced monad algebra](jms-00CD) \ToMonadAlg{\X} is in fact a [monad algebra](jms-00C5).}
+
+\proof{
+  \p{Because it is [unital](jms-00CE) and [associative](jms-00CG).}
+}

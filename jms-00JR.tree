@@ -1,0 +1,18 @@
+\title{[matrix addition](jms-00JO) and union of [relations](jms-00I7)}
+\date{2024-01-20}
+\author{jonmsterling}
+\taxon{lemma}
+\import{jms-00JB}
+
+\p{The pointwise sum #{M+N} of #{M,N\in\MAT{\mathbb{B}}{m}{n}} corresponds to the union of the [relations associated](jms-00IZ) to #{M} and #{N}:}
+
+##{
+ \rel-of-matrix_{\mathbb{B}}\prn{M+N} =
+ \rel-of-matrix_{\mathbb{B}}M \cup \rel-of-matrix_{\mathbb{B}}N
+}
+
+\p{Moreover, the [zero matrix](jms-00JP) corresponds to the [empty relation](jms-00IG): #{\rel-of-matrix_{\mathbb{B}}\mathbf{0} = \varnothing}.}
+
+\proof{
+ \p{This follows because addition and zero in the boolean semiring are given by disjunction and falsehood respectively.}
+}

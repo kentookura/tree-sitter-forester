@@ -1,0 +1,7 @@
+\title{the set of iterated powersets}
+\date{2024-01-31}
+\author{jonmsterling}
+\taxon{example}
+\import{jms-00JB}
+
+\p{\ref{jms-00N8} may seem a bit obscure (and it is!). But an example of a set that we need [replacement](jms-00N8) to define is the set of iterated powersets \brc{\pow{X},\pow{\pow{X}},\pow{\pow{\pow{X}}},\ldots}.}

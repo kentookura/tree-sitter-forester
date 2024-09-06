@@ -1,0 +1,52 @@
+\title{Forester 4.1}
+\date{2024-06-15}
+\author{jonmsterling}
+\taxon{release}
+\contributor{kentookura}
+\contributor{treborhuang}
+
+\p{Special thanks to [[kentookura]], [[nickhu]], and [[treborhuang]] for their contributions to this release.}
+
+\subtree[jms-00U0]{
+ \title{new \code{forester init} command}
+ \contributor{kentookura}
+
+ \p{To make it easier to set up a new forest, we have added a \code{forester init} command; when you run this command in an empty directory, it will initialise a git repository with a submodule for the [default theme](https://git.sr.ht/~jonsterling/forester-base-theme) pinned to the correct release, and a [configuration file](jms-00RG).}
+}
+
+\subtree[jms-00WA]{
+ \title{rendering only a subset of the forest}
+ \p{A new option has been added to the \code{forester build} command to render only certain trees. For example, the following command will render only the trees at addresses \code{xxx-MMMM} and \code{yyy-NNNN}:}
+ \pre{forester build forest.toml --render-only=xxx-MMMM,yyy-NNNN}
+ \p{Note that in order to maintain a correct graph analysis, the entire forest will nonetheless be \em{evaluated}. As rendering is the slowest part of the process, however, this option can still save a lot of time. In the future it could be useful to have a more sophisticated option that renders (e.g.) all children of a given tree, etc.}
+}
+
+\subtree[jms-00SP]{
+ \title{changed behaviour of queries}
+
+ \p{Forester’s [rudimentary support for queries](jms-0066) has been simplified somewhat. Previously, the results of a query would be gathered and, if non-empty, placed underneath an anonymous subtree (whose title could be modified using [transclusion options](jms-0067)).}
+
+ \p{In light of the [user-level support for anonymous subtrees](jms-00O4) introduced in [[jms-00HY]], the behaviour of queries has been simplified: the results of a query are simply transcluded directly without being enclosed in a subtree.}
+
+ \p{Although the new behaviour is simpler, it is no longer possible to have a query subtree that is hidden when it returns no results. Users should treat the querying feature as highly provisional, and subject to change and even potential removal.}
+}
+
+\subtree[jms-00SQ]{
+ \title{addresses for anonymous trees}
+
+ \p{Previously, a subtree could be emitted without any address; this greatly complicated the logic of the graph analysis, [designated parents](jms-00O3), and other things. Now, emitting an anonymous subtree generates a fresh address in a separate namespace; as a result, these trees get rendered to their own XML file. Naturally, an anonymous subtree cannot be linked to or transcluded, but it can now participate properly in the graph analysis.}
+}
+
+\subtree[jms-00SA]{
+ \title{incremental parsing}
+ \contributor{nickhu}
+
+ \p{Menhir’s incremental parsing API is adopted in order to make the parser more resiliant to syntax errors. The goal is to support language server protocol diagnostics in a future release.}
+}
+
+
+\subtree[jms-00WG]{
+ \title{dependency audit}
+
+ \p{In recent releases, Forester has become increasingly dependent on various system packages (including openssl) via transitive dependencies. This has caused a great deal of build breakage for both our developers and users, so we decided to remove all but the most critical dependencies to avoid losing control of things. Experimental tools that rely on more system dependencies that are likely to cause build breakage can be created, but only outside the main \code{forester} package.}
+}

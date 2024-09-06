@@ -1,0 +1,11 @@
+\title{a [well-founded relation](jms-00NK) on the naturals}
+\date{2024-01-31}
+\author{jonmsterling}
+\taxon{example}
+\import{jms-00JB}
+
+\p{The “strictly less-than” [relation](jms-00I7) #{<\colon\mathbb{N}\relto\mathbb{N}} is [well-founded](jms-00NL).}
+
+\proof{
+ \p{Almost immediate: give a non-empty set of naturals, pick the smallest number.}
+}

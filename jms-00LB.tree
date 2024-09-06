@@ -1,0 +1,24 @@
+\title{the [idempotent](jms-00LA) determined by a [section-retraction pair](jms-00KS)}
+\date{2024-01-25}
+\author{jonmsterling}
+\taxon{lemma}
+\import{jms-00JB}
+
+\p{Every [section-retraction pair](jms-00KS) determines an [idempotent](jms-00LA). In particular, when #{s\colon B\to A} is a [section](jms-00KS) of #{r\colon A \to B}, the composite #{s\circ r\colon A\to A} is [idempotent](jms-00LA).}
+
+\proof{
+ \p{We proceed by calculation:}
+ ##{
+  \begin{aligned}
+    \prn{s\circ r}\circ\prn{s\circ r}
+    &=
+    s\circ \prn{r\circ s}\circ r
+    \\
+    &=
+    s\circ \idn{B} \circ r
+    \\
+    &=
+    s\circ r
+  \end{aligned}
+ }
+}

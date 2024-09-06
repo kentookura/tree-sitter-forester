@@ -1,0 +1,16 @@
+\title{a configured transclusion}
+\parent{jms-0067}
+\taxon{example}
+\author{jonmsterling}
+\date{2023-07-20}
+\import{base-macros}
+
+\p{The following code produces an unnumbered transclusion that nonetheless appears in the table of context, with an overridden title.}
+
+\pre{\startverb
+\scope{
+  \put\transclude/title{A short title in context}
+  \put\transclude/numbered{false}
+  \transclude{jms-0068}
+}
+\stopverb}

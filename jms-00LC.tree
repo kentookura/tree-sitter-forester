@@ -1,0 +1,12 @@
+\title{splitting [idempotents](jms-00LB)}
+\date{2024-01-25}
+\author{jonmsterling}
+\taxon{lemma}
+\import{jms-00JB}
+
+\p{It happens that \em{every} [idempotent](jms-00LA) arises from a [section-retraction pair](jms-00KS) in the manner of \ref{jms-00LB}.}
+
+\proof{
+ \p{Let #{f\colon A\to A} be an [idempotent](jms-00LA) on a set #{A}. Let #{B} be the subset #{\compr{f\prn{a}}{a\in A}\subseteq A}, sometimes called the \em{[direct image](jms-00N6)} of #{f} in #{A}. Then #{f\colon A\to A} factors, by definition, through some unique #{r\colon A \to B}, where #{r\prn{x} = f\prn{x}} for all #{x\in A}. We define #{s\colon B\to A} to be be the subset inclusion.}
+ \p{We must check that #{r\circ s = \idn{B}}; in other words, we fix #{b\in B} to check that #{r\prn{s\prn{b}} = b}. By definition, the subset inclusion #{s\colon B\to A} takes #{b} to the corresponding element #{s\prn{b}\in A} such that #{b=f\prn{s\prn{b}}}. By definition of #{r\colon A \to B}, we therefore have #{r\prn{s\prn{b}}=f\prn{s\prn{b}}=b}.}
+}

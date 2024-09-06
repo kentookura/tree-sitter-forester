@@ -1,0 +1,14 @@
+\title{closure of [injections](jms-00MO) under [identity](jms-00II) and [composition](jms-00IN)}
+\date{2024-01-30}
+\author{jonmsterling}
+\contributor{marcelofiore}
+\taxon{theorem}
+\import{jms-00JB}
+
+\p{The [identity function](jms-00KI) is an [injection](jms-00MO) and the [composition](jms-00IN) of [injections](jms-00MO) yields a [injection](jms-00MO).}
+
+\proof{
+ \p{The [identity function](jms-00KI) is clearly [injective](jms-00KI), as #{a_0=a_1} implies #{a_0=a_1}.}
+
+ \p{Let #{f\colon A\rightarrowtail B} and #{g\colon B\rightarrowtail C} be [injections](jms-00M0). To show that the [composite function](jms-00KI) #{g\circ f\colon A\to C} is [injective](jms-00MO), we fix #{a_0,a_1\in A} to check that #{g\prn{f\prn{a_0}} = g\prn{f\prn{a_1}}} implies #{a_0=a_1}. Because #{g} is [injective](jms-00MO), we have #{f\prn{a_0}=f\prn{a_1}}; therefore, because #{f} is [injective](jms-00MO), we have #{a_0=a_1} as desired.}
+}

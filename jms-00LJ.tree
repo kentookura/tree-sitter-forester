@@ -1,0 +1,12 @@
+\title{properties of [isomorphism](jms-00L0)}
+\date{2024-01-25}
+\author{jonmsterling}
+\taxon{lemma}
+
+\p{The concept of [isomorphism](jms-00L0) between two sets satisfies laws like those of an [equivalence relation](jms-00L4). In particular:}
+
+\ol{
+ \li{reflexivity: #{A\cong A};}
+ \li{transitivity: #{A\cong B \land B \cong C \implies A \cong C};}
+ \li{symmetry: #{A\cong B \implies B\cong A}.}
+}

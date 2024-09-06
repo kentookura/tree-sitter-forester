@@ -1,0 +1,22 @@
+\title{from initial [weak algebras](jms-00CD) to initial [successor algebras](jms-00C9)}
+\author{jonmsterling}
+\taxon{theorem}
+\date{2023-11-05}
+
+\import{base-macros}
+\import{jms-00CD}
+\meta{source}{\citek{joyal-moerdijk-1995}}
+
+\let\T{#{T}}
+\let\TT{#{\mathbb{T}}}
+\let\C{#{\mathcal{C}}}
+\let\X{#{X}}
+\let\I{#{I}}
+\let\x{#{x}}
+\let\pred[Z]{#{\pi\Sub{\Z}}}
+
+\p{Let \I be the initial weak algebra for a monad \TT on a category \C. Then the [induced successor algebra](jms-00CN) \ToMonadAlg{\I} is the \em{initial} [successor algebra](jms-00C9) for \TT.}
+
+\proof{
+  \p{Let \X be a successor algebra; [we have shown](jms-00CR) that weak algebra homomorphism \Mor{\iota}{\I}{s\cdot\X} from \I to the [successor restriction](jms-00CC) of \X also tracks a successor algebra homomorphism \Mor{\iota}{\ToMonadAlg{\I}}{X}. To see that this homomorphism is \em{unique}, fix any [successor algebra homomorphism](jms-00CA) \Mor{j}{\ToMonadAlg{\I}}{\X}; we [have also shown](jms-00D9) that such a homomorphism also tracks a ([weak algebra](jms-00C8)) homomorphism \Mor{j}{I}{s\cdot\X}. But \Mor{\iota}{\I}{s\cdot\X} is the such weak algebra homomorphism, so we have #{\iota = j}.}
+}

@@ -1,0 +1,18 @@
+\title{Cubical sets and the topological topos}
+\date{2016-10-17}
+\taxon{reference}
+\author{basspitters}
+\meta{doi}{10.48550/arXiv.1610.05270}
+\tag{preprint}
+\tag{cubical}
+\meta{bibtex}\verb<<<|
+@unpublished{spitters-2016,
+  author = {Spitters, Bas},
+  year = {2016},
+  eprint = {1610.05270},
+  eprintclass = {cs.LO},
+  eprinttype = {arXiv},
+  note = {Unpublished manuscript},
+  title = {Cubical sets and the topological topos},
+}<<<
+

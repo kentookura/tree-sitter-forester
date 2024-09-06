@@ -1,0 +1,26 @@
+\title{alternative definition of [countability](jms-00MH)}
+\date{2024-01-29}
+\author{jonmsterling}
+\taxon{lemma}
+\import{jms-00JB}
+
+\p{A set #{A} is [countable](jms-00MH) if and only if the disjoint union #{A+\brk{1}} is [enumerable](jms-00ME).}
+
+\proof{
+ \p{Suppose that #{A} is [countable](jms-00MH). We must find a [surjection](jms-00M8) #{\mathbb{N}\twoheadrightarrow A+\brk{1}}; if #{A} is empty, this is the same as to find a [surjection](jms-00M8) #{\mathbb{N}\to\brk{1}}, which we have by \ref{jms-00MA}. On the other hand, if we have an enumeration #{e\colon\mathbb{N}\twoheadrightarrow{A}}, we may define an enumeration #{e'\colon\mathbb{N}\twoheadrightarrow A+\brk{1}} as follows:}
+ ##{
+  \begin{aligned}
+  e'\prn{0} &= 0\\
+  e'\prn{n+1} &= e\prn{n}
+  \end{aligned}
+ }
+
+ \p{Conversely, suppose that #{A+\brk{1}} is [enumerable](jms-00ME) by #{e\colon\mathbb{N}\twoheadrightarrow A+\brk{1}}. If #{A} is empty, we are done. If to the contrary #{A} is inhabited by some #{a_0}, we let define #{e'\colon \mathbb{N}\twoheadrightarrow A} as follows:}
+ ##{
+  e'\prn{i} =
+  \begin{cases}
+   e\prn{i} &\text{when } e\prn{i}\in A\\
+   a_0 &\text{otherwise}
+  \end{cases}
+ }
+}

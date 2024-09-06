@@ -1,0 +1,5 @@
+\title{bi-initiality of syntactic natural models}
+\author{jonmsterling}
+\date{2023-11-20}
+
+\p{The [bicategory of natural models](jms-00E8) has a bi-initial object, as shown by [Uemura](uemura-2023-mscs). This bi-initial object can be constructed from syntax, or by using the presentability of the (2,1)-category of natural models: it can be seen from [Uemura’s proof](uemura-2023-mscs) that the lack of non-invertible 2-cells in the latter has no impact on bi-initiality, as any transformation between strong homomorphisms whose domain is a \em{democratic} natural model is invertible.}

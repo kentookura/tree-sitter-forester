@@ -1,0 +1,8 @@
+\title{infinite set}
+\date{2024-01-28}
+\author{jonmsterling}
+\contributor{marcelofiore}
+\taxon{definition}
+\import{jms-00JB}
+
+\p{A set #{A} is called \dem{infinite} when it is not [finite](jms-00LX) in the sense of \ref{jms-00LX}.}

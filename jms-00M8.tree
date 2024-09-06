@@ -1,0 +1,8 @@
+\title{surjection}
+\date{2024-01-29}
+\author{jonmsterling}
+\contributor{marcelofiore}
+\taxon{definition}
+\import{jms-00JB}
+
+\p{A function #{f\colon A\to B} is said to be \dem{surjective} or a\dem{surjection} when for we have #{\forall b\in B\punctdot \exists a\in A\punctdot f\prn{a}=b}. A function satisfying this condition is written #{f\colon A\twoheadrightarrow B}.}

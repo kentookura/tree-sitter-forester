@@ -1,0 +1,7 @@
+\title{bicategories of natural models}
+\author{jonmsterling}
+\date{2023-11-11}
+
+\p{There are several possible bicategories of [natural models](jms-00E4), corresponding to different allowances of laxness. All of these are, in fact, (strict) 2-categories — but we see this as a meta-level statement as it concerns definitional equality.}
+
+\p{By “the” bicategory of natural models, we shall refer to the one in which 1-cells are [\em{strong} homomorphisms](jms-00E5). This bicategory is precisely the one described by [Uemura](uemura-2023-mscs); in his [doctoral thesis](uemura-2021-thesis), the same author considered the (2,1)-subcategory with invertible 2-cells. The latter bicategory benefits from the [Lurie’s theory](lurie-htt) of \em{presentable (∞,1)-categories}; [Uemura](uemura-2023-mscs) has also claimed an appropriate form of presentability for the full bicategory with non-invertible 2-cells, but neither precise definitions nor proofs of this condition have been published.}

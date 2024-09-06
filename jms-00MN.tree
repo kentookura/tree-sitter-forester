@@ -1,0 +1,12 @@
+\title{injective [functions](jms-00KF)}
+\date{2024-01-29}
+\author{jonmsterling}
+
+\transclude{jms-00MO}
+\transclude{jms-00N1}
+\transclude{jms-00N2}
+\transclude{jms-00N3}
+
+\p{Now that we have enough definitions in hand to see it, the import of \ref{jms-00M7} is then to state that a [function](jms-00KF) is [bijective](jms-00KR) if and only if it is both [injective](jms-00MO) and [surjective](jms-00M8).}
+
+\transclude{jms-00N4}

@@ -1,0 +1,20 @@
+\title{lecture 22: finite automata}
+\date{2024-02-09}
+\author{jonmsterling}
+\import{jms-00JB}
+
+\transclude{jms-00OD}
+\transclude{jms-00OE}
+
+\subtree[jms-00OG]{
+  \taxon{question}
+  \title{alternative definition of #{\accepting{\pow{M}}}?}
+
+  \p{Why can’t we define #{\accepting{\pow{M}}} to be the set of singletons #{\brc{q}} such that #{q\in\accepting{M}}?}
+
+  \put\transclude/toc{false}
+  \subtree{
+   \taxon{answer}
+   \p{Because if we did, then \ref{jms-00OE} would fail already in the case of the empty string. We would have #{\start{M}\xRightarrow{\epsilon}{q}} with #{q\in \accepting{M}} and thus #{q\in \start{\pow{M}}}; we would need #{\start{\pow{M}}\in\accepting{\pow{M}}} and with the proposed definition, this would need to be a singleton. There is, however, nothing about our assumptions that allows us to deduce that and, indeed, we can certainly come up with examples where \start{\pow{M}} is not a singleton (e.g. if we have \nowrap{#{\epsilon}-transitions} of the form #{\start{M}\xRightarrow{\epsilon}q} for #{q\not= \start{M}}).}
+  }
+}

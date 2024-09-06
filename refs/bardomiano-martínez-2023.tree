@@ -1,0 +1,16 @@
+\title{Limits and exponentiable functors in simplicial homotopy type theory}
+\date{2023-11-16}
+\author{César Bardomiano Martínez}
+\taxon{reference}
+\meta{doi}{10.48550/arXiv.2202.12386}
+
+\meta{bibtex}\verb<<<|
+@misc{bardomiano-martínez-2023,
+  title={Limits and exponentiable functors in simplicial homotopy type theory},
+  author={César Bardomiano Martínez},
+  year={2023},
+  eprint={2202.12386},
+  archivePrefix={arXiv},
+  primaryClass={math.CT}
+}
+<<<

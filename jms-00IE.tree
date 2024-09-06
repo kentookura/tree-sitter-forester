@@ -1,0 +1,8 @@
+\title{[relations](jms-00I7) in databases}
+\date{2024-01-17}
+\contributor{marcelofiore}
+\author{jonmsterling}
+\taxon{example}
+\import{jms-00JB}
+
+\p{We now come to an example of a [relation between multiple sets](jms-00I7): we could define a relation #{R\subseteq \text{Movies}\times\text{Directors}\times\text{Years}\times\text{People}} consisting of tuples \prn{m,d,y,p} where #{m} is a movie directed by #{d} in year #{y} with #{p} as a cast member.}

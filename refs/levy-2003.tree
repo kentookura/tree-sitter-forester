@@ -1,0 +1,15 @@
+\title{Call-by-push-value: a functional/imperative synthesis}
+\author{paulblainlevy}
+\taxon{reference}
+\date{2003}
+\meta{venue}{Semantic Structures in Computation}
+\meta{doi}{10.1007/978-94-007-0954-6}
+\meta{bibtex}\verb<<<|
+@book{levy-2003,
+  author = {Levy, Paul Blain},
+  publisher = {Kluwer, Semantic Structures in Computation, 2},
+  year = {2003},
+  month = jan,
+  isbn = {1-4020-1730-8},
+  title = {Call-by-Push-Value: A Functional/Imperative Synthesis},
+}<<<

@@ -1,0 +1,7 @@
+\title{idempotent function}
+\date{2024-01-25}
+\author{jonmsterling}
+\taxon{definition}
+\import{jms-00JB}
+
+\p{A [function](jms-00KF) #{f\colon A\to A} is called \dem{idempotent} when we have #{f\circ f = f}.}

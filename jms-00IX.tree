@@ -1,0 +1,35 @@
+\title{finite [relations](jms-00IR) as [matrices](jms-00IS) over the booleans}
+\date{2024-01-17}
+\author{jonmsterling}
+\taxon{lemma}
+\import{jms-00JB}
+
+\let\BB{#{\mathbb{B}}}
+
+\p{The idempotent #{{\matrix-of-rel_\BB\circ \rel-of-matrix_\BB\colon \MAT{\BB}{m}{n}\to\MAT{\BB}{m}{n}}} is in fact the identity function on matrices over the boolean semiring \BB.}
+
+\proof{
+ \p{We fix a matrix #{M\in\MAT{\BB}{m}{n}} and compute:}
+ ##{
+  \begin{aligned}
+   \prn{\matrix-of-rel_\BB\prn{\rel-of-matrix_\BB M}}_{i,j}
+   &=
+   \begin{cases}
+   1 &\text{if } i \mathrel{\prn{\rel-of-matrix_\BB M}} j\\
+   0 &\text{otherwise}
+   \end{cases}
+   \\
+   &=
+   \begin{cases}
+   1 &\text{if } M_{i,j} = 1\\
+   0 &\text{otherwise}
+   \end{cases}
+  \end{aligned}
+ }
+
+ \p{Because \BB is the boolean semiring, any scalar #{s\in S} is either #{0} or #{1}. Therefore, we conclude:}
+
+ ##{
+  \prn{\matrix-of-rel_\BB\prn{\rel-of-matrix_\BB M}}_{i,j} = M_{i,j}
+ }
+}

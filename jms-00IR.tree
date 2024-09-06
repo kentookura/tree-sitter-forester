@@ -1,0 +1,15 @@
+\title{relations and matrices}
+\date{2024-01-17}
+\author{jonmsterling}
+\import{jms-00JB}
+
+\p{[Relations](jms-00I7) between finite sets can be desribed in a more computationally friendly way by their tabulation as \em{[matrices](jms-00IS)}. In particular, we shall see in \ref{jms-00J1} that an \nowrap{\prn{m\times n}-[matrix](jms-00IS)} over the boolean semiring is precisely the same thing as a relation from \brk{m} to \brk{n}, where #{\brk{l}=\brc{i\mid 0\leq i < l}} is the set of natural numbers strictly smaller than #{l}. Then we will see that [relational composition](jms-00IN) is, under this correspondence, the same as \em{matrix multiplication}.}
+
+\transclude{jms-00IS}
+\transclude{jms-00J4}
+\transclude{jms-00IT}
+
+
+\transclude{jms-00J1}
+
+\transclude{jms-00IW}

@@ -1,0 +1,8 @@
+\title{injection}
+\date{2024-01-29}
+\author{jonmsterling}
+\contributor{marcelofiore}
+\taxon{definition}
+\import{jms-00JB}
+
+\p{A [function](jms-00KF) #{f\colon A\to B} is said to be \dem{injective}, or an \dem{injection}, whenever we have #{\forall a_1,a_2\in A\punctdot f\prn{a_1}=f\prn{a_2}\implies a_1=a_2}. Such a [function](jms-00KF) is written #{f\colon A\rightarrowtail B}.}

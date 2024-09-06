@@ -1,0 +1,18 @@
+\title{examples of [preorders](jms-00JX)}
+\date{2024-01-21}
+\author{jonmsterling}
+\contributor{marcelofiore}
+\taxon{example}
+\import{jms-00JB}
+
+\p{[Preorders](jms-00JX) are everywhere in both general mathematics and computer science.}
+
+\ol{
+ \li{The real numbers equipped with their inequality relation form a [preorder](jms-00JX) #{\mathbb{R},\leq}. The converse relation \prn{\mathbb{R},\geq} of course also forms a [preorder](jms-00JX). This example can be specialised to different classes of numbers, such as integers or naturals.}
+ \li{Subsets with their inclusion and containment relations form [preorders](jms-00JX) \prn{\mathcal{P}(A),\subseteq} and \prn{\mathcal{P}(A),\supseteq}. This example can be specialised to other examples that have additional structure, such as the [preorder](jms-00JX) #{\mathcal{P}_f(A)} of \em{finite} subsets of a given set #{A}, or the [preorder](jms-00JX) #{\mathcal{O}(X)} of open sets of a topological space #{X}.}
+ \li{A slightly more nontrivial example is furnished by the [preorder](jms-00JX) \prn{\mathbb{Z},{\mid}} of the integers and the divisibility relation, where #{m\mid n} if and only if #{\exists k\in\mathbb{Z}\punctdot m k = n}: indeed, we certainly have #{n} divides #{n}, and if #{l} divides #{m} and #{m} divides #{n}, then #{l} divides #{m}. }
+}
+
+\p{The first example above happen to be \em{total orders} (meaning that the underlying directed graph is connected): so \prn{\pow{A},\subseteq} and \prn{\mathbb{Z},{\mid}} are example of \em{non-total} [preorders](jms-00JX).}
+
+\p{All the examples we have seen so far are, furthermore, \dem{partial orders}: a [preorder](jms-00JX) is a partial order when we have #{a \sqsubseteq b \land b \sqsubseteq a} if and only if #{a=b}. In fact, there are arguably very few useful preorders that are not partial orders, and it is always possible to replace a preorder by an equivalent partial order; we do not pursue this here.}

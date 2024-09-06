@@ -1,0 +1,7 @@
+\title{[relations](jms-00I7) in operational semantics}
+\date{2024-01-17}
+\author{jonmsterling}
+\taxon{example}
+\import{jms-00JB}
+
+\p{Let #{E} represent the set of states in a machine; then the behavior of this machine is usually described by a pair of [relations](jms-00I7) #{S \colon E\relto E} and #{V\colon E\relto \brc{\star}}, such that #{e\mathrel{S} e'} when it is possible for the machine to transition from state #{e} to #{e'} and such that #{e\mathrel{V} \star} when the machine can halt in state #{e}.}

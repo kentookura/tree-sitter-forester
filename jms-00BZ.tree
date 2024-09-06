@@ -1,0 +1,9 @@
+\title{Birkhoff’s representation theorem for distributive lattices}
+\author{jonmsterling}
+\taxon{theorem}
+\date{2023-10-27}
+\import{base-macros}
+
+\let\P{#{P}}
+
+\p{The category of finite posets and monotone maps is anti-equivalent to the category of finite distributive lattices: a finite poset \P is sent to the finite distributive lattice \brk{\P,\brk{1}} of (decidable) downsets.}

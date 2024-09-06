@@ -1,0 +1,8 @@
+\title{strong induction as [well-founded induction](jms-00NP)}
+\date{2024-01-31}
+\author{jonmsterling}
+\contributor{marcelofiore}
+\taxon{corollary}
+\import{jms-00JB}
+
+\p{The “strong” or “complete” induction principle for natural numbers states that for any subset #{S\subseteq \mathbb{N}}, we have #{\forall x\in \mathbb{N}\punctdot x\in S} if and only if we have #{0\in S} and, for any #{n\in \mathbb{N}} such that #{m\in S} for all #{m<n}, we have #{n\in S}. This is precisely the statement of [well-founded induction](jms-00NP) for the [strictly less-than relation](jms-00NM).}

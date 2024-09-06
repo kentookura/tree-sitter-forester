@@ -1,0 +1,12 @@
+\title{the comprehension of a [predicate](jms-00LO)}
+\date{2024-01-25}
+\author{jonmsterling}
+\taxon{definition}
+
+\import{jms-00JB}
+
+\p{Let #{\phi\colon A\to \brk{2}} be a [predicate](jms-00LO) on a set #{A}. The \dem{comprehension} of #{\phi} is defined to be the following subset #{\brk{\phi}\subseteq A} spanned by elements at which #{\phi} holds, as specified below:}
+
+##{
+ \brk{\phi} = \compr{a\in A}{\phi\prn{a}=1}
+}

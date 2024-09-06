@@ -1,0 +1,32 @@
+\title{Towards univalent reference types}
+\taxon{reference}
+\author{jonmsterling}
+\author{danielgratzer}
+\author{larsbirkedal}
+\date{2024-02-07}
+\tag{refereed}
+\tag{typesynth}
+\tag{new-spaces}
+\tag{gdt}
+\meta{doi}{10.4230/LIPIcs.CSL.2024.47}
+\meta{venue}{[[csl-2024]]}
+
+\meta{bibtex}\verb<<<|
+@inproceedings{sterling-gratzer-birkedal-2024-univalent,
+  author = {Sterling, Jonathan and Gratzer, Daniel and Birkedal, Lars},
+  title = {{Towards Univalent Reference Types: The Impact of Univalence on Denotational Semantics}},
+  booktitle = {32nd EACSL Annual Conference on Computer Science Logic (CSL 2024)},
+  pages = {47:1--47:21},
+  series = {Leibniz International Proceedings in Informatics (LIPIcs)},
+  ISBN = {978-3-95977-310-2},
+  ISSN = {1868-8969},
+  year = {2024},
+  volume = {288},
+  editor = {Murano, Aniello and Silva, Alexandra},
+  publisher = {Schloss Dagstuhl -- Leibniz-Zentrum f{\"u}r Informatik},
+  address = {Dagstuhl, Germany},
+  doi =  {10.4230/LIPIcs.CSL.2024.47},
+}
+<<<
+
+\p{We develop a denotational semantics for general reference types in an [impredicative version](awodey-frey-speight-2018) of [\strong{\em{guarded homotopy type theory}}](bbcgsv-2019), an adaptation of [synthetic guarded domain theory](bmss-2011) to Voevodsky’s [univalent foundations](hottbook). We observe for the first time the profound impact of univalence on the [denotational semantics of mutable state](sterling-gratzer-birkedal-2022). Univalence automatically ensures that all computations are invariant under symmetries of the heap—a bountiful source of program equivalences. In particular, even the most simplistic univalent model enjoys many new program equivalences that do not hold when the same constructions are carried out in the universes of traditional set-level (extensional) type theory.}

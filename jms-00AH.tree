@@ -1,0 +1,8 @@
+\title{[TypeSynth](jms-0061) project bibliography}
+\author{jonmsterling}
+\date{2023-10-12}
+\taxon{bibliography}
+\import{jms-005X}
+
+
+\make-topic-bibliography{typesynth}

@@ -1,0 +1,8 @@
+\title{adjacency [matrix](jms-00IS) of a finite [directed graph](jms-00JC)}
+\date{2024-01-20}
+\author{jonmsterling}
+\contributor{marcelofiore}
+\taxon{definition}
+\import{jms-00JB}
+
+\p{We have seen in [Lecture 13](jms-00I6) (\ref{jms-00IY}) how to turn any relation #{R\colon\brk{m}\relto\brk{n}} into a [matrix](jms-00IS) #{\matrix-of-rel_{\mathbb{B}}R\in\MAT{\mathbb{B}}{m}{n}} over the boolean semiring. When #{R\in\REL{\brk{n}}} is the \em{edge relation} in a graph with vertices in the finite set \brk{n}, we refer to #{\matrix-of-rel_{\mathbb{B}}R\in\MAT{\mathbb{B}}{n}{n}} as the \dem{adjacency matrix} of #{R}.}

@@ -1,0 +1,13 @@
+\title{non-empty sets and [surjections](jms-00M8)}
+\date{2024-01-29}
+\author{jonmsterling}
+\contributor{marcelofiore}
+\taxon{example}
+\import{jms-00JB}
+
+\p{The unique [function](jms-00KF) #{!_A\colon A\to \brk{1}} is [surjective](jms-00M8) if and only if #{A \not=\varnothing}.}
+
+\proof{
+ \p{Suppose that #{A} is nonempty, so that we have some #{a\in A}. We must show that for every #{i\in\brk{1}}, there exists some #{x\in A} such that #{!_A\prn{x}=i}. Letting #{i=0} be the unique element of \brk{1}, we may set #{x:= a}.}
+ \p{Conversely, if #{!_A\colon A\to\brk{1}} is surjective, we know that there exists some #{a\in A} such that #{!_A=0}; therefore, #{A} is nonempty.}
+}

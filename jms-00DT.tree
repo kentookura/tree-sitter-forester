@@ -1,0 +1,13 @@
+\title{adjointness of the generic elements functor}
+\taxon{corollary}
+\author{jonmsterling}
+\date{2023-11-08}
+\import{jms-00DJ}
+
+\let\C{#{\mathcal{C}}}
+
+\p{Let \Mor{p}{E}{U} be a representable map in #{\Psh{\C}}; then we have an adjunction #{\CatEl{p}\dashv q} where \Mor{q}{\CatEl{U}}{\CatEl{E}} is the [generic elements functor](jms-00DL) of \Mor{p}{E}{U}, in which the unit and counit are the [substitution unit](jms-00DN) and [weakening counit](jms-00DM) respectively.}
+
+\proof{
+  \p{We have verified the two [snake](jms-00DP) [identities](jms-00DQ) in Lemmas \citek{jms-00DP} and \citek{jms-00DQ} respectively.}
+}

@@ -1,0 +1,46 @@
+\title{[preorders](jms-00JX) and [reflexive-transitive closure](jms-00JH)}
+\date{2024-01-21}
+\author{jonmsterling}
+\contributor{marcelofiore}
+\taxon{theorem}
+\import{jms-00JB}
+
+\p{The [reflexive-transitive closure](jms-00JH) #{R^{\circ*}} of an [endo-relation](jms-00JC) #{R\colon A\relto A} is, by definition, a preorder. We will show that #{R^{\circ*}} enjoys a \em{universal property} as the \em{smallest preorder} containing #{R} as a subrelation.}
+
+\let\FR{#{\mathcal{F}_R}}
+
+\p{To be more precise, let \FR be the set of [preorders](jms-00JX) on #{A} that contain #{R} as a subrelation:}
+
+##{
+ \FR =
+ \compr{Q\colon A\relto A}{R\subseteq Q \land \text{#{Q} is a preorder}}
+}
+
+\p{Then we have #{R^{\circ*}=\bigcap\FR}, and so the [reflexive-transitive closure](jms-00JH) is the smallest preorder containing #{R} as a subrelation. (Indeed, recall that the intersection of an intersection-closed class of relations is the \em{smallest} relation in that class.)}
+
+\proof{
+ \p{To show that #{R^{\circ*}=\bigcap\FR}, it suffices to check that #{\bigcap\FR\subseteq R^{\circ*}} and #{R^{\circ*}\subseteq \bigcap\FR}.}
+
+ \ol{
+  \li{
+   \p{We first note that #{R\in\FR} — which holds by almost by definition:}
+   \ol{
+    \li{We first need to show that #{R\subseteq R^{\circ*}}, i.e. that when #{a\mathrel{R}b} we have #{a\mathrel{R}^{\circ*}b}. This is evident, as #{b\mathrel{R}b} is a path of length #{1} in #{R} and #{R^{\circ*}} contains all finite paths in #{R}.}
+    \li{Next, we need to show that #{R^{\circ*}} is a preorder. But this holds because #{R^{\circ*}} contains the empty path from an element to itself, and because a path of length #{m} from #{a} to #{b} can be concatenated with a path of length #{n} from #{b} to #{c} to obtain a path (of length #{m+n}) from #{a} to #{c}.}
+   }
+
+   \p{It follows from #{R\in\FR} that #{\bigcap\FR\subseteq R^{\circ*}}. Indeed:
+   ##{a\mathrel{\prn{\bigcap\FR}}b \Longleftrightarrow \forall Q\in\FR\punctdot a\mathrel{Q}b}
+   So if #{a\mathrel{\prn{\bigcap\FR}}b} and #{R^{\circ*}\in\FR}, we may choose #{Q := R^{\circ*}} to deduce #{a\mathrel{R^{\circ*}}b}. Therefore, #{\bigcap\FR\subseteq R^{\circ*}}.}
+  }
+  \li{
+   \p{Our second goal is to prove #{R^{\circ*}\subseteq \bigcap\FR}; by the definition of intersections, this holds if and only if #{\forall Q\in\FR\punctdot R^{\circ*}\subseteq Q}.}
+   \p{Fixing such a preorder #{Q} over #{A} containing #{R} as a subrelation, we must prove that #{R^{\circ*}\subseteq Q}. Recalling that #{R^{\circ*}} is the union #{\bigcup_{n \in\mathbb{N}}R^{\circ n}}, we see by the definition of unions that that #{R^{\circ*}\subseteq Q} if and only if for each #{n\in\mathbb{N}}, we have #{R^{\circ n} \subseteq Q}. This we prove by induction on #{n\in\mathbb{N}}.}
+   \ol{
+    \li{In the base case, we must show that #{R^{\circ0} = \idn{A}} is a subrelation of #{Q}. This is equivalent to #{Q} being reflexive, which we deduce from our assumption that #{Q} is a preorder.}
+    \li{In the inductive step, we may assume #{R^{\circ n}\subseteq Q} and we must prove that #{R^{\circ\prn{n+1}}=R\circ R^{\circ n}} is a subrelation of #{Q}. For any #{a,b\in A}, we have #{a\mathrel{\prn{R\circ R^{\circ n}}} b} if and only if there exists some #{c\in A} such that #{a\mathrel{R}c} and #{c\mathrel{R^{\circ n}} b}. Because we have assumed that #{R\subseteq Q}, we have #{a\mathrel{Q}c}; by our inductive hypothesis, we have #{c\mathrel{Q}b}. Becuase #{Q} is a preorder and therefore transitive, we therefore have #{a\mathrel{Q}b}.}
+   }
+  }
+ }
+ \p{Therefore, #{R^{\circ*}} is indeed the intersection of \FR.}
+}

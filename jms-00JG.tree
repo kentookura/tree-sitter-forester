@@ -1,0 +1,17 @@
+\title{[paths](jms-00JF) and [iteration](jms-00JE)}
+\date{2024-01-18}
+\author{jonmsterling}
+\contributor{marcelofiore}
+\taxon{lemma}
+\import{jms-00JB}
+
+\p{Let #{A,R} be a directed graph. For all #{n\in\mathbb{N}} and #{s,t\in A}, we have #{s\mathrel{R^{\circ n}}t} if and only if there exists a [path](jms-00JF) of length #{n} in #{R} with source #{s} and target #{t}.}
+
+\proof{
+ \p{Let #{P(n)} be the proposition that for all #{s,t\in A} we have #{s\mathrel{R^{\circ n}}t} if and only if there exists a [path](jms-00JF) of length #{n} in #{R} with source #{s} and target #{t}.}
+ \p{We shall prove #{P\prn{n}} for all #{n} by induction.}
+ \ol{
+  \li{In the base case, we must prove #{P\prn{0}}: this states for for all #{s,t\in A}, we have #{s=t} if and only if there exists a [path](jms-00JF) in #{R} of length #{0} from #{s} to #{t}. This holds by definition of [paths](jms-00JF), considering the unary tuple.}
+  \li{In the inductive step, we may assume #{P\prn{n}} to prove #{P\prn{n+1}}. Fixing #{s,t\in A} we must show that #{s \mathrel{R^{\circ\prn{n+1}}} t} if and only if there exists a [path](jms-00JF) of length #{n+1} in #{R}. By definition, we have #{s \mathrel{R^{\circ\prn{n+1}}} t} if and only if there exists #{s'} such that #{s\mathrel{R}s'} and #{s'\mathrel{R^{\circ n}} t}. By our inductive hypothesis #{P\prn{0}} applied to #{s',t}, the latter holds if and only if there exists a [path](jms-00JF) of length #{n} from #{s'} to #{t} in #{R}. As we can extend such a path by the link #{s\mathrel{R}s'}, we are done.}
+ }
+}

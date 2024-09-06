@@ -1,0 +1,25 @@
+\def\NewSpaces{[\em{New Spaces}](jms-008K)}
+\title{Research Assistant / Associate: \NewSpaces Project (Fixed Term)}
+\author{jonmsterling}
+\taxon{advertisement}
+\meta{external}{https://www.jobs.cam.ac.uk/job/43755/}
+\date{2023-10-12}
+
+\p{We invite applications for a Research Assistant/Associate to join the [\em{New Spaces for Denotational Semantics}](jms-008K) project. Appointment at Research Associate level is dependent on having a PhD. Those who have submitted but not yet received their PhD will be appointed at Research Assistant level, which will be amended to Research Associate once the PhD has been awarded.}
+
+\p{The \NewSpaces project aims to develop an axiomatic framework for higher-dimensional program semantics with applications to concurrency, using recent advances in category theory, type theory, domain theory, and the polarised structure of computational effects. The project will focus initially on two-dimensional generalisations of [call-by-push-value](levy-2003), [duploids](munch-2014), and [resource](mellies-tabareau-2010) [modalities](curien-fiore-munch-2016).}
+
+\p{The position will involve working with [Dr Jon Sterling](jonmsterling) and other project collaborators, including both PhD students and faculty. It will run initially for 24 months, with the possibility for a further 12 month extension.}
+
+\p{The successful candidate is likely to have (or expect to be awarded soon) a PhD in computer science or a related discipline, as well as a track record of research expertise in a subset of the following topics:}
+
+\ol{
+  \li{Domain-theoretic semantics of programming languages}
+  \li{Two-dimensional category theory and/or formal category theory}
+  \li{Categorical semantics of linear logic}
+  \li{Homotopy type theory and univalent foundations}
+  \li{Event structure or presheaf semantics of concurrency}
+  \li{Use of proof assistants such as Agda, Coq, Lean, or Isabelle}
+}
+
+\p{Informal enquiries are welcome and should be directed to [Dr Jon Sterling](jonmsterling) ([js2878@cl.cam.ac.uk](js2878@cl.cam.ac.uk)). To apply, please visit [the official posting](https://www.jobs.cam.ac.uk/job/43755/).}

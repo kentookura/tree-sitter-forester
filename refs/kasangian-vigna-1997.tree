@@ -1,0 +1,20 @@
+\title{The topos of labelled trees: a categorical semantics for SCCS}
+\date{1997-01}
+\author{Stefano Kasangian}
+\author{Sebastiano Vigna}
+\taxon{reference}
+\meta{venue}{Fundamentica Informaticae}
+\meta{bibtex}\verb<<<|
+@article{kasangian-vigna-1997,
+  author = {Kasangian, Stefano and Vigna, Sebastiano},
+  location = {NLD},
+  publisher = {IOS Press},
+  date = {1997-01},
+  issn = {0169-2968},
+  journaltitle = {Fundam. Inf.},
+  keywords = {topos theory,semantics,category theory,process algebras},
+  number = {1},
+  pages = {27--45},
+  title = {The Topos of Labelled Trees: A Categorical Semantics for SCCS},
+  volume = {32},
+}<<<

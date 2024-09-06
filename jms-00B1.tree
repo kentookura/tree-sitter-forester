@@ -1,0 +1,6 @@
+\title{indefinite description is useful!}
+\date{2023-10-19}
+\author{jonmsterling}
+\import{base-macros}
+
+\p{Experience with formalising classical mathematics in both Isabelle/HOL and Lean suggests that indefinite description is a very convenient feature to have in a language, not least because it \em{greatly} simplifies the treatment of partial functions as [Larry Paulson has pointed out](https://lawrencecpaulson.github.io/2021/12/01/Undefined.html). For example, you can define division in Isabelle as a \em{total} function by sending #{n/0} to #{\Con{some}_{\Con{nat}}}. This function is perfectly well-defined, and avoids the frustration of needing to check that arguments are non-zero when you apply it — or the (dual) frustration of needing to check that the output is defined before you use it, as in accounts of partiality based on partial map classifier monads.}

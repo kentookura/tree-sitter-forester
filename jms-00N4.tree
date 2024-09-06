@@ -1,0 +1,27 @@
+\title{counting [injections](jms-00MO) between [finite sets](jms-00LX)}
+\date{2024-01-30}
+\author{jonmsterling}
+\contributor{marcelofiore}
+\taxon{proposition}
+\import{jms-00JB}
+
+\p{For [finite sets](jms-00LX) #{A} and #{B}, we can describe number of [injections](jms-00MO) from #{A} to #{B} as follows:}
+
+##{
+ \card{\INJ{A}{B}} =
+ \begin{cases}
+  {\card{B}\choose\card{A}}\cdot \prn{\card{A}}! &\text{when } \card{A}\leq \card{B}
+  \\
+  0 &\text{otherwise}
+ \end{cases}
+}
+
+\proof{
+ \p{We will argue from a combinatoric perspective.}
+
+ \p{An [injection](jms-00MO) #{f} from #{A} to #{B} associates no more than one #{a\in A} to the same #{b\in B}. Thus if we consider the subset #{U\subseteq B} spanned by elements of the form #{f\prn{a}}, we should then get a [bijection](jms-00KR) from #{A} to #{U}as each #{b\in U} comes from a \em{unique} #{a\in A}.}
+
+ \p{Therefore, choosing an [injection](jms-00MO) amounts to making \em{two} independent choices: first we choose a subset of #{B} that is in [bijection](jms-00KR) with #{A}, and then we choose a \em{specific} [bijection](jms-00KR) from #{A} to that subset. The number of such subsets is precisely #{\card{B}\choose \card{A}}, and we have already seen in \ref{jms-00KT} that the number of such bijections is the factorial #{\prn{\card{A}!}}.}
+
+ \p{Of course, if there is no subset of #{B} equinumerous with #{A}, then there can be no [injection](jms-00MO).}
+}

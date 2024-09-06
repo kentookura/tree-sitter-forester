@@ -1,0 +1,14 @@
+\title{algebra for an endofunctor}
+\taxon{definition}
+\date{2023-10-30}
+\author{jonmsterling}
+
+\import{base-macros}
+
+\def\alg[Z]{#{\alpha\Sub{\Z}}}
+
+\let\F{#{F}}
+\let\C{#{\mathcal{C}}}
+\let\X{#{X}}
+
+\p{Let \F be an endofunctor on a category \C; an \em{algebra} for \F is defined to be an object #{\X\in\C} equipped with a mapping \Mor{\alg{\X}}{F\X}{\X}.}

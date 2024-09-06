@@ -1,0 +1,28 @@
+\title{informal examples of inductively defined functions}
+\date{2024-01-23}
+\author{jonmsterling}
+\contributor{marcelofiore}
+\taxon{example}
+\import{jms-00JB}
+
+\p{An inductive definition on the naturals defines a structure for each number #{n\in\mathbb{N}} by first defining it for #{n=0} and then specifying how to augment a structure for #{n=m} to a structure for #{n=m+1}. From the point of view of computer programming, inductive definitions proceed by \em{structural recursion}. For example, addition of natural numbers can be defined by induction on the second argument (or the first, if you prefer!):}
+
+##{
+ \begin{aligned}
+  \mathsf{add} &\colon \mathbb{N}^2\to\mathbb{N}
+  \\
+  \mathsf{add}\prn{m,0} &= m
+  \\
+  \mathsf{add}\prn{m,n+1} &= \mathsf{add}\prn{m,n}+1
+ \end{aligned}
+}
+
+\p{Likewise, the function #{\Sigma\colon \mathbb{N}\to\mathbb{N}} that takes #{n\in\mathbb{N}} to the sum #{\sum_{0\leq i < n}i} can be defined inductively:}
+
+##{
+ \begin{aligned}
+  \Sigma &\colon \mathbb{N}\to\mathbb{N}\\
+  \Sigma\prn{0} &= 0\\
+  \Sigma\prn{n+1} &= \mathsf{add}\prn{n,\Sigma\prn{n}}
+ \end{aligned}
+}

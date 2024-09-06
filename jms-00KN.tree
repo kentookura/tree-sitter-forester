@@ -1,0 +1,17 @@
+\title{formal examples of [inductively defined functions](jms-00KM)}
+\date{2024-01-23}
+\author{jonmsterling}
+\contributor{marcelofiore}
+\taxon{example}
+\import{jms-00JB}
+
+\p{We have seen two informal examples of inductive definitions in \ref{jms-00KL}; we will now update these examples in light of \ref{jms-00KM}:}
+
+\ul{
+ \li{
+  For every #{m\in \mathbb{N}}, [function](jms-00KF) #{\mathsf{add}\prn{m,-}\colon\mathbb{N}\to\mathbb{N}} is the [function](jms-00KF) #{\rec{m}{\prn{i,n}\mapsto n+1}} [inductively defined](jms-00KM) by #{m\in\mathbb{N}} and #{f\prn{i,n} = n+1}.
+ }
+ \li{
+  The function #{\Sigma\colon\mathbb{N}\to\mathbb{N}} taking #{n\in\mathbb{N}} to #{\sum_{0\leq i<n}i} is the [function](jms-00KF) #{\rec{0}{\mathsf{add}}} [inductively defined](jms-00KM) by #{0\in\mathbb{N}} and #{\mathsf{add}\colon \mathbb{N}\times\mathbb{N}\to\mathbb{N}}.
+ }
+}

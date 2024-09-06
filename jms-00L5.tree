@@ -1,0 +1,15 @@
+\title{set partition}
+\date{2024-01-23}
+\author{jonmsterling}
+\contributor{marcelofiore}
+\taxon{definition}
+\import{jms-00JB}
+
+\p{A \dem{partition} of a set #{A} is a set #{P\subseteq \pow{A}} of non-empty subsets of #{A} whose elements are referred to as \dem{blocks}, satisfying the following conditions:}
+
+\ol{
+ \li{the union of all blocks is all of #{A}, i.e. #{\bigcup P = A};}
+ \li{the blocks are pairwise disjoint, i.e. for all #{b_1\not= b_2\in P} we have #{b_1\cap b_2 = \varnothing}.}
+}
+
+\p{We will write \PART{A} for the set of partitions of #{A}.}

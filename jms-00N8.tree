@@ -1,0 +1,10 @@
+\title{axiom scheme of replacement}
+\date{2024-01-31}
+\author{jonmsterling}
+\contributor{marcelofiore}
+\taxon{axiom}
+\import{jms-00JB}
+
+\p{Let #{I} be a set, and let #{\mathtt{P}\prn{\mathtt{x},\mathtt{y}}} be a formula in the language of set theory such that #{\forall i\in I\punctdot \exists! S\punctdot \mathtt{P}\prn{i,S}} holds. Then the collection of sets #{S} such that #{\mathtt{P}\prn{i,S}} holds for some #{i\in I} holds forms a set.}
+
+\p{This is \em{almost} saying that the [direct image](jms-00N6) of #{I} under #{\mathtt{P}} is a set, but this doesn’t actually make sense because we do not have a way to speak about a “relation” between a set and the class of all sets. This strange situation is clarified by other foundational system that go beyond the limitations of the Zermelo-Fraenkel set theory that we have studied in this course.}

@@ -1,0 +1,12 @@
+\title{configurations of an [event structure](jms-00BN)}
+\taxon{definition}
+\author{jonmsterling}
+\date{2023-10-26}
+\import{base-macros}
+\meta{source}{\citek{staton-winskel-2010}}
+\import{jms-00BN}
+
+\def\Cfg[E]{#{\mathcal{C}\Sub{\E}}}
+\def\FinCfg[E]{#{\mathcal{C}\SubSup{\E}{\mathit{fin}}}}
+
+\p{A \em{configuration} of an [event structure](jms-00BN) #{E} is defined to be a [consistent](jms-00BP), downward-closed subset of #{E}. We will write \Cfg{E} for the set of all configurations of #{E} and \FinCfg{E} for the set of \em{finite} configurations of #{E}.}

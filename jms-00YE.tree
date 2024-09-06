@@ -1,0 +1,51 @@
+\title{MathML}
+\date{2024-07-20}
+\author{jonmsterling}
+\meta{external}{http://www.w3.org/1998/Math/MathML}
+
+\xmlns:mml{http://www.w3.org/1998/Math/MathML}
+
+\namespace\mml{
+ \alloc\math-wrapper
+
+ \def\ensure-math[~body]{%
+  \scope{%
+   \put?\math-wrapper{\fun[x]{\<mml:math>{\x}}}%
+   \get\math-wrapper{%
+    \put\math-wrapper{\fun[x]{\x}}%
+    \body{}%
+   }%
+  }%
+ }
+
+ \let\m{\ensure-math}
+
+ \def\mrow[~x]{\m{\<mml:mrow>{\x{}}}}
+ \def\mi[~x]{\m{\<mml:mi>{\x{}}}}
+ \def\mo[~x]{\m{\<mml:mo>{\x{}}}}
+ \def\mn[~x]{\m{\<mml:mn>{\x{}}}}
+
+
+ \def\fenced[~l][~r][~body]{
+  \mrow{
+   \<mml:mo>[fence]{true}{\l{}}
+   \body{}
+   \<mml:mo>[fence]{true}{\r{}}
+  }
+ }
+
+ \def\lprn{\verb<<|(<<}
+ \def\rprn{\verb<<|)<<}
+ \def\lbrk{\verb<<|[<<}
+ \def\rbrk{\verb<<|]<<}
+ \def\lgl{\verb<<|⟨<<}
+ \def\rgl{\verb<<|⟩<<}
+
+ \def\prn[~body]{\fenced{\lprn}{\rprn}{\body{}}}
+ \def\brk[~body]{\fenced{\lbrk}{\rbrk}{\body{}}}
+ \def\gl[~body]{\fenced{\lgl}{\rgl}{\body{}}}
+ \def\vrt[~body]{\fenced{|}{|}{\body{}}}
+ \def\to{\ensure-math{\<mml:mo>{→}}}
+ \def\vdash{\ensure-math{\<mml:mo>{⊢}}}
+ \def\op-cat[~C]{\ensure-math{\<mml:msup>{\C{} \<mml:mi>{op}}}}
+}

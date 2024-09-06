@@ -1,0 +1,452 @@
+\title{\em{[Towards \strong{univalent} reference types](sterling-gratzer-birkedal-2024-univalent)}}
+\date{2024-02-10}
+\author{jonmsterling}
+\author{danielgratzer}
+\author{larsbirkedal}
+\taxon{presentation}
+\tag{new-spaces}
+\tag{gdt}
+\meta{venue}{[[csl-2024]]}
+\meta{nocite}{
+ [[birkedal-støvring-thamsborg-2010-realisability]],
+ [[ahmed-2004]]
+}
+
+\import{base-macros}
+\def\HoTT{\strong{HoTT}}
+\def\iGDTT{\strong{iGDTT}}
+\def\iGHoTT{\strong{iGHoTT}}
+\def\dem[x]{\strong{\em{\x}}}
+
+\xmlns:beamer{http://ctan.org/pkg/beamer}
+\def\pause{\<beamer:pause>{}}
+
+
+\def\SGB{[SGB’22](sterling-gratzer-birkedal-2022)}
+\def\Int{#{\mathsf{Integer}}}
+\def\T{#{\mathsf{T}}}
+\def\type{#{\mathbf{type}}}
+\def\tp-int{#{\Int}}
+\def\tp-ref{#{\mathsf{ref}}}
+\def\tp-int-ref{#{\mathsf{intref}}}
+\def\ret{#{\mathsf{ret}}}
+\def\bind{#{\mathsf{bind}}}
+\def\ref-new{#{\mathsf{new}}}
+\def\ref-get{#{\mathsf{get}}}
+\def\ref-set{#{\mathsf{set}}}
+\def\step{#{\mathsf{step}}}
+\def\world{#{\mathsf{World}}}
+\def\heap{#{\mathsf{Heap}}}
+\def\loc{#{\mathsf{Loc}}}
+\def\finto{#{\mathbin{\rightharpoonup_{\mathit{fin}}}}}
+\def\finset{#{\mathbf{FinSet}}}
+\def\ltr{#{\mathord{\blacktriangleright}}}
+\def\CPO{#{\mathsf{CPO}}}
+\def\COUNTER{#{\mathsf{Counter}}}
+\def\incr{#{\mathsf{incr}}}
+
+\def\incr{#{\mathsf{incr}}}
+\def\read{#{\mathsf{read}}}
+\def\pos-counter{#{\mathsf{posCounter}}}
+\def\neg-counter{#{\mathsf{negCounter}}}
+\def\PER[a]{#{\mathbf{PER}\prn{\a}}}
+\def\Asm[a]{#{\mathbf{Asm}\prn{\a}}}
+
+\def\RT[a]{#{\mathbf{RT}\prn{\a}}}
+\def\pca{#{\mathbb{A}}}
+
+\subtree{
+ \taxon{slide}
+ \title{side effects in programming languages}
+
+ \p{Most practical programming languages have \dem{side effects}: state, input-output, errors, etc.}
+
+ \pause
+
+ \p{\dem{Monads} capture the structure of side effects ([Moggi](moggi-1991), [Wadler](philipwadler)). }
+
+ \iblock{
+  \irow{
+   #{\T\colon \type\to\type}
+  }
+  \irow{
+   #{\ret\colon \T\,{A}\to\T\,{A}}
+  }
+  \irow{
+   #{\bind\colon \T\,B\to \prn{A\to\T\,B}\to \T\,B}
+  }
+ }
+}
+
+\subtree{
+ \taxon{slide}
+ \title{state as a side effect}
+
+ \p{\dem{State} means being able to interact with the computer’s memory; \dem{references} or \dem{pointers} govern access to a location in memory.}
+ \pause
+
+ \p{The \em{syntax} of state varies along three axes:}
+ \ol{
+  \li{
+   \p{\em{What kind of things can be stored in memory cells?}}\pause
+   \p{(numbers? pointers?? procedures???)}
+   \pause
+   \p{(\em{first-order} #{\Rightarrow} \em{ground} #{\Rightarrow} \em{higher-order})}
+  }
+  \pause
+  \li{
+   \p{\em{When can these memory cells be allocated?}}\pause
+   \p{(statically? dynamically??)}
+  }
+  \pause
+  \li{
+   \p{\em{What equations hold of stateful computations?}}\pause
+   \p{(garbage collection??, representation independence??)}
+  }
+ }
+}
+
+\subtree{
+ \taxon{slide}
+ \title{first-order dynamic allocation}
+
+ \p{Storing only integers or other first-order data.}
+
+ \iblock{
+  \irow{
+   #{\tp-int-ref\colon \type}
+  }
+  \irow{
+   #{\ref-new\colon \tp-int \to \T\,\tp-int-ref}
+  }
+  \irow{
+   #{\ref-get\colon \tp-int-ref\to\T\,\tp-int}
+  }
+  \irow{
+   #{\ref-set\colon \tp-int-ref \times\tp-int\to \T\,\prn{}}
+  }
+ }
+
+ \p{Models of very extensional equational theory including “garbage collection” found by Plotkin, Power; Staton. Adapted to “full ground store” (storage of pointers) by Kammar, Levy, Moss, and Staton.}
+
+ \p{Extensionality of models lost when moving to \em{higher-order} storage.}
+}
+
+\subtree{
+ \taxon{slide}
+ \title{higher-order dynamic allocation}
+
+ \p{An extreme point in the design space...}
+
+ \iblock{
+  \irow{#{\tp-ref\colon \type\to\type}}
+  \irow{#{\ref-new\colon A\to \T\,\prn{\tp-ref\,A}}}
+  \irow{#{\ref-get\colon \tp-ref\,A\to\T\,A}}
+  \irow{#{\ref-set\colon {\tp-ref \,A}\times A\to \T\,\prn{}}}
+ }
+
+ \p{\strong{Deeply impredicative:} heap contains elements of \em{arbitrary} types.}
+ \p{#{\Longrightarrow} guarded recursion (step-indexing) used to break the circularity.}
+}
+
+\subtree{
+ \taxon{slide}
+ \title{Guarded higher-order dynamic allocation}
+
+ \p{An equational theory of higher-order store in which reads to the heap leave behind “breadcrumbs”.}
+
+ \iblock{
+  \irow{#{\ref-set\,\prn{e_1,e_2}; \ref-get\,e_1}}
+  \iblock{
+   #{
+    \mathrel{\equiv}
+    {\color{red}\step};\ref-set\,\prn{e_1,e_2}; \ret\, e_2
+   }
+  }
+
+  \irow{#{\prn{\_\gets\ref-get\,e_1; e_2}}}
+  \iblock{#{\mathrel{\equiv}{\color{red}\step};e_2}}
+
+  \irow{#{\prn{x\gets \ref-new\,e_1; \ref-set\,\prn{e_1,e_2};\ret\,x}}}
+  \iblock{#{\mathrel{\equiv} \ref-new\,e_2}}
+
+  \irow{#{\ref-set\,\prn{e_1,e_2};\ref-set\,\prn{e_1,e_3}}}
+  \iblock{#{\mathrel{\equiv} \ref-set\,\prn{e_1,e_3}}}
+
+  \irow{#{\prn{x\gets \ref-get\,e_1; y\gets \ref-get\,e_2; \ret\,\prn{x,y}}}}
+  \iblock{#{\mathrel{\equiv}\prn{y\gets \ref-get\,e_2; x\gets \ref-get\,e_1; \ret\,\prn{x,y}}}}
+
+  \irow{#{\prn{x\gets \ref-get\,e; \ref-set\,\prn{e,x}; \ret\, x}}}
+  \iblock{#{\mathrel{\equiv} \ref-get\,e}}
+ }
+}
+
+\subtree{
+ \taxon{slide}
+ \title{representation independence in the heap}
+
+ \p{Consider two implementations of an “counter” object:}
+
+ \iblock{
+  \irow{
+   #{
+    \COUNTER :\equiv \brc{
+     \incr\colon \T\,\prn{};
+     \read\colon \T\,\Int
+    }
+   }
+  }
+
+  \irow{}
+
+  \irow{#{\pos-counter :\equiv}}
+  \iblock{
+   \irow{#{\ell\gets\ref-new\,0;}}
+   \irow{#{\ret\,\lbrace}}
+   \iblock{
+    \irow{#{\incr\hookrightarrow i\gets\ref-get\,\ell; \ref-set\,\prn{\ell,i+1};}}
+    \irow{#{\read\hookrightarrow \ref-get\,\ell}}
+   }
+   \irow{#{\rbrace}}
+  }
+
+  \irow{}
+
+  \irow{#{\neg-counter :\equiv}}
+  \iblock{
+   \irow{#{\ell\gets\ref-new\,0;}}
+   \irow{#{\ret\,\lbrace}}
+   \iblock{
+    \irow{#{\incr\hookrightarrow i\gets\ref-get\,\ell; \ref-set\,\prn{\ell,i-1};}}
+    \irow{#{\read\hookrightarrow \mathsf{map}\,\mathsf{neg}\,\prn{\ref-get\,\ell}}}
+   }
+   \irow{#{\rbrace}}
+  }
+ }
+}
+
+\subtree{
+ \taxon{slide}
+ \title{representation independence in the heap (II)}
+
+ \p{\em{What is the relationship between \pos-counter and \neg-counter?}}
+ \pause
+ \p{They appear to be indistinguishable. \mark{Indeed, they are “observationally equivalent”!}}
+ ##{
+  \forall \mathcal{C}\brk{-}\colon \COUNTER\to \T\,\prn{}\mathpunct{.}
+  \mathcal{C}\brk{\pos-counter} \mathord{\downarrow}
+  \Leftrightarrow
+  \mathcal{C}\brk{\neg-counter} \mathord{\downarrow}
+ }
+ \pause
+ \p{\strong{Observational equivalence is an extremely weak property:} indistinguishability under observations of ground type only.\pause
+ It would be great if we could instead deduce an absolute equation: ##{\color{red}\vdash \pos-counter \equiv \neg-counter \colon \COUNTER} (No cheating: we want “standard” models \em{without} extensional collapse or logical relation.)}
+}
+
+\subtree{
+ \taxon{slide}
+ \title{univalent reference types}
+
+ \p{We add two additional rules to the equational theory of guarded higher-order dynamic allocation.}
+\pause
+ \p{\strong{LAYOUT UNIVALENCE.}}
+ \iblock{
+  \irow{
+   #{
+    \prn{
+     \ell_1\gets\ref-new\,e_1;
+     \ell_2\gets\ref-new\,e_2;
+     \ret\,\prn{\ell_1,\ell_2}
+    }
+   }
+  }
+  \iblock{
+   #{
+    \mathrel{\equiv}
+    \prn{
+     \ell_{\color{red}2}\gets\ref-new\,e_{\color{red}2};
+     \ell_{\color{red}1}\gets\ref-new\,e_{\color{red}1};
+     \ret\,\prn{\ell_1,\ell_2}
+    }
+   }
+  }
+ }
+
+ \pause
+
+ \p{\strong{CELL UNIVALENCE.} For #{f^+\colon A\to B} and #{f^-\colon B\to A} with #{x:B\vdash f^+\prn{f^-\prn{x}}\equiv x} and #{x\colon A\vdash f^-\prn{f^+\prn{x}} \equiv x} we have:}
+ \iblock{
+  \irow{
+   #{
+    \prn{
+     \ell\gets\ref-new\,e;
+     \ret\,\prn{\ref-get\,\ell, \ref-set\,\prn{\ell,-}}
+    }
+   }
+  }
+  \iblock{
+   #{
+    \mathrel{\equiv}
+    \prn{
+     \ell\gets\ref-new\,\prn{{\color{red}f^+}\prn{e}};
+     \ret\,\prn{
+      {\color{red}\mathsf{map}\,f^-}\,\prn{\ref-get\,\ell},
+      \ref-set\prn{\ell, {\color{red}f^+}\prn{-}}
+     }
+    }
+   }
+  }
+ }
+}
+
+\subtree{
+ \taxon{slide}
+ \title{representation independence in the heap (III)}
+
+ \p{The theory of univalent reference types derives #{\vdash \pos-counter \equiv \neg-counter}.}
+ \pause
+ \proof{
+  \p{The function #{\mathsf{neg} \colon\Int\to\Int} is inverse to itself; therefore, apply \strong{CELL UNIVALENCE} with #{f^+ \equiv f^- \equiv \mathsf{neg}} and simplify.}
+ }
+}
+
+\subtree{
+ \taxon{slide}
+ \title{Can we find a reasonable model of this theory???}
+
+ \p{Let’s start with the non-univalent fragment (“guarded higher-order dynamic allocation”).}
+}
+
+\subtree{
+ \taxon{slide}
+ \title{models of guarded higher order dynamic allocation}
+
+ \p{[S., Gratzer, and Birkedal (2022)](sterling-gratzer-birkedal-2022) found synthetic denotational semantics for guarded higher-order dynamic allocation in an impredicative version of guarded dependent type theory (\iGDTT).}
+
+ \iblock{
+  \irow{#{\bbrk{\type} = \mathsf{Fun}\prn{\world,{\SET}}}}
+  \irow{#{\world = \ixsum{L:\finset}\prn{L\to {\color{red}\ltr}\bbrk{\type}}}}
+  \irow{
+   #{
+    \heap =
+    \ixsum{w:\world}
+    \ixprod{l:\pi_1w}
+    {\color{red}\ltr\brk{A\leftarrow \pi_2wl}}
+    Aw
+   }
+  }
+  \irow{#{\bbrk{\T}\,A\,w =}}
+  \iblock{
+   \irow{
+    #{
+     {\color{blue}\forall\prn{H_1:\heap}\mathpunct{.}}
+     \world\prn{w,\pi_1{H_1}}\to
+    }
+   }
+   \irow{
+    #{
+      {\color{red}\mathsf{Lift}}\prn{
+      {
+       \color{blue}
+       \exists\prn{H_2:\heap}\mathpunct{.}
+      }
+      \world\prn{\pi_1{H_1},\pi_1{H_2}}\times
+      A\prn{\pi_1{H'}}
+     }
+    }
+   }
+  }
+ }
+
+ \p{Guarded recursion needed to solve the domain equation; impredicativity needed to define the monad (b/c \heap is large).}
+ %\p{Standard model of \iGDTT = “[topos of trees](bmss-2011) internal to a [realisability topos](hyland-1982)”: constructed modularly à la [Palombi and S.](palombi-sterling-2023)}
+}
+
+
+\subtree{
+ \taxon{slide}
+ \title{models of univalent reference types}
+
+ \p{Our main observation is that a slight variation on \SGB suffices to model univalent reference types, \mark{so long as both \finset and \SET are both univalent universes} in the sense of Voevodsky.}
+
+ \ol{
+  \li{Univalence of \finset implies the \strong{LAYOUT UNIVALENCE} rule.}
+  \li{Univalence of \SET implies the \strong{CELL UNIVALENCE} rule.}
+ }
+
+ \p{We therefore need an impredicative version of \dem{guarded [\mark{homotopy} type theory](hottbook)}.}
+}
+
+\subtree{
+ \taxon{slide}
+ \title{Impredicative Guarded Homotopy Type Theory}
+
+ \p{We define \iGHoTT to be the extension of Martin-Löf’s intensional type theory by the following additional features:}
+
+ \ol{
+  \li{homotopy type theory: the univalence axiom}
+  \li{guarded recursion: later modality \ltr and solutions to guarded fixed points}
+  \li{a univalent impredicative universe, \em{i.e.} a universe #{\mathcal{S}\in\mathcal{U}} closed under families of #{\mathcal{S}}-small types indexed in a #{\mathcal{U}}-small type.}
+ }
+
+ \pause
+ \p{In \iGHoTT, we can define a model of univalent reference types. The real question is whether we can find a model of \iGHoTT.}
+}
+
+
+\subtree{
+ \taxon{slide}
+ \title{models of \iGDTT}
+ \p{[Palombi and S. (2023)](palombi-sterling-2023) have contributed a modular method for building models of (non-univalent) guarded dependent type theory over an arbitrary base topos. As applied by \SGB:}
+
+ \ol{
+  \li{Any realisability topos #{\mathcal{E}} contains an impredicative universe #{\mathbb{M}_{\mathcal{E}}}.}
+  \li{Pick any \em{internal} well-founded order #{\mathbb{O}\in\mathbb{M}_{\mathcal{E}}}.}
+  \li{Then the \em{relative} presheaf topos #{\mathcal{F} :\equiv \brk{\OpCat{\mathbb{O}},\mathcal{E}}} is a model of guarded recursion and contains an impredicative universe #{\mathbb{M}_{\mathcal{F}}} defined from #{\mathbb{M}_{\mathcal{E}}} by [Hofmann—Streicher lifting](hofmann-streicher-1997).}
+ }
+}
+
+\subtree{
+ \taxon{slide}
+ \title{towards models of \iGHoTT}
+
+ \p{We have not gotten around to adapting the \SGB model of \iGDTT to obtain a model of \iGHoTT, which is much more complicated.}
+
+ \ol{
+  \li{Let \pca be a partial combinatory algebra.}
+  \li{Let #{\square} be a suitable \em{internal cube category} in \PER{\pca}, and let #{\mathbb{O}} be an internal well-founded order in the same.}
+  \li{Then the category of internal presheaves of assemblies #{\brk{\OpCat{\prn{\square\times\mathbb{O}}},\Asm{\pca}}} is expected to form a model of \iGHoTT{}.}
+ }
+
+ \p{Impredicative \HoTT via cubical assemblies due to [Awodey et al.](awodey-frey-speight-2018) and studied by [Uemura](uemura-2019-types), [Swan](swan-uemura-2022).}
+
+ \p{Guarded \HoTT via #{\square\times\mathbb{O}} due to [Birkedal et al. (2019)](bbcgsv-2019).}
+}
+
+\subtree{
+ \taxon{slide}
+ \title{a more canonical model of \iGHoTT?}
+
+ \p{Even if internal presheaves of assemblies on #{\square\times\mathbb{O}} works, the resulting model will be uncanonical from the \prn{\infty,1}-categorical standpoint.}
+
+ \p{For example, if #{\mathbb{O}=\omega}, we shall not have defined the “internal (pre)-\prn{\infty,1}-topos of trees” in cubical assemblies.}
+
+ \p{More canonical approach would be to take internal presheaves on any #{\mathcal{S}}-small well-founded order #{\mathbb{O}} internal to the \prn{\infty,1}-category #{\mathcal{E}} presented by #{\brk{\OpCat{\square},\Asm{\pca}}}. This may introduce coherence problems that we are currently unprepared for.}
+}
+
+\subtree{
+ \taxon{slide}
+ \title{comparing with other realisability models of state}
+
+ \p{\SGB were not the first to combine guarded recursion with realisability to model higher-order dynamic allocation; see [Birkedal, Støvring, and Thamsborg (2010)](birkedal-støvring-thamsborg-2010-realisability).}
+
+ \p{However, \em{op.cit.} relied on a \em{specific} realisability model based on an untyped domain model of a stateful language; in contrast, the model construction of \SGB applies uniformly for any pair \prn{\mathcal{E},\mathbb{O}}.}
+
+ \p{Thus \SGB showed that realisability is inessential: if we find any other viable source of impredicative universes besides realisability, \SGB would apply there too.}
+}
+
+\subtree{
+ \taxon{slide}
+
+ \p{Thanks!}
+}

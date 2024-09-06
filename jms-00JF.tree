@@ -1,0 +1,8 @@
+\title{path in a directed graph}
+\date{2024-01-18}
+\author{jonmsterling}
+\contributor{marcelofiore}
+\taxon{definition}
+\import{jms-00JB}
+
+\p{Let \prn{A,R} be a [directed graph](jms-00JC). For #{s,t\in A}, a \dem{path} of length #{n\in \mathbb{N}} in #{R} with \dem{source} #{s} and \dem{target} #{t} is a tuple #{\prn{a_0,\ldots,a_n}\in A^{n+1}} such that #{a_0=s}, #{a_n=t}, and #{a_i\mathrel{R}a_{i+1}} for all #{0\leq i <n}.}

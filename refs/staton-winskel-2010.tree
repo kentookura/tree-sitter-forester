@@ -1,0 +1,19 @@
+\title{On the expressivity of symmetry in event structures}
+\taxon{reference}
+\author{samstaton}
+\author{glynnwinskel}
+\date{2010}
+\meta{venue}{2010 25th Annual IEEE Symposium on Logic in Computer Science}
+\meta{doi}{10.1109/LICS.2010.37}
+
+\meta{bibtex}\verb<<<|
+@inproceedings{staton-winskel-2010,
+  author={Staton, Sam and Winskel, Glynn},
+  booktitle={2010 25th Annual IEEE Symposium on Logic in Computer Science},
+  title={On the Expressivity of Symmetry in Event Structures},
+  year={2010},
+  pages={392-401},
+  doi={10.1109/LICS.2010.37}
+}<<<
+
+\p{This paper establishes a bridge between presheaf models for concurrency and the more operationally-informative world of [event structures](jms-00BN). It concentrates on a particular presheaf category, consisting of presheaves over finite partial orders of events; such presheaves form a model of nondeterministic processes in which the computation paths have the shape of partial orders. It is shown how with the introduction of symmetry event structures represent all presheaves over finite partial orders. This is in contrast with [plain event structures](jms-00BN) which only represent certain separated presheaves. Specifically a coreflection from the category of presheaves to the category of event structures with symmetry is exhibited. It is shown how the coreflection can be cut down to an equivalence between the presheaf category and the subcategory of graded event structures with symmetry. Event structures with strong symmetries are shown to represent precisely all the separated presheaves. The broader context and specific applications to the unfolding of higher-dimensional automata and Petri nets, and weak bisimulation on event structures are sketched.}

@@ -1,0 +1,14 @@
+\title{a (pre)category of [event structures](jms-00BN)}
+\date{2023-10-26}
+\author{jonmsterling}
+
+\transclude{jms-00BN}
+
+\p{The definition of [event structure](jms-00BN) only speaks of \em{finite} consistent subsets; these are extended to arbitrary subsets as follows.}
+
+\transclude{jms-00BP}
+\transclude{jms-00BO}
+
+\transclude{jms-00BR}
+
+\p{I have not checked whether the appropriate [structure identity principle](jms-004K) holds for the (pre)category of [event structures](jms-00BN) and [rigid morphisms](jms-00BR). If it does not hold, this would suggest that a new \em{univalent} definition of event structure is needed.}

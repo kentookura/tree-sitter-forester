@@ -1,0 +1,10 @@
+\title{presheaf-theoretic description of natural models}
+\date{2023-11-10}
+\author{jonmsterling}
+\taxon{definition}
+\import{jms-00DJ}
+\meta{source}{\citek{fiore-2012-icalp}, \citek{awodey-2018-mscs}}
+
+\let\C{#{\mathcal{C}}}
+
+\p{A \em{natural model} is defined to be a small category \C with a terminal object together with a representable map \Mor{p}{E}{U} in #{\Psh\C}.}

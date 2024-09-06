@@ -1,0 +1,21 @@
+\title{iteration of [endo-relations](jms-00JC)}
+\date{2024-01-18}
+\author{jonmsterling}
+\contributor{marcelofiore}
+\taxon{definition}
+\import{jms-00JB}
+
+\p{For #{R\in \REL{A}} and #{n\in\mathbb{N}}, we define the \dem{\nowrap{#{n}-fold} iteration} of #{R} to be the following [endo-relation](jms-00JC) #{R^{\circ n}\in\REL{A}}:}
+
+##{
+ R^{\circ n} = \underbrace{R\circ\cdots\circ R}_{n\text{ times}}
+}
+
+\p{More precisely, we define #{R^{\circ n}} by recursion on #{n}:}
+
+##{
+ \begin{aligned}
+   R^{\circ 0} &= \idn{A}\\
+   R^{\circ\prn{n+1}} &= R\circ R^{\circ n}
+ \end{aligned}
+}

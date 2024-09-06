@@ -1,0 +1,15 @@
+\import{conf-name-macros}
+
+\title{\conf-name{Pittsposium}{A Workshop Celebrating the Career of [[andrewpitts]]}}
+\taxon{workshop}
+\date{2023-08-22}
+\meta{venue}{[[camcl]]}
+\meta{external}{https://www.cl.cam.ac.uk/events/pittsposium/}
+
+\blockquote{
+  \p{[[andrewpitts]] is Professor of Theoretical Computer Science in the [[ucam]], having joined the [Computer Laboratory](camcl) as a Lecturer in 1989. He holds a PhD in Mathematics, also from Cambridge, and is a Fellow of Darwin College. His early research interests were in applications of category theory in logic and mathematical foundations; from around 1985 onwards these turned to applications in the semantics of programming languages. His work in theoretical computer science has ranged over category theory, constructive logic, type theory, programming language semantics, and the design and implementation of metaprogramming languages. [Prof. Pitts](andrewpitts) is an ACM Fellow and a recipient of the Alonzo Church Award for Outstanding Contributions to Logic and Computation.}
+
+  \p{Through his career [Andy](andrewpitts) has supervised twelve doctoral students, published research with dozens of collaborators, and inspired many more with his gentle and persuasive instruction. Always generous with fresh ideas, his far-sighted intuition and enthusiasm has guided the community in innovative research for over four decades. [A longer biography is available here.](https://www.cl.cam.ac.uk/events/pittsposium/pittsposium_bio.pdf)}
+
+  \p{We are delighted to invite the community to participate in this workshop as a celebration of [Andy](andrewpitts)’s research and long career, with talks to be given by many of his students, colleagues and collaborators.}
+}
