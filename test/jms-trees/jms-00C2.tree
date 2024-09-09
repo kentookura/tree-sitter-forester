@@ -1,8 +1,0 @@
-\title{multicore semantics and programming}
-\date{2023}
-\author{petersewell}
-\author{Timothy Harris}
-\author{Christopher Pulte}
-\taxon{course}
-
-\blockquote{In recent years multiprocessors have become ubiquitous, but building reliable concurrent systems with good performance remains very challenging. The aim of this module is to introduce some of the theory and the practice of concurrent programming, from hardware memory models and the design of high-level programming languages to the correctness and performance properties of concurrent algorithms.}

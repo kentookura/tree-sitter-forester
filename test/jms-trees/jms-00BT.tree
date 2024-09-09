@@ -1,5 +1,0 @@
-\title{[Event structures](jms-00BN) and prime algebraic domains}
-\author{jonmsterling}
-\date{2023-10-26}
-
-\p{[Event structures](jms-00BN) are the same thing as prime algebraic domains; on objects, this has been proved many times, but I could only find the correct notion of morphism in a [paper of Abbes](abbes-2006).}

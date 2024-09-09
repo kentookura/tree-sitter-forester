@@ -1,7 +1,0 @@
-\title{[Phoa](wesleyphoa)’s principle}
-\author{jonmsterling}
-\date{2023-10-11}
-\taxon{axiom}
-\import{base-macros}
-
-\p{The map #{\Sigma^\Sigma\to \Sigma\times\Sigma} sending #{f} to the pair \prn{f\bot,f\top} is an embedding and its image is the subset of #{\Sigma\times\Sigma} spanned by pairs \prn{p,q} such that #{p=\top} implies #{q=\top}.}

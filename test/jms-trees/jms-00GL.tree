@@ -1,7 +1,0 @@
-\title{custom static assets directories}
-\parent{jms-00CW}
-\date{2023-12-15}
-\author{jonmsterling}
-\taxon{feature}
-
-\p{A new \code{--assets-dirs} option has been added to the \code{forester build} command, which can be used to supply multiple directories containing static assets that should be copied into the forest. By default, the option is set to \code{assets}.}

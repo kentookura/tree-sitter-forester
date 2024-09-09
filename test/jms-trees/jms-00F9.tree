@@ -1,6 +1,0 @@
-\title{type theoretic connective}
-\taxon{definition}
-\author{jonmsterling}
-\date{2023-11-20}
-
-\p{A \em{type theoretic connective} is defined to be a pair of maps #{I\xrightarrow{\pi}F\xrightarrow{\phi}P} in which the first factor represents the projection of formation data from introduction data, and the second factor identifies the \em{fixed parameters} of the elimination rule.}

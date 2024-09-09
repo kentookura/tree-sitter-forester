@@ -1,6 +1,0 @@
-\title{Ultraposet, distributive lattice, and coherent locale}
-\author{lingyuanye}
-\taxon{reference}
-\meta{doi}{10.48550/arXiv.2304.10956}
-
-\p{In this paper, we provide an alternative description of the duality result for distributive lattices and coherent locales using ultraposet. In particular, we show that there are fully faithful embeddings from the opposite of the category of distributive lattices into the category of ultraposets with ultrafunctors, and from the category of coherent locales into the category of ultraposets with left ultrafunctors. We also define the notion of zero-dimensional ultraposets, which characterises the essential image of these embeddings.}

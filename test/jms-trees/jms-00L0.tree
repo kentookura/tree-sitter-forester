@@ -1,8 +1,0 @@
-\title{isomorphic sets}
-\date{2024-01-23}
-\author{jonmsterling}
-\contributor{marcelofiore}
-\taxon{definition}
-\import{jms-00JB}
-
-\p{Two sets #{A} and #{B} are said to be \dem{isomorphic} (and have the \dem{same cardinality}) whenever there is a [bijection](jms-00KR) between them. In this case, we write #{A\cong B} or #{\card{A}=\card{B}}}

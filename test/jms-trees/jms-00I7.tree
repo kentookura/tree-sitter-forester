@@ -1,8 +1,0 @@
-\title{relation}
-\date{2024-01-17}
-\author{jonmsterling}
-\contributor{marcelofiore}
-\taxon{definition}
-\import{jms-00JB}
-
-\p{A \dem{(binary) relation} #{R} from a set #{A} to a set #{B}, written #{R\colon A\relto B} or #{R\in \REL{A,B}} is defined to be a subset #{R\subseteq A\times B}. We shall typically write #{a\mathrel{R}b} for #{\prn{a,b}\in R}. More generally, a \dem{relation between multiple sets} #{\prn{A_i}_{i\in I}} is defined to be a subset of the cartesian product #{\prod_{i\in I} A_i}.}

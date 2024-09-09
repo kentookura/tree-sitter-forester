@@ -1,8 +1,0 @@
-\title{support for randomised tree identifiers in \code{forester new}}
-\parent{jms-00CW}
-\taxon{feature}
-\author{jonmsterling}
-\author{owenlynch}
-\date{2023-12-13}
-
-\p{The \code{forester new} has a new \code{--random} flag; when activated, the new tree will be allocated with a \em{randomised} unused tree identifier rather than the usual sequential tree identifier. This can be useful for projects that have multiple collaborators, although in this case, users are generally advised to claim their own namespaces.}

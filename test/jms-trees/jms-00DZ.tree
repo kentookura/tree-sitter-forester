@@ -1,6 +1,0 @@
-\title{strong morphisms of adjunctions and the Beck–Chevalley condition}
-\date{2023-11-09}
-\author{jonmsterling}
-\taxon{remark}
-
-\p{The condition that a [lax morphism](jms-00DY) of adjunctions be [right strong](jms-00DY) is sometimes referred to as the \em{Beck–Chevalley condition}, e.g. by [Uemura](uemura-2021-thesis). Indeed, the [right-hand mates](jms-00E0) in a [lax morphism](jms-00DY) of adjunctions are occasionally referred to as \em{Beck–Chevalley transformations}.}

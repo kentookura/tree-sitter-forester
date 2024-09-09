@@ -1,8 +1,0 @@
-\title{fixed point}
-\date{2024-01-31}
-\author{jonmsterling}
-\contributor{marcelofiore}
-\taxon{definition}
-\import{jms-00JB}
-
-\p{A \dem{fixed point} of a function #{f\colon X\to X} is an element #{x\in X} such that #{f\prn{x}=x}.}

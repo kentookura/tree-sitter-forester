@@ -1,9 +1,0 @@
-\title{breaking changes}
-\parent{jms-00CW}
-\author{jonmsterling}
-\date{2023-11-03}
-
-\p{[[jms-00CW]] introduces a number of breaking changes to the source language in order to facilitate maintainability, diagnostic support, and extensibility of both the [[jms-005P]] tool and your individual [forests](tfmt-000R).}
-
-\transclude{jms-00CZ}
-\transclude{jms-00D0}

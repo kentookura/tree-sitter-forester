@@ -1,7 +1,0 @@
-\title{indefinite description is inconsistent with HoTT/UF}
-\date{2023-10-19}
-\import{base-macros}
-
-\p{Unfortunately, global choice and indefinite description are \em{inconsistent} with [homotopy type theory / univalent foundations](hottbook), as they imply that every type is a set. In fact, as can be seen from the proof of [Theorem 3.2.2 of the HoTT Book](hottbook), it is even inconsistent with univalent foundations to assume global choice only for sets!}
-
-\p{To express classical mathematics in univalent foundations, it is therefore necessary to use the more cumbersome \em{axiom of choice} — which is strictly weaker than global choice. When #{\vvrt{-}} is the propositional truncation operator, global choice would be witnessed by a family of functions #{\Con{some}_A : \vvrt{A}\to A} whereas the axiom of choice is witnessed by a family of functions #{\Con{AC}\Sub{A,B} : \prn{\ixprod{x:A}\vvrt{B\prn{x}}}\to \vvrt{\ixprod{x:A}B\prn{x}}}. The crucial difference is the presence of propositional truncation in the \em{output}.}

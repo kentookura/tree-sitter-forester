@@ -1,8 +1,0 @@
-\title{the full relation}
-\date{2024-01-17}
-\author{jonmsterling}
-\contributor{marcelofiore}
-\taxon{example}
-\import{jms-00JB}
-
-\p{For any two sets #{A} and #{B}, we may form the \dem{full [relation](jms-00I7)} #{\prn{A\times B}\colon A\relto B}, also called the \dem{total [relation](jms-00I7)}, so that #{a\mathrel{\prn{A\times B}}b} for all #{a\in A} and #{b\in B}. In other words, \prn{A\times B} is the \em{total} subset of #{A\times B}. }

@@ -1,6 +1,0 @@
-\title{rigid morphisms between computation paths}
-\taxon{remark}
-\author{jonmsterling}
-\date{2023-10-26}
-
-\p{A [computation path](jms-00BW) is clearly same thing as a finite poset. A [rigid morphism](jms-00BR) between computation paths corresponds, however, to a \em{monomorphism} of posets (not necessarily regular).}

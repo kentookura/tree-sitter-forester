@@ -1,7 +1,0 @@
-\title{the integer square root [relation](jms-00I7)}
-\date{2024-01-17}
-\author{jonmsterling}
-\taxon{example}
-\import{jms-00JB}
-
-\p{The square root operation corresponds to a relation #{R_2\colon \mathbb{N}\relto\mathbb{Z}} such that #{m\mathrel{R_2} n} if and only if #{m = n^2}.}

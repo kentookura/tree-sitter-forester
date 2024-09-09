@@ -1,9 +1,0 @@
-\title{algebraic description of representable maps}
-\author{jonmsterling}
-\date{2023-11-09}
-\taxon{corollary}
-\import{jms-00DJ}
-
-\let\C{#{\mathcal{C}}}
-
-\p{A morphism \Mor{p}{E}{U} is representable in #{\Psh\C} if and only if the induced functor \Mor{\CatEl{p}}{\CatEl{E}}{\CatEl{U}} has a right adjoint.}

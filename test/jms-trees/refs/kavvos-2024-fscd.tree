@@ -1,8 +1,0 @@
-\title{Two-dimensional Kripke Semantics I: Presheaves}
-\date{2024-05-08}
-\author{alexkavvos}
-\taxon{reference}
-\meta{doi}{10.4230/LIPIcs.FSCD.2024.11}
-\meta{external}{https://arxiv.org/abs/2405.04157}
-\meta{venue}{FSCD 2024}
-\p{The study of modal logic has witnessed tremendous development following the introduction of Kripke semantics. However, recent developments in programming languages and type theory have led to a second way of studying modalities, namely through their categorical semantics. We show how the two correspond.}

@@ -1,8 +1,0 @@
-\title{consistent subsets of an [event structure](jms-00BN)}
-\taxon{definition}
-\author{jonmsterling}
-\date{2023-10-26}
-
-\import{jms-00BN}
-
-\p{A subset #{x\subseteq E} of an [event structure](jms-00BN) is said to be \em{consistent} when any finite subset of #{x} lies in #{\Cst{E}}.}

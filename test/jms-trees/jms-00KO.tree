@@ -1,9 +1,0 @@
-\import{jms-00JB}
-
-\title{\nowrap{\prn{a,f}-closed} [relation](jms-00I7)}
-\date{2024-01-23}
-\author{jonmsterling}
-\contributor{marcelofiore}
-\taxon{definition}
-
-\p{Given an element #{a\in A} and a [function](jms-00KF) #{f\colon\mathbb{N}\times A \to A}, we call a [relation](jms-00I7) #{R\colon\mathbb{N}\relto A} \dem{\nowrap{\prn{a,f}-closed}} whenever we have both #{0\mathrel{R}a} and #{n\mathrel{R}x\implies \prn{n+1}\mathrel{R}f\prn{n,x}} for all #{n\in\mathbb{N}} and #{x\in A}.}

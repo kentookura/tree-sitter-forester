@@ -1,8 +1,0 @@
-\title{Using the generic interval}
-\taxon{reference}
-\author{Gavin C. Wraith}
-\date{1993}
-\meta{venue}{Cahiers de Topologie et Géométrie Différentielle Catégoriques}
-\import{base-macros}
-
-\p{Tout treillis distributif peut se compléter librement en algebre Booléenne. Pour réaliser le complété de l’intervalle \brk{0,1} comme homéomorphe d’une sphére de dimension infinie, il est pratique d’utiliser le résultat qui identifie le topos classifiant des intervalles avec la catégorie des ensenbles simpliciaux, et l’intervalle générique avec le 1-simplexe standard. Nous démonstrons á partir de là que l’espace des partitions finies d’un intervalle est homéomorphe à l’espace projectif réel de dimension infinie.}

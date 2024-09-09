@@ -1,7 +1,0 @@
-\title{sections need not be embeddings}
-\date{2023-10-24}
-\author{jonmsterling}
-\taxon{counterexample}
-\import{base-macros}
-
-\p{Although it is the case that a section in a 1-category is always a monomorphism, it is not the case that every section in an (∞,1)-category is an embedding. This can be seen in [homotopy type theory](hottbook), by considering the splitting #{\mathbf{1}\xrightarrow{\lambda\_.\Con{base}}S^1\xrightarrow{!}\mathbf{1}}. If #{\lambda\_.\Con{base}} were an embedding, it would mean that its fibers were propositions: but the fiber of #{\lambda\_.\Con{base}} over #{\Con{base}} is the loop space of #{S^1}, which is a proper set (the integers).}

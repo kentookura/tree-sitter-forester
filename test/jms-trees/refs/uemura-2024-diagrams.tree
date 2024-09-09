@@ -1,8 +1,0 @@
-\title{Homotopy type theory as internal languages of diagrams of ∞-logoses}
-\date{2024-03-10}
-\author{taichiuemura}
-\taxon{reference}
-\tag{preprint}
-\meta{doi}{10.48550/arXiv.2212.02444}
-
-\p{We show that certain diagrams of ∞-logoses are reconstructed in internal languages of their oplax limits via lex, accessible modalities, which enables us to use plain homotopy type theory to reason about not only a single ∞-logos but also a diagram of ∞-logoses. This also provides a higher dimensional version of [Sterling’s synthetic Tait computability](sterling-2021-thesis) — a type theory for higher dimensional logical relations. To prove the main result, we establish a precise correspondence between the lex, accessible localizations of an ∞-logos and the lex, accessible modalities in the internal language of the ∞-logos. To do this, we also partly develop the Kripke-Joyal semantics of homotopy type theory in ∞-logoses. }

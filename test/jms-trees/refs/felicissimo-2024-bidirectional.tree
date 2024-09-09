@@ -1,8 +1,0 @@
-\title{Generic bidirectional typing for dependent type theories}
-\date{2024-04-19}
-\author{thiagofelicissimo}
-\taxon{reference}
-\tag{preprint}
-\meta{doi}{10.48550/arXiv.2307.08523}
-
-\p{Bidirectional typing is a discipline in which the typing judgment is decomposed explicitly into inference and checking modes, allowing to control the flow of type information in typing rules and to specify algorithmically how they should be used. Bidirectional typing has been fruitfully studied and bidirectional systems have been developed for many type theories. However, the formal development of bidirectional typing has until now been kept confined to specific theories, with general guidelines remaining informal. In this work, we give a generic account of bidirectional typing for a general class of dependent type theories. This is done by first giving a general definition of type theories (or equivalently, a logical framework), for which we define declarative and bidirectional type systems. We then show, in a theory-independent fashion, that the two systems are equivalent. Finally, we establish the decidability of bidirectional typing for normalizing theories, yielding a generic type-checking algorithm that has been implemented in a prototype and used in practice with many theories.}

@@ -1,9 +1,0 @@
-\title{improvements to date handling}
-\parent{jms-00CW}
-\author{jonmsterling}
-\date{2023-11-20}
-\taxon{feature}
-
-\p{[[jms-00CW]] improves support for journaling with date-specific trees. When a tree is dated \code{YYYY-MM-DD} and there exists a tree at address \code{YYYY-MM-DD}, the date field will be hyperlinked to the latter. This involves changes to both the executable and the XSL stylesheet of the [base theme](https://git.sr.ht/~jonsterling/forester-base-theme). The purpose of this change is to better facilitate daily notes / journaling.}
-
-\p{Additionally, [Forester](jms-005P)’s data model now allows \em{multiple} dates to be assigned to a single tree simultaneously.}

@@ -1,9 +1,0 @@
-\title{the dependent product connective}
-\taxon{example}
-\author{jonmsterling}
-\date{2023-11-20}
-\import{jms-00DJ}
-
-\let\C{#{\mathcal{C}}}
-
-\p{The formation rule for dependent products fixes a type #{\Gamma\vdash A} together with a family of types #{\Gamma.A\vdash B} indexed in #{A}. The introduction rule further assumes an element #{\Gamma.A \vdash b : B}. The corresponding \em{connective} can therefore be described as the projection \Mor{\gl{p}p}{\gl{p}E}{\gl{p}U} where \Mor{\gl{p}}{\Psh{\C}}{\Psh{\C}} is the polynomial endofunctor #{U_!\circ p_*\circ E^*} associated to \Mor{p}{E}{U}. In type theoretic language, #{\gl{p}U} classifies \em{families of types}, and #{\gl{p}E} classifies families of types equipped with a section.}

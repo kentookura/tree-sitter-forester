@@ -1,7 +1,0 @@
-\title{section-retraction pair}
-\date{2024-01-23}
-\author{jonmsterling}
-\taxon{definition}
-\import{jms-00JB}
-
-\p{A \dem{section-retraction pair} is defined to be a pair of [functions](jms-00KF) #{s\colon B \to A} and #{r\colon A \to B} such that #{r\circ s =\idn{B}}. In this case, #{s} is referred to as a \dem{section} of #{r}, and #{r} is referred to as a \dem{retraction} of #{s}.}

@@ -1,7 +1,0 @@
-\title{Nihil Shah}
-\taxon{person}
-\meta{external}{https://www.cs.ox.ac.uk/people/nihil.shah/}
-
-\blockquote{
-  I am broadly interested in connections between mathematical logic and category theory, with an aim towards applications to computational complexity. My current research is on defining comonads that provide categorical semantics for logical and combinatorial (co)-resources. These comonads capture logical equivalences and combinatorial invariants of graphs/hypergraphs in a syntax-free, elegant, and compositional framework.
-}

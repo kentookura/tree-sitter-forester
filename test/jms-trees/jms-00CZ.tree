@@ -1,9 +1,0 @@
-\title{fall-through of undefined identifiers}
-\parent{jms-00CY}
-\author{jonmsterling}
-\date{2023-11-03}
-\taxon{change}
-
-\p{The fall-through for undefined identifiers in XML mode is removed in [[jms-00CW]]: previously when an identifier \code\verb!|\foo! was undefined, it was possible to write \code\verb!|\foo[attr]{value}{body}! and have this be rendered in XML to \code\startverb<foo attr="value">body</foo>\stopverb.}
-
-\p{This behavior has been removed, but you can nonetheless write \code\verb`|\xml{foo}[attr]{value}{body}` to achieve the same. For content that is being rendered by either LaTeX or KaTeX, simple fallthrough (naturally without attributes or arguments) is supported; therefore \code\verb`|#{\alpha}` will render to #{\alpha}.}

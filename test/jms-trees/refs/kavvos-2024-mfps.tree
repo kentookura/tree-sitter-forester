@@ -1,9 +1,0 @@
-\title{Two-dimensional Kripke Semantics II: Stability and Completeness}
-\date{2024-06-05}
-\author{alexkavvos}
-\taxon{reference}
-\meta{venue}{[[mfps-2024]]}
-\meta{doi}{10.48550/arXiv.2406.03578}
-\meta{related-reference}{[[kavvos-2024-fscd]]}
-
-\p{We revisit the duality between Kripke and algebraic semantics of intuitionistic and intuitionistic modal logic. We find that there is a certain mismatch between the two semantics, which means that not all algebraic models can be embedded into a Kripke model. This leads to an alternative proposal for a relational semantics, the stable semantics. Instead of an arbitrary partial order, the stable semantics requires a distributive lattice of worlds. We constructively show that the stable semantics is exactly as complete as the algebraic semantics. Categorifying these results leads to a 2-duality between two-dimensional stable semantics and categories of product-preserving presheaves, i.e. models of algebraic theories in the style of Lawvere.}

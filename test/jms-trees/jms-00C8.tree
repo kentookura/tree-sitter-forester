@@ -1,6 +1,0 @@
-\title{weak algebra for a monad}
-\taxon{definition}
-\date{2023-10-30}
-\author{jonmsterling}
-
-\p{We shall refer to an [algebra](jms-00C6) for the underlying endofunctor of a monad as a \em{weak algebra}, following [Joyal and Moerdijk](joyal-moerdijk-1995).}

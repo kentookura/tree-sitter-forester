@@ -1,8 +1,0 @@
-\title{[relations](jms-00I7) in program specification}
-\date{2024-01-17}
-\contributor{marcelofiore}
-\author{jonmsterling}
-\taxon{example}
-\import{jms-00JB}
-
-\p{In the simplest terms, a specification of a program is a [relation](jms-00I7) that describes the possible input/output pairs that can occur. For example, the specification that a given program compute the square root is captured by the [relation](jms-00I7) #{\mathsf{sq} \colon \mathbb{R}_{\geq 0} \relto \mathbb{R}} given by pairs \prn{x,y} such that #{x = y^2}.}

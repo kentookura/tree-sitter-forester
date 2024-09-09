@@ -1,9 +1,0 @@
-\title{examples of [isomorphic sets](jms-00L0)}
-\date{2024-01-23}
-\author{jonmsterling}
-\contributor{marcelofiore}
-\taxon{example}
-\import{jms-00JB}
-
-\p{A [bijection](jms-00KR) between finite sets is just a “relabeling” of its elements: for example, we have #{\brc{0,1}\cong\brc{\false,\true}}. Isomorphism of infinite sets can be more confusing: for example, we have #{\mathbb{N}\cong\compr{n:\mathbb{N}}{n>0}}, #{\mathbb{N}\cong\mathbb{Z}}, #{\mathbb{N}\cong\mathbb{N}\times\mathbb{N}}, #{\mathbb{N}\cong\mathbb{Q}}, and even #{\prn{\mathbb{N}\to\mathbb{N}}\cong\mathbb{R}}.}
-

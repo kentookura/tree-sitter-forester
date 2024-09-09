@@ -1,9 +1,0 @@
-\title{Amal Ahmed}
-\taxon{person}
-\meta{institution}{Northeastern University}
-\meta{position}{Professor & Associate Dean for Graduate Programs}
-\meta{external}{https://www.khoury.northeastern.edu/home/amal/}
-
-\blockquote{
- My research involves the use of programming-language semantics and type systems for reasoning about imperative code, security, concurrency, compiler transformations, and provenance.
-}

@@ -1,6 +1,0 @@
-\title{deducing [Cantor’s theorem](jms-00NF) à la [Lawvere](jms-00NH)}
-\date{2024-01-31}
-\author{jonmsterling}
-\import{jms-00JB}
-
-\p{To deduce \ref{jms-00NF} from \ref{jms-00NH}, we suppose that there is a surjection #{A\twoheadrightarrow \pow{A}}; by \ref{jms-00LN}, this is equivalent to saying that we have a surjection #{e\colon A\twoheadrightarrow \prn{A\to \brk{2}}}. From \ref{jms-00NH}, it follows that #{\brk{2}} is a singleton — a contradiction.}
