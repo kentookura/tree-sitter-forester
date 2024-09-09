@@ -23,10 +23,10 @@ gen_tests() {
     done
 }
 
-forest_path="test/golden-forest/trees/"
+forest_path="test/real-trees/golden-forest/trees"
 generated="test/corpus/all-the-syntax.txt"
 gen_tests $forest_path $generated
 
-forest_path="test/jms-trees/"
+forest_path="test/real-trees/jms-trees"
 generated="test/corpus/jms-trees.txt"
 gen_tests $forest_path $generated
