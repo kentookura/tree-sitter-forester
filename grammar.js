@@ -73,7 +73,9 @@ module.exports = grammar({
     _builtin: $ => choice(
       $._meta,
       $._prim,
+      $._fluid_binding,
       $._query,
+      $._function,
     ),
 
     //--- Meta {{{
@@ -129,7 +131,6 @@ module.exports = grammar({
     figure: $ => seq("figure", $._brace),
     figcaption: $ => seq("figcaption", $._brace),
     transclude: $ => seq("transclude", $._brace),
-    // TODO(jinser): verbatim via external scanner
     tex: $ => seq("tex", braces($.verbatim), braces($.verbatim)),
     // }}}
 
@@ -140,6 +141,22 @@ module.exports = grammar({
     )),
     query: $ => seq("query", $._brace),
     // }}}
+
+    //--- Fluid Binding {{{
+    _fluid_binding: $ => choice(
+      $.import,
+      $.export,
+    ),
+    import: $ => cmd("import", $._text_brace),
+    export: $ => cmd("export", $._text_brace),
+    // }}}
+
+    //--- Function {{{
+    _function: $ => $.def,
+    def: $ => cmd("def", $.fun_spec),
+    fun_spec: $ => seq("\\", $.qualified_ident, field("argument", repeat($._ident_square)), field("body", $._brace)),
+    //}}}
+
     // }}}
 
     //--- Link {{{
@@ -157,7 +174,7 @@ module.exports = grammar({
 
     _textual_node: $ => choice($.text, $._node),
     _brace: $ => braces(repeat($._textual_node)),
-    square: $ => squares(repeat($._textual_node)),
-    paren: $ => parens(repeat($._textual_node)),
+    _text_brace: $ => braces(repeat($.text)),
+    _ident_square: $ => squares(repeat($.ident)),
   },
 });
