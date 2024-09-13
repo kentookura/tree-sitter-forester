@@ -58,7 +58,7 @@ module.exports = grammar({
     text: _ => /([^%#\\{}\[\]()\r\n]|\\\\%)+/,
 
     //--- Command {{{
-    command: $ => cmd(seq($._ident, optional($.brace))),
+    command: $ => cmd(seq($._ident, optional($._brace))),
 
     _ident: $ => seq($.qualified_ident, field("method", repeat($.method_call))),
     ident: _ => /[a-zA-Z][a-zA-Z0-9\-]*/,
@@ -89,16 +89,16 @@ module.exports = grammar({
       $.number,
       $.tag,
     )),
-    ref: $ => seq("ref", $.brace),
-    title: $ => seq("title", $.brace),
-    taxon: $ => seq("taxon", $.brace),
-    date: $ => seq("date", $.brace),
-    meta: $ => seq("meta", $.brace, $.brace),
-    author: $ => seq("author", $.brace),
-    contributor: $ => seq("contributor", $.brace),
-    parent: $ => seq("parent", $.brace),
-    number: $ => seq("number", $.brace),
-    tag: $ => seq("tag", $.brace),
+    ref: $ => seq("ref", $._brace),
+    title: $ => seq("title", $._brace),
+    taxon: $ => seq("taxon", $._brace),
+    date: $ => seq("date", $._brace),
+    meta: $ => seq("meta", $._brace, $._brace),
+    author: $ => seq("author", $._brace),
+    contributor: $ => seq("contributor", $._brace),
+    parent: $ => seq("parent", $._brace),
+    number: $ => seq("number", $._brace),
+    tag: $ => seq("tag", $._brace),
     // }}}
 
     //--- Primitive {{{
@@ -117,18 +117,18 @@ module.exports = grammar({
       $.transclude,
       $.tex,
     )),
-    p: $ => seq("p", $.brace),
-    em: $ => seq("em", $.brace),
-    strong: $ => seq("strong", $.brace),
-    li: $ => seq("li", $.brace),
-    ol: $ => seq("ol", $.brace),
-    ul: $ => seq("ul", $.brace),
-    code: $ => seq("code", $.brace),
-    blockquote: $ => seq("blockquote", $.brace),
-    pre: $ => seq("pre", $.brace),
-    figure: $ => seq("figure", $.brace),
-    figcaption: $ => seq("figcaption", $.brace),
-    transclude: $ => seq("transclude", $.brace),
+    p: $ => seq("p", $._brace),
+    em: $ => seq("em", $._brace),
+    strong: $ => seq("strong", $._brace),
+    li: $ => seq("li", $._brace),
+    ol: $ => seq("ol", $._brace),
+    ul: $ => seq("ul", $._brace),
+    code: $ => seq("code", $._brace),
+    blockquote: $ => seq("blockquote", $._brace),
+    pre: $ => seq("pre", $._brace),
+    figure: $ => seq("figure", $._brace),
+    figcaption: $ => seq("figcaption", $._brace),
+    transclude: $ => seq("transclude", $._brace),
     // TODO(jinser): verbatim via external scanner
     tex: $ => seq("tex", braces($.verbatim), braces($.verbatim)),
     // }}}
@@ -138,7 +138,7 @@ module.exports = grammar({
       // TODO:
       $.query
     )),
-    query: $ => seq("query", $.brace),
+    query: $ => seq("query", $._brace),
     // }}}
     // }}}
 
@@ -156,7 +156,7 @@ module.exports = grammar({
     // }}}
 
     _textual_node: $ => choice($.text, $._node),
-    brace: $ => braces(repeat($._textual_node)),
+    _brace: $ => braces(repeat($._textual_node)),
     square: $ => squares(repeat($._textual_node)),
     paren: $ => parens(repeat($._textual_node)),
   },
