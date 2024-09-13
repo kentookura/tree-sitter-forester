@@ -35,6 +35,7 @@ module.exports = grammar({
   word: $ => $.ident,
   externals: $ => [
     $._ident_path_start,
+    $.verbatim
   ],
 
   rules: {
@@ -129,7 +130,7 @@ module.exports = grammar({
     figcaption: $ => seq("figcaption", $.brace),
     transclude: $ => seq("transclude", $.brace),
     // TODO(jinser): verbatim via external scanner
-    tex: $ => seq("tex", braces($.text), braces($.text)),
+    tex: $ => seq("tex", braces($.verbatim), braces($.verbatim)),
     // }}}
 
     //--- Query {{{
