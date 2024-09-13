@@ -50,6 +50,7 @@ module.exports = grammar({
         $._builtin,
 
         $._link,
+        $._math,
       ),
 
     //--- Trivia
@@ -60,7 +61,7 @@ module.exports = grammar({
     //--- Command {{{
     command: $ => cmd($._ident, optional($._brace)),
 
-    _ident: $ => seq($.qualified_ident, field("method", repeat($.method_call))),
+    _ident: $ => prec.left(seq($.qualified_ident, field("method", repeat($.method_call)))),
     ident: _ => /[a-zA-Z][a-zA-Z0-9\-]*/,
 
     qualified_ident: $ => seq($.ident, seq(optional($._ident_path_start), field("path", repeat($.ident_path)))),
@@ -131,7 +132,7 @@ module.exports = grammar({
     figure: $ => seq("figure", $._brace),
     figcaption: $ => seq("figcaption", $._brace),
     transclude: $ => seq("transclude", $._brace),
-    tex: $ => seq("tex", braces($.verbatim), braces($.verbatim)),
+    tex: $ => seq("tex", $._verbatim_brace, $._verbatim_brace),
     // }}}
 
     //--- Query {{{
@@ -177,9 +178,20 @@ module.exports = grammar({
     unlabeled_link: $ => seq("[[", $._textual_node, "]]"),
     // }}}
 
+    //--- Math {{{
+    _math: $ => choice(
+      $.inline_math,
+      $.display_math,
+    ),
+    inline_math: $ => seq("#", $._verbatim_brace),
+    display_math: $ => seq("##", $._verbatim_brace),
+
+    // }}}
+
     _textual_node: $ => choice($.text, $._node),
     _brace: $ => braces(repeat($._textual_node)),
     _text_brace: $ => braces(repeat($.text)),
+    _verbatim_brace: $ => braces($.verbatim),
     _ident_square: $ => squares(repeat($.ident)),
   },
 });
