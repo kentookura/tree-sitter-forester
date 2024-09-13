@@ -200,15 +200,15 @@ Inline Math
 
 \p{
     #{E}
-
 }
+
 --------------------------------------------------------------------------------
 
 (source_file
   (p
     (text)
     (inline_math
-      (text))))
+      (verbatim))))
 
 ================================================================================
 Display Math
@@ -216,15 +216,15 @@ Display Math
 
 \p{
     ##{E}
-
 }
+
 --------------------------------------------------------------------------------
 
 (source_file
   (p
     (text)
     (display_math
-      (text))))
+      (verbatim))))
 
 ================================================================================
 Math Text
@@ -246,21 +246,21 @@ Math Text
   (p
     (text)
     (display_math
-      (text)))
+      (verbatim)))
   (p
     (text)
     (display_math
-      (text))
+      (verbatim))
     (text)
     (inline_math
-      (text)))
+      (verbatim)))
   (p
     (text)
     (display_math
-      (text))
+      (verbatim))
     (text)
     (inline_math
-      (text))
+      (verbatim))
     (text)))
 
 ================================================================================
@@ -279,39 +279,7 @@ Math Commands
   (p
     (text)
     (display_math
-      (ident
-        (text))
-      (ident
-        (text))
-      (text)
-      (text)
-      (ident
-        (text))
-      (text)
-      (ident
-        (text))
-      (text)
-      (ident
-        (text))
-      (text)
-      (ident
-        (text))
-      (ident
-        (text))
-      (ident
-        (text))
-      (ident
-        (text))
-      (text)
-      (ident
-        (text))
-      (ident
-        (text))
-      (text)
-      (ident
-        (text))
-      (ident
-        (text)))))
+      (verbatim))))
 
 ================================================================================
 Comment
