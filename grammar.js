@@ -33,6 +33,9 @@ module.exports = grammar({
   name: "forester",
 
   word: $ => $.ident,
+  externals: $ => [
+    $._ident_path_start,
+  ],
 
   rules: {
     source_file: $ => repeat($._node),
@@ -51,7 +54,6 @@ module.exports = grammar({
     //--- Trivia
     comment: _ => /%[^\r\n]*/,
 
-    // TODO: https://github.com/tree-sitter/tree-sitter/discussions/3622
     text: _ => /([^%#\\{}\[\]()\r\n]|\\\\%)+/,
 
     //--- Command {{{
@@ -60,7 +62,7 @@ module.exports = grammar({
     _ident: $ => seq($.qualified_ident, field("method", repeat($.method_call))),
     ident: _ => /[a-zA-Z][a-zA-Z0-9\-]*/,
 
-    qualified_ident: $ => prec.right(seq($.ident, field("path", repeat($.ident_path)))),
+    qualified_ident: $ => seq($.ident, seq($._ident_path_start, field("path", repeat1($.ident_path)))),
     ident_path: $ => seq("/", $.ident),
 
     method_call: $ => seq("#", choice($.qualified_ident, $.method_call)),
