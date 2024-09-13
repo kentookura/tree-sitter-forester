@@ -109,6 +109,9 @@ module.exports = grammar({
       $.code,
       $.blockquote,
       $.pre,
+      $.figure,
+      $.figcaption,
+      $.transclude,
       $.tex,
     )),
     p: $ => seq("p", $.brace),
@@ -123,7 +126,8 @@ module.exports = grammar({
     figure: $ => seq("figure", $.brace),
     figcaption: $ => seq("figcaption", $.brace),
     transclude: $ => seq("transclude", $.brace),
-    tex: $ => seq("tex", $.brace, $.brace),
+    // TODO(jinser): verbatim via external scanner
+    tex: $ => seq("tex", braces($.text), braces($.text)),
     // }}}
 
     //--- Query {{{
