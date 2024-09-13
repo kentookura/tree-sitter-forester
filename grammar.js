@@ -152,12 +152,6 @@ module.exports = grammar({
     unlabeled_link: $ => seq("[[", $._textual_node, "]]"),
     // }}}
 
-    // //--- Whitespace {{{
-    // _wschars: _ => /[\ \t]+/,
-    // _newline: _ => choice("\r", "\n", "\r\n"),
-    // _whitespace: $ => choice($._wschars, $._newline),
-    // // }}}
-
     _textual_node: $ => choice($.text, $._node),
     brace: $ => braces(repeat($._textual_node)),
     square: $ => squares(repeat($._textual_node)),
