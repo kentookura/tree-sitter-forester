@@ -2,10 +2,10 @@
 // @ts-check
 
 /**
- * @param {RuleOrLiteral} p
+ * @param {RuleOrLiteral[]} ps
  */
-function cmd(p) {
-  return seq("\\", p);
+function cmd(...ps) {
+  return seq("\\", ...ps);
 }
 
 /**
@@ -58,7 +58,7 @@ module.exports = grammar({
     text: _ => /([^%#\\{}\[\]()\r\n]|\\\\%)+/,
 
     //--- Command {{{
-    command: $ => cmd(seq($._ident, optional($._brace))),
+    command: $ => cmd($._ident, optional($._brace)),
 
     _ident: $ => seq($.qualified_ident, field("method", repeat($.method_call))),
     ident: _ => /[a-zA-Z][a-zA-Z0-9\-]*/,
