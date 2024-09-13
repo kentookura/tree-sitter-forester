@@ -152,8 +152,13 @@ module.exports = grammar({
     // }}}
 
     //--- Function {{{
-    _function: $ => $.def,
+    _function: $ => choice(
+      $.def,
+      $.let,
+    ),
     def: $ => cmd("def", $.fun_spec),
+    let: $ => cmd("let", $.fun_spec),
+
     fun_spec: $ => seq("\\", $.qualified_ident, field("argument", repeat($._ident_square)), field("body", $._brace)),
     //}}}
 
