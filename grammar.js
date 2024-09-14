@@ -132,7 +132,11 @@ module.exports = grammar({
     figure: $ => seq("figure", $._brace),
     figcaption: $ => seq("figcaption", $._brace),
     transclude: $ => seq("transclude", $._brace),
-    tex: $ => seq("tex", $._verbatim_brace, $._verbatim_brace),
+    tex: $ => seq(
+      "tex",
+      field("preamble", $._verbatim_brace),
+      field("body", $._verbatim_brace)
+    ),
     // }}}
 
     //--- Query {{{
