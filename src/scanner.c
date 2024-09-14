@@ -54,8 +54,8 @@ bool tree_sitter_forester_external_scanner_scan(void *payload, TSLexer *lexer,
 
   Scanner *scanner = (Scanner *)payload;
 
-  if (valid_symbols[IDENT_PATH_START] && start_ident_path(lexer)) {
-    return true;
+  if (valid_symbols[IDENT_PATH_START]) {
+    return start_ident_path(lexer);
   } else if (valid_symbols[VERBATIM]) {
     return scan_verbatim(scanner, lexer);
   }
