@@ -61,13 +61,13 @@ module.exports = grammar({
     //--- Command {{{
     command: $ => cmd($._ident, optional($._brace)),
 
-    _ident: $ => prec.left(seq($.qualified_ident, field("method", repeat($.method_call)))),
+    _ident: $ => prec.right(seq($.qualified_ident, field("method", repeat($.method_call)))),
     ident: _ => /[a-zA-Z][a-zA-Z0-9\-]*/,
 
-    qualified_ident: $ => seq($.ident, optional(seq($._ident_path_start, field("path", repeat1($.ident_path))))),
+    qualified_ident: $ => seq($.ident, field("path", repeat(seq($._ident_path_start, $.ident_path)))),
     ident_path: $ => seq("/", $.ident),
 
-    method_call: $ => seq("#", choice($.qualified_ident, $.method_call)),
+    method_call: $ => seq("#", $.ident),
     // }}}
 
     //---- Builtin {{{
