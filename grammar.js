@@ -55,7 +55,6 @@ module.exports = grammar({
 
     //--- Trivia
     comment: _ => /%[^\r\n]*/,
-
     text: _ => /([^%#\\{}\[\]()\r\n]|\\\\%)+/,
 
     //--- Command {{{
@@ -164,8 +163,13 @@ module.exports = grammar({
     def: $ => cmd("def", $.fun_spec),
     let: $ => cmd("let", $.fun_spec),
 
-    fun_spec: $ => seq("\\", $.qualified_ident, field("argument", repeat($._ident_square)), field("body", $._brace)),
-    //}}}
+    fun_spec: $ => seq(
+      "\\",
+      field("ident", $.qualified_ident),
+      field("binder", repeat($._ident_square)),
+      field("body", $._brace)
+    ),
+    // }}}
 
     // }}}
 
