@@ -51,6 +51,7 @@ module.exports = grammar({
 
         $._link,
         $._math,
+        $._object,
       ),
 
     //--- Trivia
@@ -194,6 +195,27 @@ module.exports = grammar({
     inline_math: $ => seq("#", $._verbatim_brace),
     display_math: $ => seq("##", $._verbatim_brace),
 
+    // }}}
+
+    //--- Object {{{
+    _object: $ => choice(
+      $.object,
+      $.patch,
+    ),
+    object: $ => cmd(
+      "object",
+      field("self", optional($._ident_square)),
+      braces(field("method", repeat($.method_decl)))
+    ),
+
+    patch: $ => cmd(
+      "patch",
+      braces(cmd($.qualified_ident)),
+      field("self", optional($._ident_square)),
+      braces(field("method", repeat($.method_decl)))
+    ),
+
+    method_decl: $ => seq($._ident_square, $._verbatim_brace),
     // }}}
 
     _textual_node: $ => choice($.text, $._node),
