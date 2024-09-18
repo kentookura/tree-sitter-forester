@@ -59,7 +59,7 @@ module.exports = grammar({
     text: _ => /([^%#\\{}\[\]()\r\n]|\\\\%)+/,
 
     //--- Command {{{
-    command: $ => cmd($._ident, optional($._brace)),
+    command: $ => cmd($._ident, repeat($._brace)),
 
     _ident: $ => prec.right(seq($.qualified_ident, field("method", repeat($.method_call)))),
     ident: _ => /[a-zA-Z][a-zA-Z0-9\-]*/,
