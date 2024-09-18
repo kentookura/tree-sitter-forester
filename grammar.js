@@ -289,5 +289,6 @@ module.exports = grammar({
     _text_brace: $ => braces(repeat($.text)),
     _verbatim_brace: $ => braces($.verbatim),
     _ident_square: $ => squares(repeat($.ident)),
+    _text_square: $ => squares(repeat($.text)),
   },
 });
