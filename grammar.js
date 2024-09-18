@@ -152,9 +152,11 @@ module.exports = grammar({
     _fluid_binding: $ => choice(
       $.import,
       $.export,
+      $.open,
     ),
     import: $ => cmd("import", $._text_brace),
     export: $ => cmd("export", $._text_brace),
+    open: $ => cmd("open", seq("\\", $.qualified_ident)),
     // }}}
 
     //--- Function {{{
