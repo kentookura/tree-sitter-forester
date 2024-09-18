@@ -77,6 +77,7 @@ module.exports = grammar({
       $._fluid_binding,
       $._query,
       $._function,
+      $._subtree,
     ),
 
     //--- Meta {{{
@@ -172,6 +173,15 @@ module.exports = grammar({
     ),
     // }}}
 
+    //--- Subtree {{{
+    _subtree: $ => choice(
+      $.subtree,
+    ),
+    subtree: $ => cmd(
+      "subtree",
+      field("addr", optional($._text_square)),
+      field("body", braces(repeat($._node)))
+    ),
     // }}}
 
     //--- Link {{{
