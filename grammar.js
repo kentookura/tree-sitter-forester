@@ -63,6 +63,7 @@ module.exports = grammar({
 
     _ident: $ => prec.right(seq($.qualified_ident, field("method", repeat($.method_call)))),
     ident: _ => /[a-zA-Z][a-zA-Z0-9\-]*/,
+    lazy_ident: $ => seq("~", $.ident),
 
     qualified_ident: $ => seq($.ident, field("path", repeat(seq($._ident_path_start, $.ident_path)))),
     ident_path: $ => seq("/", $.ident),
@@ -169,7 +170,10 @@ module.exports = grammar({
     fun_spec: $ => seq(
       "\\",
       field("ident", $.qualified_ident),
-      field("binder", repeat($._ident_square)),
+      field("binder", choice(
+        repeat($._ident_square),
+        repeat(squares($.lazy_ident)),
+      )),
       field("body", $._brace)
     ),
     // }}}
@@ -244,7 +248,7 @@ module.exports = grammar({
     _text_brace: $ => braces(repeat($.text)),
     _node_brace: $ => braces(repeat($._node)),
     _verbatim_brace: $ => braces($.verbatim),
-    _ident_square: $ => squares(repeat($.ident)),
+    _ident_square: $ => squares($.ident),
     _text_square: $ => squares(repeat($.text)),
   },
 });
