@@ -35,7 +35,10 @@ module.exports = grammar({
   word: $ => $.ident,
   externals: $ => [
     $._ident_path_start,
-    $.verbatim
+    $.verbatim,
+    $.herald_start,
+    $.herald_stop,
+    $.custom_verbatim,
   ],
 
   rules: {
@@ -79,6 +82,7 @@ module.exports = grammar({
       $._query,
       $._function,
       $._scope,
+      $._verb,
     ),
 
     //--- Meta {{{
@@ -241,6 +245,23 @@ module.exports = grammar({
     ),
 
     method_decl: $ => seq($._ident_square, $._verbatim_brace),
+    // }}}
+
+    //--- Verbatim {{{
+    _verb: $ => choice(
+      $.verb,
+      // $.legacy_verb,
+    ),
+    verb: $ => cmd(
+      "verb",
+      $.herald_start,
+      $.herald_sep,
+      alias($.custom_verbatim, $.verbatim),
+      $.herald_stop
+    ),
+    herald_sep: _ => "|",
+    // }}}
+
     // }}}
 
     _textual_node: $ => choice($.text, $._node),
