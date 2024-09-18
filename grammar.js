@@ -143,63 +143,8 @@ module.exports = grammar({
     //---- Query {{{
     _query: $ => cmd(choice(
       $.query,
-      $._query_mode,
-      $._query_polarity,
-      $._query_relation,
     )),
-    query: $ => seq("query", $._query_brace),
-
-    //--- Query Mode {{{
-    _query_mode: $ => prec(2, choice(
-      $.query_edges,
-      $.query_paths,
-    )),
-    query_edges: _ => seq("query/edges"),
-    query_paths: _ => seq("query/paths"),
-    // }}}
-
-    //--- Query Polarity {{{
-    _query_polarity: $ => prec(2, choice(
-      $.query_incoming,
-      $.query_outgoing,
-    )),
-    query_incoming: _ => seq("query/incoming"),
-    query_outgoing: _ => seq("query/outgoing"),
-    // }}}
-
-    //--- Query Relation {{{
-    _query_relation: $ => choice(
-      $.query_rel,
-      $.Query_union,
-      $.query_isect,
-      $.query_isect_fam,
-      $.query_union_fam,
-      $.query_isect_fam_rel,
-      $.query_union_fam_rel,
-      $.query_compl,
-      $.query_tag,
-      $.query_taxon,
-      $.query_author,
-      $.query_incoming,
-      $.query_outgoing,
-      $.query_edges,
-      $.query_paths,
-    ),
-    query_rel: $ => seq("query/rel", $._brace, $._brace, $._brace, $._text_brace),
-    //                               ^ mode    ^ pol     ^ rel     ^ addr
-    Query_union: $ => seq("query/union", $._brace, $._brace, $._brace),
-    query_isect: $ => seq("query/isect", $._brace, $._brace, $._brace),
-    query_isect_fam: $ => seq("query/isect-fam", $._brace, $._brace),
-    query_union_fam: $ => seq("query/union-fam", $._brace, $._brace),
-    //                                           ^ qexpr   ^ qfamily
-    query_isect_fam_rel: $ => seq("query/isect-fam-rel", $._brace, $._brace, $._brace, $._brace),
-    query_union_fam_rel: $ => seq("query/union-fam-rel", $._brace, $._brace, $._brace, $._brace),
-    //                                                   ^ qexpr   ^ mode    ^ pol     ^ rel
-    query_compl: $ => seq("query/compl", $._brace),
-    query_tag: $ => seq("query/tag", $._brace),
-    query_taxon: $ => seq("query/taxon", $._brace),
-    query_author: $ => seq("query/author", $._brace),
-    // }}}
+    query: $ => seq("query", $._brace),
     // }}}
 
     //--- Fluid Binding {{{
