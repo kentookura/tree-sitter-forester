@@ -77,7 +77,7 @@ module.exports = grammar({
       $._fluid_binding,
       $._query,
       $._function,
-      $._subtree,
+      $._scope,
     ),
 
     //--- Meta {{{
@@ -174,15 +174,25 @@ module.exports = grammar({
     ),
     // }}}
 
-    //--- Subtree {{{
-    _subtree: $ => choice(
+    //--- Scope {{{
+    _scope: $ => choice(
       $.subtree,
+      $.scope,
+      $.put,
+      $.get,
+      $.default,
+      $.alloc,
     ),
     subtree: $ => cmd(
       "subtree",
       field("addr", optional($._text_square)),
-      field("body", braces(repeat($._node)))
+      field("body", $._node_brace)
     ),
+    scope: $ => cmd("scope", $._node_brace),
+    put: $ => cmd("put", $.command,),
+    get: $ => cmd("get", $.command,),
+    default: $ => cmd("put?", $.command,),
+    alloc: $ => cmd("alloc", $.command,),
     // }}}
 
     //--- Link {{{
@@ -232,6 +242,7 @@ module.exports = grammar({
     _textual_node: $ => choice($.text, $._node),
     _brace: $ => braces(repeat($._textual_node)),
     _text_brace: $ => braces(repeat($.text)),
+    _node_brace: $ => braces(repeat($._node)),
     _verbatim_brace: $ => braces($.verbatim),
     _ident_square: $ => squares(repeat($.ident)),
     _text_square: $ => squares(repeat($.text)),
