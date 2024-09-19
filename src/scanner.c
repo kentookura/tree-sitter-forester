@@ -1,7 +1,7 @@
 #include "string.h"
 #include "tree_sitter/alloc.h"
+#include "tree_sitter/array.h"
 #include "tree_sitter/parser.h"
-#include <ctype.h>
 #include <stdint.h>
 
 typedef enum {
@@ -10,12 +10,14 @@ typedef enum {
   HERALD_START,
   HERALD_STOP,
   CUSTOM_VERBATIM,
+  LEGACY_VERBATIM,
 } TokenType;
+
+typedef Array(int32_t) heraldArray;
 
 typedef struct {
   uint8_t opening_brace_count;
-  uint8_t herald_count;
-  int32_t herald;
+  heraldArray *heralds;
 } Scanner;
 
 static void consume(TSLexer *lexer) { lexer->advance(lexer, false); }
@@ -60,11 +62,13 @@ static bool scan_verbatim(Scanner *scanner, TSLexer *lexer) {
 }
 
 static bool start_herald(Scanner *scanner, TSLexer *lexer) {
-  if (lexer->lookahead == '|' || isspace(lexer->lookahead)) {
+  int offset = 0;
+
+  if (lexer->lookahead == '|' || lexer->lookahead == ' ' ||
+      lexer->lookahead == '\r' || lexer->lookahead == '\n') {
     return false;
   } else {
-    scanner->herald = lexer->lookahead;
-    scanner->herald_count = 1;
+    array_push(scanner->heralds, lexer->lookahead);
   }
   lexer->mark_end(lexer);
 
@@ -74,50 +78,58 @@ static bool start_herald(Scanner *scanner, TSLexer *lexer) {
     }
 
     consume(lexer);
-    if (lexer->lookahead == scanner->herald) {
-      scanner->herald_count += 1;
-    } else {
-      break;
-    }
+    array_push(scanner->heralds, lexer->lookahead);
   }
+  array_pop(scanner->heralds); // pop sep `|`
   lexer->result_symbol = HERALD_START;
   lexer->mark_end(lexer);
   return true;
 }
 
 static bool end_herald(Scanner *scanner, TSLexer *lexer) {
-  uint8_t local_herald_count = 0;
   lexer->mark_end(lexer);
 
-  if (scanner->herald != lexer->lookahead) {
-    return false;
-  }
+  for (size_t offset = 0; offset < scanner->heralds->size; offset++) {
+    if (lexer->eof(lexer)) {
+      return false;
+    }
 
-  for (uint8_t i = 1; i <= scanner->herald_count; i++) {
-    if (lexer->lookahead != scanner->herald) {
+    if (lexer->lookahead != *array_get(scanner->heralds, offset)) {
       return false;
     }
     consume(lexer);
   }
+
+  array_clear(scanner->heralds);
 
   lexer->mark_end(lexer);
   lexer->result_symbol = HERALD_STOP;
   return true;
 }
 
-static bool scan_custom_verbatim(int32_t herald, TSLexer *lexer) {
-  if (herald == 0) {
+static bool scan_custom_verbatim(heraldArray *heralds, TSLexer *lexer,
+                                 int result_symbol) {
+  if (heralds->size == 0) {
     return false;
   }
+  lexer->mark_end(lexer);
 
+  size_t offset = 0;
   for (;;) {
     if (lexer->eof(lexer)) {
       return false;
     }
-    if (lexer->lookahead == herald) {
-      lexer->mark_end(lexer);
-      lexer->result_symbol = CUSTOM_VERBATIM;
+    if (offset == heralds->size) {
+      lexer->result_symbol = result_symbol;
       return true;
+    }
+    if (offset == 0) {
+      lexer->mark_end(lexer);
+    }
+    if (lexer->lookahead == *array_get(heralds, offset)) {
+      offset++;
+    } else {
+      offset = 0;
     }
     consume(lexer);
   }
@@ -137,27 +149,46 @@ bool tree_sitter_forester_external_scanner_scan(void *payload, TSLexer *lexer,
   } else if (valid_symbols[HERALD_STOP]) {
     return end_herald(scanner, lexer);
   } else if (valid_symbols[CUSTOM_VERBATIM]) {
-    return scan_custom_verbatim(scanner->herald, lexer);
+    return scan_custom_verbatim(scanner->heralds, lexer, CUSTOM_VERBATIM);
+  } else if (valid_symbols[LEGACY_VERBATIM]) {
+    heraldArray heralds = array_new();
+    char s[9] = "\\stopverb";
+    for (size_t i = 0; i < 9; i++) {
+      array_push(&heralds, s[i]);
+    }
+    return scan_custom_verbatim(&heralds, lexer, LEGACY_VERBATIM);
   }
 
   return false;
 }
 
 void *tree_sitter_forester_external_scanner_create() {
-  return ts_calloc(1, sizeof(Scanner));
+  Scanner *scanner = (Scanner *)ts_malloc(sizeof(Scanner));
+  scanner->heralds = ts_malloc(sizeof(Array(int32_t)));
+  array_init(scanner->heralds);
+  return scanner;
 }
 
 void tree_sitter_forester_external_scanner_destroy(void *payload) {
-  ts_free((Scanner *)payload);
+  Scanner *scanner = (Scanner *)payload;
+  array_delete(scanner->heralds);
+  ts_free(scanner);
 }
 
 unsigned tree_sitter_forester_external_scanner_serialize(void *payload,
                                                          char *buffer) {
   Scanner *scanner = (Scanner *)payload;
-  buffer[0] = (char)scanner->opening_brace_count;
-  buffer[1] = (char)scanner->herald_count;
-  memcpy(&buffer[2], &scanner->herald, 4);
-  return 6;
+  int offset = 0;
+
+  buffer[offset++] = (char)scanner->opening_brace_count;
+
+  for (size_t i = 0; i < scanner->heralds->size; i++) {
+    int32_t herald = *array_get(scanner->heralds, i);
+    memcpy(&buffer[offset], &herald, sizeof(int32_t));
+    offset += sizeof(int32_t);
+  }
+
+  return offset;
 }
 
 void tree_sitter_forester_external_scanner_deserialize(void *payload,
@@ -165,12 +196,17 @@ void tree_sitter_forester_external_scanner_deserialize(void *payload,
                                                        unsigned length) {
   Scanner *scanner = (Scanner *)payload;
   scanner->opening_brace_count = 0;
-  scanner->herald_count = 0;
-  scanner->herald = 0;
-  if (length == 6) {
-    Scanner *scanner = (Scanner *)payload;
-    scanner->opening_brace_count = buffer[0];
-    scanner->herald_count = buffer[1];
-    memcpy(&scanner->herald, &buffer[2], 4);
+  array_init(scanner->heralds);
+
+  int offset = 0;
+  if (length > offset) {
+    scanner->opening_brace_count = buffer[offset++];
+    while (length > offset) {
+      int32_t herald;
+      memcpy(&herald, &buffer[offset], sizeof(int32_t));
+      offset += sizeof(int32_t);
+
+      array_push(scanner->heralds, herald);
+    }
   }
 }

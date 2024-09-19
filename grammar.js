@@ -39,6 +39,7 @@ module.exports = grammar({
     $.herald_start,
     $.herald_stop,
     $.custom_verbatim,
+    $.legacy_verbatim,
   ],
 
   rules: {
@@ -250,7 +251,7 @@ module.exports = grammar({
     //--- Verbatim {{{
     _verb: $ => choice(
       $.verb,
-      // $.legacy_verb,
+      $.legacy_verb,
     ),
     verb: $ => cmd(
       "verb",
@@ -260,6 +261,8 @@ module.exports = grammar({
       $.herald_stop
     ),
     herald_sep: _ => "|",
+
+    legacy_verb: $ => cmd("startverb", alias($.legacy_verbatim, $.verbatim), "\\stopverb"),
     // }}}
 
     // }}}
