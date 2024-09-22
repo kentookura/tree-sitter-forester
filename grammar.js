@@ -52,10 +52,7 @@ module.exports = grammar({
 
         $.command,
         $._builtin,
-
-        $._link,
-        $._math,
-        $._object,
+        $._syntax,
       ),
 
     //--- Trivia
@@ -75,19 +72,19 @@ module.exports = grammar({
     method_call: $ => seq("#", $.ident),
     // }}}
 
-    //---- Builtin {{{
-    _builtin: $ => choice(
+    //--- Builtin {{{
+    _builtin: $ => cmd(choice(
       $._meta,
       $._prim,
       $._fluid_binding,
       $._query,
       $._function,
       $._scope,
-      $._verb,
-    ),
+      $._object,
+    )),
 
-    //--- Meta {{{
-    _meta: $ => cmd(choice(
+    //-- Meta {{{
+    _meta: $ => choice(
       $.ref,
       $.title,
       $.taxon,
@@ -98,7 +95,7 @@ module.exports = grammar({
       $.parent,
       $.number,
       $.tag,
-    )),
+    ),
     ref: $ => seq("ref", $._brace),
     title: $ => seq("title", $._brace),
     taxon: $ => seq("taxon", $._brace),
@@ -111,8 +108,8 @@ module.exports = grammar({
     tag: $ => seq("tag", $._brace),
     // }}}
 
-    //--- Primitive {{{
-    _prim: $ => cmd(choice(
+    //-- Primitive {{{
+    _prim: $ => choice(
       $.p,
       $.em,
       $.strong,
@@ -126,7 +123,7 @@ module.exports = grammar({
       $.figcaption,
       $.transclude,
       $.tex,
-    )),
+    ),
     p: $ => seq("p", optional($._brace)),
     em: $ => seq("em", optional($._brace)),
     strong: $ => seq("strong", optional($._brace)),
@@ -146,35 +143,35 @@ module.exports = grammar({
     ),
     // }}}
 
-    //---- Query {{{
-    _query: $ => cmd(choice(
+    //-- Query {{{
+    _query: $ => choice(
       $.query,
-    )),
+    ),
     query: $ => seq("query", $._brace),
     // }}}
 
-    //--- Fluid Binding {{{
+    //-- Fluid Binding {{{
     _fluid_binding: $ => choice(
       $.import,
       $.export,
       $.open,
     ),
-    import: $ => cmd("import", $._text_brace),
-    export: $ => cmd("export", $._text_brace),
-    open: $ => cmd("open", seq("\\", $.qualified_ident)),
+    import: $ => seq("import", $._text_brace),
+    export: $ => seq("export", $._text_brace),
+    open: $ => seq("open", seq("\\", $.qualified_ident)),
     // }}}
 
-    //--- Function {{{
+    //-- Function {{{
     _function: $ => choice(
       $.def,
       $.let,
     ),
-    def: $ => cmd("def", $.fun_spec),
-    let: $ => cmd("let", $.fun_spec),
+    def: $ => seq("def", $.fun_spec),
+    let: $ => seq("let", $.fun_spec),
 
     fun_spec: $ => seq(
       "\\",
-      field("ident", $.qualified_ident),
+      field("identifier", $.qualified_ident),
       field("binder", choice(
         repeat($._ident_square),
         repeat(squares($.lazy_ident)),
@@ -183,7 +180,7 @@ module.exports = grammar({
     ),
     // }}}
 
-    //--- Scope {{{
+    //-- Scope {{{
     _scope: $ => choice(
       $.subtree,
       $.scope,
@@ -192,19 +189,48 @@ module.exports = grammar({
       $.default,
       $.alloc,
     ),
-    subtree: $ => cmd(
+    subtree: $ => seq(
       "subtree",
       field("addr", optional($._text_square)),
       field("body", $._node_brace)
     ),
-    scope: $ => cmd("scope", $._node_brace),
-    put: $ => cmd("put", $.command,),
-    get: $ => cmd("get", $.command,),
-    default: $ => cmd("put?", $.command,),
-    alloc: $ => cmd("alloc", $.command,),
+    scope: $ => seq("scope", $._node_brace),
+    put: $ => seq("put", $.command,),
+    get: $ => seq("get", $.command,),
+    default: $ => seq("put?", $.command,),
+    alloc: $ => seq("alloc", $.command,),
     // }}}
 
-    //--- Link {{{
+    //-- Object {{{
+    _object: $ => choice(
+      $.object,
+      $.patch,
+    ),
+    object: $ => seq(
+      "object",
+      field("self", optional($._ident_square)),
+      braces(field("method", repeat($.method_decl)))
+    ),
+
+    patch: $ => seq(
+      "patch",
+      braces(cmd($.qualified_ident)),
+      field("self", optional($._ident_square)),
+      braces(field("method", repeat($.method_decl)))
+    ),
+
+    method_decl: $ => seq($._ident_square, $._verbatim_brace),
+    // }}}
+    // }}}
+
+    //--- Syntax {{{
+    _syntax: $ => choice(
+      $._link,
+      $._math,
+      $._verb,
+      $._xml,
+    ),
+    //-- Link {{{
     _link: $ => choice(
       $.markdown_link,
       $.unlabeled_link,
@@ -217,7 +243,7 @@ module.exports = grammar({
     unlabeled_link: $ => seq("[[", $._textual_node, "]]"),
     // }}}
 
-    //--- Math {{{
+    //-- Math {{{
     _math: $ => choice(
       $.inline_math,
       $.display_math,
@@ -227,28 +253,7 @@ module.exports = grammar({
 
     // }}}
 
-    //--- Object {{{
-    _object: $ => choice(
-      $.object,
-      $.patch,
-    ),
-    object: $ => cmd(
-      "object",
-      field("self", optional($._ident_square)),
-      braces(field("method", repeat($.method_decl)))
-    ),
-
-    patch: $ => cmd(
-      "patch",
-      braces(cmd($.qualified_ident)),
-      field("self", optional($._ident_square)),
-      braces(field("method", repeat($.method_decl)))
-    ),
-
-    method_decl: $ => seq($._ident_square, $._verbatim_brace),
-    // }}}
-
-    //--- Verbatim {{{
+    //-- Verbatim {{{
     _verb: $ => choice(
       $.verb,
       $.legacy_verb,
@@ -265,8 +270,27 @@ module.exports = grammar({
     legacy_verb: $ => cmd("startverb", alias($.legacy_verbatim, $.verbatim), "\\stopverb"),
     // }}}
 
+    //-- XML {{{
+    _xml: $ => choice(
+      $.xmlns_decl,
+      $.xml_tag,
+    ),
+    xmlns_decl: $ => cmd("xmlns", ":", field("prefix", $._xml_base_ident), field("xmlns", $._text_brace)),
+    xml_tag: $ => cmd(
+      "<",
+      $._xml_qname,
+      ">",
+      repeat($.xml_attrs),
+      field("body", $._brace)
+    ),
+    xml_attrs: $ => seq(field("name", $._ident_square), field("value", $._brace)),
+    _xml_qname: $ => choice(
+      seq(field("prefix", $._xml_base_ident), ":", field("uname", $._xml_base_ident)),
+      $._xml_base_ident,
+    ),
+    _xml_base_ident: $ => alias(/[a-zA-Z][a-zA-Z0-9\-_]*/, $.ident),
     // }}}
-
+    // }}}
     _textual_node: $ => choice($.text, $._node),
     _brace: $ => braces(repeat($._textual_node)),
     _text_brace: $ => braces(repeat($.text)),
