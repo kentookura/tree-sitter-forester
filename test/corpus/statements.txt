@@ -7,7 +7,7 @@ Text
 --------------------------------------------------------------------------------
 
 (source_file
-  (paragraph
+  (p
     (text)))
 
 ================================================================================
@@ -37,7 +37,7 @@ Subtree
       (text))
     (text)
     (text)
-    (paragraph
+    (p
       (text)))
   (subtree
     (text)
@@ -45,7 +45,7 @@ Subtree
       (text))
     (text)
     (text)
-    (paragraph
+    (p
       (text))))
 
 ================================================================================
@@ -57,9 +57,12 @@ Method call
 --------------------------------------------------------------------------------
 
 (source_file
-  (ident_with_method_calls
-    (text)
-    (text)))
+  (command
+    (qualified_ident
+      (ident))
+    (method_call
+      (qualified_ident
+        (ident)))))
 
 ================================================================================
 Contributor
@@ -70,9 +73,8 @@ Contributor
 --------------------------------------------------------------------------------
 
 (source_file
-  (ident
-    (text))
-  (text))
+  (contributor
+    (text)))
 
 ================================================================================
 Meta
@@ -83,10 +85,9 @@ Meta
 --------------------------------------------------------------------------------
 
 (source_file
-  (ident
-    (text))
-  (text)
-  (text))
+  (meta
+    (text)
+    (text)))
 
 ================================================================================
 Tags
@@ -98,12 +99,10 @@ Tags
 --------------------------------------------------------------------------------
 
 (source_file
-  (ident
+  (tag
     (text))
-  (text)
-  (ident
-    (text))
-  (text))
+  (tag
+    (text)))
 
 ================================================================================
 Author
@@ -114,9 +113,8 @@ Author
 --------------------------------------------------------------------------------
 
 (source_file
-  (ident
-    (text))
-  (text))
+  (author
+    (text)))
 
 ================================================================================
 Import
@@ -128,9 +126,7 @@ Import
 
 (source_file
   (import
-    (addr
-      prefix: (prefix)
-      id: (id))))
+    (text)))
 
 ================================================================================
 Export
@@ -142,9 +138,7 @@ Export
 
 (source_file
   (export
-    (addr
-      (prefix)
-      (id))))
+    (text)))
 
 ================================================================================
 Date
@@ -156,12 +150,10 @@ Date
 --------------------------------------------------------------------------------
 
 (source_file
-  (ident
+  (date
     (text))
-  (text)
-  (ident
-    (text))
-  (text))
+  (date
+    (text)))
 
 ================================================================================
 Title
@@ -172,9 +164,8 @@ Title
 --------------------------------------------------------------------------------
 
 (source_file
-  (ident
-    (text))
-  (text))
+  (title
+    (text)))
 
 ================================================================================
 Transclusion
@@ -186,9 +177,7 @@ Transclusion
 
 (source_file
   (transclude
-    address: (addr
-      prefix: (prefix)
-      id: (id))))
+    (text)))
 
 ================================================================================
 Ident
@@ -199,10 +188,11 @@ Ident
 --------------------------------------------------------------------------------
 
 (source_file
-  (paragraph
-    (ident
-      (text))
-    (text)))
+  (p
+    (command
+      (qualified_ident
+        (ident))
+      (text))))
 
 ================================================================================
 Inline Math
@@ -210,15 +200,15 @@ Inline Math
 
 \p{
     #{E}
-
 }
+
 --------------------------------------------------------------------------------
 
 (source_file
-  (paragraph
+  (p
     (text)
     (inline_math
-      (text))))
+      (verbatim))))
 
 ================================================================================
 Display Math
@@ -226,15 +216,15 @@ Display Math
 
 \p{
     ##{E}
-
 }
+
 --------------------------------------------------------------------------------
 
 (source_file
-  (paragraph
+  (p
     (text)
     (display_math
-      (text))))
+      (verbatim))))
 
 ================================================================================
 Math Text
@@ -253,24 +243,24 @@ Math Text
 --------------------------------------------------------------------------------
 
 (source_file
-  (paragraph
+  (p
     (text)
     (display_math
-      (text)))
-  (paragraph
+      (verbatim)))
+  (p
     (text)
     (display_math
-      (text))
+      (verbatim))
     (text)
     (inline_math
-      (text)))
-  (paragraph
+      (verbatim)))
+  (p
     (text)
     (display_math
-      (text))
+      (verbatim))
     (text)
     (inline_math
-      (text))
+      (verbatim))
     (text)))
 
 ================================================================================
@@ -286,42 +276,10 @@ Math Commands
 --------------------------------------------------------------------------------
 
 (source_file
-  (paragraph
+  (p
     (text)
     (display_math
-      (ident
-        (text))
-      (ident
-        (text))
-      (text)
-      (text)
-      (ident
-        (text))
-      (text)
-      (ident
-        (text))
-      (text)
-      (ident
-        (text))
-      (text)
-      (ident
-        (text))
-      (ident
-        (text))
-      (ident
-        (text))
-      (ident
-        (text))
-      (text)
-      (ident
-        (text))
-      (ident
-        (text))
-      (text)
-      (ident
-        (text))
-      (ident
-        (text)))))
+      (verbatim))))
 
 ================================================================================
 Comment
@@ -348,22 +306,23 @@ Function Definition
 (source_file
   (def
     (fun_spec
-      (ident
-        (text))
-      (text)
-      (text)
-      (text)
-      (paragraph
-        (ident
-          (text))
-        (ident
-          (text))
-        (ident
-          (text)))
+      (qualified_ident
+        (ident))
+      (ident)
+      (ident)
+      (ident)
+      (p
+        (command
+          (qualified_ident
+            (ident)))
+        (command
+          (qualified_ident
+            (ident)))
+        (command
+          (qualified_ident
+            (ident))))
       (transclude
-        (addr
-          (prefix)
-          (id))))))
+        (text)))))
 
 ================================================================================
 Prim
@@ -381,18 +340,15 @@ Prim
 --------------------------------------------------------------------------------
 
 (source_file
-  (paragraph
+  (p
     (text)
     (markdown_link
       (text)
       (text))
-    (text)
     (ul
-      (text)
       (li
         (unlabeled_link
-          (external_link
-            (text))))
+          (text)))
       (text))
     (text)
     (markdown_link
@@ -657,13 +613,13 @@ Full
   (ident
     (text))
   (text)
-  (paragraph
+  (p
     (text))
   (transclude
     (addr
       (prefix)
       (id)))
-  (paragraph
+  (p
     (text)
     (ul
       (text)
@@ -782,5 +738,8 @@ Full
       (text))
     (text)
     (query_tree
-      (query_author
-        (text)))))
+      (text)
+      (ident
+        (text))
+      (text)
+      (text))))

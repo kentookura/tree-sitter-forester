@@ -1,61 +1,59 @@
+;; comments
 (comment) @comment
 
+;; punctuation
 [
- "\\"
- "("
- ")"
- "{"
- "}"
- "["
- "]"
+  "\\"
+  ; "("
+  ; ")"
+  "{"
+  "}"
+  ; "["
+  ; "]"
 ] @punctuation.bracket
 
+;; builtin commands
 (p "p" @function.builtin)
-(li "li" @markup.list)
-(ul "ul"  @markup.list)
-(ol "ol"  @markup.list)
-(em "em"  @function.builtin)
+(em "em" @function.builtin)
 (strong "strong" @function.builtin)
+(li "li" @function.builtin)
+(ol "ol" @function.builtin)
+(ul "ul" @function.builtin)
 (code "code" @function.builtin)
+(blockquote "blockquote" @function.builtin)
+(pre "pre" @function.builtin)
+(tex "tex" @function.builtin)
 
-(tag "tag" @field)
-(author "author" @field)
-(contributor "contributor" @field)
-(title "title" @field)
-(taxon "taxon" @field)
-(meta "meta" @field)
+;; meta keywords
+(ref "ref" @keyword)
+(title "title" @keyword)
+(taxon "taxon" @keyword)
+(date "date" @keyword)
+(meta "meta" @keyword)
+(author "author" @keyword)
+(contributor "contributor" @keyword)
+(parent "parent" @keyword)
+(number "number" @keyword)
+(tag "tag" @keyword)
 
-(title "title" @text.title)
-(title (_) @text.title)
-(author author: (_) @markup.heading.url)
+;; special meta markups
+(title (_) @markup.heading)
+(author (_) @markup.link.label)
 
-(ident label: (_) @string)
-(transclude "transclude" @include)
-(transclude address: (_) @markup.link.url)
+;; list markups
+(li "li" @markup.list)
+(ul "ul" @markup.list)
+(ol "ol" @markup.list)
 
-(def "def" @keyword)
-(object "object" @constant)
-(object self: (_) @keyword)
-(method_decl key: (_) @method)
-(patch "patch" @text.diff.add)
-(patch object: (_) @constant)
+;; special markup
+(em (_) @markup.italic)
+(strong (_) @markup.strong)
+(code (_) @markup.raw)
+(blockquote (_) @markup.raw.block)
 
-(markdown_link label: (_) @label)
-(markdown_link dest: (_) @text.uri)
-(unlabeled_link (external_link (_) @text.uri))
-
-(scope "scope" @namespace)
-(put "put" @variable.parameter)
-
-(query_tree "query" @keyword)
-;(query_author "query/author" @keyword)
-;(query_tag "query/tag" @keyword)
-;(query_taxon "query/taxon" @keyword)
-;(query_and "query/and" @keyword)
-;(query_or "query/or" @keyword)
-;(query_meta "query/meta" @keyword)
-
-(import "import" @include)
-(export "export" @include)
-(transclude "transclude" @include)
-
+; TODO(jinser): fine-tune command highlight
+(command (qualified_ident (ident) @function.call) !path !method)
+; (command (qualified_ident (ident_path (ident) @function.call .)))
+; (command (qualified_ident
+;            (ident) @module
+;            (ident_path "/" @punctuation.delimiter (ident) @module)))
