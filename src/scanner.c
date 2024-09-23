@@ -21,7 +21,6 @@ typedef struct {
 } Scanner;
 
 static void consume(TSLexer *lexer) { lexer->advance(lexer, false); }
-static void skip(TSLexer *lexer) { lexer->advance(lexer, true); }
 
 static bool start_ident_path(TSLexer *lexer) {
   lexer->mark_end(lexer);
