@@ -50,17 +50,19 @@ module.exports = grammar({
       choice(
         $.comment,
 
-        $.command,
-        $._builtin,
+        $._cmd,
         $._syntax,
       ),
+    _cmd: $ => cmd(choice(
+      $.command, $._builtin
+    )),
 
     //--- Trivia
     comment: _ => /%[^\r\n]*/,
     text: _ => /([^%#\\{}\[\]()\r\n]|\\\\%)+/,
 
     //--- Command {{{
-    command: $ => cmd($._ident, repeat($._brace)),
+    command: $ => seq($._ident, repeat($._brace)),
 
     _ident: $ => prec.right(seq($.qualified_ident, field("method", repeat($.method_call)))),
     ident: _ => /[a-zA-Z][a-zA-Z0-9\-]*/,
@@ -73,7 +75,7 @@ module.exports = grammar({
     // }}}
 
     //--- Builtin {{{
-    _builtin: $ => cmd(choice(
+    _builtin: $ => choice(
       $._meta,
       $._prim,
       $._fluid_binding,
@@ -81,7 +83,7 @@ module.exports = grammar({
       $._function,
       $._scope,
       $._object,
-    )),
+    ),
 
     //-- Meta {{{
     _meta: $ => choice(
