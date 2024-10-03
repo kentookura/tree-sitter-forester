@@ -179,7 +179,7 @@ module.exports = grammar({
       prec(1, prec.left(seq("\\", $.text, "#", repeat1(choice("#", $.text))))),
     _arg: ($) => braces(repeat1(choice($._node))),
     _link: ($) => choice($.markdown_link, $.unlabeled_link),
-    addr: ($) => seq(field("prefix", $.prefix), "-", field("id", $.id)),
+    addr: ($) => prec(1, $.text),
     id: ($) => repeat1(choice($._alpha, $._digit, "-", "_")),
     prefix: ($) => repeat1($._alpha),
     markdown_link: ($) =>
