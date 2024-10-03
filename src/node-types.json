@@ -2,27 +2,16 @@
   {
     "type": "addr",
     "named": true,
-    "fields": {
-      "id": {
-        "multiple": false,
-        "required": true,
-        "types": [
-          {
-            "type": "id",
-            "named": true
-          }
-        ]
-      },
-      "prefix": {
-        "multiple": false,
-        "required": true,
-        "types": [
-          {
-            "type": "prefix",
-            "named": true
-          }
-        ]
-      }
+    "fields": {},
+    "children": {
+      "multiple": false,
+      "required": true,
+      "types": [
+        {
+          "type": "text",
+          "named": true
+        }
+      ]
     }
   },
   {
@@ -994,11 +983,6 @@
         }
       ]
     }
-  },
-  {
-    "type": "id",
-    "named": true,
-    "fields": {}
   },
   {
     "type": "ident",
@@ -2513,11 +2497,6 @@
         }
       ]
     }
-  },
-  {
-    "type": "prefix",
-    "named": true,
-    "fields": {}
   },
   {
     "type": "put",
