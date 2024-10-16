@@ -167,18 +167,27 @@ module.exports = grammar({
     _function: $ => choice(
       $.def,
       $.let,
+      $.fun,
     ),
     def: $ => seq("def", $.fun_spec),
     let: $ => seq("let", $.fun_spec),
+    fun: $ => seq("fun", $.lambda_spec, repeat($._brace)),
 
     fun_spec: $ => seq(
       "\\",
       field("identifier", $.qualified_ident),
-      field("binder", choice(
-        repeat($._ident_square),
-        repeat(squares($.lazy_ident)),
-      )),
-      field("body", $._brace)
+      field("binder", repeat(choice(
+        $._ident_square,
+        squares($.lazy_ident),
+      ))),
+      field("body", $._verbatim_brace)
+    ),
+    lambda_spec: $ => seq(
+      field("binder", repeat(choice(
+        $._ident_square,
+        squares($.lazy_ident),
+      ))),
+      field("body", $._verbatim_brace)
     ),
     // }}}
 
