@@ -62,7 +62,8 @@ module.exports = grammar({
 
     //--- Trivia
     comment: _ => /%[^\r\n]*/,
-    text: _ => /([^%#\\{}\[\]()\r\n]|\\\\%)+/,
+    // BUG: https://github.com/tree-sitter/tree-sitter/discussions/3794
+    text: _ => /([^%#\\{}\[\]\r\n]|\\\\%)+/,
 
     //--- Command {{{
     command: $ => seq($._ident, repeat($._brace)),
