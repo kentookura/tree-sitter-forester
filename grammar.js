@@ -252,9 +252,10 @@ module.exports = grammar({
     markdown_link: $ =>
       seq(
         field("label", squares($._textual_node)),
-        field("dest", parens($.text)),
+        field("dest", parens(alias($._text_without_parentheses, $.text))),
       ),
     unlabeled_link: $ => seq("[[", $._textual_node, "]]"),
+    _text_without_parentheses: _ => /([^%#\\{}\[\]()\r\n]|\\\\%)+/,
     // }}}
 
     //-- Math {{{
