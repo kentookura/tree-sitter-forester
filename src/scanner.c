@@ -1,3 +1,4 @@
+#include "./trie.c"
 #include "string.h"
 #include "tree_sitter/alloc.h"
 #include "tree_sitter/array.h"
@@ -11,6 +12,7 @@ typedef enum {
   HERALD_STOP,
   CUSTOM_VERBATIM,
   LEGACY_VERBATIM,
+  BUILTIN_START,
 } TokenType;
 
 typedef Array(int32_t) heraldArray;
@@ -61,8 +63,6 @@ static bool scan_verbatim(Scanner *scanner, TSLexer *lexer) {
 }
 
 static bool start_herald(Scanner *scanner, TSLexer *lexer) {
-  int offset = 0;
-
   if (lexer->lookahead == '|' || lexer->lookahead == ' ' ||
       lexer->lookahead == '\r' || lexer->lookahead == '\n') {
     return false;
@@ -134,6 +134,67 @@ static bool scan_custom_verbatim(heraldArray *heralds, TSLexer *lexer,
   }
 }
 
+const char *BUILTINS[] = {
+    "ref",         "title",  "taxon",      "date",       "meta", "author",
+    "contributor", "parent", "number",     "tag",        "p",    "em",
+    "strong",      "li",     "ol",         "ul",         "code", "blockquote",
+    "pre",         "figure", "figcaption", "transclude", "tex",  "query",
+    "import",      "export", "open",       "def",        "let",  "fun",
+    "subtree",     "scope",  "put",        "get",        "put?", "alloc",
+    "object",      "patch",
+};
+
+static bool start_builtin(TSLexer *lexer) {
+  int ret = 0;
+  Trie *root = NULL;
+
+  // Create a root trie
+  ret = trie_new(&root);
+  if (-1 == ret) {
+    return false;
+  }
+
+  // insert all the words from the dictionary
+  for (size_t i = 0; i < sizeof(BUILTINS) / sizeof(BUILTINS[0]); i++) {
+    const char *builtin = BUILTINS[i];
+    ret = trie_insert(root, (char *)builtin, strlen(builtin));
+    if (-1 == ret) {
+      return false;
+    }
+  }
+
+  lexer->mark_end(lexer);
+
+  Trie *trie = root;
+  while (!lexer->eof(lexer)) {
+    ret = trie_poll(trie, lexer->lookahead, &trie);
+    if (-1 == ret) {
+      return false;
+    } else if (1 == ret) {
+      consume(lexer);
+      continue;
+    }
+
+    consume(lexer);
+    if (lexer->lookahead == '/') {
+      return false;
+    }
+
+    if ('a' <= lexer->lookahead && lexer->lookahead <= 'z' ||
+        'A' <= lexer->lookahead && lexer->lookahead <= 'Z') {
+      if (NULL == trie->children[lexer->lookahead]) {
+        return false;
+      }
+      continue;
+    } else {
+      lexer->result_symbol = BUILTIN_START;
+      return true;
+    }
+  }
+
+  return false;
+}
+
 bool tree_sitter_forester_external_scanner_scan(void *payload, TSLexer *lexer,
                                                 const bool *valid_symbols) {
 
@@ -156,6 +217,9 @@ bool tree_sitter_forester_external_scanner_scan(void *payload, TSLexer *lexer,
       array_push(&heralds, s[i]);
     }
     return scan_custom_verbatim(&heralds, lexer, LEGACY_VERBATIM);
+  } else if (valid_symbols[BUILTIN_START]) {
+    // dirty
+    return start_builtin(lexer);
   }
 
   return false;

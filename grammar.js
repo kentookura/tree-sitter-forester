@@ -40,6 +40,7 @@ module.exports = grammar({
     $.herald_stop,
     $.custom_verbatim,
     $.legacy_verbatim,
+    $._builtin_start,
   ],
 
   rules: {
@@ -53,8 +54,10 @@ module.exports = grammar({
         $._cmd,
         $._syntax,
       ),
+
     _cmd: $ => cmd(choice(
-      $.command, $._builtin
+      $.command,
+      seq($._builtin_start, $._builtin),
     )),
 
     //--- Trivia
