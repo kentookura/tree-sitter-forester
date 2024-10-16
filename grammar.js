@@ -126,18 +126,18 @@ module.exports = grammar({
       $.transclude,
       $.tex,
     ),
-    p: $ => seq("p", optional($._brace)),
-    em: $ => seq("em", optional($._brace)),
-    strong: $ => seq("strong", optional($._brace)),
-    li: $ => seq("li", optional($._brace)),
-    ol: $ => seq("ol", optional($._brace)),
-    ul: $ => seq("ul", optional($._brace)),
-    code: $ => seq("code", optional($._brace)),
-    blockquote: $ => seq("blockquote", optional($._brace)),
-    pre: $ => seq("pre", optional($._brace)),
-    figure: $ => seq("figure", optional($._brace)),
-    figcaption: $ => seq("figcaption", optional($._brace)),
-    transclude: $ => seq("transclude", optional($._brace)),
+    p: $ => seq("p", $._arg),
+    em: $ => seq("em", $._arg),
+    strong: $ => seq("strong", $._arg),
+    li: $ => seq("li", $._arg),
+    ol: $ => seq("ol", $._arg),
+    ul: $ => seq("ul", $._arg),
+    code: $ => seq("code", $._arg),
+    blockquote: $ => seq("blockquote", $._arg),
+    pre: $ => seq("pre", $._arg),
+    figure: $ => seq("figure", $._arg),
+    figcaption: $ => seq("figcaption", $._arg),
+    transclude: $ => seq("transclude", $._arg),
     tex: $ => seq(
       "tex",
       field("preamble", $._verbatim_brace),
@@ -149,7 +149,7 @@ module.exports = grammar({
     _query: $ => choice(
       $.query,
     ),
-    query: $ => seq("query", $._brace),
+    query: $ => seq("query", $._arg),
     // }}}
 
     //-- Fluid Binding {{{
@@ -158,8 +158,8 @@ module.exports = grammar({
       $.export,
       $.open,
     ),
-    import: $ => seq("import", $._text_brace),
-    export: $ => seq("export", $._text_brace),
+    import: $ => seq("import", $._arg),
+    export: $ => seq("export", $._arg),
     open: $ => seq("open", seq("\\", $.qualified_ident)),
     // }}}
 
@@ -196,11 +196,11 @@ module.exports = grammar({
       field("addr", optional($._text_square)),
       field("body", $._node_brace)
     ),
-    scope: $ => seq("scope", $._node_brace),
-    put: $ => seq("put", $.command,),
-    get: $ => seq("get", $.command,),
-    default: $ => seq("put?", $.command,),
-    alloc: $ => seq("alloc", $.command,),
+    scope: $ => seq("scope", $._arg),
+    put: $ => seq("put", $._cmd),
+    get: $ => seq("get", $._cmd),
+    default: $ => seq("put?", $._cmd),
+    alloc: $ => seq("alloc", $._cmd),
     // }}}
 
     //-- Object {{{
@@ -293,6 +293,8 @@ module.exports = grammar({
     _xml_base_ident: $ => alias(/[a-zA-Z][a-zA-Z0-9\-_]*/, $.ident),
     // }}}
     // }}}
+
+    _arg: $ => prec(2, choice($._brace, $._cmd, $._syntax)),
     _textual_node: $ => choice($.text, $._node),
     _brace: $ => braces(repeat($._textual_node)),
     _text_brace: $ => braces(repeat($.text)),
