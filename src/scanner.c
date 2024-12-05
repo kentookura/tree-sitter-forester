@@ -13,6 +13,7 @@ typedef enum {
   CUSTOM_VERBATIM,
   LEGACY_VERBATIM,
   BUILTIN_START,
+  INLINE_MATH_AS_TEXT,
 } TokenType;
 
 typedef Array(int32_t) heraldArray;
@@ -195,6 +196,24 @@ static bool start_builtin(TSLexer *lexer) {
   return false;
 }
 
+static bool inline_math_as_text(TSLexer *lexer) {
+  lexer->mark_end(lexer);
+
+  while (lexer->lookahead == '#') {
+    if (lexer->eof(lexer)) {
+      return false;
+    }
+    consume(lexer);
+    if (lexer->lookahead != '{') {
+      lexer->result_symbol = INLINE_MATH_AS_TEXT;
+      lexer->mark_end(lexer);
+      return true;
+    }
+  }
+
+  return false;
+}
+
 bool tree_sitter_forester_external_scanner_scan(void *payload, TSLexer *lexer,
                                                 const bool *valid_symbols) {
 
@@ -220,6 +239,9 @@ bool tree_sitter_forester_external_scanner_scan(void *payload, TSLexer *lexer,
   } else if (valid_symbols[BUILTIN_START]) {
     // dirty
     return start_builtin(lexer);
+  } else if (valid_symbols[INLINE_MATH_AS_TEXT]) {
+    // dirty
+    return inline_math_as_text(lexer);
   }
 
   return false;

@@ -41,6 +41,7 @@ module.exports = grammar({
     $.custom_verbatim,
     $.legacy_verbatim,
     $._builtin_start,
+    $._inline_math_as_text,
   ],
 
   rules: {
@@ -62,7 +63,6 @@ module.exports = grammar({
 
     //--- Trivia
     comment: _ => /%[^\r\n]*/,
-    // BUG: https://github.com/tree-sitter/tree-sitter/discussions/3794
     text: _ => /([^%#\\{}\[\]\r\n]|\\\\%)+/,
 
     //--- Command {{{
@@ -261,6 +261,7 @@ module.exports = grammar({
 
     //-- Math {{{
     _math: $ => choice(
+      alias($._inline_math_as_text, $.text),
       $.inline_math,
       $.display_math,
     ),
