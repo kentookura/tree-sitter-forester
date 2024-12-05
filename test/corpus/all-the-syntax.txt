@@ -15,14 +15,1229 @@ comment.tree
 ------------------
 
 (source_file
-  (ident
+  (title
     (text))
-  (text)
   (comment)
   (comment)
   (comment)
   (comment)
   (p
     (text))
-  (text)
   (comment))
+
+==================
+im-export.tree
+==================
+
+\title{im-export}
+
+\import{function}
+\p{
+  \startverb\import{xxx-NNNN}\stopverb
+  brings the functions exported by the tree \code{xxx-NNNN} into scope
+}
+
+\export{function}
+\p{
+  \startverb\export{xxx-NNNN}\stopverb
+  brings the functions exported by the tree \code{xxx-NNNN} into scope, and exports them from the current tree
+}
+
+\p{Hi, \emstrong{def}.}
+
+------------------
+
+(source_file
+  (title
+    (text))
+  (import
+    (text))
+  (p
+    (legacy_verb
+      (verbatim))
+    (text)
+    (code
+      (text))
+    (text))
+  (export
+    (text))
+  (p
+    (legacy_verb
+      (verbatim))
+    (text)
+    (code
+      (text))
+    (text))
+  (p
+    (text)
+    (command
+      (qualified_ident
+        (ident))
+      (text))
+    (text)))
+
+==================
+link.tree
+==================
+
+\title{link}
+
+\ul{
+  \li{[[jinser]]}
+  \li{[primitive](prim)}
+  \li{[external link](https://developer.mozilla.org/en-US/)}
+}
+
+\transclude{jinser}
+
+------------------
+
+(source_file
+  (title
+    (text))
+  (ul
+    (li
+      (unlabeled_link
+        (text)))
+    (li
+      (markdown_link
+        (text)
+        (text)))
+    (li
+      (markdown_link
+        (text)
+        (text))))
+  (transclude
+    (text)))
+
+==================
+math.tree
+==================
+
+\title{math}
+
+\let\OO{#{\mathcal{O}}}
+\let\II{#{\mathbb{I}}}
+\let\Horn{#{\mathbb{H}}}
+
+\ul{
+  \li{\OO}
+  \li{\II}
+  \li{\Horn}
+}
+
+\def\C{#{\mathrm{C}}}
+\def\dom[x]{\text{dom }\x}
+\def\cod[x]{\text{cod }\x}
+
+\p{A \em{category} \C consists of}
+\ol{
+  \li{a collection of ob\C of \em{objects} #{A, B, C, ...,}}
+  \li{a collection of mor\C of \em{morphisims} #{f, g, h, ...,}}
+  \li{two operations dom and cod assigning to each #{f \in} morC a pair of objects, its \em{domain} and \em{codomain}. We write #{A \xrightarrow{f} B} to mean #{f} is a morphism and #{\dom{f} = A}, #{\cod{f} = B},}
+  \li{an operation assigning to each #{A \in} ob\C a morhpism #{A \xrightarrow{1_A} A},}
+  \li{a partial binary operation #{(f, g) \mapsto f g} on morphisms, such that #{f g} is defined if and only if #{\dom{f} = \cod{g}} and let #{\dom{f g} = \dom{g}}, #{\cod{f g} = \cod{f}} if #{f g} is defined}
+}
+\p{satisfying}
+\ol{
+  \li{#{f 1_A = f = 1_B f} for any #{A \xrightarrow{f} B},}
+  \li{#{(fg)h = f(gh)} whenever #{fg} and #{gh} are defined.}
+}
+
+\def\brc[x]{#{{\mathopen{}\left\{\x\right\}\mathclose{}}}}
+\def\prn[x]{#{{\mathopen{}\left(\x\right)\mathclose{}}}}
+\def\Sub[arg1]{#{_{\arg1}}}
+\def\Sup[arg1]{#{^{\arg1}}}
+
+\p{##{
+  \Sigma = \brc{p\in\Omega \mid \exists f \in 2\Sup{\mathbb{N}}.\ p \leftrightarrow \prn{\exists n.f\prn{n}=\top}}
+}}
+
+------------------
+
+(source_file
+  (title
+    (text))
+  (let
+    (fun_spec
+      (qualified_ident
+        (ident))
+      (verbatim)))
+  (let
+    (fun_spec
+      (qualified_ident
+        (ident))
+      (verbatim)))
+  (let
+    (fun_spec
+      (qualified_ident
+        (ident))
+      (verbatim)))
+  (ul
+    (li
+      (command
+        (qualified_ident
+          (ident))))
+    (li
+      (command
+        (qualified_ident
+          (ident))))
+    (li
+      (command
+        (qualified_ident
+          (ident)))))
+  (def
+    (fun_spec
+      (qualified_ident
+        (ident))
+      (verbatim)))
+  (def
+    (fun_spec
+      (qualified_ident
+        (ident))
+      (ident)
+      (verbatim)))
+  (def
+    (fun_spec
+      (qualified_ident
+        (ident))
+      (ident)
+      (verbatim)))
+  (p
+    (text)
+    (em
+      (text))
+    (command
+      (qualified_ident
+        (ident)))
+    (text))
+  (ol
+    (li
+      (text)
+      (command
+        (qualified_ident
+          (ident)))
+      (text)
+      (em
+        (text))
+      (text)
+      (inline_math
+        (verbatim)))
+    (li
+      (text)
+      (command
+        (qualified_ident
+          (ident)))
+      (text)
+      (em
+        (text))
+      (text)
+      (inline_math
+        (verbatim)))
+    (li
+      (text)
+      (inline_math
+        (verbatim))
+      (text)
+      (em
+        (text))
+      (text)
+      (em
+        (text))
+      (text)
+      (inline_math
+        (verbatim))
+      (text)
+      (inline_math
+        (verbatim))
+      (text)
+      (inline_math
+        (verbatim))
+      (text)
+      (inline_math
+        (verbatim))
+      (text))
+    (li
+      (text)
+      (inline_math
+        (verbatim))
+      (text)
+      (command
+        (qualified_ident
+          (ident)))
+      (text)
+      (inline_math
+        (verbatim))
+      (text))
+    (li
+      (text)
+      (inline_math
+        (verbatim))
+      (text)
+      (inline_math
+        (verbatim))
+      (text)
+      (inline_math
+        (verbatim))
+      (text)
+      (inline_math
+        (verbatim))
+      (text)
+      (inline_math
+        (verbatim))
+      (text)
+      (inline_math
+        (verbatim))
+      (text)))
+  (p
+    (text))
+  (ol
+    (li
+      (inline_math
+        (verbatim))
+      (text)
+      (inline_math
+        (verbatim))
+      (text))
+    (li
+      (inline_math
+        (verbatim))
+      (text)
+      (inline_math
+        (verbatim))
+      (text)
+      (inline_math
+        (verbatim))
+      (text)))
+  (def
+    (fun_spec
+      (qualified_ident
+        (ident))
+      (ident)
+      (verbatim)))
+  (def
+    (fun_spec
+      (qualified_ident
+        (ident))
+      (ident)
+      (verbatim)))
+  (def
+    (fun_spec
+      (qualified_ident
+        (ident))
+      (ident)
+      (verbatim)))
+  (def
+    (fun_spec
+      (qualified_ident
+        (ident))
+      (ident)
+      (verbatim)))
+  (p
+    (text)
+    (inline_math
+      (verbatim))))
+
+==================
+meta.tree
+==================
+
+\title{meta}
+\taxon{example}
+\date{2023-09-04}
+\meta{github}{https://github.com/jetjinser/golden-forest}
+\author{jinser}
+\contributor{akira}
+\parent{index}
+\number{foo}
+\tag{bar}
+
+------------------
+
+(source_file
+  (title
+    (text))
+  (taxon
+    (text))
+  (date
+    (text))
+  (meta
+    (text)
+    (text))
+  (author
+    (text))
+  (contributor
+    (text))
+  (parent
+    (text))
+  (number
+    (text))
+  (tag
+    (text)))
+
+==================
+obj.tree
+==================
+
+\title{object}
+
+\def\grid{
+  \object{
+    [draw] {
+      \draw[step=1cm,gray,very thin] (-0.9,-0.9) grid (3.9,3.9);
+    }
+  }
+}
+
+\def\rectangle{
+  \object[self]{
+    [height]{2}
+    [width]{3}
+    [draw] {
+      \tex{
+        \usepackage{tikz}
+      }{
+        \begin{tikzpicture}
+          \grid#draw
+
+          \draw (0,0) -- (\self#width,0) -- (\self#width,\self#height) -- (0,\self#height) -- (0,0);
+        \end{tikzpicture}
+      }
+    }
+  }
+}
+
+\def\square{
+  \patch{\rectangle}[self]{
+    [side]{3}
+    [height]{\self#side}
+    [width]{\self#side}
+  }
+}
+
+\rectangle#draw
+\square#draw
+
+------------------
+
+(source_file
+  (title
+    (text))
+  (def
+    (fun_spec
+      (qualified_ident
+        (ident))
+      (verbatim)))
+  (def
+    (fun_spec
+      (qualified_ident
+        (ident))
+      (verbatim)))
+  (def
+    (fun_spec
+      (qualified_ident
+        (ident))
+      (verbatim)))
+  (command
+    (qualified_ident
+      (ident))
+    (method_call
+      (ident)))
+  (command
+    (qualified_ident
+      (ident))
+    (method_call
+      (ident))))
+
+==================
+akira.tree
+==================
+
+\title{akira}
+
+------------------
+
+(source_file
+  (title
+    (text)))
+
+==================
+jinser.tree
+==================
+
+\title{Jinser Kafka}
+
+\p{placeholder}
+
+------------------
+
+(source_file
+  (title
+    (text))
+  (p
+    (text)))
+
+==================
+prim.tree
+==================
+
+\title{prim}
+
+\p{paragraph}
+\p{
+  \p{nested paragraph} in a paragraph
+}
+
+\ul{
+  \li{unordered list item1, \strong{strong text in li}}
+  \li{unordered list item2, \em{emphasis text in li}}
+}
+
+\ul{
+  \li{ordered list item1, \strong{strong text in li}}
+  \li{ordered list item2, \em{emphasis text in li}}
+  \li{ordered list item3}
+  \li{ordered list item4}
+  \li{ordered list item5}
+}
+
+\p{The \code{code} usually used to display a short fragment of computer code.}
+
+\blockquote{
+  The \code{<blockquote>} [HTML](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/blockquote) element indicates that the enclosed text is an extended quotation.
+}
+
+\pre{presented exactly as written}
+
+\figure{
+  \tex{
+    \usepackage{tikz}
+  }{
+    \begin{tikzpicture}
+      \draw[step=1cm,gray,very thin] (-1.9,-1.9) grid (5.9,5.9);
+
+      \draw[thick,->] (0,0) -- (4.5,0) node[anchor=north west] {x axis};
+      \draw[thick,->] (0,0) -- (0,4.5) node[anchor=south east] {y axis};
+    \end{tikzpicture}
+  }
+  \figcaption{Axes}
+}
+
+------------------
+
+(source_file
+  (title
+    (text))
+  (p
+    (text))
+  (p
+    (p
+      (text))
+    (text))
+  (ul
+    (li
+      (text)
+      (strong
+        (text)))
+    (li
+      (text)
+      (em
+        (text))))
+  (ul
+    (li
+      (text)
+      (strong
+        (text)))
+    (li
+      (text)
+      (em
+        (text)))
+    (li
+      (text))
+    (li
+      (text))
+    (li
+      (text)))
+  (p
+    (text)
+    (code
+      (text))
+    (text))
+  (blockquote
+    (text)
+    (code
+      (text))
+    (text)
+    (markdown_link
+      (text)
+      (text))
+    (text))
+  (pre
+    (text))
+  (figure
+    (tex
+      (verbatim)
+      (verbatim))
+    (figcaption
+      (text))))
+
+==================
+query.tree
+==================
+
+\title{query}
+
+\let\query/reference-satisfying[q]{
+ \open\query
+ \isect{\author{jonmsterling}}{\taxon{reference}}{\q}
+}
+
+\subtree{
+ \title{accepted papers}
+ \query{
+  \open\query
+  \reference-satisfying{\tag{accepted}}
+ }
+}
+
+\subtree{
+ \title{refereed papers}
+ \query{
+  \open\query
+  \reference-satisfying{\tag{refereed}}
+ }
+}
+
+\subtree{
+ \title{manuscripts}
+ \query{
+  \open\query
+  \reference-satisfying{
+   \isect{\tag{preprint}}{\compl{\tag{accepted}}}
+  }
+ }
+}
+
+\subtree{
+ \title{dissertation}
+ \query{
+  \open\query
+  \reference-satisfying{\tag{dissertation}}
+ }
+}
+
+\subtree{
+ \title{presentations}
+ \query{
+  \open\query
+  \reference-satisfying{\tag{workshop}}
+ }
+}
+
+\subtree{
+ \title{seminar talks}
+ \query{
+  \open\query
+  \reference-satisfying{\tag{seminar}}
+ }
+}
+
+------------------
+
+(source_file
+  (title
+    (text))
+  (let
+    (fun_spec
+      (qualified_ident
+        (ident)
+        (ident_path
+          (ident)))
+      (ident)
+      (verbatim)))
+  (subtree
+    (title
+      (text))
+    (query
+      (open
+        (qualified_ident
+          (ident)))
+      (command
+        (qualified_ident
+          (ident))
+        (tag
+          (text)))
+      (text)))
+  (subtree
+    (title
+      (text))
+    (query
+      (open
+        (qualified_ident
+          (ident)))
+      (command
+        (qualified_ident
+          (ident))
+        (tag
+          (text)))
+      (text)))
+  (subtree
+    (title
+      (text))
+    (query
+      (open
+        (qualified_ident
+          (ident)))
+      (command
+        (qualified_ident
+          (ident))
+        (command
+          (qualified_ident
+            (ident))
+          (tag
+            (text))
+          (command
+            (qualified_ident
+              (ident))
+            (tag
+              (text))))
+        (text))
+      (text)))
+  (subtree
+    (title
+      (text))
+    (query
+      (open
+        (qualified_ident
+          (ident)))
+      (command
+        (qualified_ident
+          (ident))
+        (tag
+          (text)))
+      (text)))
+  (subtree
+    (title
+      (text))
+    (query
+      (open
+        (qualified_ident
+          (ident)))
+      (command
+        (qualified_ident
+          (ident))
+        (tag
+          (text)))
+      (text)))
+  (subtree
+    (title
+      (text))
+    (query
+      (open
+        (qualified_ident
+          (ident)))
+      (command
+        (qualified_ident
+          (ident))
+        (tag
+          (text)))
+      (text))))
+
+==================
+xml.tree
+==================
+
+\title{xml}
+
+\xmlns:mml{http://www.w3.org/1998/Math/MathML}
+\def\math[body]{\<mml:math>{\body}}
+\def\mrow[body]{\<mml:mrow>{\body}}
+\def\mi[x]{\<mml:mi>{\x}}
+\def\mo[o]{\<mml:mo>{\o}}
+\def\mn[n]{\<mml:mn>{\n}}
+
+\p{Let \math{\mi{x}} and \math{\mi{y}} be integers such that \math{\mrow{\mrow{\mi{x}\mo{-}\mi{y}}\mo{=}\mn{0}}}.}
+
+
+\xmlns:html{http://www.w3.org/1999/xhtml}
+
+\def\hcode[lang][body]{
+  \<html:pre>[class]{highlight}[lang]{\lang}{\body}
+}
+\def\icon[path][alt]{
+  \<html:img>[class]{custom-icon}[src]{\path}[alt]{\alt}{}
+}
+\def\fa[icon]{
+  \<html:i>[class]{fa fa-\icon}{}
+}
+\def\emojicon[body][delta]{
+  \<html:span>[class]{emojicon}{\body}
+}
+
+------------------
+
+(source_file
+  (title
+    (text))
+  (xmlns_decl
+    (ident)
+    (text))
+  (def
+    (fun_spec
+      (qualified_ident
+        (ident))
+      (ident)
+      (verbatim)))
+  (def
+    (fun_spec
+      (qualified_ident
+        (ident))
+      (ident)
+      (verbatim)))
+  (def
+    (fun_spec
+      (qualified_ident
+        (ident))
+      (ident)
+      (verbatim)))
+  (def
+    (fun_spec
+      (qualified_ident
+        (ident))
+      (ident)
+      (verbatim)))
+  (def
+    (fun_spec
+      (qualified_ident
+        (ident))
+      (ident)
+      (verbatim)))
+  (p
+    (text)
+    (command
+      (qualified_ident
+        (ident))
+      (command
+        (qualified_ident
+          (ident))
+        (text)))
+    (text)
+    (command
+      (qualified_ident
+        (ident))
+      (command
+        (qualified_ident
+          (ident))
+        (text)))
+    (text)
+    (command
+      (qualified_ident
+        (ident))
+      (command
+        (qualified_ident
+          (ident))
+        (command
+          (qualified_ident
+            (ident))
+          (command
+            (qualified_ident
+              (ident))
+            (text))
+          (command
+            (qualified_ident
+              (ident))
+            (text))
+          (command
+            (qualified_ident
+              (ident))
+            (text)))
+        (command
+          (qualified_ident
+            (ident))
+          (text))
+        (command
+          (qualified_ident
+            (ident))
+          (text))))
+    (text))
+  (xmlns_decl
+    (ident)
+    (text))
+  (def
+    (fun_spec
+      (qualified_ident
+        (ident))
+      (ident)
+      (ident)
+      (verbatim)))
+  (def
+    (fun_spec
+      (qualified_ident
+        (ident))
+      (ident)
+      (ident)
+      (verbatim)))
+  (def
+    (fun_spec
+      (qualified_ident
+        (ident))
+      (ident)
+      (verbatim)))
+  (def
+    (fun_spec
+      (qualified_ident
+        (ident))
+      (ident)
+      (ident)
+      (verbatim))))
+
+==================
+namespace.tree
+==================
+
+\title{namespace}
+
+\namespace\foo{
+  \export{function}
+
+  \def\a{\strong{a}}
+  \def\b{\em{b}}
+}
+
+\p{\foo/a, \foo/b and \foo/emstrong{c}.}
+
+\open\foo
+
+\p{\a, \b and \emstrong{c}.}
+
+------------------
+
+(source_file
+  (title
+    (text))
+  (command
+    (qualified_ident
+      (ident)))
+  (command
+    (qualified_ident
+      (ident))
+    (export
+      (text))
+    (def
+      (fun_spec
+        (qualified_ident
+          (ident))
+        (verbatim)))
+    (def
+      (fun_spec
+        (qualified_ident
+          (ident))
+        (verbatim))))
+  (p
+    (command
+      (qualified_ident
+        (ident)
+        (ident_path
+          (ident))))
+    (text)
+    (command
+      (qualified_ident
+        (ident)
+        (ident_path
+          (ident))))
+    (text)
+    (command
+      (qualified_ident
+        (ident)
+        (ident_path
+          (ident)))
+      (text))
+    (text))
+  (open
+    (qualified_ident
+      (ident)))
+  (p
+    (command
+      (qualified_ident
+        (ident)))
+    (text)
+    (command
+      (qualified_ident
+        (ident)))
+    (text)
+    (command
+      (qualified_ident
+        (ident))
+      (text))
+    (text)))
+
+==================
+function.tree
+==================
+
+\title{declaration}
+
+\def\emstrong[body]{\em{\strong{\body}}}
+
+\p{Combine \em{em} and \strong{strong} into \emstrong{emstrong}.}
+
+\let\github-user[user]{https://github.com/\user}
+
+\p{The \code\verb!|\let! define function in current scope.}
+\p{\github-user{jetjinser}}
+
+\fun[x][y]{Hello, \x and \y}{OCaml}{Forester}
+
+\def\my-fun[x][~y]{Hello, \x and \y{}!}
+
+\p{\my-fun{foo}{bar}}
+
+------------------
+
+(source_file
+  (title
+    (text))
+  (def
+    (fun_spec
+      (qualified_ident
+        (ident))
+      (ident)
+      (verbatim)))
+  (p
+    (text)
+    (em
+      (text))
+    (text)
+    (strong
+      (text))
+    (text)
+    (command
+      (qualified_ident
+        (ident))
+      (text))
+    (text))
+  (let
+    (fun_spec
+      (qualified_ident
+        (ident))
+      (ident)
+      (verbatim)))
+  (p
+    (text)
+    (code
+      (verb
+        (herald_start)
+        (herald_sep)
+        (verbatim)
+        (herald_stop)))
+    (text))
+  (p
+    (command
+      (qualified_ident
+        (ident))
+      (text)))
+  (fun
+    (lambda_spec
+      (ident)
+      (ident)
+      (verbatim))
+    (text)
+    (text))
+  (def
+    (fun_spec
+      (qualified_ident
+        (ident))
+      (ident)
+      (lazy_ident
+        (ident))
+      (verbatim)))
+  (p
+    (command
+      (qualified_ident
+        (ident))
+      (text)
+      (text))))
+
+==================
+verbatim.tree
+==================
+
+\title{verbatim}
+
+\p{\verb!|verbatim ident \em{verbatim text}!}
+\p{\code\verb!|verbatim ident \strong{verbatim text}!}
+
+\p{\pre\verb<<|
+  \p{\verb!|verbatim ident \em{verbatim text}!}
+  \p{\code\verb!|verbatim ident \em{verbatim text}!}
+<<
+}
+
+\p{\pre\verb顿|
+  \verb$$| ... $$
+       ^ ^ ^   ^- herald
+       | | |
+       | | - body
+       | - sep
+       - herald
+顿
+}
+
+\p{\pre\startverb
+  \p{\pre\verb顿|
+    \verb$$| ... $$
+         ^ ^ ^   ^- herald
+         | | |
+         | | - body
+         | - sep
+         - herald
+  顿
+  }
+\stopverb}
+
+------------------
+
+(source_file
+  (title
+    (text))
+  (p
+    (verb
+      (herald_start)
+      (herald_sep)
+      (verbatim)
+      (herald_stop)))
+  (p
+    (code
+      (verb
+        (herald_start)
+        (herald_sep)
+        (verbatim)
+        (herald_stop))))
+  (p
+    (pre
+      (verb
+        (herald_start)
+        (herald_sep)
+        (verbatim)
+        (herald_stop))))
+  (p
+    (pre
+      (verb
+        (herald_start)
+        (herald_sep)
+        (verbatim)
+        (herald_stop))))
+  (p
+    (pre
+      (legacy_verb
+        (verbatim)))))
+
+==================
+scope.tree
+==================
+
+\title{scope}
+
+\subtree{
+  \title{unstable tree}
+  \p{content}
+}
+
+\subtree[foo]{
+  \title{named tree}
+  \p{content}
+}
+
+\scope{
+  \put\transclude/toc{false}
+  \transclude{jinser}
+}
+
+\scope{
+ \put\transclude/heading{false}
+ \put\transclude/toc{false}
+
+ \subtree{
+  \taxon{slide}
+
+  \p{ABC foo}
+ }
+}
+
+\alloc\base/tex-preamble
+
+\def\texfig[~body]{
+ \scope{
+  % Install a LaTeX preamble to be used by default if none is set.
+  \put?\base/tex-preamble{
+   % Some useful things from my own library.
+    \usepackage{tikz}
+  }
+
+  % Wrap the diagram in a figure
+  \figure{
+   % Render the LaTeX code with the current preamble
+   \tex{\get\base/tex-preamble}{\body{}}
+  }
+ }
+}
+
+------------------
+
+(source_file
+  (title
+    (text))
+  (subtree
+    (title
+      (text))
+    (p
+      (text)))
+  (subtree
+    (text)
+    (title
+      (text))
+    (p
+      (text)))
+  (scope
+    (put
+      (command
+        (qualified_ident
+          (ident)
+          (ident_path
+            (ident)))
+        (text)))
+    (transclude
+      (text)))
+  (scope
+    (put
+      (command
+        (qualified_ident
+          (ident)
+          (ident_path
+            (ident)))
+        (text)))
+    (put
+      (command
+        (qualified_ident
+          (ident)
+          (ident_path
+            (ident)))
+        (text)))
+    (subtree
+      (taxon
+        (text))
+      (p
+        (text))))
+  (alloc
+    (command
+      (qualified_ident
+        (ident)
+        (ident_path
+          (ident)))))
+  (def
+    (fun_spec
+      (qualified_ident
+        (ident))
+      (lazy_ident
+        (ident))
+      (verbatim))))

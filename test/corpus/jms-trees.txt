@@ -1,0 +1,1788 @@
+==================
+base-macros.tree
+==================
+
+\title{basic macros}
+
+\import{latex-preamble}
+
+\xmlns:html{http://www.w3.org/1999/xhtml}
+
+\def\nowrap[body]{\<html:span>[style]{white-space: nowrap}{\body}}
+\def\mark[body]{\<html:mark>{\body}}
+
+\def\table[body]{
+  \<html:table>{\body}
+}
+\def\tr[body]{
+  \<html:tr>{\body}
+}
+\def\td[body]{
+  \<html:td>{\body}
+}
+\def\th[body]{
+  \<html:th>{\body}
+}
+\def\hr{
+  \<html:hr>{}
+}
+
+\alloc\base/tex-preamble
+
+\def\texfig[~body]{
+ \scope{
+  \put?\base/tex-preamble{
+   \latex-preamble/string-diagrams
+   \latex-preamble/diagrams
+  }
+  \figure{\tex{\get\base/tex-preamble}{\body{}}}
+ }
+}
+
+\def\proof[body]{
+ \scope{
+   \put\transclude/toc{false}
+   \subtree{
+     \taxon{proof}
+     \body
+   }
+ }
+}
+
+\def\solution[body]{
+ \scope{
+   \put\transclude/toc{false}
+   \subtree{
+     \taxon{solution}
+     \body
+   }
+ }
+}
+
+\def\Con[arg1]{#{\mathsf{\arg1}}}
+\def\BoldSymbol[arg1]{#{\boldsymbol{\arg1}}}
+\def\prn[x]{#{{\mathopen{}\left(\x\right)\mathclose{}}}}
+\def\brc[x]{#{{\mathopen{}\left\{\x\right\}\mathclose{}}}}
+\def\brk[x]{#{{\mathopen{}\left [\x\right ]\mathclose{}}}}
+\def\bbrk[x]{#{{\mathopen{}\llbracket\x\rrbracket\mathclose{}}}}
+\def\vrt[x]{#{{\mathopen{}\left\lvert\x\right\rvert\mathclose{}}}}
+\def\vvrt[x]{#{{\mathopen{}\left\lVert\x\right\rVert\mathclose{}}}}
+\def\gl[x]{#{{\mathopen{}\left\langle\x\right\rangle\mathclose{}}}}
+\def\floors[x]{#{{\mathopen{}\left\lfloor\x\right\rfloor\mathclose{}}}}
+
+\def\Sub[arg1]{#{_{\arg1}}}
+\def\Sup[arg1]{#{^{\arg1}}}
+\def\SubSup[arg1][arg2]{#{_{\arg1}^{\arg2}}}
+\def\Sl[arg1][arg2]{#{{\arg1}\Sub{/\arg2}}}
+\def\Homs[arg1]{#{\mathbf{hom}\Sub{\arg1}}}
+\def\Hom[arg1][arg2][arg3]{#{\mathbf{hom}\Sub{\arg1}\prn{\arg2,\arg3}}}
+\def\Ob[arg1]{#{\mathbf{ob}\Sub{\arg1}}}
+\def\Idn[arg1]{#{1\Sub{\arg1}}}
+\def\SET{#{\mathbf{Set}}}
+\def\InvImg[arg1]{#{\arg1\Sup{*}}}
+\def\DirImg[arg1]{#{\arg1\Sub{*}}}
+\def\OpCat[arg1]{#{\arg1\Sup{\mathsf{op}}}}
+\def\ObjTerm[arg1]{#{\mathbf{1}\Sub{\arg1}}}
+\def\ObjInit[arg1]{#{\mathbf{0}\Sub{\arg1}}}
+\def\tick{#{'}}
+\def\Cod[arg1]{#{\Con{cod}\Sub{\arg1}}}
+\def\CoSl[arg1][arg2]{#{\arg2\Sup{\setminus \arg1}}}
+\def\FibProd[arg1][arg2][arg3]{#{\arg1\mathbin{\times\Sub{\arg2}}\arg3}}
+\def\Mor[arg1][arg2][arg3]{#{{\arg2}\xrightarrow{{\arg1}}{\arg3}}}
+\def\Comma[arg1][arg2]{#{{\arg1}\downarrow{\arg2}}}
+
+\def\big-symbol[sym]{\mathchoice{\textstyle\sym}{\textstyle\sym}{\scriptstyle\sym}{\scriptscriptstyle\sym}}
+
+\def\ixsum[ix]{#{\big-symbol{\sum_{\prn{\ix}}}}}
+\def\covsum[ix]{#{\big-symbol{\oint_{\prn{\ix}}}}}
+\def\ctrvsum[ix]{#{\big-symbol{\int_{\prn{\ix}}}}}
+\def\ixprod[ix]{#{\big-symbol{\prod_{\prn{\ix}}}}}
+\def\dcoprod[ix]{#{\big-symbol{\coprod_{\prn{\ix}}}}}
+\def\iixprod[ix]{#{\big-symbol{\prod_{\brc{\ix}}}}}
+
+\def\lam[x]{\lambda{\x}\mathpunct{.}}
+\def\inv{^{-1}}
+
+\def\Lim[arg1]{\operatorname{lim}_{\arg1}}
+\def\Colim[arg1]{\operatorname{colim}_{\arg1}}
+
+\def\FinPow[X]{#{\mathcal{P}\Sub{\mathit{fin}}\prn{\X}}}
+\def\Psh{#{\operatorname{Pr}}}
+
+
+\def\citek[uid]{\let\escape[x]{\x}[\escape{[\uid]}](\uid)}
+
+
+
+
+\xmlns:jms-indent{jonmsterling:indenting}
+
+\def\iblock[body]{
+ \<jms-indent:block>{\body}
+}
+
+\def\irow[body]{
+ \<jms-indent:row>{\body}
+}
+
+
+\p{This tree defines the basic notational macros used across my forest.}
+
+------------------
+
+(source_file
+  (title
+    (text))
+  (import
+    (text))
+  (xmlns_decl
+    (ident)
+    (text))
+  (def
+    (fun_spec
+      (qualified_ident
+        (ident))
+      (ident)
+      (verbatim)))
+  (def
+    (fun_spec
+      (qualified_ident
+        (ident))
+      (ident)
+      (verbatim)))
+  (def
+    (fun_spec
+      (qualified_ident
+        (ident))
+      (ident)
+      (verbatim)))
+  (def
+    (fun_spec
+      (qualified_ident
+        (ident))
+      (ident)
+      (verbatim)))
+  (def
+    (fun_spec
+      (qualified_ident
+        (ident))
+      (ident)
+      (verbatim)))
+  (def
+    (fun_spec
+      (qualified_ident
+        (ident))
+      (ident)
+      (verbatim)))
+  (def
+    (fun_spec
+      (qualified_ident
+        (ident))
+      (verbatim)))
+  (alloc
+    (command
+      (qualified_ident
+        (ident)
+        (ident_path
+          (ident)))))
+  (def
+    (fun_spec
+      (qualified_ident
+        (ident))
+      (lazy_ident
+        (ident))
+      (verbatim)))
+  (def
+    (fun_spec
+      (qualified_ident
+        (ident))
+      (ident)
+      (verbatim)))
+  (def
+    (fun_spec
+      (qualified_ident
+        (ident))
+      (ident)
+      (verbatim)))
+  (def
+    (fun_spec
+      (qualified_ident
+        (ident))
+      (ident)
+      (verbatim)))
+  (def
+    (fun_spec
+      (qualified_ident
+        (ident))
+      (ident)
+      (verbatim)))
+  (def
+    (fun_spec
+      (qualified_ident
+        (ident))
+      (ident)
+      (verbatim)))
+  (def
+    (fun_spec
+      (qualified_ident
+        (ident))
+      (ident)
+      (verbatim)))
+  (def
+    (fun_spec
+      (qualified_ident
+        (ident))
+      (ident)
+      (verbatim)))
+  (def
+    (fun_spec
+      (qualified_ident
+        (ident))
+      (ident)
+      (verbatim)))
+  (def
+    (fun_spec
+      (qualified_ident
+        (ident))
+      (ident)
+      (verbatim)))
+  (def
+    (fun_spec
+      (qualified_ident
+        (ident))
+      (ident)
+      (verbatim)))
+  (def
+    (fun_spec
+      (qualified_ident
+        (ident))
+      (ident)
+      (verbatim)))
+  (def
+    (fun_spec
+      (qualified_ident
+        (ident))
+      (ident)
+      (verbatim)))
+  (def
+    (fun_spec
+      (qualified_ident
+        (ident))
+      (ident)
+      (verbatim)))
+  (def
+    (fun_spec
+      (qualified_ident
+        (ident))
+      (ident)
+      (verbatim)))
+  (def
+    (fun_spec
+      (qualified_ident
+        (ident))
+      (ident)
+      (ident)
+      (verbatim)))
+  (def
+    (fun_spec
+      (qualified_ident
+        (ident))
+      (ident)
+      (ident)
+      (verbatim)))
+  (def
+    (fun_spec
+      (qualified_ident
+        (ident))
+      (ident)
+      (verbatim)))
+  (def
+    (fun_spec
+      (qualified_ident
+        (ident))
+      (ident)
+      (ident)
+      (ident)
+      (verbatim)))
+  (def
+    (fun_spec
+      (qualified_ident
+        (ident))
+      (ident)
+      (verbatim)))
+  (def
+    (fun_spec
+      (qualified_ident
+        (ident))
+      (ident)
+      (verbatim)))
+  (def
+    (fun_spec
+      (qualified_ident
+        (ident))
+      (verbatim)))
+  (def
+    (fun_spec
+      (qualified_ident
+        (ident))
+      (ident)
+      (verbatim)))
+  (def
+    (fun_spec
+      (qualified_ident
+        (ident))
+      (ident)
+      (verbatim)))
+  (def
+    (fun_spec
+      (qualified_ident
+        (ident))
+      (ident)
+      (verbatim)))
+  (def
+    (fun_spec
+      (qualified_ident
+        (ident))
+      (ident)
+      (verbatim)))
+  (def
+    (fun_spec
+      (qualified_ident
+        (ident))
+      (ident)
+      (verbatim)))
+  (def
+    (fun_spec
+      (qualified_ident
+        (ident))
+      (verbatim)))
+  (def
+    (fun_spec
+      (qualified_ident
+        (ident))
+      (ident)
+      (verbatim)))
+  (def
+    (fun_spec
+      (qualified_ident
+        (ident))
+      (ident)
+      (ident)
+      (verbatim)))
+  (def
+    (fun_spec
+      (qualified_ident
+        (ident))
+      (ident)
+      (ident)
+      (ident)
+      (verbatim)))
+  (def
+    (fun_spec
+      (qualified_ident
+        (ident))
+      (ident)
+      (ident)
+      (ident)
+      (verbatim)))
+  (def
+    (fun_spec
+      (qualified_ident
+        (ident))
+      (ident)
+      (ident)
+      (verbatim)))
+  (def
+    (fun_spec
+      (qualified_ident
+        (ident))
+      (ident)
+      (verbatim)))
+  (def
+    (fun_spec
+      (qualified_ident
+        (ident))
+      (ident)
+      (verbatim)))
+  (def
+    (fun_spec
+      (qualified_ident
+        (ident))
+      (ident)
+      (verbatim)))
+  (def
+    (fun_spec
+      (qualified_ident
+        (ident))
+      (ident)
+      (verbatim)))
+  (def
+    (fun_spec
+      (qualified_ident
+        (ident))
+      (ident)
+      (verbatim)))
+  (def
+    (fun_spec
+      (qualified_ident
+        (ident))
+      (ident)
+      (verbatim)))
+  (def
+    (fun_spec
+      (qualified_ident
+        (ident))
+      (ident)
+      (verbatim)))
+  (def
+    (fun_spec
+      (qualified_ident
+        (ident))
+      (ident)
+      (verbatim)))
+  (def
+    (fun_spec
+      (qualified_ident
+        (ident))
+      (verbatim)))
+  (def
+    (fun_spec
+      (qualified_ident
+        (ident))
+      (ident)
+      (verbatim)))
+  (def
+    (fun_spec
+      (qualified_ident
+        (ident))
+      (ident)
+      (verbatim)))
+  (def
+    (fun_spec
+      (qualified_ident
+        (ident))
+      (ident)
+      (verbatim)))
+  (def
+    (fun_spec
+      (qualified_ident
+        (ident))
+      (verbatim)))
+  (def
+    (fun_spec
+      (qualified_ident
+        (ident))
+      (ident)
+      (verbatim)))
+  (xmlns_decl
+    (ident)
+    (text))
+  (def
+    (fun_spec
+      (qualified_ident
+        (ident))
+      (ident)
+      (verbatim)))
+  (def
+    (fun_spec
+      (qualified_ident
+        (ident))
+      (ident)
+      (verbatim)))
+  (p
+    (text)))
+
+==================
+act-2022.tree
+==================
+
+\import{conf-name-macros}
+\title{\conf-name{ACT ’22}{International Conference on Applied Category Theory}}
+\taxon{conference}
+\date{2022-07}
+\meta{external}{https://msp.cis.strath.ac.uk/act2022/}
+
+\p{[Applied category theory](https://www.appliedcategorytheory.org/) is a topic of interest for a growing community of researchers, interested in studying many different kinds of systems using category-theoretic tools. These systems are found across computer science, mathematics, and physics, as well as in social science, linguistics, cognition, and neuroscience. The background and experience of our members is as varied as the systems being studied. The goal of Applied Category Theory is to bring researchers in the field together, disseminate the latest results, and facilitate further development of the field.}
+
+------------------
+
+(source_file
+  (import
+    (text))
+  (title
+    (command
+      (qualified_ident
+        (ident))
+      (text)
+      (text)))
+  (taxon
+    (text))
+  (date
+    (text))
+  (meta
+    (text)
+    (text))
+  (p
+    (markdown_link
+      (text)
+      (text))
+    (text)))
+
+==================
+chapman-grothendieck-2022.tree
+==================
+
+\title{Grothendieck Conference}
+\date{2022-05}
+\taxon{conference}
+\meta{external}{https://www.chapman.edu/scst/conferences-and-events/grothendieck-conference.aspx}
+
+\p{Chapman University hosted a conference honoring and exploring the contributions of [[alexandergrothendieck]] to the field of Mathematics. This conference was sponsored by Chapman University and the University of Paris. We were honored to have our eminent guests here to speak to us on the revolutionary nature of [Grothendieck](alexandergrothendieck).}
+
+------------------
+
+(source_file
+  (title
+    (text))
+  (date
+    (text))
+  (taxon
+    (text))
+  (meta
+    (text)
+    (text))
+  (p
+    (text)
+    (unlabeled_link
+      (text))
+    (text)
+    (markdown_link
+      (text)
+      (text))
+    (text)))
+
+==================
+conf-name-macros.tree
+==================
+
+\def\conf-name[short][long]{\em{\short}: \long}
+
+------------------
+
+(source_file
+  (def
+    (fun_spec
+      (qualified_ident
+        (ident))
+      (ident)
+      (ident)
+      (verbatim))))
+
+==================
+csl-2024.tree
+==================
+
+\import{conf-name-macros}
+\title{\conf-name{CSL ’24}{32nd EACSL Annual Conference on Computer Science Logic 2024}}
+\date{2024-02-19}
+\taxon{conference}
+\meta{external}{https://csl2024.github.io/Home/}
+
+\p{CSL is the annual conference of the European Association for Computer Science Logic (EACSL). It is an interdisciplinary conference, spanning across both basic and application oriented research in mathematical logic and computer science. CSL’24 is hosted by the University of Naples Federico II.}
+
+\ul{
+  \li{\strong{Notification:} [[2023-10-27]]}
+  \li{\strong{Camera ready version:} [[2023-11-24]]}
+}
+------------------
+
+(source_file
+  (import
+    (text))
+  (title
+    (command
+      (qualified_ident
+        (ident))
+      (text)
+      (text)))
+  (date
+    (text))
+  (taxon
+    (text))
+  (meta
+    (text)
+    (text))
+  (p
+    (text))
+  (ul
+    (li
+      (strong
+        (text))
+      (text)
+      (unlabeled_link
+        (text)))
+    (li
+      (strong
+        (text))
+      (text)
+      (unlabeled_link
+        (text)))))
+
+==================
+csl-2025.tree
+==================
+
+\import{conf-name-macros}
+\title{\conf-name{CSL 2025}{33rd EACSL Annual Conference on Computer Science Logic 2025}}
+\date{2025-02-10}
+\taxon{conference}
+\meta{external}{https://csl2025.github.io/}
+
+\p{CSL is the annual conference of the European Association for Computer Science Logic (EACSL). It is an interdisciplinary conference, spanning across both basic and application oriented research in mathematical logic and computer science.}
+
+\p{CSL 2025 will be held on the 10th-14th February 2025 and is hosted by the Vrije Universiteit Amsterdam.}
+
+\ul{
+  \li{\strong{Notification:} [[2024-10-27]]}
+}
+------------------
+
+(source_file
+  (import
+    (text))
+  (title
+    (command
+      (qualified_ident
+        (ident))
+      (text)
+      (text)))
+  (date
+    (text))
+  (taxon
+    (text))
+  (meta
+    (text)
+    (text))
+  (p
+    (text))
+  (p
+    (text))
+  (ul
+    (li
+      (strong
+        (text))
+      (text)
+      (unlabeled_link
+        (text)))))
+
+==================
+fscd-2019.tree
+==================
+
+\import{conf-name-macros}
+\title{\conf-name{FSCD ’19}{International Conference on Formal Structures for Computation and Deduction}}
+\taxon{conference}
+\date{2019-06}
+\meta{external}{https://easyconferences.eu/fscd2019/}
+
+------------------
+
+(source_file
+  (import
+    (text))
+  (title
+    (command
+      (qualified_ident
+        (ident))
+      (text)
+      (text)))
+  (taxon
+    (text))
+  (date
+    (text))
+  (meta
+    (text)
+    (text)))
+
+==================
+hott-uf-2023.tree
+==================
+
+\import{conf-name-macros}
+
+\title{\conf-name{HoTT-UF ’23}{Workshop on Homotopy Type Theory/ Univalent Foundations}}
+\taxon{workshop}
+\date{2023-04-22}
+\meta{venue}{EuroProofNet WG6 meeting in Vienna in April 2023}
+\meta{external}{https://hott-uf.github.io/2023/}
+
+\p{Homotopy Type Theory is a young area of logic, combining ideas from several established fields: the use of dependent type theory as a foundation for mathematics, inspired by ideas and tools from abstract homotopy theory. Univalent Foundations are foundations of mathematics based on the homotopical interpretation of type theory.}
+
+\p{The goal of this workshop is to bring together researchers interested in all aspects of Homotopy Type Theory/Univalent Foundations: from the study of syntax and semantics of type theory to practical formalization in proof assistants based on univalent type theory.}
+
+------------------
+
+(source_file
+  (import
+    (text))
+  (title
+    (command
+      (qualified_ident
+        (ident))
+      (text)
+      (text)))
+  (taxon
+    (text))
+  (date
+    (text))
+  (meta
+    (text)
+    (text))
+  (meta
+    (text)
+    (text))
+  (p
+    (text))
+  (p
+    (text)))
+
+==================
+hott-uf-2024.tree
+==================
+
+\import{conf-name-macros}
+
+\title{\conf-name{HoTT-UF ’24}{Workshop on Homotopy Type Theory/ Univalent Foundations}}
+\taxon{workshop}
+\date{2024-04-02}
+\meta{venue}{EuroProofNet WG6 meeting in Leuven}
+\meta{external}{https://hott-uf.github.io/2024/}
+
+\p{Homotopy Type Theory is a young area of logic, combining ideas from several established fields: the use of dependent type theory as a foundation for mathematics, inspired by ideas and tools from abstract homotopy theory. Univalent Foundations are foundations of mathematics based on the homotopical interpretation of type theory.}
+
+\p{The goal of this workshop is to bring together researchers interested in all aspects of Homotopy Type Theory/Univalent Foundations: from the study of syntax and semantics of type theory to practical formalization in proof assistants based on univalent type theory.}
+
+\ul{
+  \li{\strong{abstract submission deadline}: 2024-01-19}
+  \li{\strong{PC review deadline}: 2024-02-14}
+}
+------------------
+
+(source_file
+  (import
+    (text))
+  (title
+    (command
+      (qualified_ident
+        (ident))
+      (text)
+      (text)))
+  (taxon
+    (text))
+  (date
+    (text))
+  (meta
+    (text)
+    (text))
+  (meta
+    (text)
+    (text))
+  (p
+    (text))
+  (p
+    (text))
+  (ul
+    (li
+      (strong
+        (text))
+      (text))
+    (li
+      (strong
+        (text))
+      (text))))
+
+==================
+hottccq-2024.tree
+==================
+
+\title{Homotopy Type Theory and Computing – Classical and Quantum}
+\date{2024-04-19}
+\taxon{conference}
+\meta{venue}{NYU Abu Dhabi}
+\meta{external}{https://nyuad.nyu.edu/en/events/2024/april/homotopy-type-theory-and-computing.html}
+
+\p{The aim of this conference is to discuss Homotopy Type Theory Theory (HoTT) as a substrate for computing and verification in software development, in synthetic homotopy theory, and possibly in application to (topological) quantum computing/simulation.}
+
+------------------
+
+(source_file
+  (title
+    (text))
+  (date
+    (text))
+  (taxon
+    (text))
+  (meta
+    (text)
+    (text))
+  (meta
+    (text)
+    (text))
+  (p
+    (text)))
+
+==================
+ias-special-year.tree
+==================
+
+\title{IAS Special Year on Univalent Foundations}
+\taxon{meeting}
+\date{2012}
+
+\meta{venue}{Institute for Advanced Study}
+\author{steveawodey}
+\author{thierrycoquand}
+\author{vladimirvoevodsky}
+
+\p{A Special Year on Univalent Foundations of Mathematics was held in 2012-13 at the Institute for Advanced Study, School of Mathematics, organized by [Steve Awodey](steveawodey), [Thierry Coquand](thierrycoquand), and [Vladimir Voevodsky](vladimirvoevodsky). The following people were the official participants:}
+
+\ul{
+  \li{Peter Aczel}
+  \li{[[benediktahrens]]}
+  \li{[[thorstenaltenkirch]]}
+  \li{[[steveawodey]]}
+  \li{Bruno Barras}
+  \li{[[andrejbauer]]}
+  \li{Yves Bertot}
+  \li{Marc Bezem}
+  \li{[[thierrycoquand]]}
+  \li{Eric Finster}
+  \li{Daniel Grayson}
+  \li{Hugo Herbelin}
+  \li{[[andréjoyal]]}
+  \li{[[danlicata]]}
+  \li{[[peterlumsdaine]]}
+  \li{Assia Mahboubi}
+  \li{[[permartinlöf]]}
+  \li{Sergey Melikhov}
+  \li{Alvaro Pelayo}
+  \li{Andrew Polonsky}
+  \li{[[mikeshulman]]}
+  \li{Matthieu Sozeau}
+  \li{[[basspitters]]}
+  \li{[[bennovandenberg]]}
+  \li{[[vladimirvoevodsky]]}
+  \li{Michael Warren}
+  \li{Noam Zeilberger}
+}
+
+\p{There were also the following students, whose participation was no less valuable.}
+
+\ul{
+  \li{[[carloangiuli]]}
+  \li{Anthony Bordg}
+  \li{Guillaume Brunerie}
+  \li{[[chriskapulkin]]}
+  \li{[[egbertrijke]]}
+  \li{Kristina Sojakova}
+}
+
+\p{In addition, there were the following short- and long-term visitors, including student visitors, whose contributions to the Special Year were also essential.}
+
+\ul{
+  \li{Jeremy Avigad}
+  \li{[[cyrilcohen]]}
+  \li{Robert Constable}
+  \li{Pierre-Louis Curien}
+  \li{Peter Dybjer}
+  \li{[[martinescardo]]}
+  \li{[[favonia]]}
+  \li{Nicola Gambino}
+  \li{Richard Garner}
+  \li{Georges Gonthier}
+  \li{Thomas Hales}
+  \li{[[robertharper]]}
+  \li{Martin Hofmann}
+  \li{Pieter Hofstra}
+  \li{Joachim Kock}
+  \li{Nicolai Kraus}
+  \li{Nuo Li}
+  \li{Zhaohui Luo}
+  \li{Michael Nahas}
+  \li{Erik Palmgren}
+  \li{[[emilyriehl]]}
+  \li{[[danascott]]}
+  \li{Philip Scott}
+  \li{Sergei Soloviev}
+}
+
+------------------
+
+(source_file
+  (title
+    (text))
+  (taxon
+    (text))
+  (date
+    (text))
+  (meta
+    (text)
+    (text))
+  (author
+    (text))
+  (author
+    (text))
+  (author
+    (text))
+  (p
+    (text)
+    (markdown_link
+      (text)
+      (text))
+    (text)
+    (markdown_link
+      (text)
+      (text))
+    (text)
+    (markdown_link
+      (text)
+      (text))
+    (text))
+  (ul
+    (li
+      (text))
+    (li
+      (unlabeled_link
+        (text)))
+    (li
+      (unlabeled_link
+        (text)))
+    (li
+      (unlabeled_link
+        (text)))
+    (li
+      (text))
+    (li
+      (unlabeled_link
+        (text)))
+    (li
+      (text))
+    (li
+      (text))
+    (li
+      (unlabeled_link
+        (text)))
+    (li
+      (text))
+    (li
+      (text))
+    (li
+      (text))
+    (li
+      (unlabeled_link
+        (text)))
+    (li
+      (unlabeled_link
+        (text)))
+    (li
+      (unlabeled_link
+        (text)))
+    (li
+      (text))
+    (li
+      (unlabeled_link
+        (text)))
+    (li
+      (text))
+    (li
+      (text))
+    (li
+      (text))
+    (li
+      (unlabeled_link
+        (text)))
+    (li
+      (text))
+    (li
+      (unlabeled_link
+        (text)))
+    (li
+      (unlabeled_link
+        (text)))
+    (li
+      (unlabeled_link
+        (text)))
+    (li
+      (text))
+    (li
+      (text)))
+  (p
+    (text))
+  (ul
+    (li
+      (unlabeled_link
+        (text)))
+    (li
+      (text))
+    (li
+      (text))
+    (li
+      (unlabeled_link
+        (text)))
+    (li
+      (unlabeled_link
+        (text)))
+    (li
+      (text)))
+  (p
+    (text))
+  (ul
+    (li
+      (text))
+    (li
+      (unlabeled_link
+        (text)))
+    (li
+      (text))
+    (li
+      (text))
+    (li
+      (text))
+    (li
+      (unlabeled_link
+        (text)))
+    (li
+      (unlabeled_link
+        (text)))
+    (li
+      (text))
+    (li
+      (text))
+    (li
+      (text))
+    (li
+      (text))
+    (li
+      (unlabeled_link
+        (text)))
+    (li
+      (text))
+    (li
+      (text))
+    (li
+      (text))
+    (li
+      (text))
+    (li
+      (text))
+    (li
+      (text))
+    (li
+      (text))
+    (li
+      (text))
+    (li
+      (unlabeled_link
+        (text)))
+    (li
+      (unlabeled_link
+        (text)))
+    (li
+      (text))
+    (li
+      (text))))
+
+==================
+icfp-2019.tree
+==================
+
+\import{conf-name-macros}
+\title{\conf-name{ICFP ’19}{The 24th ACM SIGPLAN International Conference on Functional Programming}}
+\taxon{conference}
+\date{2019-08}
+\meta{external}{https://icfp19.sigplan.org/}
+
+------------------
+
+(source_file
+  (import
+    (text))
+  (title
+    (command
+      (qualified_ident
+        (ident))
+      (text)
+      (text)))
+  (taxon
+    (text))
+  (date
+    (text))
+  (meta
+    (text)
+    (text)))
+
+==================
+icfp-2023.tree
+==================
+
+\import{conf-name-macros}
+\title{\conf-name{ICFP ’23}{The 28th ACM SIGPLAN International Conference on Functional Programming}}
+\taxon{conference}
+\date{2023-09}
+\meta{external}{https://icfp23.sigplan.org/}
+
+------------------
+
+(source_file
+  (import
+    (text))
+  (title
+    (command
+      (qualified_ident
+        (ident))
+      (text)
+      (text)))
+  (taxon
+    (text))
+  (date
+    (text))
+  (meta
+    (text)
+    (text)))
+
+==================
+lics-2018.tree
+==================
+
+\import{conf-name-macros}
+\title{\conf-name{LICS ’18}{33rd Annual ACM/IEEE Symposium on Logic in Computer Science}}
+\taxon{conference}
+\date{2018-07}
+\meta{external}{https://lics.siglog.org/lics18/}
+
+\p{The LICS Symposium is an annual international forum on theoretical and practical topics in computer science that relate to logic, broadly construed.}
+
+------------------
+
+(source_file
+  (import
+    (text))
+  (title
+    (command
+      (qualified_ident
+        (ident))
+      (text)
+      (text)))
+  (taxon
+    (text))
+  (date
+    (text))
+  (meta
+    (text)
+    (text))
+  (p
+    (text)))
+
+==================
+lics-2024.tree
+==================
+
+\import{conf-name-macros}
+\title{\conf-name{LICS ’24}{39th Annual ACM/IEEE Symposium on Logic in Computer Science}}
+\taxon{conference}
+\date{2024-07}
+\meta{venue}{Tallinn, Estonia}
+\meta{external}{https://lics.siglog.org/lics24/}
+
+\p{The LICS Symposium is an annual international forum on theoretical and practical topics in computer science that relate to logic, broadly construed.}
+
+\ul{
+  \li{\strong{Titles and Short Abstracts Due:} [[2024-01-21]]}
+  \li{\strong{Full Papers Due:} [[2024-01-26]]}
+}
+
+------------------
+
+(source_file
+  (import
+    (text))
+  (title
+    (command
+      (qualified_ident
+        (ident))
+      (text)
+      (text)))
+  (taxon
+    (text))
+  (date
+    (text))
+  (meta
+    (text)
+    (text))
+  (meta
+    (text)
+    (text))
+  (p
+    (text))
+  (ul
+    (li
+      (strong
+        (text))
+      (text)
+      (unlabeled_link
+        (text)))
+    (li
+      (strong
+        (text))
+      (text)
+      (unlabeled_link
+        (text)))))
+
+==================
+mfps-2024.tree
+==================
+
+\import{conf-name-macros}
+
+\title{\conf-name{MFPS ’24}{40th International Conference on Mathematical Foundations of Programming Semantics}}
+\taxon{conference}
+\date{2024-6}
+\meta{venue}{Oxford}
+\meta{external}{https://oxford24.github.io/}
+
+
+\ul{
+  \li{\strong{Full Papers Due:} [[2024-03-29]]}
+}
+
+------------------
+
+(source_file
+  (import
+    (text))
+  (title
+    (command
+      (qualified_ident
+        (ident))
+      (text)
+      (text)))
+  (taxon
+    (text))
+  (date
+    (text))
+  (meta
+    (text)
+    (text))
+  (meta
+    (text)
+    (text))
+  (ul
+    (li
+      (strong
+        (text))
+      (text)
+      (unlabeled_link
+        (text)))))
+
+==================
+oopsla-2024-25.tree
+==================
+
+\import{conf-name-macros}
+
+\title{\conf-name{OOPSLA 2024–25}{Object-Oriented Programming, Systems, Languages & Applications}}
+\date{2025}
+\meta{external}{https://www.sigplan.org/Conferences/OOPSLA/}
+\taxon{conference}
+------------------
+
+(source_file
+  (import
+    (text))
+  (title
+    (command
+      (qualified_ident
+        (ident))
+      (text)
+      (text)))
+  (date
+    (text))
+  (meta
+    (text)
+    (text))
+  (taxon
+    (text)))
+
+==================
+pittsposium-2023.tree
+==================
+
+\import{conf-name-macros}
+
+\title{\conf-name{Pittsposium}{A Workshop Celebrating the Career of [[andrewpitts]]}}
+\taxon{workshop}
+\date{2023-08-22}
+\meta{venue}{[[camcl]]}
+\meta{external}{https://www.cl.cam.ac.uk/events/pittsposium/}
+
+\blockquote{
+  \p{[[andrewpitts]] is Professor of Theoretical Computer Science in the [[ucam]], having joined the [Computer Laboratory](camcl) as a Lecturer in 1989. He holds a PhD in Mathematics, also from Cambridge, and is a Fellow of Darwin College. His early research interests were in applications of category theory in logic and mathematical foundations; from around 1985 onwards these turned to applications in the semantics of programming languages. His work in theoretical computer science has ranged over category theory, constructive logic, type theory, programming language semantics, and the design and implementation of metaprogramming languages. [Prof. Pitts](andrewpitts) is an ACM Fellow and a recipient of the Alonzo Church Award for Outstanding Contributions to Logic and Computation.}
+
+  \p{Through his career [Andy](andrewpitts) has supervised twelve doctoral students, published research with dozens of collaborators, and inspired many more with his gentle and persuasive instruction. Always generous with fresh ideas, his far-sighted intuition and enthusiasm has guided the community in innovative research for over four decades. [A longer biography is available here.](https://www.cl.cam.ac.uk/events/pittsposium/pittsposium_bio.pdf)}
+
+  \p{We are delighted to invite the community to participate in this workshop as a celebration of [Andy](andrewpitts)’s research and long career, with talks to be given by many of his students, colleagues and collaborators.}
+}
+------------------
+
+(source_file
+  (import
+    (text))
+  (title
+    (command
+      (qualified_ident
+        (ident))
+      (text)
+      (text)
+      (unlabeled_link
+        (text))))
+  (taxon
+    (text))
+  (date
+    (text))
+  (meta
+    (text)
+    (unlabeled_link
+      (text)))
+  (meta
+    (text)
+    (text))
+  (blockquote
+    (p
+      (unlabeled_link
+        (text))
+      (text)
+      (unlabeled_link
+        (text))
+      (text)
+      (markdown_link
+        (text)
+        (text))
+      (text)
+      (markdown_link
+        (text)
+        (text))
+      (text))
+    (p
+      (text)
+      (markdown_link
+        (text)
+        (text))
+      (text)
+      (markdown_link
+        (text)
+        (text)))
+    (p
+      (text)
+      (markdown_link
+        (text)
+        (text))
+      (text))))
+
+==================
+popl-2023.tree
+==================
+
+\import{conf-name-macros}
+\title{\conf-name{POPL ’23}{50th ACM SIGPLAN Symposium on Principles of Programming Languages}}
+\taxon{conference}
+\date{2023-01}
+\meta{external}{https://popl23.sigplan.org/}
+
+\p{The annual Symposium on Principles of Programming Languages is a forum for the discussion of all aspects of programming languages and programming systems. Both theoretical and experimental papers are welcome on topics ranging from formal frameworks to experience reports. We seek submissions that make principled, enduring contributions to the theory, design, understanding, implementation or application of programming languages.}
+
+------------------
+
+(source_file
+  (import
+    (text))
+  (title
+    (command
+      (qualified_ident
+        (ident))
+      (text)
+      (text)))
+  (taxon
+    (text))
+  (date
+    (text))
+  (meta
+    (text)
+    (text))
+  (p
+    (text)))
+
+==================
+popl-2024.tree
+==================
+
+\import{conf-name-macros}
+\title{\conf-name{POPL ’24}{51st ACM SIGPLAN Symposium on Principles of Programming Languages}}
+\taxon{conference}
+\date{2024-01}
+\meta{external}{https://popl24.sigplan.org/}
+
+\p{The annual Symposium on Principles of Programming Languages is a forum for the discussion of all aspects of programming languages and programming systems. Both theoretical and experimental papers are welcome on topics ranging from formal frameworks to experience reports. We seek submissions that make principled, enduring contributions to the theory, design, understanding, implementation, or application of programming languages.}
+
+\ul{
+  \li{Conditional Acceptance Notification: [[2023-10-02]]}
+  \li{Revised Submission Deadline: 2023-10-26}
+}
+
+------------------
+
+(source_file
+  (import
+    (text))
+  (title
+    (command
+      (qualified_ident
+        (ident))
+      (text)
+      (text)))
+  (taxon
+    (text))
+  (date
+    (text))
+  (meta
+    (text)
+    (text))
+  (p
+    (text))
+  (ul
+    (li
+      (text)
+      (unlabeled_link
+        (text)))
+    (li
+      (text))))
+
+==================
+tyde-2022.tree
+==================
+
+\import{conf-name-macros}
+\title{\conf-name{TyDe ’22}{Workshop on Type-driven Development}}
+\taxon{workshop}
+\date{2022-09}
+\meta{external}{https://icfp22.sigplan.org/home/tyde-2022}
+\meta{venue}{The 27th ACM SIGPLAN International Conference on Functional Programming}
+
+\p{The Workshop on Type-Driven Development (TyDe) aims to show how static type information may be used effectively in the development of computer programs. Co-located with ICFP, this workshop brings together leading researchers and practitioners who are using or exploring types as a means of program development.}
+
+------------------
+
+(source_file
+  (import
+    (text))
+  (title
+    (command
+      (qualified_ident
+        (ident))
+      (text)
+      (text)))
+  (taxon
+    (text))
+  (date
+    (text))
+  (meta
+    (text)
+    (text))
+  (meta
+    (text)
+    (text))
+  (p
+    (text)))
+
+==================
+wits-2023.tree
+==================
+
+\import{conf-name-macros}
+
+\title{\conf-name{WITS ’23}{Workshop on the Implementation of Type Systems}}
+\date{2023-08}
+\taxon{workshop}
+\meta{external}{https://ifl23.github.io/call_papers_wits.html}
+\meta{venue}{The 35th Symposium on Implementation and Application of Functional Languages}
+
+\p{The Second Workshop on the Implementation of Type Systems (WITS 2023) will be held on August 28, 2023, in Braga, Portugal, co-located with IFL 2023. The goal of this workshop is to bring together the implementors of a variety of languages with advanced type systems. The main focus is on the practical issues that come up in the implementation of these systems, rather than the theoretical frameworks that underlie them. In particular, we want to encourage exchanging ideas between the communities around specific systems that would otherwise be accessible to only a very select group. The workshop will have a mix of invited and contributed talks, organized discussion times, and informal collaboration time. We invite participants to share their experiences, study differences among the implementations, and generalize lessons from those. We also want to promote the creation of a shared vocabulary and set of best practices for implementing type systems.}
+
+------------------
+
+(source_file
+  (import
+    (text))
+  (title
+    (command
+      (qualified_ident
+        (ident))
+      (text)
+      (text)))
+  (date
+    (text))
+  (taxon
+    (text))
+  (meta
+    (text)
+    (text))
+  (meta
+    (text)
+    (text))
+  (p
+    (text)))
+
+==================
+yamcats-32.tree
+==================
+
+\title{Yorkshire and Midlands Category Theory Seminar #32}
+\taxon{seminar}
+\date{2023-09-14}
+\meta{external}{https://conferences.leeds.ac.uk/yamcats/meeting-32/}
+\meta{venue}{[[camcl]]}
+
+------------------
+
+(source_file
+  (title
+    (text)
+    (text)
+    (text))
+  (taxon
+    (text))
+  (date
+    (text))
+  (meta
+    (text)
+    (text))
+  (meta
+    (text)
+    (unlabeled_link
+      (text))))
+
+==================
+frct-0000.tree
+==================
+
+\title{displayed category}
+\author{jonmsterling}
+\date{2022}
+\taxon{definition}
+
+\export{base-macros}
+
+\def\DispTo[arg1]{#{\xrightarrow[\arg1]{}}}
+\def\DispMor[arg1][arg2][arg3][arg4]{#{{\arg3}\xrightarrow[\arg2]{\arg1}{\arg4}}}
+
+
+\p{Let #{B} be a category. A \em{displayed category} #{E} over #{B} is defined by the following data according to ([Ahrens and Lumsdaine](ahrens-lumsdaine-2019)):}
+
+\ol{
+  \li{for each object #{x\in B}, a collection of \em{displayed objects} #{E\Sub{x}},}
+
+  \li{for each morphism #{\Mor{f}{x}{y}\in B} and displayed objects #{\bar{x}\in E\Sub{x}} and #{\bar{y}\in E\Sub{y}}, a family of collections of \em{displayed morphisms} #{\Hom{E\Sub{f}}{\bar{x}}{\bar{y}}}, an element of which shall denote by #{\DispMor{\bar{f}}{f}{\bar{x}}{\bar{y}}},}
+
+  \li{for each #{x\in B} and #{\bar{x}\in E\Sub{x}}, a displayed morphism #{\DispMor{\Idn{\bar{x}}}{\Idn{x}}{\bar{x}}{\bar{x}}},}
+
+  \li{
+    for each #{\Mor{f}{x}{y}} and #{\Mor{g}{y}{z}} in #{B} and objects #{\bar{x}\in E\Sub{x}, \bar{y}\in E\Sub{y}, \bar{z}\in E\Sub{z}}, a function
+
+    ##{ \Hom{E\Sub{f}}{\bar{x}}{\bar{y}} \times\Hom{E\Sub{g}}{\bar{y}}{\bar{z}} \to \Hom{E\Sub{f;g}}{\bar{x}}{\bar{z}}
+    }
+
+    that we will denote like ordinary (diagrammatic) function composition,
+  }
+
+  \li{such that the following equations hold:
+
+    ##{          \Idn{\bar{x}};\bar{h} = \bar{h}\qquad
+    \bar{h};\Idn{\bar{y}} = \bar{h}\qquad
+    \bar{f};(\bar{g};\bar{h}) = (\bar{f};\bar{g});\bar{h}
+    }
+
+
+    Note that these are well-defined because of the corresponding laws for the base category #{B}.
+  }
+}
+
+\transclude{frct-003R}
+
+------------------
+
+(source_file
+  (title
+    (text))
+  (author
+    (text))
+  (date
+    (text))
+  (taxon
+    (text))
+  (export
+    (text))
+  (def
+    (fun_spec
+      (qualified_ident
+        (ident))
+      (ident)
+      (verbatim)))
+  (def
+    (fun_spec
+      (qualified_ident
+        (ident))
+      (ident)
+      (ident)
+      (ident)
+      (ident)
+      (verbatim)))
+  (p
+    (text)
+    (inline_math
+      (verbatim))
+    (text)
+    (em
+      (text))
+    (text)
+    (inline_math
+      (verbatim))
+    (text)
+    (inline_math
+      (verbatim))
+    (text)
+    (markdown_link
+      (text)
+      (text))
+    (text))
+  (ol
+    (li
+      (text)
+      (inline_math
+        (verbatim))
+      (text)
+      (em
+        (text))
+      (text)
+      (inline_math
+        (verbatim))
+      (text))
+    (li
+      (text)
+      (inline_math
+        (verbatim))
+      (text)
+      (inline_math
+        (verbatim))
+      (text)
+      (inline_math
+        (verbatim))
+      (text)
+      (em
+        (text))
+      (text)
+      (inline_math
+        (verbatim))
+      (text)
+      (inline_math
+        (verbatim))
+      (text))
+    (li
+      (text)
+      (inline_math
+        (verbatim))
+      (text)
+      (inline_math
+        (verbatim))
+      (text)
+      (inline_math
+        (verbatim))
+      (text))
+    (li
+      (text)
+      (inline_math
+        (verbatim))
+      (text)
+      (inline_math
+        (verbatim))
+      (text)
+      (inline_math
+        (verbatim))
+      (text)
+      (inline_math
+        (verbatim))
+      (text)
+      (text)
+      (text)
+      (inline_math
+        (verbatim))
+      (text)
+      (text))
+    (li
+      (text)
+      (text)
+      (text)
+      (inline_math
+        (verbatim))
+      (text)
+      (inline_math
+        (verbatim))
+      (text)
+      (text)))
+  (transclude
+    (text)))
+
+==================
+frct-0001.tree
+==================
+
+\title{cartesian morphism}
+\taxon{definition}
+\author{jonmsterling}
+
+
+\import{base-macros}
+\import{frct-0000}
+
+
+\p{Let #{E} be displayed over #{B}, and let #{\Mor{f}{x}{y} \in B}; a morphism #{\DispMor{\bar{f}}{f}{\bar{x}}{\bar{y}}} in #{E} is called \em{cartesian} over #{f} when for any #{\Mor{m}{u}{x}} and #{\DispMor{\bar{h}}{m;f}{\bar{u}}{\bar{y}}} there exists a unique #{\DispMor{\bar{m}}{m}{\bar{u}}{\bar{x}}} with #{\bar{m};\bar{f} = \bar{h}}. We visualize this unique factorization of #{\bar{h}} through #{\bar{f}} over #{m} as follows:}
+
+\texfig{
+  \begin{tikzpicture}[diagram]
+    \SpliceDiagramSquare{
+      west/style = lies over,
+      east/style = lies over,
+      north/node/style = upright desc,
+      height = 1.5cm,
+      nw = \bar{x},
+      ne = \bar{y},
+      sw = x,
+      north = \bar{f},
+      south = f,
+      se = y,
+      nw/style = pullback,
+    }
+    \node (u') [above left = 1.5cm of nw,xshift=-.5cm] {$\bar{u}$};
+    \node (u) [above left = 1.5cm of sw,xshift=-.5cm] {$u$};
+    \draw[lies over] (u') to (u);
+    \draw[->,bend left=30] (u') to node [sloped,above] {$\bar{h}$} (ne);
+    \draw[->] (u) to node [sloped,below] {$m$} (sw);
+    \draw[->,exists] (u') to node [desc] {$\bar{m}$} (nw);
+  \end{tikzpicture}
+}
+
+\p{Above we have used the “pullback corner” to indicate #{\bar{x}\to\bar{y}} as a
+cartesian map. We return to this in our discussion of the [self-indexing](frct-0003)
+of a category.}
+
+------------------
+
+

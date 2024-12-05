@@ -29,22 +29,14 @@ Subtree
 
 (source_file
   (subtree
-    (addr
-      (prefix)
-      (id))
     (text)
-    (ident
+    (title
       (text))
-    (text)
-    (text)
     (p
       (text)))
   (subtree
-    (text)
-    (ident
+    (title
       (text))
-    (text)
-    (text)
     (p
       (text))))
 
@@ -61,8 +53,7 @@ Method call
     (qualified_ident
       (ident))
     (method_call
-      (qualified_ident
-        (ident)))))
+      (ident))))
 
 ================================================================================
 Contributor
@@ -223,7 +214,8 @@ Display Math
 (source_file
   (p
     (text)
-    (display_math
+    (text)
+    (inline_math
       (verbatim))))
 
 ================================================================================
@@ -245,18 +237,21 @@ Math Text
 (source_file
   (p
     (text)
-    (display_math
+    (text)
+    (inline_math
       (verbatim)))
   (p
     (text)
-    (display_math
+    (text)
+    (inline_math
       (verbatim))
     (text)
     (inline_math
       (verbatim)))
   (p
     (text)
-    (display_math
+    (text)
+    (inline_math
       (verbatim))
     (text)
     (inline_math
@@ -278,7 +273,8 @@ Math Commands
 (source_file
   (p
     (text)
-    (display_math
+    (text)
+    (inline_math
       (verbatim))))
 
 ================================================================================
@@ -311,18 +307,7 @@ Function Definition
       (ident)
       (ident)
       (ident)
-      (p
-        (command
-          (qualified_ident
-            (ident)))
-        (command
-          (qualified_ident
-            (ident)))
-        (command
-          (qualified_ident
-            (ident))))
-      (transclude
-        (text)))))
+      (verbatim))))
 
 ================================================================================
 Prim
@@ -369,11 +354,13 @@ Scope
 
 (source_file
   (scope
-    (text)
     (put
-      (ident
-        (text))
-      (text))))
+      (command
+        (qualified_ident
+          (ident)
+          (ident_path
+            (ident)))
+        (text)))))
 
 ================================================================================
 Query
@@ -393,35 +380,12 @@ Query
 (source_file
   (def
     (fun_spec
-      (ident
-        (text))
-      (text)
-      (text)
-      (open
-        (ident
-          (text)))
-      (text)
-      (ident
-        (text))
-      (text)
-      (ident
-        (text))
-      (ident
-        (text))
-      (ident
-        (text))
-      (ident
-        (text))
-      (ident
-        (text))
-      (ident
-        (text))
-      (text)
-      (text)
-      (ident
-        (text))
-      (text)
-      (text))))
+      (qualified_ident
+        (ident)
+        (ident_path
+          (ident)))
+      (ident)
+      (verbatim))))
 
 ================================================================================
 Objects
@@ -444,25 +408,9 @@ Objects
 (source_file
   (def
     (fun_spec
-      (ident
-        (text))
-      (text)
-      (object
-        (text)
-        (method_decl
-          (text)
-          (method_body
-            (text)
-            (text)))
-        (method_decl
-          (text)
-          (method_body
-            (text)
-            (text)
-            (ident_with_method_calls
-              (text)
-              (text))
-            (text)))))))
+      (qualified_ident
+        (ident))
+      (verbatim))))
 
 ================================================================================
 Patch
@@ -479,18 +427,12 @@ Patch
 
 (source_file
   (patch
-    (ident
-      (text))
-    (text)
+    (qualified_ident
+      (ident))
+    (ident)
     (method_decl
-      (text)
-      (method_body
-        (text)
-        (ident_with_method_calls
-          (text)
-          (text))
-        (text)
-        (text)))))
+      (ident)
+      (verbatim))))
 
 ================================================================================
 XML
@@ -506,48 +448,39 @@ XML
 --------------------------------------------------------------------------------
 
 (source_file
-  (decl_xmlns
+  (xmlns_decl
+    (ident)
     (text))
   (def
     (fun_spec
-      (ident
-        (text))
-      (text)
-      (xml_tag)
-      (ident
-        (text))))
+      (qualified_ident
+        (ident))
+      (ident)
+      (verbatim)))
   (def
     (fun_spec
-      (ident
-        (text))
-      (text)
-      (xml_tag)
-      (ident
-        (text))))
+      (qualified_ident
+        (ident))
+      (ident)
+      (verbatim)))
   (def
     (fun_spec
-      (ident
-        (text))
-      (text)
-      (xml_tag)
-      (ident
-        (text))))
+      (qualified_ident
+        (ident))
+      (ident)
+      (verbatim)))
   (def
     (fun_spec
-      (ident
-        (text))
-      (text)
-      (xml_tag)
-      (ident
-        (text))))
+      (qualified_ident
+        (ident))
+      (ident)
+      (verbatim)))
   (def
     (fun_spec
-      (ident
-        (text))
-      (text)
-      (xml_tag)
-      (ident
-        (text)))))
+      (qualified_ident
+        (ident))
+      (ident)
+      (verbatim))))
 
 ================================================================================
 Full
@@ -610,22 +543,16 @@ Full
 --------------------------------------------------------------------------------
 
 (source_file
-  (ident
+  (title
     (text))
-  (text)
   (p
     (text))
   (transclude
-    (addr
-      (prefix)
-      (id)))
+    (text))
   (p
-    (text)
     (ul
-      (text)
       (li
         (text))
-      (text)
       (li
         (text))
       (text))
@@ -635,111 +562,88 @@ Full
       (text))
     (text)
     (unlabeled_link
-      (external_link
-        (text)))
-    (text)
+      (text))
     (code
       (text)))
-  (ident
-    (text))
-  (text)
-  (markdown_link
+  (command
+    (qualified_ident
+      (ident))
+    (text)
+    (markdown_link
+      (text)
+      (text))
+    (text)
+    (unlabeled_link
+      (text))
+    (code
+      (text))
     (text)
     (text))
-  (text)
-  (unlabeled_link
-    (external_link
-      (text)))
-  (text)
-  (code
-    (text))
-  (text)
-  (text)
   (def
     (fun_spec
-      (ident
-        (text))
-      (text)
-      (object
-        (text)
-        (method_decl
-          (text)
-          (method_body
-            (text)
-            (text)))
-        (method_decl
-          (text)
-          (method_body
-            (text)
-            (text)
-            (ident_with_method_calls
-              (text)
-              (text))
-            (text))))))
+      (qualified_ident
+        (ident))
+      (verbatim)))
   (patch
-    (ident
-      (text))
-    (text)
+    (qualified_ident
+      (ident))
+    (ident)
     (method_decl
-      (text)
-      (method_body
+      (ident)
+      (verbatim)))
+  (command
+    (qualified_ident
+      (ident))
+    (command
+      (qualified_ident
+        (ident))
+      (markdown_link
         (text)
-        (ident_with_method_calls
-          (text)
-          (text))
+        (text))
+      (unlabeled_link
+        (text)))
+    (command
+      (qualified_ident
+        (ident))
+      (markdown_link
         (text)
-        (text))))
-  (ident
-    (text))
-  (text)
-  (ident
-    (text))
-  (markdown_link
-    (text)
-    (text))
-  (unlabeled_link
-    (external_link
-      (text)))
-  (text)
-  (ident
-    (text))
-  (markdown_link
-    (text)
-    (text))
-  (unlabeled_link
-    (external_link
-      (text)))
-  (text)
-  (ident
-    (text))
-  (markdown_link
-    (text)
-    (text))
-  (text)
-  (text)
-  (ident
-    (text))
-  (markdown_link
-    (text)
-    (text))
-  (text)
-  (text)
-  (ident
-    (text))
-  (markdown_link
-    (text)
-    (text))
-  (text)
-  (scope
-    (text)
-    (put
-      (ident
+        (text))
+      (unlabeled_link
+        (text)))
+    (command
+      (qualified_ident
+        (ident))
+      (markdown_link
+        (text)
         (text))
       (text))
-    (text)
-    (query_tree
-      (text)
-      (ident
+    (command
+      (qualified_ident
+        (ident))
+      (markdown_link
+        (text)
         (text))
-      (text)
+      (text))
+    (command
+      (qualified_ident
+        (ident))
+      (markdown_link
+        (text)
+        (text))
+      (text)))
+  (scope
+    (put
+      (command
+        (qualified_ident
+          (ident)
+          (ident_path
+            (ident)))
+        (text)))
+    (query
+      (command
+        (qualified_ident
+          (ident)
+          (ident_path
+            (ident)))
+        (text))
       (text))))
