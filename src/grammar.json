@@ -1270,6 +1270,15 @@
       "type": "CHOICE",
       "members": [
         {
+          "type": "ALIAS",
+          "content": {
+            "type": "SYMBOL",
+            "name": "_inline_math_as_text"
+          },
+          "named": true,
+          "value": "text"
+        },
+        {
           "type": "SYMBOL",
           "name": "inline_math"
         },
@@ -1713,6 +1722,10 @@
     {
       "type": "SYMBOL",
       "name": "_builtin_start"
+    },
+    {
+      "type": "SYMBOL",
+      "name": "_inline_math_as_text"
     }
   ],
   "inline": [],

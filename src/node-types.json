@@ -6012,6 +6012,10 @@
           "named": true
         },
         {
+          "type": "text",
+          "named": true
+        },
+        {
           "type": "title",
           "named": true
         },
@@ -6441,6 +6445,10 @@
           },
           {
             "type": "tex",
+            "named": true
+          },
+          {
+            "type": "text",
             "named": true
           },
           {
