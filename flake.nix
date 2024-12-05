@@ -29,9 +29,10 @@
           buildInputs = with pkgs; [
             forester.packages.${system}.default
             nodejs
-            gcc
             tree-sitter
             topiary
+            nodePackages.typescript-language-server
+            clang-tools
             (rust-bin.stable.latest.default.override {
               extensions = [
                 "rust-src"
