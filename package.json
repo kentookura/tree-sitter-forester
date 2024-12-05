@@ -4,17 +4,9 @@
   "description": "",
   "main": "bindings/node",
   "types": "bindings/node",
-  "tree-sitter": [
-    {
-      "scope": "grammar.js",
-      "file-types": [
-        "tree"
-      ],
-      "highlights": [
-        "queries/highlights.scm"
-      ]
-    }
-  ],
+  "devDependencies": {
+    "prebuildify": "^6.0.0"
+  },
   "scripts": {
     "test": "tree-sitter test",
     "highlight": "tree-sitter highlight",
@@ -42,8 +34,5 @@
     "tree_sitter": {
       "optional": true
     }
-  },
-  "devDependencies": {
-    "prebuildify": "^6.0.0"
   }
 }
