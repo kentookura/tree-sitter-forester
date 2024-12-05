@@ -66,6 +66,7 @@ module.exports = grammar({
     text: _ => /([^%#\\{}\[\]\r\n]|\\\\%)+/,
 
     //--- Command {{{
+    // FIXME: Is it possible to fallback to verbatim when _brace parses errors?
     command: $ => seq($._ident, repeat($._brace)),
 
     _ident: $ => prec.right(seq($.qualified_ident, field("method", repeat($.method_call)))),
