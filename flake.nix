@@ -7,13 +7,13 @@
     };
   };
   outputs =
-    {
-      self,
-      flake-utils,
-      nixpkgs,
-      forester,
-      rust-overlay,
-    }@inputs:
+    { self
+    , flake-utils
+    , nixpkgs
+    , forester
+    , rust-overlay
+    ,
+    }:
 
     flake-utils.lib.eachDefaultSystem (
       system:
