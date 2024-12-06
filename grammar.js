@@ -52,14 +52,15 @@ module.exports = grammar({
       choice(
         $.comment,
 
-        $._cmd,
+        $.command,
         $._syntax,
       ),
 
-    _cmd: $ => cmd(choice(
-      $.command,
-      seq($._builtin_start, $._builtin),
-    )),
+    command: $ =>
+      choice(
+        $._command,
+        seq("\\", $._builtin_start, $._builtin),
+      ),
 
     //--- Trivia
     comment: _ => /%[^\r\n]*/,
@@ -67,7 +68,7 @@ module.exports = grammar({
 
     //--- Command {{{
     // FIXME: Is it possible to fallback to verbatim when _brace parses errors?
-    command: $ => seq($._ident, repeat($._brace)),
+    _command: $ => seq("\\", $._ident, repeat($._brace)),
 
     _ident: $ => prec.right(seq($.qualified_ident, field("method", repeat($.method_call)))),
     ident: _ => /[a-zA-Z][a-zA-Z0-9\-]*/,
@@ -211,10 +212,10 @@ module.exports = grammar({
       field("body", $._node_brace)
     ),
     scope: $ => seq("scope", $._arg),
-    put: $ => seq("put", $._cmd),
-    get: $ => seq("get", $._cmd),
-    default: $ => seq("put?", $._cmd),
-    alloc: $ => seq("alloc", $._cmd),
+    put: $ => seq("put", $.command),
+    get: $ => seq("get", $.command),
+    default: $ => seq("put?", $.command),
+    alloc: $ => seq("alloc", $.command),
     // }}}
 
     //-- Object {{{
@@ -310,7 +311,7 @@ module.exports = grammar({
     // }}}
     // }}}
 
-    _arg: $ => prec(2, choice($._brace, $._cmd, $._syntax)),
+    _arg: $ => prec(2, choice($._brace, $.command, $._syntax)),
     _textual_node: $ => choice($.text, $._node),
     _brace: $ => braces(repeat($._textual_node)),
     _text_brace: $ => braces(repeat($.text)),
