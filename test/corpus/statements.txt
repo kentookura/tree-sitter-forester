@@ -7,8 +7,9 @@ Text
 --------------------------------------------------------------------------------
 
 (source_file
-  (p
-    (text)))
+  (command
+    (p
+      (text))))
 
 ================================================================================
 Subtree
@@ -28,17 +29,23 @@ Subtree
 --------------------------------------------------------------------------------
 
 (source_file
-  (subtree
-    (text)
-    (title
-      (text))
-    (p
-      (text)))
-  (subtree
-    (title
-      (text))
-    (p
-      (text))))
+  (command
+    (subtree
+      (text)
+      (command
+        (title
+          (text)))
+      (command
+        (p
+          (text)))))
+  (command
+    (subtree
+      (command
+        (title
+          (text)))
+      (command
+        (p
+          (text))))))
 
 ================================================================================
 Method call
@@ -64,8 +71,9 @@ Contributor
 --------------------------------------------------------------------------------
 
 (source_file
-  (contributor
-    (text)))
+  (command
+    (contributor
+      (text))))
 
 ================================================================================
 Meta
@@ -76,9 +84,10 @@ Meta
 --------------------------------------------------------------------------------
 
 (source_file
-  (meta
-    (text)
-    (text)))
+  (command
+    (meta
+      (text)
+      (text))))
 
 ================================================================================
 Tags
@@ -90,10 +99,12 @@ Tags
 --------------------------------------------------------------------------------
 
 (source_file
-  (tag
-    (text))
-  (tag
-    (text)))
+  (command
+    (tag
+      (text)))
+  (command
+    (tag
+      (text))))
 
 ================================================================================
 Author
@@ -104,8 +115,9 @@ Author
 --------------------------------------------------------------------------------
 
 (source_file
-  (author
-    (text)))
+  (command
+    (author
+      (text))))
 
 ================================================================================
 Import
@@ -116,8 +128,9 @@ Import
 --------------------------------------------------------------------------------
 
 (source_file
-  (import
-    (text)))
+  (command
+    (import
+      (text))))
 
 ================================================================================
 Export
@@ -128,8 +141,9 @@ Export
 --------------------------------------------------------------------------------
 
 (source_file
-  (export
-    (text)))
+  (command
+    (export
+      (text))))
 
 ================================================================================
 Date
@@ -141,10 +155,12 @@ Date
 --------------------------------------------------------------------------------
 
 (source_file
-  (date
-    (text))
-  (date
-    (text)))
+  (command
+    (date
+      (text)))
+  (command
+    (date
+      (text))))
 
 ================================================================================
 Title
@@ -155,8 +171,9 @@ Title
 --------------------------------------------------------------------------------
 
 (source_file
-  (title
-    (text)))
+  (command
+    (title
+      (text))))
 
 ================================================================================
 Transclusion
@@ -167,8 +184,9 @@ Transclusion
 --------------------------------------------------------------------------------
 
 (source_file
-  (transclude
-    (text)))
+  (command
+    (transclude
+      (text))))
 
 ================================================================================
 Ident
@@ -179,11 +197,12 @@ Ident
 --------------------------------------------------------------------------------
 
 (source_file
-  (p
-    (command
-      (qualified_ident
-        (ident))
-      (text))))
+  (command
+    (p
+      (command
+        (qualified_ident
+          (ident))
+        (text)))))
 
 ================================================================================
 Inline Math
@@ -196,10 +215,11 @@ Inline Math
 --------------------------------------------------------------------------------
 
 (source_file
-  (p
-    (text)
-    (inline_math
-      (verbatim))))
+  (command
+    (p
+      (text)
+      (inline_math
+        (verbatim)))))
 
 ================================================================================
 Display Math
@@ -212,11 +232,12 @@ Display Math
 --------------------------------------------------------------------------------
 
 (source_file
-  (p
-    (text)
-    (text)
-    (inline_math
-      (verbatim))))
+  (command
+    (p
+      (text)
+      (text)
+      (inline_math
+        (verbatim)))))
 
 ================================================================================
 Math Text
@@ -235,28 +256,31 @@ Math Text
 --------------------------------------------------------------------------------
 
 (source_file
-  (p
-    (text)
-    (text)
-    (inline_math
-      (verbatim)))
-  (p
-    (text)
-    (text)
-    (inline_math
-      (verbatim))
-    (text)
-    (inline_math
-      (verbatim)))
-  (p
-    (text)
-    (text)
-    (inline_math
-      (verbatim))
-    (text)
-    (inline_math
-      (verbatim))
-    (text)))
+  (command
+    (p
+      (text)
+      (text)
+      (inline_math
+        (verbatim))))
+  (command
+    (p
+      (text)
+      (text)
+      (inline_math
+        (verbatim))
+      (text)
+      (inline_math
+        (verbatim))))
+  (command
+    (p
+      (text)
+      (text)
+      (inline_math
+        (verbatim))
+      (text)
+      (inline_math
+        (verbatim))
+      (text))))
 
 ================================================================================
 Math Commands
@@ -271,11 +295,12 @@ Math Commands
 --------------------------------------------------------------------------------
 
 (source_file
-  (p
-    (text)
-    (text)
-    (inline_math
-      (verbatim))))
+  (command
+    (p
+      (text)
+      (text)
+      (inline_math
+        (verbatim)))))
 
 ================================================================================
 Comment
@@ -300,14 +325,15 @@ Function Definition
 --------------------------------------------------------------------------------
 
 (source_file
-  (def
-    (fun_spec
-      (qualified_ident
-        (ident))
-      (ident)
-      (ident)
-      (ident)
-      (verbatim))))
+  (command
+    (def
+      (fun_spec
+        (qualified_ident
+          (ident))
+        (ident)
+        (ident)
+        (ident)
+        (verbatim)))))
 
 ================================================================================
 Prim
@@ -325,21 +351,24 @@ Prim
 --------------------------------------------------------------------------------
 
 (source_file
-  (p
-    (text)
-    (markdown_link
+  (command
+    (p
       (text)
-      (text))
-    (ul
-      (li
-        (unlabeled_link
+      (markdown_link
+        (text)
+        (text))
+      (command
+        (ul
+          (command
+            (li
+              (unlabeled_link
+                (text))))
           (text)))
-      (text))
-    (text)
-    (markdown_link
       (text)
-      (text))
-    (text)))
+      (markdown_link
+        (text)
+        (text))
+      (text))))
 
 ================================================================================
 Scope
@@ -353,14 +382,16 @@ Scope
 --------------------------------------------------------------------------------
 
 (source_file
-  (scope
-    (put
+  (command
+    (scope
       (command
-        (qualified_ident
-          (ident)
-          (ident_path
-            (ident)))
-        (text)))))
+        (put
+          (command
+            (qualified_ident
+              (ident)
+              (ident_path
+                (ident)))
+            (text)))))))
 
 ================================================================================
 Query
@@ -378,14 +409,15 @@ Query
 --------------------------------------------------------------------------------
 
 (source_file
-  (def
-    (fun_spec
-      (qualified_ident
+  (command
+    (def
+      (fun_spec
+        (qualified_ident
+          (ident)
+          (ident_path
+            (ident)))
         (ident)
-        (ident_path
-          (ident)))
-      (ident)
-      (verbatim))))
+        (verbatim)))))
 
 ================================================================================
 Objects
@@ -406,11 +438,12 @@ Objects
 --------------------------------------------------------------------------------
 
 (source_file
-  (def
-    (fun_spec
-      (qualified_ident
-        (ident))
-      (verbatim))))
+  (command
+    (def
+      (fun_spec
+        (qualified_ident
+          (ident))
+        (verbatim)))))
 
 ================================================================================
 Patch
@@ -426,13 +459,14 @@ Patch
 --------------------------------------------------------------------------------
 
 (source_file
-  (patch
-    (qualified_ident
-      (ident))
-    (ident)
-    (method_decl
+  (command
+    (patch
+      (qualified_ident
+        (ident))
       (ident)
-      (verbatim))))
+      (method_decl
+        (ident)
+        (verbatim)))))
 
 ================================================================================
 XML
@@ -451,36 +485,41 @@ XML
   (xmlns_decl
     (ident)
     (text))
-  (def
-    (fun_spec
-      (qualified_ident
-        (ident))
-      (ident)
-      (verbatim)))
-  (def
-    (fun_spec
-      (qualified_ident
-        (ident))
-      (ident)
-      (verbatim)))
-  (def
-    (fun_spec
-      (qualified_ident
-        (ident))
-      (ident)
-      (verbatim)))
-  (def
-    (fun_spec
-      (qualified_ident
-        (ident))
-      (ident)
-      (verbatim)))
-  (def
-    (fun_spec
-      (qualified_ident
-        (ident))
-      (ident)
-      (verbatim))))
+  (command
+    (def
+      (fun_spec
+        (qualified_ident
+          (ident))
+        (ident)
+        (verbatim))))
+  (command
+    (def
+      (fun_spec
+        (qualified_ident
+          (ident))
+        (ident)
+        (verbatim))))
+  (command
+    (def
+      (fun_spec
+        (qualified_ident
+          (ident))
+        (ident)
+        (verbatim))))
+  (command
+    (def
+      (fun_spec
+        (qualified_ident
+          (ident))
+        (ident)
+        (verbatim))))
+  (command
+    (def
+      (fun_spec
+        (qualified_ident
+          (ident))
+        (ident)
+        (verbatim)))))
 
 ================================================================================
 Full
@@ -543,28 +582,36 @@ Full
 --------------------------------------------------------------------------------
 
 (source_file
-  (title
-    (text))
-  (p
-    (text))
-  (transclude
-    (text))
-  (p
-    (ul
-      (li
-        (text))
-      (li
-        (text))
-      (text))
-    (text)
-    (markdown_link
-      (text)
-      (text))
-    (text)
-    (unlabeled_link
-      (text))
-    (code
+  (command
+    (title
       (text)))
+  (command
+    (p
+      (text)))
+  (command
+    (transclude
+      (text)))
+  (command
+    (p
+      (command
+        (ul
+          (command
+            (li
+              (text)))
+          (command
+            (li
+              (text)))
+          (text)))
+      (text)
+      (markdown_link
+        (text)
+        (text))
+      (text)
+      (unlabeled_link
+        (text))
+      (command
+        (code
+          (text)))))
   (command
     (qualified_ident
       (ident))
@@ -575,22 +622,25 @@ Full
     (text)
     (unlabeled_link
       (text))
-    (code
-      (text))
+    (command
+      (code
+        (text)))
     (text)
     (text))
-  (def
-    (fun_spec
+  (command
+    (def
+      (fun_spec
+        (qualified_ident
+          (ident))
+        (verbatim))))
+  (command
+    (patch
       (qualified_ident
         (ident))
-      (verbatim)))
-  (patch
-    (qualified_ident
-      (ident))
-    (ident)
-    (method_decl
       (ident)
-      (verbatim)))
+      (method_decl
+        (ident)
+        (verbatim))))
   (command
     (qualified_ident
       (ident))
@@ -631,19 +681,22 @@ Full
         (text)
         (text))
       (text)))
-  (scope
-    (put
+  (command
+    (scope
       (command
-        (qualified_ident
-          (ident)
-          (ident_path
-            (ident)))
-        (text)))
-    (query
+        (put
+          (command
+            (qualified_ident
+              (ident)
+              (ident_path
+                (ident)))
+            (text))))
       (command
-        (qualified_ident
-          (ident)
-          (ident_path
-            (ident)))
-        (text))
-      (text))))
+        (query
+          (command
+            (qualified_ident
+              (ident)
+              (ident_path
+                (ident)))
+            (text))
+          (text))))))
