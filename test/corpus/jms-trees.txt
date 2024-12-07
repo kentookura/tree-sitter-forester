@@ -707,7 +707,6 @@ csl-2024.tree
           (command
             (strong
               (text)))
-          (text)
           (unlabeled_link
             (text)))))))
 
@@ -764,7 +763,6 @@ csl-2025.tree
           (command
             (strong
               (text)))
-          (text)
           (unlabeled_link
             (text)))))))
 
@@ -1449,7 +1447,6 @@ lics-2024.tree
           (command
             (strong
               (text)))
-          (text)
           (unlabeled_link
             (text))))
       (command
@@ -1457,7 +1454,6 @@ lics-2024.tree
           (command
             (strong
               (text)))
-          (text)
           (unlabeled_link
             (text)))))))
 
@@ -1512,7 +1508,6 @@ mfps-2024.tree
           (command
             (strong
               (text)))
-          (text)
           (unlabeled_link
             (text)))))))
 
@@ -1942,7 +1937,6 @@ frct-0000.tree
       (command
         (em
           (text)))
-      (text)
       (inline_math
         (verbatim))
       (text)
@@ -1964,7 +1958,6 @@ frct-0000.tree
           (command
             (em
               (text)))
-          (text)
           (inline_math
             (verbatim))
           (text)))
@@ -1983,7 +1976,6 @@ frct-0000.tree
           (command
             (em
               (text)))
-          (text)
           (inline_math
             (verbatim))
           (text)
@@ -2018,22 +2010,18 @@ frct-0000.tree
             (verbatim))
           (text)
           (text)
-          (text)
           (inline_math
             (verbatim))
-          (text)
           (text)))
       (command
         (li
           (text)
           (text)
-          (text)
           (inline_math
             (verbatim))
           (text)
           (inline_math
             (verbatim))
-          (text)
           (text)))))
   (command
     (transclude

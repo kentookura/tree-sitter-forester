@@ -252,7 +252,6 @@ math.tree
           (command
             (em
               (text)))
-          (text)
           (inline_math
             (verbatim))))
       (command
@@ -265,7 +264,6 @@ math.tree
           (command
             (em
               (text)))
-          (text)
           (inline_math
             (verbatim))))
       (command
@@ -652,7 +650,6 @@ prim.tree
       (command
         (code
           (text)))
-      (text)
       (markdown_link
         (text)
         (text))
@@ -762,8 +759,7 @@ query.tree
               (ident))
             (command
               (tag
-                (text))))
-          (text)))))
+                (text))))))))
   (command
     (subtree
       (command
@@ -780,8 +776,7 @@ query.tree
               (ident))
             (command
               (tag
-                (text))))
-          (text)))))
+                (text))))))))
   (command
     (subtree
       (command
@@ -807,9 +802,7 @@ query.tree
                   (ident))
                 (command
                   (tag
-                    (text)))))
-            (text))
-          (text)))))
+                    (text))))))))))
   (command
     (subtree
       (command
@@ -826,8 +819,7 @@ query.tree
               (ident))
             (command
               (tag
-                (text))))
-          (text)))))
+                (text))))))))
   (command
     (subtree
       (command
@@ -844,8 +836,7 @@ query.tree
               (ident))
             (command
               (tag
-                (text))))
-          (text)))))
+                (text))))))))
   (command
     (subtree
       (command
@@ -862,8 +853,7 @@ query.tree
               (ident))
             (command
               (tag
-                (text))))
-          (text))))))
+                (text)))))))))
 
 ==================
 xml.tree

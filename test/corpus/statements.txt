@@ -217,7 +217,6 @@ Inline Math
 (source_file
   (command
     (p
-      (text)
       (inline_math
         (verbatim)))))
 
@@ -234,7 +233,6 @@ Display Math
 (source_file
   (command
     (p
-      (text)
       (text)
       (inline_math
         (verbatim)))))
@@ -259,12 +257,10 @@ Math Text
   (command
     (p
       (text)
-      (text)
       (inline_math
         (verbatim))))
   (command
     (p
-      (text)
       (text)
       (inline_math
         (verbatim))
@@ -273,7 +269,6 @@ Math Text
         (verbatim))))
   (command
     (p
-      (text)
       (text)
       (inline_math
         (verbatim))
@@ -297,7 +292,6 @@ Math Commands
 (source_file
   (command
     (p
-      (text)
       (text)
       (inline_math
         (verbatim)))))
@@ -353,7 +347,6 @@ Prim
 (source_file
   (command
     (p
-      (text)
       (markdown_link
         (text)
         (text))
@@ -362,13 +355,10 @@ Prim
           (command
             (li
               (unlabeled_link
-                (text))))
-          (text)))
-      (text)
+                (text))))))
       (markdown_link
         (text)
-        (text))
-      (text))))
+        (text)))))
 
 ================================================================================
 Scope
@@ -600,13 +590,10 @@ Full
               (text)))
           (command
             (li
-              (text)))
-          (text)))
-      (text)
+              (text)))))
       (markdown_link
         (text)
         (text))
-      (text)
       (unlabeled_link
         (text))
       (command
@@ -615,17 +602,14 @@ Full
   (command
     (qualified_ident
       (ident))
-    (text)
     (markdown_link
       (text)
       (text))
-    (text)
     (unlabeled_link
       (text))
     (command
       (code
         (text)))
-    (text)
     (text))
   (command
     (def
@@ -698,5 +682,4 @@ Full
               (ident)
               (ident_path
                 (ident)))
-            (text))
-          (text))))))
+            (text)))))))
