@@ -33,6 +33,10 @@ module.exports = grammar({
   name: "forester",
 
   word: $ => $.ident,
+  extras: $ => [
+    $._whitespace,
+    $.comment,
+  ],
   externals: $ => [
     $._ident_path_start,
     $.verbatim,
@@ -50,8 +54,6 @@ module.exports = grammar({
     //--- Node
     _node: $ =>
       choice(
-        $.comment,
-
         $.command,
         $._syntax,
       ),
@@ -63,6 +65,7 @@ module.exports = grammar({
       ),
 
     //--- Trivia
+    _whitespace: _ => /\s+/,
     comment: _ => /%[^\r\n]*/,
     text: _ => /([^%#\\{}\[\]\r\n]|\\\\%)+/,
 
