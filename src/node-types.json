@@ -27,10 +27,6 @@
           "named": true
         },
         {
-          "type": "comment",
-          "named": true
-        },
-        {
           "type": "display_math",
           "named": true
         },
@@ -82,10 +78,6 @@
           "named": true
         },
         {
-          "type": "comment",
-          "named": true
-        },
-        {
           "type": "display_math",
           "named": true
         },
@@ -134,10 +126,6 @@
       "types": [
         {
           "type": "command",
-          "named": true
-        },
-        {
-          "type": "comment",
           "named": true
         },
         {
@@ -216,10 +204,6 @@
         },
         {
           "type": "command",
-          "named": true
-        },
-        {
-          "type": "comment",
           "named": true
         },
         {
@@ -414,10 +398,6 @@
           "named": true
         },
         {
-          "type": "comment",
-          "named": true
-        },
-        {
           "type": "display_math",
           "named": true
         },
@@ -466,10 +446,6 @@
       "types": [
         {
           "type": "command",
-          "named": true
-        },
-        {
-          "type": "comment",
           "named": true
         },
         {
@@ -569,10 +545,6 @@
           "named": true
         },
         {
-          "type": "comment",
-          "named": true
-        },
-        {
           "type": "display_math",
           "named": true
         },
@@ -621,10 +593,6 @@
       "types": [
         {
           "type": "command",
-          "named": true
-        },
-        {
-          "type": "comment",
           "named": true
         },
         {
@@ -679,10 +647,6 @@
           "named": true
         },
         {
-          "type": "comment",
-          "named": true
-        },
-        {
           "type": "display_math",
           "named": true
         },
@@ -734,10 +698,6 @@
           "named": true
         },
         {
-          "type": "comment",
-          "named": true
-        },
-        {
           "type": "display_math",
           "named": true
         },
@@ -786,10 +746,6 @@
       "types": [
         {
           "type": "command",
-          "named": true
-        },
-        {
-          "type": "comment",
           "named": true
         },
         {
@@ -931,10 +887,6 @@
       "types": [
         {
           "type": "command",
-          "named": true
-        },
-        {
-          "type": "comment",
           "named": true
         },
         {
@@ -1095,10 +1047,6 @@
           "named": true
         },
         {
-          "type": "comment",
-          "named": true
-        },
-        {
           "type": "display_math",
           "named": true
         },
@@ -1176,10 +1124,6 @@
             "named": true
           },
           {
-            "type": "comment",
-            "named": true
-          },
-          {
             "type": "display_math",
             "named": true
           },
@@ -1229,10 +1173,6 @@
       "types": [
         {
           "type": "command",
-          "named": true
-        },
-        {
-          "type": "comment",
           "named": true
         },
         {
@@ -1321,10 +1261,6 @@
           "named": true
         },
         {
-          "type": "comment",
-          "named": true
-        },
-        {
           "type": "display_math",
           "named": true
         },
@@ -1410,10 +1346,6 @@
           "named": true
         },
         {
-          "type": "comment",
-          "named": true
-        },
-        {
           "type": "display_math",
           "named": true
         },
@@ -1480,10 +1412,6 @@
           "named": true
         },
         {
-          "type": "comment",
-          "named": true
-        },
-        {
           "type": "display_math",
           "named": true
         },
@@ -1532,10 +1460,6 @@
       "types": [
         {
           "type": "command",
-          "named": true
-        },
-        {
-          "type": "comment",
           "named": true
         },
         {
@@ -1634,10 +1558,6 @@
           "named": true
         },
         {
-          "type": "comment",
-          "named": true
-        },
-        {
           "type": "display_math",
           "named": true
         },
@@ -1730,10 +1650,6 @@
           "named": true
         },
         {
-          "type": "comment",
-          "named": true
-        },
-        {
           "type": "display_math",
           "named": true
         },
@@ -1785,10 +1701,6 @@
           "named": true
         },
         {
-          "type": "comment",
-          "named": true
-        },
-        {
           "type": "display_math",
           "named": true
         },
@@ -1837,10 +1749,6 @@
       "types": [
         {
           "type": "command",
-          "named": true
-        },
-        {
-          "type": "comment",
           "named": true
         },
         {
@@ -1896,10 +1804,6 @@
           "named": true
         },
         {
-          "type": "comment",
-          "named": true
-        },
-        {
           "type": "display_math",
           "named": true
         },
@@ -1948,10 +1852,6 @@
       "types": [
         {
           "type": "command",
-          "named": true
-        },
-        {
-          "type": "comment",
           "named": true
         },
         {
@@ -2024,10 +1924,6 @@
             "named": true
           },
           {
-            "type": "comment",
-            "named": true
-          },
-          {
             "type": "display_math",
             "named": true
           },
@@ -2088,10 +1984,6 @@
           "named": true
         },
         {
-          "type": "comment",
-          "named": true
-        },
-        {
           "type": "display_math",
           "named": true
         },
@@ -2140,10 +2032,6 @@
       "types": [
         {
           "type": "command",
-          "named": true
-        },
-        {
-          "type": "comment",
           "named": true
         },
         {
@@ -2240,10 +2128,6 @@
           "named": true
         },
         {
-          "type": "comment",
-          "named": true
-        },
-        {
           "type": "display_math",
           "named": true
         },
@@ -2292,10 +2176,6 @@
       "types": [
         {
           "type": "command",
-          "named": true
-        },
-        {
-          "type": "comment",
           "named": true
         },
         {
@@ -2350,10 +2230,6 @@
           "named": true
         },
         {
-          "type": "comment",
-          "named": true
-        },
-        {
           "type": "display_math",
           "named": true
         },
@@ -2402,10 +2278,6 @@
       "types": [
         {
           "type": "command",
-          "named": true
-        },
-        {
-          "type": "comment",
           "named": true
         },
         {
@@ -2505,10 +2377,6 @@
             "named": true
           },
           {
-            "type": "comment",
-            "named": true
-          },
-          {
             "type": "display_math",
             "named": true
           },
@@ -2566,10 +2434,6 @@
         "types": [
           {
             "type": "command",
-            "named": true
-          },
-          {
-            "type": "comment",
             "named": true
           },
           {

@@ -15,10 +15,6 @@
       "members": [
         {
           "type": "SYMBOL",
-          "name": "comment"
-        },
-        {
-          "type": "SYMBOL",
           "name": "command"
         },
         {
@@ -52,6 +48,10 @@
           ]
         }
       ]
+    },
+    "_whitespace": {
+      "type": "PATTERN",
+      "value": "\\s+"
     },
     "comment": {
       "type": "PATTERN",
@@ -1687,8 +1687,12 @@
   },
   "extras": [
     {
-      "type": "PATTERN",
-      "value": "\\s"
+      "type": "SYMBOL",
+      "name": "_whitespace"
+    },
+    {
+      "type": "SYMBOL",
+      "name": "comment"
     }
   ],
   "conflicts": [],
