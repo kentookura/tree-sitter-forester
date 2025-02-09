@@ -177,7 +177,7 @@ module.exports = grammar({
       prec.left(seq("\\", $.text, optional(choice(repeat1($._arg), "{}")))),
     ident_with_method_calls: ($) =>
       prec(1, prec.left(seq("\\", $.text, "#", repeat1(choice("#", $.text))))),
-    _arg: ($) => braces(repeat1(choice($._node))),
+    _arg: ($) => braces(optional(repeat1(choice($._node)))),
     _link: ($) => choice($.markdown_link, $.unlabeled_link),
     addr: ($) => prec(1, $.text),
     id: ($) => repeat1(choice($._alpha, $._digit, "-", "_")),
@@ -195,7 +195,7 @@ module.exports = grammar({
     _whitespace: ($) => choice(/[ \t]+/),
     _alpha: ($) => /[a-zA-Z]+/,
     _digit: ($) => /[0-9]+/,
-    text: ($) => /[^%#\\\{\}\[\]\(\)\r\n]*/,
+    text: ($) => /[^%#\\\{\}\[\]\(\)\r\n]+/,
     _txt_arg: ($) => braces($.text),
     _xml_base_ident: ($) =>
       seq($._alpha, repeat(choice($._alpha, $._digit, /[-/#]/))),

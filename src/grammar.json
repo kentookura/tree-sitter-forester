@@ -1423,16 +1423,24 @@
           "value": "{"
         },
         {
-          "type": "REPEAT1",
-          "content": {
-            "type": "CHOICE",
-            "members": [
-              {
-                "type": "SYMBOL",
-                "name": "_node"
+          "type": "CHOICE",
+          "members": [
+            {
+              "type": "REPEAT1",
+              "content": {
+                "type": "CHOICE",
+                "members": [
+                  {
+                    "type": "SYMBOL",
+                    "name": "_node"
+                  }
+                ]
               }
-            ]
-          }
+            },
+            {
+              "type": "BLANK"
+            }
+          ]
         },
         {
           "type": "STRING",
@@ -1606,7 +1614,7 @@
     },
     "text": {
       "type": "PATTERN",
-      "value": "[^%#\\\\\\{\\}\\[\\]\\(\\)\\r\\n]*"
+      "value": "[^%#\\\\\\{\\}\\[\\]\\(\\)\\r\\n]+"
     },
     "_txt_arg": {
       "type": "SEQ",
