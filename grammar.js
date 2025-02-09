@@ -1,5 +1,5 @@
 function command(rule, arg) {
-  return seq("\\", rule, arg);
+  return prec(2, seq("\\", rule, arg));
 }
 
 function braces(p) {
@@ -61,7 +61,7 @@ module.exports = grammar({
     squares: ($) => squares(repeat1($._node)),
     parens: ($) => parens(repeat1($._node)),
 
-    title: ($) => command("title", $._arg),
+    title: ($) => field("title", command("title", $._arg)),
     author: ($) => field("author", command("author", $._txt_arg)),
     contributor: ($) =>
       field("contributor", command("contributor", $._txt_arg)),
