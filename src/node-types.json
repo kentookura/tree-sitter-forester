@@ -77,12 +77,12 @@
     }
   },
   {
-    "type": "call",
+    "type": "braces",
     "named": true,
     "fields": {},
     "children": {
       "multiple": true,
-      "required": false,
+      "required": true,
       "types": [
         {
           "type": "alloc",
@@ -90,6 +90,10 @@
         },
         {
           "type": "blockquote",
+          "named": true
+        },
+        {
+          "type": "braces",
           "named": true
         },
         {
@@ -177,6 +181,10 @@
           "named": true
         },
         {
+          "type": "parens",
+          "named": true
+        },
+        {
           "type": "patch",
           "named": true
         },
@@ -194,6 +202,177 @@
         },
         {
           "type": "scope",
+          "named": true
+        },
+        {
+          "type": "squares",
+          "named": true
+        },
+        {
+          "type": "strong",
+          "named": true
+        },
+        {
+          "type": "subtree",
+          "named": true
+        },
+        {
+          "type": "tex",
+          "named": true
+        },
+        {
+          "type": "text",
+          "named": true
+        },
+        {
+          "type": "transclude",
+          "named": true
+        },
+        {
+          "type": "ul",
+          "named": true
+        },
+        {
+          "type": "unlabeled_link",
+          "named": true
+        },
+        {
+          "type": "xml_tag",
+          "named": true
+        }
+      ]
+    }
+  },
+  {
+    "type": "call",
+    "named": true,
+    "fields": {},
+    "children": {
+      "multiple": true,
+      "required": false,
+      "types": [
+        {
+          "type": "alloc",
+          "named": true
+        },
+        {
+          "type": "blockquote",
+          "named": true
+        },
+        {
+          "type": "braces",
+          "named": true
+        },
+        {
+          "type": "call",
+          "named": true
+        },
+        {
+          "type": "code",
+          "named": true
+        },
+        {
+          "type": "comment",
+          "named": true
+        },
+        {
+          "type": "decl_xmlns",
+          "named": true
+        },
+        {
+          "type": "def",
+          "named": true
+        },
+        {
+          "type": "display_math",
+          "named": true
+        },
+        {
+          "type": "em",
+          "named": true
+        },
+        {
+          "type": "export",
+          "named": true
+        },
+        {
+          "type": "get",
+          "named": true
+        },
+        {
+          "type": "ident",
+          "named": true
+        },
+        {
+          "type": "ident_with_method_calls",
+          "named": true
+        },
+        {
+          "type": "import",
+          "named": true
+        },
+        {
+          "type": "inline_math",
+          "named": true
+        },
+        {
+          "type": "let",
+          "named": true
+        },
+        {
+          "type": "li",
+          "named": true
+        },
+        {
+          "type": "markdown_link",
+          "named": true
+        },
+        {
+          "type": "namespace",
+          "named": true
+        },
+        {
+          "type": "object",
+          "named": true
+        },
+        {
+          "type": "ol",
+          "named": true
+        },
+        {
+          "type": "open",
+          "named": true
+        },
+        {
+          "type": "p",
+          "named": true
+        },
+        {
+          "type": "parens",
+          "named": true
+        },
+        {
+          "type": "patch",
+          "named": true
+        },
+        {
+          "type": "pre",
+          "named": true
+        },
+        {
+          "type": "put",
+          "named": true
+        },
+        {
+          "type": "query_tree",
+          "named": true
+        },
+        {
+          "type": "scope",
+          "named": true
+        },
+        {
+          "type": "squares",
           "named": true
         },
         {
@@ -248,6 +427,10 @@
           "named": true
         },
         {
+          "type": "braces",
+          "named": true
+        },
+        {
           "type": "call",
           "named": true
         },
@@ -332,6 +515,10 @@
           "named": true
         },
         {
+          "type": "parens",
+          "named": true
+        },
+        {
           "type": "patch",
           "named": true
         },
@@ -349,6 +536,10 @@
         },
         {
           "type": "scope",
+          "named": true
+        },
+        {
+          "type": "squares",
           "named": true
         },
         {
@@ -438,6 +629,10 @@
           "named": true
         },
         {
+          "type": "braces",
+          "named": true
+        },
+        {
           "type": "call",
           "named": true
         },
@@ -522,6 +717,10 @@
           "named": true
         },
         {
+          "type": "parens",
+          "named": true
+        },
+        {
           "type": "patch",
           "named": true
         },
@@ -539,6 +738,10 @@
         },
         {
           "type": "scope",
+          "named": true
+        },
+        {
+          "type": "squares",
           "named": true
         },
         {
@@ -593,6 +796,10 @@
           "named": true
         },
         {
+          "type": "braces",
+          "named": true
+        },
+        {
           "type": "call",
           "named": true
         },
@@ -677,6 +884,10 @@
           "named": true
         },
         {
+          "type": "parens",
+          "named": true
+        },
+        {
           "type": "patch",
           "named": true
         },
@@ -694,6 +905,10 @@
         },
         {
           "type": "scope",
+          "named": true
+        },
+        {
+          "type": "squares",
           "named": true
         },
         {
@@ -770,27 +985,15 @@
         "required": true,
         "types": [
           {
-            "type": "(",
-            "named": false
-          },
-          {
-            "type": ")",
-            "named": false
-          },
-          {
-            "type": "[",
-            "named": false
-          },
-          {
-            "type": "]",
-            "named": false
-          },
-          {
             "type": "alloc",
             "named": true
           },
           {
             "type": "blockquote",
+            "named": true
+          },
+          {
+            "type": "braces",
             "named": true
           },
           {
@@ -878,6 +1081,10 @@
             "named": true
           },
           {
+            "type": "parens",
+            "named": true
+          },
+          {
             "type": "patch",
             "named": true
           },
@@ -895,6 +1102,10 @@
           },
           {
             "type": "scope",
+            "named": true
+          },
+          {
+            "type": "squares",
             "named": true
           },
           {
@@ -1001,6 +1212,10 @@
           "named": true
         },
         {
+          "type": "braces",
+          "named": true
+        },
+        {
           "type": "call",
           "named": true
         },
@@ -1085,6 +1300,10 @@
           "named": true
         },
         {
+          "type": "parens",
+          "named": true
+        },
+        {
           "type": "patch",
           "named": true
         },
@@ -1102,6 +1321,10 @@
         },
         {
           "type": "scope",
+          "named": true
+        },
+        {
+          "type": "squares",
           "named": true
         },
         {
@@ -1186,6 +1409,10 @@
           "named": true
         },
         {
+          "type": "braces",
+          "named": true
+        },
+        {
           "type": "call",
           "named": true
         },
@@ -1270,6 +1497,10 @@
           "named": true
         },
         {
+          "type": "parens",
+          "named": true
+        },
+        {
           "type": "patch",
           "named": true
         },
@@ -1287,6 +1518,10 @@
         },
         {
           "type": "scope",
+          "named": true
+        },
+        {
+          "type": "squares",
           "named": true
         },
         {
@@ -1356,6 +1591,10 @@
           "named": true
         },
         {
+          "type": "braces",
+          "named": true
+        },
+        {
           "type": "call",
           "named": true
         },
@@ -1440,6 +1679,10 @@
           "named": true
         },
         {
+          "type": "parens",
+          "named": true
+        },
+        {
           "type": "patch",
           "named": true
         },
@@ -1457,6 +1700,10 @@
         },
         {
           "type": "scope",
+          "named": true
+        },
+        {
+          "type": "squares",
           "named": true
         },
         {
@@ -1557,6 +1804,10 @@
           "named": true
         },
         {
+          "type": "braces",
+          "named": true
+        },
+        {
           "type": "call",
           "named": true
         },
@@ -1641,6 +1892,10 @@
           "named": true
         },
         {
+          "type": "parens",
+          "named": true
+        },
+        {
           "type": "patch",
           "named": true
         },
@@ -1658,6 +1913,10 @@
         },
         {
           "type": "scope",
+          "named": true
+        },
+        {
+          "type": "squares",
           "named": true
         },
         {
@@ -1746,6 +2005,10 @@
           "named": true
         },
         {
+          "type": "braces",
+          "named": true
+        },
+        {
           "type": "call",
           "named": true
         },
@@ -1830,6 +2093,10 @@
           "named": true
         },
         {
+          "type": "parens",
+          "named": true
+        },
+        {
           "type": "patch",
           "named": true
         },
@@ -1847,6 +2114,10 @@
         },
         {
           "type": "scope",
+          "named": true
+        },
+        {
+          "type": "squares",
           "named": true
         },
         {
@@ -1935,6 +2206,10 @@
           "named": true
         },
         {
+          "type": "braces",
+          "named": true
+        },
+        {
           "type": "call",
           "named": true
         },
@@ -2019,6 +2294,10 @@
           "named": true
         },
         {
+          "type": "parens",
+          "named": true
+        },
+        {
           "type": "patch",
           "named": true
         },
@@ -2036,6 +2315,10 @@
         },
         {
           "type": "scope",
+          "named": true
+        },
+        {
+          "type": "squares",
           "named": true
         },
         {
@@ -2105,6 +2388,10 @@
           "named": true
         },
         {
+          "type": "braces",
+          "named": true
+        },
+        {
           "type": "call",
           "named": true
         },
@@ -2189,6 +2476,10 @@
           "named": true
         },
         {
+          "type": "parens",
+          "named": true
+        },
+        {
           "type": "patch",
           "named": true
         },
@@ -2206,6 +2497,177 @@
         },
         {
           "type": "scope",
+          "named": true
+        },
+        {
+          "type": "squares",
+          "named": true
+        },
+        {
+          "type": "strong",
+          "named": true
+        },
+        {
+          "type": "subtree",
+          "named": true
+        },
+        {
+          "type": "tex",
+          "named": true
+        },
+        {
+          "type": "text",
+          "named": true
+        },
+        {
+          "type": "transclude",
+          "named": true
+        },
+        {
+          "type": "ul",
+          "named": true
+        },
+        {
+          "type": "unlabeled_link",
+          "named": true
+        },
+        {
+          "type": "xml_tag",
+          "named": true
+        }
+      ]
+    }
+  },
+  {
+    "type": "parens",
+    "named": true,
+    "fields": {},
+    "children": {
+      "multiple": true,
+      "required": true,
+      "types": [
+        {
+          "type": "alloc",
+          "named": true
+        },
+        {
+          "type": "blockquote",
+          "named": true
+        },
+        {
+          "type": "braces",
+          "named": true
+        },
+        {
+          "type": "call",
+          "named": true
+        },
+        {
+          "type": "code",
+          "named": true
+        },
+        {
+          "type": "comment",
+          "named": true
+        },
+        {
+          "type": "decl_xmlns",
+          "named": true
+        },
+        {
+          "type": "def",
+          "named": true
+        },
+        {
+          "type": "display_math",
+          "named": true
+        },
+        {
+          "type": "em",
+          "named": true
+        },
+        {
+          "type": "export",
+          "named": true
+        },
+        {
+          "type": "get",
+          "named": true
+        },
+        {
+          "type": "ident",
+          "named": true
+        },
+        {
+          "type": "ident_with_method_calls",
+          "named": true
+        },
+        {
+          "type": "import",
+          "named": true
+        },
+        {
+          "type": "inline_math",
+          "named": true
+        },
+        {
+          "type": "let",
+          "named": true
+        },
+        {
+          "type": "li",
+          "named": true
+        },
+        {
+          "type": "markdown_link",
+          "named": true
+        },
+        {
+          "type": "namespace",
+          "named": true
+        },
+        {
+          "type": "object",
+          "named": true
+        },
+        {
+          "type": "ol",
+          "named": true
+        },
+        {
+          "type": "open",
+          "named": true
+        },
+        {
+          "type": "p",
+          "named": true
+        },
+        {
+          "type": "parens",
+          "named": true
+        },
+        {
+          "type": "patch",
+          "named": true
+        },
+        {
+          "type": "pre",
+          "named": true
+        },
+        {
+          "type": "put",
+          "named": true
+        },
+        {
+          "type": "query_tree",
+          "named": true
+        },
+        {
+          "type": "scope",
+          "named": true
+        },
+        {
+          "type": "squares",
           "named": true
         },
         {
@@ -2252,27 +2714,15 @@
         "required": true,
         "types": [
           {
-            "type": "(",
-            "named": false
-          },
-          {
-            "type": ")",
-            "named": false
-          },
-          {
-            "type": "[",
-            "named": false
-          },
-          {
-            "type": "]",
-            "named": false
-          },
-          {
             "type": "alloc",
             "named": true
           },
           {
             "type": "blockquote",
+            "named": true
+          },
+          {
+            "type": "braces",
             "named": true
           },
           {
@@ -2360,6 +2810,10 @@
             "named": true
           },
           {
+            "type": "parens",
+            "named": true
+          },
+          {
             "type": "patch",
             "named": true
           },
@@ -2377,6 +2831,10 @@
           },
           {
             "type": "scope",
+            "named": true
+          },
+          {
+            "type": "squares",
             "named": true
           },
           {
@@ -2507,27 +2965,15 @@
         "required": true,
         "types": [
           {
-            "type": "(",
-            "named": false
-          },
-          {
-            "type": ")",
-            "named": false
-          },
-          {
-            "type": "[",
-            "named": false
-          },
-          {
-            "type": "]",
-            "named": false
-          },
-          {
             "type": "alloc",
             "named": true
           },
           {
             "type": "blockquote",
+            "named": true
+          },
+          {
+            "type": "braces",
             "named": true
           },
           {
@@ -2615,6 +3061,10 @@
             "named": true
           },
           {
+            "type": "parens",
+            "named": true
+          },
+          {
             "type": "patch",
             "named": true
           },
@@ -2632,6 +3082,10 @@
           },
           {
             "type": "scope",
+            "named": true
+          },
+          {
+            "type": "squares",
             "named": true
           },
           {
@@ -2705,6 +3159,10 @@
           "named": true
         },
         {
+          "type": "braces",
+          "named": true
+        },
+        {
           "type": "call",
           "named": true
         },
@@ -2789,6 +3247,10 @@
           "named": true
         },
         {
+          "type": "parens",
+          "named": true
+        },
+        {
           "type": "patch",
           "named": true
         },
@@ -2806,6 +3268,10 @@
         },
         {
           "type": "scope",
+          "named": true
+        },
+        {
+          "type": "squares",
           "named": true
         },
         {
@@ -2860,6 +3326,10 @@
           "named": true
         },
         {
+          "type": "braces",
+          "named": true
+        },
+        {
           "type": "call",
           "named": true
         },
@@ -2944,6 +3414,10 @@
           "named": true
         },
         {
+          "type": "parens",
+          "named": true
+        },
+        {
           "type": "patch",
           "named": true
         },
@@ -2961,6 +3435,10 @@
         },
         {
           "type": "scope",
+          "named": true
+        },
+        {
+          "type": "squares",
           "named": true
         },
         {
@@ -3015,6 +3493,10 @@
           "named": true
         },
         {
+          "type": "braces",
+          "named": true
+        },
+        {
           "type": "call",
           "named": true
         },
@@ -3099,6 +3581,10 @@
           "named": true
         },
         {
+          "type": "parens",
+          "named": true
+        },
+        {
           "type": "patch",
           "named": true
         },
@@ -3116,6 +3602,177 @@
         },
         {
           "type": "scope",
+          "named": true
+        },
+        {
+          "type": "squares",
+          "named": true
+        },
+        {
+          "type": "strong",
+          "named": true
+        },
+        {
+          "type": "subtree",
+          "named": true
+        },
+        {
+          "type": "tex",
+          "named": true
+        },
+        {
+          "type": "text",
+          "named": true
+        },
+        {
+          "type": "transclude",
+          "named": true
+        },
+        {
+          "type": "ul",
+          "named": true
+        },
+        {
+          "type": "unlabeled_link",
+          "named": true
+        },
+        {
+          "type": "xml_tag",
+          "named": true
+        }
+      ]
+    }
+  },
+  {
+    "type": "squares",
+    "named": true,
+    "fields": {},
+    "children": {
+      "multiple": true,
+      "required": true,
+      "types": [
+        {
+          "type": "alloc",
+          "named": true
+        },
+        {
+          "type": "blockquote",
+          "named": true
+        },
+        {
+          "type": "braces",
+          "named": true
+        },
+        {
+          "type": "call",
+          "named": true
+        },
+        {
+          "type": "code",
+          "named": true
+        },
+        {
+          "type": "comment",
+          "named": true
+        },
+        {
+          "type": "decl_xmlns",
+          "named": true
+        },
+        {
+          "type": "def",
+          "named": true
+        },
+        {
+          "type": "display_math",
+          "named": true
+        },
+        {
+          "type": "em",
+          "named": true
+        },
+        {
+          "type": "export",
+          "named": true
+        },
+        {
+          "type": "get",
+          "named": true
+        },
+        {
+          "type": "ident",
+          "named": true
+        },
+        {
+          "type": "ident_with_method_calls",
+          "named": true
+        },
+        {
+          "type": "import",
+          "named": true
+        },
+        {
+          "type": "inline_math",
+          "named": true
+        },
+        {
+          "type": "let",
+          "named": true
+        },
+        {
+          "type": "li",
+          "named": true
+        },
+        {
+          "type": "markdown_link",
+          "named": true
+        },
+        {
+          "type": "namespace",
+          "named": true
+        },
+        {
+          "type": "object",
+          "named": true
+        },
+        {
+          "type": "ol",
+          "named": true
+        },
+        {
+          "type": "open",
+          "named": true
+        },
+        {
+          "type": "p",
+          "named": true
+        },
+        {
+          "type": "parens",
+          "named": true
+        },
+        {
+          "type": "patch",
+          "named": true
+        },
+        {
+          "type": "pre",
+          "named": true
+        },
+        {
+          "type": "put",
+          "named": true
+        },
+        {
+          "type": "query_tree",
+          "named": true
+        },
+        {
+          "type": "scope",
+          "named": true
+        },
+        {
+          "type": "squares",
           "named": true
         },
         {
@@ -3170,6 +3827,10 @@
           "named": true
         },
         {
+          "type": "braces",
+          "named": true
+        },
+        {
           "type": "call",
           "named": true
         },
@@ -3254,6 +3915,10 @@
           "named": true
         },
         {
+          "type": "parens",
+          "named": true
+        },
+        {
           "type": "patch",
           "named": true
         },
@@ -3271,6 +3936,10 @@
         },
         {
           "type": "scope",
+          "named": true
+        },
+        {
+          "type": "squares",
           "named": true
         },
         {
@@ -3329,6 +3998,10 @@
           "named": true
         },
         {
+          "type": "braces",
+          "named": true
+        },
+        {
           "type": "call",
           "named": true
         },
@@ -3413,6 +4086,10 @@
           "named": true
         },
         {
+          "type": "parens",
+          "named": true
+        },
+        {
           "type": "patch",
           "named": true
         },
@@ -3430,6 +4107,10 @@
         },
         {
           "type": "scope",
+          "named": true
+        },
+        {
+          "type": "squares",
           "named": true
         },
         {
@@ -3484,6 +4165,10 @@
           "named": true
         },
         {
+          "type": "braces",
+          "named": true
+        },
+        {
           "type": "call",
           "named": true
         },
@@ -3568,6 +4253,10 @@
           "named": true
         },
         {
+          "type": "parens",
+          "named": true
+        },
+        {
           "type": "patch",
           "named": true
         },
@@ -3585,6 +4274,10 @@
         },
         {
           "type": "scope",
+          "named": true
+        },
+        {
+          "type": "squares",
           "named": true
         },
         {
@@ -3655,6 +4348,10 @@
           "named": true
         },
         {
+          "type": "braces",
+          "named": true
+        },
+        {
           "type": "call",
           "named": true
         },
@@ -3739,6 +4436,10 @@
           "named": true
         },
         {
+          "type": "parens",
+          "named": true
+        },
+        {
           "type": "patch",
           "named": true
         },
@@ -3756,6 +4457,10 @@
         },
         {
           "type": "scope",
+          "named": true
+        },
+        {
+          "type": "squares",
           "named": true
         },
         {
