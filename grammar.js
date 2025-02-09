@@ -1,5 +1,5 @@
 function command(rule, arg) {
-  return prec(2, seq("\\", rule, arg));
+  return seq("\\", rule, arg);
 }
 
 function braces(p) {
@@ -55,6 +55,12 @@ module.exports = grammar({
         $.braces,
         $.text,
         $.comment,
+        $.title,
+        $.author,
+        $.contributor,
+        $.date,
+        $.tag,
+        $.ref,
       ),
 
     braces: ($) => braces(repeat1($._node)),
