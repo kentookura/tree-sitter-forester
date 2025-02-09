@@ -195,7 +195,7 @@ module.exports = grammar({
     _whitespace: ($) => choice(/[ \t]+/),
     _alpha: ($) => /[a-zA-Z]+/,
     _digit: ($) => /[0-9]+/,
-    text: ($) => /[^%#\\\{\}\[\]\(\)\r\n]+/,
+    text: ($) => /[^%#\\\{\}\[\]\(\)\r\n]*/,
     _txt_arg: ($) => braces($.text),
     _xml_base_ident: ($) =>
       seq($._alpha, repeat(choice($._alpha, $._digit, /[-/#]/))),
