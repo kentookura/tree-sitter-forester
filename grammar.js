@@ -68,7 +68,7 @@ module.exports = grammar({
     parens: ($) => parens(repeat1($._node)),
 
     title: ($) => field("title", command("title", $._arg)),
-    author: ($) => field("author", command("author", $._txt_arg)),
+    author: ($) => field("author", command("author", braces($.addr))),
     contributor: ($) =>
       field("contributor", command("contributor", $._txt_arg)),
     date: ($) =>

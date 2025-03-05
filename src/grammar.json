@@ -258,8 +258,21 @@
             "value": "author"
           },
           {
-            "type": "SYMBOL",
-            "name": "_txt_arg"
+            "type": "SEQ",
+            "members": [
+              {
+                "type": "STRING",
+                "value": "{"
+              },
+              {
+                "type": "SYMBOL",
+                "name": "addr"
+              },
+              {
+                "type": "STRING",
+                "value": "}"
+              }
+            ]
           }
         ]
       }

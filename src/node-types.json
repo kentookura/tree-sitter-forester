@@ -42,12 +42,12 @@
             "named": false
           },
           {
-            "type": "author",
-            "named": false
+            "type": "addr",
+            "named": true
           },
           {
-            "type": "text",
-            "named": true
+            "type": "author",
+            "named": false
           },
           {
             "type": "{",
