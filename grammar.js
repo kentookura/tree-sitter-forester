@@ -153,6 +153,7 @@ module.exports = grammar({
     code: ($) => command("code", $._arg),
     blockquote: ($) => command("blockquote", $._prim),
     pre: ($) => command("pre", $._prim),
+    comment: ($) => command("comment", $._arg),
 
     method_decl: ($) =>
       seq(
