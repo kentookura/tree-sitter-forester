@@ -1,4 +1,5 @@
 {
+  "$schema": "https://tree-sitter.github.io/tree-sitter/assets/schemas/grammar.schema.json",
   "name": "forester",
   "rules": {
     "source_file": {
@@ -1386,7 +1387,7 @@
           },
           {
             "type": "SYMBOL",
-            "name": "text"
+            "name": "text_identifier"
           },
           {
             "type": "CHOICE",
@@ -1430,7 +1431,7 @@
             },
             {
               "type": "SYMBOL",
-              "name": "text"
+              "name": "text_identifier"
             },
             {
               "type": "STRING",
@@ -1657,6 +1658,10 @@
       "type": "PATTERN",
       "value": "[^%#\\\\\\{\\}\\[\\]\\(\\)\\r\\n]+"
     },
+    "text_identifier": {
+      "type": "PATTERN",
+      "value": "[^%#\\\\\\{\\}\\[\\]\\(\\)\\ \\r\\n]+"
+    },
     "_txt_arg": {
       "type": "SEQ",
       "members": [
@@ -1740,5 +1745,6 @@
   "precedences": [],
   "externals": [],
   "inline": [],
-  "supertypes": []
+  "supertypes": [],
+  "reserved": {}
 }
