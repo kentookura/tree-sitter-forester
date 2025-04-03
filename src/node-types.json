@@ -1620,6 +1620,10 @@
           "named": true
         },
         {
+          "type": "text_identifier",
+          "named": true
+        },
+        {
           "type": "title",
           "named": true
         },
@@ -1652,6 +1656,10 @@
       "types": [
         {
           "type": "text",
+          "named": true
+        },
+        {
+          "type": "text_identifier",
           "named": true
         }
       ]
@@ -4231,6 +4239,7 @@
   {
     "type": "source_file",
     "named": true,
+    "root": true,
     "fields": {},
     "children": {
       "multiple": true,
@@ -5715,10 +5724,6 @@
     "named": false
   },
   {
-    "type": "_",
-    "named": false
-  },
-  {
     "type": "alloc",
     "named": false
   },
@@ -5776,10 +5781,6 @@
   },
   {
     "type": "li",
-    "named": false
-  },
-  {
-    "type": "meta",
     "named": false
   },
   {
@@ -5843,19 +5844,15 @@
     "named": false
   },
   {
-    "type": "taxon",
-    "named": false
-  },
-  {
     "type": "tex",
     "named": false
   },
   {
-    "type": "tex_package",
-    "named": false
+    "type": "text",
+    "named": true
   },
   {
-    "type": "text",
+    "type": "text_identifier",
     "named": true
   },
   {
