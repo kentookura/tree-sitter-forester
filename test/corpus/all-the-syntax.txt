@@ -1,0 +1,28 @@
+==================
+comment.tree
+==================
+
+\title{comment}
+
+% comment
+% for human
+% ignored by compilers
+
+% no multiline/block comment
+
+\p{plain text} % all text after `%` is a comment
+
+------------------
+
+(source_file
+  (ident
+    (text))
+  (text)
+  (comment)
+  (comment)
+  (comment)
+  (comment)
+  (p
+    (text))
+  (text)
+  (comment))
